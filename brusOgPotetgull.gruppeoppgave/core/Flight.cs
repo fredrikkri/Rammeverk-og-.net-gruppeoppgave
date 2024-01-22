@@ -6,9 +6,9 @@ namespace brusOgPotetgull.gruppeoppgave.core
 		private int flightId;
 		private Fly aircraft;
         private int totalPassengers;
-        private int flightLength;
-		private string depatureDestination;
-        private string arrivalDestination;
+        private int flightDistance;
+		private string depatureDestination = "";
+        private string arrivalDestination = "";
 		private int flightTime;
 
 		public Flight(Fly aircraft, int totalPassengers, int flightLength, string depatureDestination, string arrivalDestination)
@@ -26,6 +26,14 @@ namespace brusOgPotetgull.gruppeoppgave.core
         public string DepatureDestination { get; init; }
         public string ArrivalDestination { get; init; }
 
+		public int getFlightTime()
+		{
+			return 0;
+		}
+		public int getFlightDistanceLeft()
+		{
+			return 0;
+		}
     }
 }
 
