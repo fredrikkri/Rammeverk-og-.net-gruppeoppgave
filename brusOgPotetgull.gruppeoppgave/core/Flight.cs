@@ -19,6 +19,7 @@ namespace brusOgPotetgull.gruppeoppgave.core
 			DepatureDestination = depatureDestination;
 			ArrivalDestination = arrivalDestination;
         }
+        // (Nagel, C, 2021, s. 76)
         public Fly Aircraft { get; init; }
         public int TotalPassengers { get; init; }
         public int FlightLength { get; init; }
