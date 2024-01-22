@@ -1,0 +1,15 @@
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.gruppeoppgave
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.gruppeoppgave.deps.json
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.gruppeoppgave.runtimeconfig.json
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.gruppeoppgave.dll
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.gruppeoppgave.pdb
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.AssemblyInfoInputs.cache
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.AssemblyInfo.cs
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.csproj.CoreCompileInputs.cache
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.sourcelink.json
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.dll
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/refint/brusOgPotetgull.gruppeoppgave.dll
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.pdb
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.genruntimeconfig.cache
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/ref/brusOgPotetgull.gruppeoppgave.dll

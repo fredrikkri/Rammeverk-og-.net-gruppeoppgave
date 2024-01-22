@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using brusOgPotetgull.gruppeoppgave.core;
 
-hehe
+Fly newflight = new Fly("SAS", "Jet 34", 200);
+newflight.GetFlyInformation();
