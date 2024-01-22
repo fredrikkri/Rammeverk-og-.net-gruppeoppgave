@@ -21,7 +21,7 @@ namespace brusOgPotetgull.gruppeoppgave.core
 
         public void GetFlyInformation()
         {
-            Console.Write($"Id: {Id}\nModel: {Model}\nCapacity: {Capacity}");
+            Console.Write($"\nId: {Id}\nModel: {Model}\nCapacity: {Capacity}");
         }
 	}
 }
