@@ -15,6 +15,7 @@ namespace brusOgPotetgull.gruppeoppgave.core
             Capacity = capacity;
 
 		}
+        // (Nagel, C, 2021, s. 76)
         public string Id { get; init; }
         public string Model { get; init; }
         public int Capacity { get; init; }
