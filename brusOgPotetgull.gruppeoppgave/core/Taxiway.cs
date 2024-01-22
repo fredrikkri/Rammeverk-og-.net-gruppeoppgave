@@ -1,9 +1,9 @@
 ﻿using System;
 namespace brusOgPotetgull.gruppeoppgave.core
 {
-	public class Takstebane
-	{
-		public Takstebane()
+	public class Taxiway
+    {
+		public Taxiway()
 		{
 		}
 	}
