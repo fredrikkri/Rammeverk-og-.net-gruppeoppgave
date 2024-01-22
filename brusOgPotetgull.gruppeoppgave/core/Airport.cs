@@ -26,11 +26,10 @@ namespace brusOgPotetgull.gruppeoppgave.core
         public string Name { get; init; }
         public string Location { get; init; }
 
-        public void PrintAirportInformation()
+        public void getAirportInformation()
         {
             Console.Write($"\nAirportcategory: {Airportcategory}\nName: {Name}\nLocation: {Location}" +
                 $"\nlistRunway:{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}");
         }
     }
 }
-
