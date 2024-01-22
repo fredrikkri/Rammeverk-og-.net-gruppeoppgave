@@ -10,7 +10,7 @@ namespace brusOgPotetgull.gruppeoppgave.core
         private string location = "";
         private List<string> listRunway;
         private List<string> listTaxiway;
-        private List<string> listGate;
+        private List<int> listGate;
 
 
         public Airport(string airportcategory, string name, string location)
@@ -20,7 +20,7 @@ namespace brusOgPotetgull.gruppeoppgave.core
             Location = location;
             listRunway = new List<string>();
             listTaxiway = new List<string>();
-            listGate = new List<string>();
+            listGate = new List<int>();
         }
         // (Nagel, C, 2021, s. 76)
         public string Airportcategory { get; init; }
