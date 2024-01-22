@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave.csproj": {}
+    "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave.csproj": {}
   },
   "projects": {
-    "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave.csproj": {
+    "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave.csproj",
+        "projectUniqueName": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave.csproj",
         "projectName": "brusOgPotetgull.gruppeoppgave",
-        "projectPath": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave.csproj",
+        "projectPath": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave.csproj",
         "packagesPath": "/Users/fredrikkristiansen/.nuget/packages/",
-        "outputPath": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/",
+        "outputPath": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/fredrikkristiansen/.nuget/NuGet/NuGet.Config"
