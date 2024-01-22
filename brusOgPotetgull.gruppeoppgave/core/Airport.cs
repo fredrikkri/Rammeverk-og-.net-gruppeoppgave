@@ -22,6 +22,7 @@ namespace brusOgPotetgull.gruppeoppgave.core
             listTaxiway = new List<string>();
             listGate = new List<string>();
         }
+        // (Nagel, C, 2021, s. 76)
         public string Airportcategory { get; init; }
         public string Name { get; init; }
         public string Location { get; init; }
