@@ -20,7 +20,7 @@ namespace brusOgPotetgull.gruppeoppgave.core
         public string Model { get; init; }
         public int Capacity { get; init; }
 
-        public void getFlyInformation()
+        public void printFlyInformation()
         {
             Console.Write($"\nId: {Id}\nModel: {Model}\nCapacity: {Capacity}");
         }

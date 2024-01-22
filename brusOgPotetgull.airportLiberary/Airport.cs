@@ -27,7 +27,7 @@ namespace brusOgPotetgull.gruppeoppgave.core
         public string Name { get; init; }
         public string Location { get; init; }
 
-        public void getAirportInformation()
+        public void printAirportInformation()
         {
             Console.Write($"\nAirportcategory: {Airportcategory}\nName: {Name}\nLocation: {Location}" +
                 $"\nlistRunway:{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}");
