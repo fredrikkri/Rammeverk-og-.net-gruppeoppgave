@@ -4,14 +4,14 @@ namespace brusOgPotetgull.gruppeoppgave.core
 	public class Gate
 	{
 		private int gateNr;
-		private List<string> allowedAircrafts;
-		private bool isOpen;
-
+        private bool isOpen;
+        private List<string> allowedAircrafts;
 
 		public Gate(int gateNr)
 		{
 			GateNr = gateNr;
             isOpen = true;
+            allowedAircrafts = new List<string>();
         }
         public int GateNr { get; init; }
     }
