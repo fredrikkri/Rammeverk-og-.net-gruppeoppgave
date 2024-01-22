@@ -28,8 +28,8 @@ namespace brusOgPotetgull.gruppeoppgave.core
 
         public void PrintAirportInformation()
         {
-            Console.Write($"\nAirportcategory: {Airportcategory}\nName: {Name}\nLocation: {Location}\nlistRunway:  " +
-                $"{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}");
+            Console.Write($"\nAirportcategory: {Airportcategory}\nName: {Name}\nLocation: {Location}" +
+                $"\nlistRunway:{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}");
         }
     }
 }
