@@ -1,12 +1,8 @@
 ﻿using System;
 namespace brusOgPotetgull.airportLiberary
 {
-	public class AircraftHistory
+	public interface AircraftHistory
 	{
-		public AircraftHistory()
-		{
-
-		}
+		void startAircraftHistory(int curretAircraft);
 	}
 }
-

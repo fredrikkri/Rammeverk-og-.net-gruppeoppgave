@@ -9,9 +9,9 @@ namespace brusOgPotetgull.airportLiberary
 
 		public Gate(int gateNr)
 		{
-			GateNr = gateNr;
-            isOpen = true;
-            allowedAircrafts = new List<string>();
+			this.GateNr = gateNr;
+            this.isOpen = true;
+            this.allowedAircrafts = new List<string>();
         }
         // (Nagel, C, 2021, s. 76)
         public int GateNr { get; private set; }

@@ -5,11 +5,14 @@ namespace brusOgPotetgull.gruppeoppgave
     {
         static void Main(string[] args)
         {
-            Fly newflight = new Fly("SAS", "Jet 34", 200);
+            Fly newflight = new Fly("Jet 34", 200);
             newflight.printFlyInformation();
 
-            Airport newAirport = new Airport("Militærflyplass", "Rygge Flyplass", "Rygge");
-            newAirport.printAirportInformation();
+            Fly newflight2 = new Fly("Superjett", 250);
+            newflight2.printFlyInformation();
+
+            //Airport newAirport = new Airport("Militærflyplass", "Rygge Flyplass", "Rygge");
+            //newAirport.printAirportInformation();
         }
     }
 }

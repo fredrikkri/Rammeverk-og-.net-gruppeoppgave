@@ -13,11 +13,10 @@ namespace brusOgPotetgull.airportLiberary
 
 		public Flight(Fly aircraft, int flightLength, string depatureDestination, string arrivalDestination)
 		{
-			Aircraft = aircraft;
-			
-			FlightLength = flightLength;
-			DepatureDestination = depatureDestination;
-			ArrivalDestination = arrivalDestination;
+            this.Aircraft = aircraft;
+            this.FlightLength = flightLength;
+            this.DepatureDestination = depatureDestination;
+            this.ArrivalDestination = arrivalDestination;
         }
         // (Nagel, C, 2021, s. 76)
         public Fly Aircraft { get; private set; }

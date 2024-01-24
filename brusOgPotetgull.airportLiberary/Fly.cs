@@ -1,22 +1,27 @@
 ﻿using System;
 namespace brusOgPotetgull.airportLiberary
 {
-	public class Fly
+	public class Fly : AircraftHistory
 
 	{
-        private string id = "";
+        private static int idCounter = 1;
+        private int id;
         private string model = "";
         private int capacity = 0;
+        //private AircraftHistory history; Denne må implementeres hvis vi skal ha det som instansevariabel.
 
-        public Fly(string id, string model, int capacity)
+        public Fly(string model, int capacity)
 		{
-            Id = id;
-            Model = model;
-            Capacity = capacity;
+            // (dosnetCore, 2020) 
+            id = idCounter ++;
+            this.Id = id;
+            this.Model = model;
+            this.Capacity = capacity;
+            startAircraftHistory(Id);
+      
 
 		}
-        // (Nagel, C, 2021, s. 76)
-        public string Id { get; private set; }
+        public int Id { get; private set; }
         public string Model { get; private set; }
         public int Capacity { get; private set; }
 
@@ -24,6 +29,11 @@ namespace brusOgPotetgull.airportLiberary
         {
             Console.Write($"\nId: {Id}\nModel: {Model}\nCapacity: {Capacity}");
         }
-	}
+
+        public void startAircraftHistory(int id)
+        {
+            Console.Write("not implemented");
+        }
+    }
 }
 
