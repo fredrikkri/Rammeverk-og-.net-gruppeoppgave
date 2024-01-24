@@ -23,9 +23,9 @@ namespace brusOgPotetgull.airportLiberary
             listGate = new List<int>();
         }
         // (Nagel, C, 2021, s. 76)
-        public string Airportcategory { get; init; }
-        public string Name { get; init; }
-        public string Location { get; init; }
+        public string Airportcategory { get; private set; }
+        public string Name { get; private set; }
+        public string Location { get; private set; }
 
         public void printAirportInformation()
         {

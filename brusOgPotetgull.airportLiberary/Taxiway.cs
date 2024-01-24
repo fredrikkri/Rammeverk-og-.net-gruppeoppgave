@@ -11,6 +11,6 @@ namespace brusOgPotetgull.airportLiberary
 			Length = length;
 		}
         // (Nagel, C, 2021, s. 76)
-        public int Length { get; init; }
+        public int Length { get; private set; }
     }
 }
