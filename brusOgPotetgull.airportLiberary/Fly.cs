@@ -16,9 +16,9 @@ namespace brusOgPotetgull.airportLiberary
 
 		}
         // (Nagel, C, 2021, s. 76)
-        public string Id { get; init; }
-        public string Model { get; init; }
-        public int Capacity { get; init; }
+        public string Id { get; private set; }
+        public string Model { get; private set; }
+        public int Capacity { get; private set; }
 
         public void printFlyInformation()
         {

@@ -14,7 +14,7 @@ namespace brusOgPotetgull.airportLiberary
             allowedAircrafts = new List<string>();
         }
         // (Nagel, C, 2021, s. 76)
-        public int GateNr { get; init; }
+        public int GateNr { get; private set; }
     }
 }
 
