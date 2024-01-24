@@ -2,7 +2,7 @@
 namespace brusOgPotetgull.airportLiberary
 {
 	public interface AircraftHistory
-	{
-		void startAircraftHistory(int curretAircraft);
+    {
+		void startAircraftHistory(int curretPlane);
 	}
 }

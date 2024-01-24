@@ -22,7 +22,6 @@ namespace brusOgPotetgull.airportLiberary
             this.listTaxiway = new List<string>();
             this.listGate = new List<int>();
         }
-        // (Nagel, C, 2021, s. 76)
         public string Airportcategory { get; private set; }
         public string Name { get; private set; }
         public string Location { get; private set; }
@@ -30,7 +29,7 @@ namespace brusOgPotetgull.airportLiberary
         public void printAirportInformation()
         {
             Console.Write($"\nAirportcategory: {Airportcategory}\nName: {Name}\nLocation: {Location}" +
-                $"\nlistRunway:{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}");
+                $"\nlistRunway:{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}\n");
         }
     }
 }

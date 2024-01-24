@@ -1,18 +1,20 @@
-﻿using brusOgPotetgull.airportLiberary;
+﻿using System.Numerics;
+using brusOgPotetgull.airportLiberary;
 namespace brusOgPotetgull.gruppeoppgave
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Fly newflight = new Fly("Jet 34", 200);
-            newflight.printFlyInformation();
+            Aircraft newPlane1 = new Aircraft("Jet 34", 40, 13); newPlane1.printAircraftInformation();
+            Aircraft newPlane2 = new Aircraft("Superjett", 60, 15); newPlane2.printAircraftInformation();
 
-            Fly newflight2 = new Fly("Superjett", 250);
-            newflight2.printFlyInformation();
+            Airport newAirport = new Airport("Militærflyplass", "Rygge Flyplass", "Rygge"); newAirport.printAirportInformation();
 
-            //Airport newAirport = new Airport("Militærflyplass", "Rygge Flyplass", "Rygge");
-            //newAirport.printAirportInformation();
+            Flight newFlight1 = new Flight(200, "London", "Leeds"); newFlight1.printFlightInformation();
+            Flight newFlight2 = new Flight(5000, "Rio", "Sarpsborg"); newFlight2.printFlightInformation();
+
+
         }
     }
 }
