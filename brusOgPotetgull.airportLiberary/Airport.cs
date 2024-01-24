@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace brusOgPotetgull.gruppeoppgave.core
+namespace brusOgPotetgull.airportLiberary
 {
 	public class Airport
     {
