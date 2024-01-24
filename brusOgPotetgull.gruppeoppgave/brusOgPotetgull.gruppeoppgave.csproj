@@ -13,4 +13,7 @@
   <ItemGroup>
     <Folder Include="controller\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\brusOgPotetgull.airportLiberary\brusOgPotetgull.airportLiberary.csproj" />
+  </ItemGroup>
 </Project>

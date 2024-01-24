@@ -13,3 +13,7 @@
 /Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.pdb
 /Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.genruntimeconfig.cache
 /Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/ref/brusOgPotetgull.gruppeoppgave.dll
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.dll
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.pdb
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.csproj.AssemblyReference.cache
+/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.csproj.CopyComplete
