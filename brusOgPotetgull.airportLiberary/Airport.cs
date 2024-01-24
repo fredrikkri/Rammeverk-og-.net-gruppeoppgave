@@ -15,14 +15,13 @@ namespace brusOgPotetgull.airportLiberary
 
         public Airport(string airportcategory, string name, string location)
 		{
-            Airportcategory = airportcategory;
-            Name = name;
-            Location = location;
-            listRunway = new List<string>();
-            listTaxiway = new List<string>();
-            listGate = new List<int>();
+            this.Airportcategory = airportcategory;
+            this.Name = name;
+            this.Location = location;
+            this.listRunway = new List<string>();
+            this.listTaxiway = new List<string>();
+            this.listGate = new List<int>();
         }
-        // (Nagel, C, 2021, s. 76)
         public string Airportcategory { get; private set; }
         public string Name { get; private set; }
         public string Location { get; private set; }
@@ -30,7 +29,7 @@ namespace brusOgPotetgull.airportLiberary
         public void printAirportInformation()
         {
             Console.Write($"\nAirportcategory: {Airportcategory}\nName: {Name}\nLocation: {Location}" +
-                $"\nlistRunway:{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}");
+                $"\nlistRunway:{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}\n");
         }
     }
 }

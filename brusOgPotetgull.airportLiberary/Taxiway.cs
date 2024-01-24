@@ -3,14 +3,24 @@ namespace brusOgPotetgull.airportLiberary
 {
 	public class Taxiway
     {
-		private int taxiwayNr;
+        private static int idCounter = 1;
+        private int id;
 		private int length;
 
 		public Taxiway(int length)
 		{
-			Length = length;
+            // (dosnetCore, 2020) 
+            id = idCounter++;
+            this.Id = id;
+            this.Length = length;
 		}
-        // (Nagel, C, 2021, s. 76)
         public int Length { get; private set; }
+        public int Id { get; private set; }
+
+        public void printTaxiwayInformation()
+		{
+            Console.Write($"\nTaxiwayId: {Id}\nTaxiway lenght: {Length}\n");
+
+        }
     }
 }

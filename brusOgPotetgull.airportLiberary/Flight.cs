@@ -1,38 +1,35 @@
 ﻿using System;
+using System.Reflection;
+
 namespace brusOgPotetgull.airportLiberary
 {
 	public class Flight
 	{
-		private int flightId;
-		private Fly aircraft;
-        //private int totalPassengers; Dette kan implementeres senere.
+        private static int idCounter = 1;
+        private int flightId;
         private int flightDistance;
-		private string depatureDestination = "";
-        private string arrivalDestination = "";
+		private string depatureLocation = "";
+        private string arrivalLocation = "";
 		private int flightTime;
 
-		public Flight(Fly aircraft, int flightLength, string depatureDestination, string arrivalDestination)
+		public Flight(int flightLength, string depatureLocation, string arrivalLocation)
 		{
-			Aircraft = aircraft;
-			
-			FlightLength = flightLength;
-			DepatureDestination = depatureDestination;
-			ArrivalDestination = arrivalDestination;
+            // (dosnetCore, 2020) 
+            flightId = idCounter++;
+            this.FlightId = flightId;
+            this.FlightLength = flightLength;
+            this.DepatureLocation = depatureLocation;
+            this.ArrivalLocation = arrivalLocation;
         }
-        // (Nagel, C, 2021, s. 76)
-        public Fly Aircraft { get; private set; }
+        public int FlightId { get; private set; }
         public int FlightLength { get; private set; }
-        public string DepatureDestination { get; private set; }
-        public string ArrivalDestination { get; private set; }
+        public string DepatureLocation { get; private set; }
+        public string ArrivalLocation { get; private set; }
 
-		public int getFlightTime()
-		{
-			return 0;
-		}
-		public int getFlightDistanceLeft()
-		{
-			return 0;
-		}
+        public void printFlightInformation()
+        {
+            Console.Write($"\nFlightId: {FlightId}\nDepature: {DepatureLocation}\nArrival: {ArrivalLocation}\n");
+        }
     }
 }
 
