@@ -1,4 +1,4 @@
-﻿using brusOgPotetgull.gruppeoppgave.core;
+﻿using brusOgPotetgull.airportLiberary;
 namespace brusOgPotetgull.gruppeoppgave
 {
     internal class Program

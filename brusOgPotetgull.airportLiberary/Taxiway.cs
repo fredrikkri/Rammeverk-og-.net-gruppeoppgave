@@ -1,5 +1,5 @@
 ﻿using System;
-namespace brusOgPotetgull.gruppeoppgave.core
+namespace brusOgPotetgull.airportLiberary
 {
 	public class Taxiway
     {
