@@ -1,13 +1,14 @@
 ﻿using System.Numerics;
 using brusOgPotetgull.airportLiberary;
+using brusOgPotetgull.airportLiberary.AircraftTypes;
 namespace brusOgPotetgull.gruppeoppgave
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Aircraft newPlane1 = new Aircraft("Jet 34", 40, 13); newPlane1.printAircraftInformation();
-            Aircraft newPlane2 = new Aircraft("Superjett", 60, 15); newPlane2.printAircraftInformation();
+            Aircraft newPlane1 = new Aircraft("Jet 34"); newPlane1.printAircraftInformation();
+            Aircraft newPlane2 = new Aircraft("Superjett"); newPlane2.printAircraftInformation();
 
             //Airport newAirport = new Airport("Militærflyplass", "Rygge Flyplass", "Rygge"); newAirport.printAirportInformation();
 
@@ -19,6 +20,10 @@ namespace brusOgPotetgull.gruppeoppgave
             newPlane1.addHistoryToAircraft(3, "gate 6");
 
             newPlane1.printFullAircraftHistory();
+
+            Aircraft militarySuperJet = new CargoAircraft("Militaryjet"); militarySuperJet.printAircraftInformation();
+
+
         }
     }
 }

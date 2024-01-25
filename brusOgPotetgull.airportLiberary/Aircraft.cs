@@ -6,10 +6,10 @@ namespace brusOgPotetgull.airportLiberary
         private static int idCounter = 1;
         private int id;
         private string model = "";
-        // (Ervis Trupja, 2023)
+        // (Trupja, 2023)
         Dictionary<int, string> history;
 
-        public Aircraft(string model, int length, int height)
+        public Aircraft(string model)
 		{
             // (dosnetCore, 2020) 
             id = idCounter ++;
@@ -31,7 +31,7 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void printFullAircraftHistory()
         {
-            Console.Write($"\nHistory for aircraft whith id: '{this.Id}', model: '{this.Model}'\n");
+            Console.Write($"\nHistory for aircraft whith id: '{this.Id}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
             {

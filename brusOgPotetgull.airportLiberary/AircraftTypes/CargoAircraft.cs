@@ -1,11 +1,14 @@
 ﻿using System;
 namespace brusOgPotetgull.airportLiberary.AircraftTypes
 {
-	public class CargoAircraft
+	public class CargoAircraft : Aircraft
 	{
-		public CargoAircraft()
+        // (GeeksforGeeks, 2023)
+        public CargoAircraft(string model) : base(model)
 		{
+
 		}
-	}
+        
+    }
 }
 

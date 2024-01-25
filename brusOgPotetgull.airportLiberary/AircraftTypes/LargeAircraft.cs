@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Reflection;
+
 namespace brusOgPotetgull.airportLiberary.AircraftTypes
 {
-	public class LargeAircraft
+	public class LargeAircraft : Aircraft
 	{
-		public LargeAircraft()
-		{
+        // (GeeksforGeeks, 2023)
+        public LargeAircraft(string model) : base(model)
+        {
 		}
 	}
 }

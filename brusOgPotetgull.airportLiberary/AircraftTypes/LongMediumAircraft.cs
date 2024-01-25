@@ -1,10 +1,11 @@
 ﻿using System;
 namespace brusOgPotetgull.airportLiberary.AircraftTypes
 {
-	public class LongMediumAircraft
+	public class LongMediumAircraft : Aircraft
 	{
-		public LongMediumAircraft()
-		{
+        // (GeeksforGeeks, 2023)
+        public LongMediumAircraft(string model) : base(model)
+        {
 		}
 	}
 }

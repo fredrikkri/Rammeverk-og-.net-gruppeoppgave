@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Reflection;
+
 namespace brusOgPotetgull.airportLiberary.AircraftTypes
 {
-	public class MilitaryAircraft
+	public class MilitaryAircraft : Aircraft
 	{
-		public MilitaryAircraft()
-		{
+        // (GeeksforGeeks, 2023)
+        public MilitaryAircraft(string model) : base(model)
+        {
 		}
 	}
 }
