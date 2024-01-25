@@ -1,8 +1,11 @@
 ﻿using System;
 namespace brusOgPotetgull.airportLiberary
 {
-	public interface AircraftHistory
+	public class AircraftHistory
+
     {
-		void startAircraftHistory(int curretPlane);
-	}
+        // (Ervis Trupja, 2023)
+        Dictionary<string, int> history = new Dictionary<string, int>();
+    }
+	
 }
