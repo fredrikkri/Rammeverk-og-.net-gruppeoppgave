@@ -6,8 +6,6 @@ namespace brusOgPotetgull.airportLiberary
         private static int idCounter = 1;
         private int id;
         private string model = "";
-        private int length;
-        private int height;
         // (Ervis Trupja, 2023)
         Dictionary<int, string> history;
 
@@ -17,19 +15,15 @@ namespace brusOgPotetgull.airportLiberary
             id = idCounter ++;
             this.Id = id;
             this.Model = model;
-            this.Length = length;
-            this.Height = height;
             history = new Dictionary<int, string>();
 		}
         public int Id { get; private set; }
         public string Model { get; private set; }
-        public int Length { get; private set; }
-        public int Height { get; private set; }
         public int History { get; private set; }
 
         public void printAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\nLength: {Length}m\nHeight: {Height}m\n");
+            Console.Write($"\nId: {Id}\nModel: {Model}\n");
         }
         public void addHistoryToAircraft(int time, string anEvent)
         {
