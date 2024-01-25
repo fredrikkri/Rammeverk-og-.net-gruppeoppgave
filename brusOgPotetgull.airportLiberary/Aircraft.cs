@@ -19,7 +19,6 @@ namespace brusOgPotetgull.airportLiberary
 		}
         public int Id { get; private set; }
         public string Model { get; private set; }
-        public int History { get; private set; }
 
         virtual public void printAircraftInformation()
         {
