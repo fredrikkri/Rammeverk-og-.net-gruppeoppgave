@@ -21,7 +21,7 @@ namespace brusOgPotetgull.airportLiberary
         public string Model { get; private set; }
         public int History { get; private set; }
 
-        public void printAircraftInformation()
+        virtual public void printAircraftInformation()
         {
             Console.Write($"\nId: {Id}\nModel: {Model}\n");
         }

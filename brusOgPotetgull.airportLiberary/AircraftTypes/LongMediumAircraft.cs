@@ -7,6 +7,11 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
         public LongMediumAircraft(string model) : base(model)
         {
 		}
-	}
+        // (Microsoft , 2021)
+        override public void printAircraftInformation()
+        {
+            Console.Write($"\nId: {Id}\nModel: {Model}\nType: Long-medium aircraft\n");
+        }
+    }
 }
 

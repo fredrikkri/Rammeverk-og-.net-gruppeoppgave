@@ -15,13 +15,14 @@ namespace brusOgPotetgull.gruppeoppgave
             //Flight newFlight1 = new Flight(200, "London", "Leeds"); newFlight1.printFlightInformation();
             //Flight newFlight2 = new Flight(5000, "Rio", "Sarpsborg"); newFlight2.printFlightInformation();
 
+            Aircraft militarySuperJet = new MilitaryAircraft("Armed Gunplane 23"); militarySuperJet.printAircraftInformation();
+
             newPlane1.addHistoryToAircraft(1, "gate 2");
             newPlane1.addHistoryToAircraft(2, "Runway 12");
             newPlane1.addHistoryToAircraft(3, "gate 6");
 
             newPlane1.printFullAircraftHistory();
 
-            Aircraft militarySuperJet = new CargoAircraft("Militaryjet"); militarySuperJet.printAircraftInformation();
 
 
         }
