@@ -1,13 +1,15 @@
 ﻿using System;
 namespace brusOgPotetgull.airportLiberary
 {
-	public class Aircraft : AircraftHistory
+	public class Aircraft
     {
         private static int idCounter = 1;
         private int id;
         private string model = "";
         private int length;
         private int height;
+        // (Ervis Trupja, 2023)
+        Dictionary<int, string> history;
 
         public Aircraft(string model, int length, int height)
 		{
@@ -17,21 +19,30 @@ namespace brusOgPotetgull.airportLiberary
             this.Model = model;
             this.Length = length;
             this.Height = height;
-            startAircraftHistory(Id);
+            history = new Dictionary<int, string>();
 		}
         public int Id { get; private set; }
         public string Model { get; private set; }
         public int Length { get; private set; }
         public int Height { get; private set; }
+        public int History { get; private set; }
 
         public void printAircraftInformation()
         {
             Console.Write($"\nId: {Id}\nModel: {Model}\nLength: {Length}m\nHeight: {Height}m\n");
         }
-
-        public void startAircraftHistory(int id)
+        public void addHistoryToAircraft(int time, string anEvent)
         {
-            //Console.Write("not implemented");
+            history.Add(time, anEvent);
+        }
+        public void printFullAircraftHistory()
+        {
+            Console.Write($"\nHistory for aircraft whith id: '{this.Id}', model: '{this.Model}'\n");
+            // (Nagel, 2022, s. 216)
+            foreach ( var line in history)
+            {
+                Console.WriteLine($"Time: {line.Key}, {line.Value}");
+            }
         }
     }
 }
