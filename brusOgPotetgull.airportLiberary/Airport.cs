@@ -61,6 +61,7 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void generateGateNumbers(int gateNumber)
         {
+            // (Nagel, 2022, s. 155)
             for (int i = 0; i < gateNumber; i++)
             {
                 listGate[i] = i + 1;
