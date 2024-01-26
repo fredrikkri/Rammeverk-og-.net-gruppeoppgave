@@ -29,7 +29,9 @@ namespace brusOgPotetgull.gruppeoppgave
 
             gate1.printGateInformation();
 
-
+            /// må ha denne for å se Consol av en eller annen grunn på pcen til jacob
+            /// hvis ikke flasher bare consollen
+            System.Console.ReadLine();
         }
     }
 }
