@@ -9,7 +9,7 @@ namespace brusOgPotetgull.airportLiberary
 
 		public Taxiway(int length)
 		{
-            // (dosnetCore, 2020) 
+            // (dosnetCore, 2020)
             id = idCounter++;
             this.Id = id;
             this.Length = length;
