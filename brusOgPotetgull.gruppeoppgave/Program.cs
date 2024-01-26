@@ -23,6 +23,11 @@ namespace brusOgPotetgull.gruppeoppgave
 
             newPlane1.printFullAircraftHistory();
 
+            Gate gate1 = new Gate();
+            gate1.addLegalAircraftToGate("ShortMediumAircraft");
+            gate1.addLegalAircraftToGate("CargoAircaft");
+
+            gate1.printGateInformation();
 
 
         }
