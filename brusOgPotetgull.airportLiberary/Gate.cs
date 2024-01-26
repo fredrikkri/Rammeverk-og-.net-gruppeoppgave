@@ -32,7 +32,24 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void addLegalAircraftToGate(string aircraft)
         {
-            legalAircrafts.Add(aircraft);
+            if (!legalAircrafts.Contains(aircraft))
+            {
+                legalAircrafts.Add(aircraft);
+            } else
+            {
+                Console.Write($"{aircraft} is already in list of legal aicrafts for this gate.");
+            }
+            
+        }
+        public void removeLegalAircraftFromGate(string aircraft)
+        {
+            if (legalAircrafts.Contains(aircraft))
+            {
+                legalAircrafts.Remove(aircraft);
+            } else
+            {
+                Console.Write($"Aircraft: {aircraft} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
+            }
         }
     }
 }
