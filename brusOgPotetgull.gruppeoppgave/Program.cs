@@ -7,14 +7,10 @@ namespace brusOgPotetgull.gruppeoppgave
     {
         static void Main(string[] args)
         {
+            Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge", 3, 8, 10); ryggeFlyplass.printAirportInformation();
+
             Aircraft newPlane1 = new Aircraft("Jet 34"); newPlane1.printAircraftInformation();
             Aircraft newPlane2 = new Aircraft("Superjett"); newPlane2.printAircraftInformation();
-
-            //Airport newAirport = new Airport("Militærflyplass", "Rygge Flyplass", "Rygge"); newAirport.printAirportInformation();
-
-            //Flight newFlight1 = new Flight(200, "London", "Leeds"); newFlight1.printFlightInformation();
-            //Flight newFlight2 = new Flight(5000, "Rio", "Sarpsborg"); newFlight2.printFlightInformation();
-
             Aircraft militarySuperJet = new MilitaryAircraft("Armed Gunplane 23"); militarySuperJet.printAircraftInformation();
 
             newPlane1.addHistoryToAircraft(1, "gate 2");

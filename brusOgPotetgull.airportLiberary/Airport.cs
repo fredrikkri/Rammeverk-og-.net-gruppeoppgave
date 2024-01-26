@@ -5,31 +5,82 @@ namespace brusOgPotetgull.airportLiberary
 {
 	public class Airport
     {
-        private string airportcategory = "";
+        private string airportNickname = "";
         private string name = "";
         private string location = "";
-        private List<string> listRunway;
-        private List<string> listTaxiway;
-        private List<int> listGate;
+        private int[] listRunway;
+        private int[] listTaxiway;
+        private int[] listGate;
 
-
-        public Airport(string airportcategory, string name, string location)
+        public Airport(string airportNickname, string name, string location, int numberOfRunways, int numberOfTaxiways, int numberOfGates)
 		{
-            this.Airportcategory = airportcategory;
+            this.AirportNickname = airportNickname;
             this.Name = name;
             this.Location = location;
-            this.listRunway = new List<string>();
-            this.listTaxiway = new List<string>();
-            this.listGate = new List<int>();
+            this.listRunway = new int[numberOfRunways]; generateRunwayNumbers(numberOfRunways);
+            this.listTaxiway = new int[numberOfTaxiways]; generateTaxiwayNumbers(numberOfTaxiways);
+            this.listGate = new int[numberOfGates]; generateGateNumbers(numberOfGates);
         }
-        public string Airportcategory { get; private set; }
+        public string AirportNickname { get; private set; }
         public string Name { get; private set; }
         public string Location { get; private set; }
 
         public void printAirportInformation()
         {
-            Console.Write($"\nAirportcategory: {Airportcategory}\nName: {Name}\nLocation: {Location}" +
-                $"\nlistRunway:{listRunway}\nlistTaxiway: {listTaxiway}\nlistGate: {listGate}\n");
+            Console.Write($"\nAirport mickname: {AirportNickname}\nName: {Name}\nLocation: {Location}\n");
+            Console.Write($"\nList of runways: ");
+            foreach (int runway in listRunway)
+            {
+                Console.Write($"{runway} ");
+            }
+            Console.Write($"\nList of taxiways: ");
+            foreach (int taxiway in listTaxiway)
+            {
+                Console.Write($"{taxiway} ");
+            }
+            Console.Write($"\nList of gates: ");
+            foreach (int gate in listGate)
+            {
+                Console.Write($"{gate} ");
+            }
+            Console.Write("\n");
+        }
+        public void addRunwayToList(int idRunway)
+        {
+            listRunway.Append(idRunway);
+        }
+        public void addTaxiwayToList(int idTaxiway)
+        {
+            listTaxiway.Append(idTaxiway);
+        }
+        public void addGateToList(int idGate)
+        {
+            listGate.Append(idGate);
+        }
+        
+        public void generateRunwayNumbers(int runwayNumber)
+        {
+            // (Nagel, 2022, s. 155)
+            for (int i = 0; i < runwayNumber; i++)
+            {
+                listRunway[i] = i + 1;
+            }
+        }
+        public void generateTaxiwayNumbers(int TaxiwayNumber)
+        {
+            // (Nagel, 2022, s. 155)
+            for (int i = 0; i < TaxiwayNumber; i++)
+            {
+                listTaxiway[i] = i + 1;
+            }
+        }
+        public void generateGateNumbers(int gateNumber)
+        {
+            // (Nagel, 2022, s. 155)
+            for (int i = 0; i < gateNumber; i++)
+            {
+                listGate[i] = i + 1;
+            }
         }
     }
 }
