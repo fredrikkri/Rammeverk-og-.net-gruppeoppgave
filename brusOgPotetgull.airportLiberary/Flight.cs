@@ -9,8 +9,15 @@ namespace brusOgPotetgull.airportLiberary
         private int flightId;
 		private Airport depatureAirport;
         private Airport arrivalAirport;
+        private Gate depatureGate;
+        private Gate arrivalGate;
+        private Taxiway depatureTaxiway;
+        private Taxiway arrivalTaxiway;
+        // Laget noen instansevariabler vi må implementere i koden. En flytur må inneholde tidsintervallet fra gate den flyr fra, og
+        // helt til flyet er på gaten som den skal levere passasjerene på.
 
-		public Flight(Airport depatureAirport, Airport arrivalAirport)
+
+        public Flight(Airport depatureAirport, Airport arrivalAirport)
 		{
             // (dosnetCore, 2020) 
             flightId = idCounter++;
