@@ -14,7 +14,7 @@ namespace brusOgPotetgull.airportLiberary
         private List<Taxiway> listTaxiway;
         private List<Gate> listGate;
 
-        public Airport(string airportNickname, string name, string location) //int numberOfRunways, int numberOfTaxiways, int numberOfGates)
+        public Airport(string airportNickname, string name, string location)
 		{
             // (dosnetCore, 2020) 
             airportId = idCounter++;
@@ -51,17 +51,17 @@ namespace brusOgPotetgull.airportLiberary
             }
             Console.Write("\n");
         }
-        public void addRunwayToList(Runway idRunway)
+        public void addRunwayToList(Runway Runway)
         {
-            listRunway.Add(idRunway);
+            listRunway.Add(Runway);
         }
-        public void addTaxiwayToList(Taxiway idTaxiway)
+        public void addTaxiwayToList(Taxiway Taxiway)
         {
-            listTaxiway.Add(idTaxiway);
+            listTaxiway.Add(Taxiway);
         }
-        public void addGateToList(Gate idGate)
+        public void addGateToList(Gate Gate)
         {
-            listGate.Add(idGate);
+            listGate.Add(Gate);
         }
         public void generateRunwayNumbers(int runwayNumber)
         {

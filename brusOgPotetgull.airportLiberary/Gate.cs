@@ -10,7 +10,7 @@ namespace brusOgPotetgull.airportLiberary
         private string gateName;
         private bool isOpen = true;
         // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
-        private List<int> legalAircraftTypes;
+        private List<int> legalAircraftTypesId;
 
 		public Gate(string gateName)
 		{
@@ -19,7 +19,7 @@ namespace brusOgPotetgull.airportLiberary
             this.Id = id;
             this.GateName = gateName;
             this.isOpen = true;
-            this.legalAircraftTypes = new List<int>();
+            this.legalAircraftTypesId = new List<int>();
 
         }
         public int Id { get; private set; }
@@ -29,16 +29,16 @@ namespace brusOgPotetgull.airportLiberary
         {
             Console.Write($"\nGateNr: {Id}\nName: {gateName}\nIsOpen: {isOpen}\n");
             Console.Write("Legal aircraftstypes: ");
-            foreach (int aircraft in legalAircraftTypes)
+            foreach (int aircraft in legalAircraftTypesId)
             {
                 Console.Write($"{aircraft} ");
             }
         }
         public void addLegalAircraftThatCanUseGate(int aircraft)
         {
-            if (!legalAircraftTypes.Contains(aircraft))
+            if (!legalAircraftTypesId.Contains(aircraft))
             {
-                legalAircraftTypes.Add(aircraft);
+                legalAircraftTypesId.Add(aircraft);
             } else
             {
                 Console.Write($"{aircraft} is already in list of legal aicrafts for this gate.");
@@ -47,9 +47,9 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void removeLegalAircraftThatCanUseGate(int aircraft)
         {
-            if (legalAircraftTypes.Contains(aircraft))
+            if (legalAircraftTypesId.Contains(aircraft))
             {
-                legalAircraftTypes.Remove(aircraft);
+                legalAircraftTypesId.Remove(aircraft);
             } else
             {
                 Console.Write($"Aircraft: {aircraft} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
