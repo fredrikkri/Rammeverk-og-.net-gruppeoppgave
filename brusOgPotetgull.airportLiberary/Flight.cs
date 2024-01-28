@@ -42,7 +42,8 @@ namespace brusOgPotetgull.airportLiberary
 
         public void printFlightInformation()
         {
-            Console.Write($"\nFlightId: {FlightId}\nDepature: {DepartureAirport.Name}\nArrival: {ArrivalAirport.Name}\n");
+            Console.Write($"\nFlightId: {FlightId}\nDeparture Airport: {DepartureAirport.Name}\nArrival Airport: {ArrivalAirport.Name}\n" +
+                $"Departure Gate: {DepartureGate.Id}\nArrival Gate: {ArrivalGate.Id}\nDeparture Taxiway: {DepartureTaxiway.Id}\nArrival Taxiway: {ArrivalTaxiway.Id}\n");
         }
     }
 }
