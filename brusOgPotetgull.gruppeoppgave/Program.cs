@@ -9,18 +9,17 @@ namespace brusOgPotetgull.gruppeoppgave
         {
             Aircraft cargoCraft = new CargoAircraft("Cargo plane"); cargoCraft.printAircraftInformation();
 
-            Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge", 10, 8, 10); ryggeFlyplass.printAirportInformation();
-            Airport fredrikstadAirport = new Airport("FRE", "Fredrikstad Flyplass", "Fredrikstad", 4, 10, 20); fredrikstadAirport.printAirportInformation();
+            Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
+            Airport fredrikstadAirport = new Airport("FRE", "Fredrikstad Flyplass", "Fredrikstad");
 
-            Aircraft newPlane1 = new Aircraft("Jet 34"); newPlane1.printAircraftInformation();
+            Gate supergate = new Gate("Gate 1A");
+            Gate nissegate = new Gate("Gate 22"); 
 
-            Flight firstFlight = new Flight(ryggeFlyplass, fredrikstadAirport); firstFlight.printFlightInformation();
+            fredrikstadAirport.addGateToList(nissegate);
+            fredrikstadAirport.addGateToList(supergate);
 
-            Gate supergate = new Gate(); supergate.printGateInformation();
-            Gate nissegate = new Gate(); nissegate.printGateInformation();
+            fredrikstadAirport.printAirportInformation();
 
-            /// må ha denne for å se Consol av en eller annen grunn på pcen til jacob
-            /// hvis ikke flasher bare consollen
             System.Console.ReadLine();
         }
     }

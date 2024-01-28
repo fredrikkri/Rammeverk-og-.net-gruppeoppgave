@@ -15,7 +15,7 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
         // (Microsoft , 2021)
         override public void printAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\nType: Light aircraft\nAircraft type: {AircraftTypeId}\n");
+            Console.Write($"\nId: {Id}\nModel: {Model}\nType: Light aircraft\nAircraft type: {AircraftTypeId}\n\n");
         }
     }
 }

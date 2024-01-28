@@ -6,32 +6,35 @@ namespace brusOgPotetgull.airportLiberary
 	public class Gate
 	{
         private static int idCounter = 1;
-        private int gateNr;
+        private int id;
+        private string gateName;
         private bool isOpen = true;
         // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
         private List<int> legalAircraftTypes;
 
-		public Gate()
+		public Gate(string gateName)
 		{
             // (dosnetCore, 2020) 
-            gateNr = idCounter++;
-            this.GateNr = gateNr;
+            id = idCounter++;
+            this.Id = id;
+            this.GateName = gateName;
             this.isOpen = true;
             this.legalAircraftTypes = new List<int>();
 
         }
-        public int GateNr { get; private set; }
+        public int Id { get; private set; }
+        public string GateName { get; private set; }
 
         public void printGateInformation()
         {
-            Console.Write($"\nGateNr: {GateNr}\nIsOpen: {isOpen}\n");
+            Console.Write($"\nGateNr: {Id}\nName: {gateName}\nIsOpen: {isOpen}\n");
             Console.Write("Legal aircraftstypes: ");
             foreach (int aircraft in legalAircraftTypes)
             {
                 Console.Write($"{aircraft} ");
             }
         }
-        public void addLegalAircraftToGate(int aircraft)
+        public void addLegalAircraftThatCanUseGate(int aircraft)
         {
             if (!legalAircraftTypes.Contains(aircraft))
             {
@@ -42,7 +45,7 @@ namespace brusOgPotetgull.airportLiberary
             }
             
         }
-        public void removeLegalAircraftFromGate(int aircraft)
+        public void removeLegalAircraftThatCanUseGate(int aircraft)
         {
             if (legalAircraftTypes.Contains(aircraft))
             {
