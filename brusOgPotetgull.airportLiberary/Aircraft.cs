@@ -9,8 +9,10 @@ namespace brusOgPotetgull.airportLiberary
         private string model = "";
         // (Trupja, 2023)
         Dictionary<int, string> history;
+        private int maxSpeed;
+        private int acceleration;
 
-        public Aircraft(string model)
+        public Aircraft(string model, int maxSpeed, int acceleration)
 		{
             // (dosnetCore, 2020) 
             id = idCounter ++;
@@ -18,14 +20,19 @@ namespace brusOgPotetgull.airportLiberary
             this.AircraftTypeId = aircraftTypeId;
             this.Model = model;
             history = new Dictionary<int, string>();
-		}
+            this.MaxSpeed = maxSpeed;
+            this.Acceleration = acceleration;
+
+        }
         public int Id { get; private set; }
         public int AircraftTypeId { get; private set; }
         public string Model { get; private set; }
+        public int MaxSpeed { get; private set; }
+        public int Acceleration { get; private set; }
 
         virtual public void printAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\n");
+            Console.Write($"\nId: {Id}\nModel: {Model}\nMax speed: {MaxSpeed}\nAcceleration: {Acceleration}\n");
         }
         public void addHistoryToAircraft(int time, string anEvent)
         {

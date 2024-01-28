@@ -7,9 +7,9 @@ namespace brusOgPotetgull.gruppeoppgave
     {
         static void Main(string[] args)
         {
-            Aircraft cargoCraft = new CargoAircraft("Cargo plane");
-            cargoCraft.addHistoryToAircraft(1, "Gate 2");
-            cargoCraft.printAircraftInformation(); cargoCraft.printFullAircraftHistory();
+            Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 200, 20);
+            cargoCraftV12.addHistoryToAircraft(1, "Gate 2");
+            cargoCraftV12.printAircraftInformation(); cargoCraftV12.printFullAircraftHistory();
 
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport fredrikstadAirport = new Airport("FRE", "Fredrikstad Flyplass", "Fredrikstad");
