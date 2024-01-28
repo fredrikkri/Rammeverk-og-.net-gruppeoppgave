@@ -7,7 +7,7 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
 	{
         private int aircraftTypeId = 1;
         // (GeeksforGeeks, 2023)
-        public LightAircraft(string model) : base(model)
+        public LightAircraft(string model, int maxSpeed, int acceleration) : base(model, maxSpeed, acceleration)
         {
             this.AircraftTypeId = aircraftTypeId;
         }
@@ -15,7 +15,7 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
         // (Microsoft , 2021)
         override public void printAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\nType: Light aircraft\nAircraft type: {AircraftTypeId}\n\n");
+            Console.Write($"\nId: {Id}\nModel: {Model}\nType: Light aircraft\nType(id): {AircraftTypeId}\nMax speed: {MaxSpeed}\nAcceleration: {Acceleration}\n");
         }
     }
 }
