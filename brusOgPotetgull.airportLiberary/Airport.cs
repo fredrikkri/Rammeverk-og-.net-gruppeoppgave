@@ -10,11 +10,11 @@ namespace brusOgPotetgull.airportLiberary
         private string airportNickname = "";
         private string name = "";
         private string location = "";
-        private int[] listRunway;
-        private int[] listTaxiway;
-        private int[] listGate;
+        private List<Runway> listRunway;
+        private List<Taxiway> listTaxiway;
+        private List<Gate> listGate;
 
-        public Airport(string airportNickname, string name, string location, int numberOfRunways, int numberOfTaxiways, int numberOfGates)
+        public Airport(string airportNickname, string name, string location)
 		{
             // (dosnetCore, 2020) 
             airportId = idCounter++;
@@ -22,9 +22,9 @@ namespace brusOgPotetgull.airportLiberary
             this.AirportNickname = airportNickname;
             this.Name = name;
             this.Location = location;
-            this.listRunway = new int[numberOfRunways]; generateRunwayNumbers(numberOfRunways);
-            this.listTaxiway = new int[numberOfTaxiways]; generateTaxiwayNumbers(numberOfTaxiways);
-            this.listGate = new int[numberOfGates]; generateGateNumbers(numberOfGates);
+            listRunway = new List<Runway>();
+            listTaxiway = new List<Taxiway>();
+            listGate = new List<Gate>();
         }
         public int AirportId { get; private set; }
         public string AirportNickname { get; private set; }
@@ -34,49 +34,41 @@ namespace brusOgPotetgull.airportLiberary
         public void printAirportInformation()
         {
             Console.Write($"\nAirport id: {AirportId}\nAirport nickname: {AirportNickname}\nName: {Name}\nLocation: {Location}\n");
-            Console.Write($"\nList of runways: ");
-            foreach (int runway in listRunway)
+            Console.Write($"List of runways: ");
+            foreach (Runway runway in listRunway)
             {
-                Console.Write($"{runway} ");
+                Console.Write($"{runway.Id} ");
             }
             Console.Write($"\nList of taxiways: ");
-            foreach (int taxiway in listTaxiway)
+            foreach (Taxiway taxiway in listTaxiway)
             {
-                Console.Write($"{taxiway} ");
+                Console.Write($"{taxiway.Id} ");
             }
             Console.Write($"\nList of gates: ");
-            foreach (int gate in listGate)
+            foreach (Gate gate in listGate)
             {
-                Console.Write($"{gate} ");
+                Console.Write($"{gate.Id} ");
             }
             Console.Write("\n");
         }
-        // Dette gjelder for alle funksjonene nedenfor.
-        // Vi må gjøre slik at listRunway, ListTaxiway og ListGates inneholder objekter. Ikke int.
-        // Det blir da lettere senere og lage funksjoner til rammeverket.
-        // det vi kan gjøre istedenfor funksjonene nedenfor er å lage funksjoner som legger til en Gate,Taxiway eller Runway objekt
-        // til en Airport.
-        // Kanskje noe som dette:
-        // public void addGateToAirport(int AirportId, Gate gateToAdd)
-        public void addRunwayToList(int idRunway)
+        public void addRunwayToList(Runway Runway)
         {
-            listRunway.Append(idRunway);
+            listRunway.Add(Runway);
         }
-        public void addTaxiwayToList(int idTaxiway)
+        public void addTaxiwayToList(Taxiway Taxiway)
         {
-            listTaxiway.Append(idTaxiway);
+            listTaxiway.Add(Taxiway);
         }
-        public void addGateToList(int idGate)
+        public void addGateToList(Gate Gate)
         {
-            listGate.Append(idGate);
+            listGate.Add(Gate);
         }
-        
         public void generateRunwayNumbers(int runwayNumber)
         {
             // (Nagel, 2022, s. 155)
             for (int i = 0; i < runwayNumber; i++)
             {
-                listRunway[i] = i + 1;
+                //listRunway[i] = i + 1;
             }
         }
         public void generateTaxiwayNumbers(int TaxiwayNumber)
@@ -84,7 +76,7 @@ namespace brusOgPotetgull.airportLiberary
             // (Nagel, 2022, s. 155)
             for (int i = 0; i < TaxiwayNumber; i++)
             {
-                listTaxiway[i] = i + 1;
+               // listTaxiway[i] = i + 1;
             }
         }
         public void generateGateNumbers(int gateNumber)
@@ -92,7 +84,7 @@ namespace brusOgPotetgull.airportLiberary
             // (Nagel, 2022, s. 155)
             for (int i = 0; i < gateNumber; i++)
             {
-                listGate[i] = i + 1;
+               // listGate[i] = i + 1;
             }
         }
     }
