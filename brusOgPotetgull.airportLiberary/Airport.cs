@@ -54,7 +54,8 @@ namespace brusOgPotetgull.airportLiberary
         // Dette gjelder for alle funksjonene nedenfor.
         // Vi må gjøre slik at listRunway, ListTaxiway og ListGates inneholder objekter. Ikke int.
         // Det blir da lettere senere og lage funksjoner til rammeverket.
-        // det vi kan gjøre istedenfor funksjonene nedenfor er å lage funksjoner som legger til ett Gate,Taxiway eller Runway objekt til en Airport.
+        // det vi kan gjøre istedenfor funksjonene nedenfor er å lage funksjoner som legger til en Gate,Taxiway eller Runway objekt
+        // til en Airport.
         // Kanskje noe som dette:
         // public void addGateToAirport(int AirportId, Gate gateToAdd)
         public void addRunwayToList(int idRunway)
