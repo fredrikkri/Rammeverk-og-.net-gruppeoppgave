@@ -16,6 +16,9 @@ namespace brusOgPotetgull.gruppeoppgave
 
             Flight firstFlight = new Flight(ryggeFlyplass, fredrikstadAirport); firstFlight.printFlightInformation();
 
+            Gate supergate = new Gate(); supergate.printGateInformation();
+            Gate nissegate = new Gate(); nissegate.printGateInformation();
+
             /// må ha denne for å se Consol av en eller annen grunn på pcen til jacob
             /// hvis ikke flasher bare consollen
             System.Console.ReadLine();

@@ -5,6 +5,7 @@ namespace brusOgPotetgull.airportLiberary
     {
         private static int idCounter = 1;
         private int id;
+        private int aircraftTypeId = 0;
         private string model = "";
         // (Trupja, 2023)
         Dictionary<int, string> history;
@@ -14,10 +15,12 @@ namespace brusOgPotetgull.airportLiberary
             // (dosnetCore, 2020) 
             id = idCounter ++;
             this.Id = id;
+            this.AircraftTypeId = aircraftTypeId;
             this.Model = model;
             history = new Dictionary<int, string>();
 		}
         public int Id { get; private set; }
+        public int AircraftTypeId { get; private set; }
         public string Model { get; private set; }
 
         virtual public void printAircraftInformation()
