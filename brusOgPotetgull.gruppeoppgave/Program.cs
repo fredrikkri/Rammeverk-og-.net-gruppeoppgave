@@ -15,12 +15,17 @@ namespace brusOgPotetgull.gruppeoppgave
             Airport fredrikstadAirport = new Airport("FRE", "Fredrikstad Flyplass", "Fredrikstad");
 
             Gate supergate = new Gate("Gate 1A");
-            Gate nissegate = new Gate("Gate 22"); 
+            Gate nissegate = new Gate("Gate 22");
+
+            Taxiway mediumTaxiway = new Taxiway(53);
+            Taxiway longTaxiway = new Taxiway(75);
 
             fredrikstadAirport.addGateToList(nissegate);
             fredrikstadAirport.addGateToList(supergate);
 
             fredrikstadAirport.printAirportInformation();
+            Flight firstFlight = new Flight(10000, ryggeFlyplass, fredrikstadAirport, supergate, nissegate, longTaxiway, mediumTaxiway);
+            firstFlight.printFlightInformation();
 
             System.Console.ReadLine();
         }
