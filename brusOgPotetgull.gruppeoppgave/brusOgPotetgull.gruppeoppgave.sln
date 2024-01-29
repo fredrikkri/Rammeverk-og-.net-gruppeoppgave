@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brusOgPotetgull.gruppeoppgave", "brusOgPotetgull.gruppeoppgave.csproj", "{8B79085B-B498-4922-9BFD-8E43C4766D7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "brusOgPotetgull.controller", "brusOgPotetgull.controller", "{21B93030-8339-464C-9D08-B6A965FE0ED0}"
+	ProjectSection(SolutionItems) = preProject
+		EmptyClass.cs = EmptyClass.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B79085B-B498-4922-9BFD-8E43C4766D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B79085B-B498-4922-9BFD-8E43C4766D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B79085B-B498-4922-9BFD-8E43C4766D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B79085B-B498-4922-9BFD-8E43C4766D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {951F642D-19E8-4A14-B773-70FA76BF60A2}
+	EndGlobalSection
+EndGlobal

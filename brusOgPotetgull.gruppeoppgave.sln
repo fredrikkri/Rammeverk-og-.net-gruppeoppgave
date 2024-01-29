@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1706.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brusOgPotetgull.gruppeoppgave", "brusOgPotetgull.gruppeoppgave\brusOgPotetgull.gruppeoppgave.csproj", "{C58CE0E2-4EA8-4230-A25D-AF2EABFF71C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brusOgPotetgull.airportLiberary", "brusOgPotetgull.airportLiberary\brusOgPotetgull.airportLiberary.csproj", "{ABA6DC69-2528-47CD-B3E3-9B2E28801CDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C58CE0E2-4EA8-4230-A25D-AF2EABFF71C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C58CE0E2-4EA8-4230-A25D-AF2EABFF71C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C58CE0E2-4EA8-4230-A25D-AF2EABFF71C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA6DC69-2528-47CD-B3E3-9B2E28801CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA6DC69-2528-47CD-B3E3-9B2E28801CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA6DC69-2528-47CD-B3E3-9B2E28801CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA6DC69-2528-47CD-B3E3-9B2E28801CDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
