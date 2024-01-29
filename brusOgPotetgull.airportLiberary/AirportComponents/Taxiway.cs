@@ -30,28 +30,33 @@ namespace brusOgPotetgull.airportLiberary
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(aircraft);
         }
-        public void useTaxiway(Aircraft aircraft)
+        public void firstInQueueEnterTaxiway(Aircraft aircraft)
         {
+            // (Nagel, 2022, s. 203)
+            if (taxiwayQueue.Count >= 1)
+            {
+                var nextAircraftInQueue = taxiwayQueue.Dequeue();
+                taxiwayQueue.TrimExcess();
+                simulateTaxiway(nextAircraftInQueue);
+            }
+        }
+        public void simulateTaxiway(Aircraft aircraft)
+        {
+            // (Marius, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
             var currentSpeed = 0;
             int secondCounter = 0;
 
-            // (Nagel, 2022, s. 203)
-            if (taxiwayQueue.Count >= 1)
+            while (remainingDistance > 0)
             {
-                var firstInQueue = taxiwayQueue.Dequeue();
-                taxiwayQueue.TrimExcess();
-                while (remainingDistance > 0)
+                remainingDistance = remainingDistance - currentSpeed;
+                currentSpeed += aircraft.AccelerationOnGround;
+                if (currentSpeed > aircraft.MaxSpeedOnGround)
                 {
-                    remainingDistance = (remainingDistance - currentSpeed);
-                    currentSpeed += aircraft.Acceleration;
-                    if (currentSpeed > aircraft.MaxSpeed)
-                    {
-                        currentSpeed = MaxSpeed;
-                    }
-                    secondCounter++;
-                    Console.WriteLine(currentSpeed);
+                    currentSpeed = MaxSpeed;
                 }
+                secondCounter++;
+                Console.WriteLine(currentSpeed);
             }
         }
     }

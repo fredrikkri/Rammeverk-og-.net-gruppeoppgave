@@ -7,7 +7,7 @@ namespace brusOgPotetgull.gruppeoppgave
     {
         static void Main(string[] args)
         {
-            Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 200, 20);
+            Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 500, 30, 40, 5);
             //cargoCraftV12.addHistoryToAircraft(1, "Gate 2");
             //cargoCraftV12.printAircraftInformation(); cargoCraftV12.printFullAircraftHistory();
 
@@ -28,7 +28,7 @@ namespace brusOgPotetgull.gruppeoppgave
             //firstFlight.printFlightInformation();
 
             mediumTaxiway.addAircraftToQueue(cargoCraftV12);
-            mediumTaxiway.useTaxiway(cargoCraftV12);
+            mediumTaxiway.firstInQueueEnterTaxiway(cargoCraftV12);
 
             System.Console.ReadLine();
         }
