@@ -42,7 +42,7 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void simulateTaxiway(Aircraft aircraft)
         {
-            // (Marius, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
+            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
             var currentSpeed = 0;
             int secondCounter = 0;
