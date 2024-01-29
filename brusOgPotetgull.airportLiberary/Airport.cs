@@ -33,7 +33,9 @@ namespace brusOgPotetgull.airportLiberary
 
         public void printAirportInformation()
         {
-            Console.Write($"\nAirport id: {AirportId}\nAirport nickname: {AirportNickname}\nName: {Name}\nLocation: {Location}\n");
+            Console.Write($"\nAirport id: {AirportId}\n" +
+                $"Airport nickname: {AirportNickname}\n" +
+                $"Name: {Name}\nLocation: {Location}\n");
             Console.Write($"List of runways: ");
             foreach (Runway runway in listRunway)
             {
