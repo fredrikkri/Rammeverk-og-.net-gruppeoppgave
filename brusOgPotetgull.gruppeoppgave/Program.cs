@@ -21,6 +21,9 @@ namespace brusOgPotetgull.gruppeoppgave
             mediumTaxiway.addAircraftToQueue(cargoCraftV12);
             mediumTaxiway.firstInQueueEnterTaxiway(cargoCraftV12);
 
+            Flight firstFlight = new Flight(cargoCraftV12, 50000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway);
+            firstFlight.printFlightInformation();
+
             System.Console.ReadLine();
         }
     }

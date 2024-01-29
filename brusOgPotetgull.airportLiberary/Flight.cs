@@ -7,6 +7,7 @@ namespace brusOgPotetgull.airportLiberary
 	{
         private static int idCounter = 1;
         private int flightId;
+        private Aircraft activeAicraft;
         private int length;
 		private Airport departureAirport;
         private Airport arrivalAirport;
@@ -15,7 +16,7 @@ namespace brusOgPotetgull.airportLiberary
         private Taxiway departureTaxiway;
         private Taxiway arrivalTaxiway;
 
-        public Flight(int length,
+        public Flight(Aircraft activeAicraft, int length,
             Airport departureAirport, Airport arrivalAirport,
             Gate departureGate, Gate arrivalGate,
             Taxiway departureTaxiway, Taxiway arrivalTaxiway)
@@ -23,6 +24,7 @@ namespace brusOgPotetgull.airportLiberary
             // (dosnetCore, 2020) 
             flightId = idCounter++;
             this.FlightId = flightId;
+            this.ActiveAicraft = activeAicraft;
             this.Length = length;
             this.DepartureAirport = departureAirport;
             this.ArrivalAirport = arrivalAirport;
@@ -33,6 +35,7 @@ namespace brusOgPotetgull.airportLiberary
         }
         public int FlightId { get; private set; }
         public int Length { get; private set; }
+        public Aircraft ActiveAicraft { get; private set; }
         public Airport DepartureAirport { get; private set; }
         public Airport ArrivalAirport { get; private set; }
         public Gate DepartureGate { get; private set; }
@@ -43,12 +46,18 @@ namespace brusOgPotetgull.airportLiberary
         public void printFlightInformation()
         {
             Console.Write($"\nFlightId: {FlightId}\n" +
+                $"Length: {Length}\n" +
+                $"Aircraft: {ActiveAicraft.Model}\n" +
                 $"Departure Airport: {DepartureAirport.Name}\n" +
                 $"Arrival Airport: {ArrivalAirport.Name}\n" +
                 $"Departure Gate: {DepartureGate.Id}\n" +
                 $"Arrival Gate: {ArrivalGate.Id}\n" +
                 $"Departure Taxiway: {DepartureTaxiway.Id}\n" +
                 $"Arrival Taxiway: {ArrivalTaxiway.Id}\n");
+        }
+        public void startFlight()
+        {
+            Console.Write("\nFlight has started\n");
         }
     }
 }
