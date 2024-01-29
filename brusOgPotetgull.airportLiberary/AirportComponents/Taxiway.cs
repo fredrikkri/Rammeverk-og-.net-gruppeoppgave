@@ -7,51 +7,56 @@ namespace brusOgPotetgull.airportLiberary
         private int id;
 		private int length;
         private Queue<Aircraft> taxiwayQueue = new Queue<Aircraft>();
-        private int minutesOfUse;
-        private int speedWhenUsed;
+        private int maxSpeed;
 
-        public Taxiway(int length, int minutesOfUse, int speedWhenUsed)
+        public Taxiway(int length, int maxSpeed)
 		{
             // (dosnetCore, 2020)
             id = idCounter++;
             this.Id = id;
             this.Length = length;
-            this.MinutesOfUse = minutesOfUse;
-            this.SpeedWhenUsed = speedWhenUsed;
+            this.MaxSpeed = maxSpeed;
 		}
         public int Length { get; private set; }
         public int Id { get; private set; }
-        public int MinutesOfUse { get; private set; }
-        public int SpeedWhenUsed { get; private set; }
+        public int MaxSpeed { get; private set; }
 
         public void printTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\nTaxiway lenght: {Length}\n");
-
         }
         public void addAircraftToQueue(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(aircraft);
         }
-        public void useTaxiway(Aircraft aircraft)
+        public void firstInQueueEnterTaxiway(Aircraft aircraft)
         {
-            var remainingDistance = Length;
-            var currentSpeed = SpeedWhenUsed;
-            int secondCounter = 0;
-
             // (Nagel, 2022, s. 203)
             if (taxiwayQueue.Count >= 1)
             {
-                var firstInQueue = taxiwayQueue.Dequeue();
+                var nextAircraftInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                while (remainingDistance > 0)
+                simulateTaxiway(nextAircraftInQueue);
+            }
+        }
+        public void simulateTaxiway(Aircraft aircraft)
+        {
+            // (Marius, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
+            var remainingDistance = Length;
+            var currentSpeed = 0;
+            int secondCounter = 0;
+
+            while (remainingDistance > 0)
+            {
+                remainingDistance = remainingDistance - currentSpeed;
+                currentSpeed += aircraft.AccelerationOnGround;
+                if (currentSpeed > aircraft.MaxSpeedOnGround)
                 {
-                    remainingDistance = (int)(remainingDistance - currentSpeed);
-                    currentSpeed += aircraft.Acceleration;
-                    secondCounter++;
-                    Console.WriteLine(currentSpeed);
+                    currentSpeed = MaxSpeed;
                 }
+                secondCounter++;
+                Console.WriteLine(currentSpeed);
             }
         }
     }

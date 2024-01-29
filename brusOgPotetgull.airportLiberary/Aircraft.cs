@@ -9,10 +9,12 @@ namespace brusOgPotetgull.airportLiberary
         private string model = "";
         // (Trupja, 2023)
         Dictionary<int, string> history;
-        private int maxSpeed;
-        private int acceleration;
+        private int maxSpeedInAir;
+        private int accelerationInAir;
+        private int maxSpeedOnGround;
+        private int accelerationOnGround;
 
-        public Aircraft(string model, int maxSpeed, int acceleration)
+        public Aircraft(string model, int maxSpeedInAir, int accelerationInAir, int maxSpeedOnGround, int accelerationOnGround)
 		{
             // (dosnetCore, 2020) 
             id = idCounter ++;
@@ -20,19 +22,23 @@ namespace brusOgPotetgull.airportLiberary
             this.AircraftTypeId = aircraftTypeId;
             this.Model = model;
             history = new Dictionary<int, string>();
-            this.MaxSpeed = maxSpeed;
-            this.Acceleration = acceleration;
+            this.MaxSpeedInAir = maxSpeedInAir;
+            this.AccelerationInAir = accelerationInAir;
+            this.MaxSpeedOnGround = maxSpeedOnGround;
+            this.AccelerationOnGround = accelerationOnGround;
 
         }
         public int Id { get; private set; }
         public int AircraftTypeId { get; private set; }
         public string Model { get; private set; }
-        public int MaxSpeed { get; private set; }
-        public int Acceleration { get; private set; }
+        public int MaxSpeedInAir { get; private set; }
+        public int AccelerationInAir { get; private set; }
+        public int MaxSpeedOnGround { get; private set; }
+        public int AccelerationOnGround { get; private set; }
 
         virtual public void printAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\nMax speed: {MaxSpeed}\nAcceleration: {Acceleration}\n");
+            Console.Write($"\nId: {Id}\nModel: {Model}\nMax speed: {MaxSpeedInAir}\nAcceleration: {AccelerationInAir}\n");
         }
         public void addHistoryToAircraft(int time, string anEvent)
         {
