@@ -7,27 +7,23 @@ namespace brusOgPotetgull.airportLiberary
         private int id;
 		private int length;
         private Queue<Aircraft> taxiwayQueue = new Queue<Aircraft>();
-        private int minutesOfUse;
-        private int speedWhenUsed;
+        private int maxSpeed;
 
-        public Taxiway(int length, int minutesOfUse, int speedWhenUsed)
+        public Taxiway(int length, int maxSpeed)
 		{
             // (dosnetCore, 2020)
             id = idCounter++;
             this.Id = id;
             this.Length = length;
-            this.MinutesOfUse = minutesOfUse;
-            this.SpeedWhenUsed = speedWhenUsed;
+            this.MaxSpeed = maxSpeed;
 		}
         public int Length { get; private set; }
         public int Id { get; private set; }
-        public int MinutesOfUse { get; private set; }
-        public int SpeedWhenUsed { get; private set; }
+        public int MaxSpeed { get; private set; }
 
         public void printTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\nTaxiway lenght: {Length}\n");
-
         }
         public void addAircraftToQueue(Aircraft aircraft)
         {
@@ -37,7 +33,7 @@ namespace brusOgPotetgull.airportLiberary
         public void useTaxiway(Aircraft aircraft)
         {
             var remainingDistance = Length;
-            var currentSpeed = SpeedWhenUsed;
+            var currentSpeed = 0;
             int secondCounter = 0;
 
             // (Nagel, 2022, s. 203)
@@ -47,8 +43,12 @@ namespace brusOgPotetgull.airportLiberary
                 taxiwayQueue.TrimExcess();
                 while (remainingDistance > 0)
                 {
-                    remainingDistance = (int)(remainingDistance - currentSpeed);
+                    remainingDistance = (remainingDistance - currentSpeed);
                     currentSpeed += aircraft.Acceleration;
+                    if (currentSpeed > aircraft.MaxSpeed)
+                    {
+                        currentSpeed = MaxSpeed;
+                    }
                     secondCounter++;
                     Console.WriteLine(currentSpeed);
                 }
