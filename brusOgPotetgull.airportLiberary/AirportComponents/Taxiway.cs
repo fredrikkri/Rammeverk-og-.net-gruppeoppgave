@@ -23,7 +23,8 @@ namespace brusOgPotetgull.airportLiberary
 
         public void printTaxiwayInformation()
 		{
-            Console.Write($"\nTaxiwayId: {Id}\nTaxiway lenght: {Length}\n");
+            Console.Write($"\nTaxiwayId: {Id}\n" +
+                $"Taxiway lenght: {Length}\n");
         }
         public void addAircraftToQueue(Aircraft aircraft)
         {

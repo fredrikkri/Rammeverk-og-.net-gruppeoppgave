@@ -27,7 +27,9 @@ namespace brusOgPotetgull.airportLiberary
 
         public void printGateInformation()
         {
-            Console.Write($"\nGateNr: {Id}\nName: {gateName}\nIsOpen: {isOpen}\n");
+            Console.Write($"\nGateNr: {Id}\n" +
+                $"Name: {gateName}\n" +
+                $"IsOpen: {isOpen}\n");
             Console.Write("Legal aircraftstypes: ");
             foreach (int aircraft in legalAircraftTypesId)
             {

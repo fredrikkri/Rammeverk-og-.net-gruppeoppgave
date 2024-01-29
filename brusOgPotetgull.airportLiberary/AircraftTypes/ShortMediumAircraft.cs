@@ -15,7 +15,12 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
         // (Microsoft , 2021)
         override public void printAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\nType: Short-medium aircraft\nType(id): {AircraftTypeId}\nMax speed: {MaxSpeedInAir}\nAcceleration: {AccelerationInAir}\n");
+            Console.Write($"\nId: {Id}\n" +
+                $"Model: {Model}\n" +
+                $"Type: Short-medium aircraft\n" +
+                $"Type(id): {AircraftTypeId}\n" +
+                $"Max speed: {MaxSpeedInAir}\n" +
+                $"Acceleration: {AccelerationInAir}\n");
         }
     }
 }

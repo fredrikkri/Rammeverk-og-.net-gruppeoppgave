@@ -38,7 +38,10 @@ namespace brusOgPotetgull.airportLiberary
 
         virtual public void printAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\nMax speed: {MaxSpeedInAir}\nAcceleration: {AccelerationInAir}\n");
+            Console.Write($"\nId: {Id}\n" +
+                $"Model: {Model}\n" +
+                $"Max speed: {MaxSpeedInAir}\n" +
+                $"Acceleration: {AccelerationInAir}\n");
         }
         public void addHistoryToAircraft(int time, string anEvent)
         {
