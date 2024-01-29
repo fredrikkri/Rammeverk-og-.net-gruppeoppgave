@@ -6,13 +6,8 @@ namespace brusOgPotetgull.airportLiberary
         private static int idCounter = 1;
         private int id;
         private int aircraftTypeId = 0;
-        private string model = "";
         // (Trupja, 2023)
         Dictionary<int, string> history;
-        private int maxSpeedInAir;
-        private int accelerationInAir;
-        private int maxSpeedOnGround;
-        private int accelerationOnGround;
 
         public Aircraft(string model, int maxSpeedInAir, int accelerationInAir, int maxSpeedOnGround, int accelerationOnGround)
 		{

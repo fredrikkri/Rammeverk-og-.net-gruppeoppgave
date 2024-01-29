@@ -7,9 +7,6 @@ namespace brusOgPotetgull.airportLiberary
     {
         private static int idCounter = 1;
         private int airportId;
-        private string airportNickname = "";
-        private string name = "";
-        private string location = "";
         private List<Runway> listRunway;
         private List<Taxiway> listTaxiway;
         private List<Gate> listGate;
