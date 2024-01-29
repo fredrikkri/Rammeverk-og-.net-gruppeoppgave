@@ -7,7 +7,13 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
 	{
         private int aircraftTypeId = 3;
         // (GeeksforGeeks, 2023)
-        public LongMediumAircraft(string model, int maxSpeedInAir, int accelerationInAir, int maxSpeedOnGround, int accelerationOnGround) : base(model, maxSpeedInAir, accelerationInAir, maxSpeedOnGround, accelerationOnGround)
+        public LongMediumAircraft(string model,
+            int maxSpeedInAir,
+            int accelerationInAir,
+            int maxSpeedOnGround,
+            int accelerationOnGround) : base(model,
+                maxSpeedInAir, accelerationInAir,
+                maxSpeedOnGround, accelerationOnGround)
         {
             this.AircraftTypeId = aircraftTypeId;
         }

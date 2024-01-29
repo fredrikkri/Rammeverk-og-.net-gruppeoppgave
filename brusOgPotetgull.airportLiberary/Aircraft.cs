@@ -9,7 +9,11 @@ namespace brusOgPotetgull.airportLiberary
         // (Trupja, 2023)
         Dictionary<int, string> history;
 
-        public Aircraft(string model, int maxSpeedInAir, int accelerationInAir, int maxSpeedOnGround, int accelerationOnGround)
+        public Aircraft(string model,
+            int maxSpeedInAir,
+            int accelerationInAir,
+            int maxSpeedOnGround,
+            int accelerationOnGround)
 		{
             // (dosnetCore, 2020) 
             id = idCounter ++;
