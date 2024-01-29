@@ -11,7 +11,7 @@ namespace brusOgPotetgull.airportLiberary
 		private Airport departureAirport;
         private Airport arrivalAirport;
         private Gate departureGate;
-        private Gate GatearrivalGate;
+        private Gate arrivalGate;
         private Taxiway departureTaxiway;
         private Taxiway arrivalTaxiway;
 
