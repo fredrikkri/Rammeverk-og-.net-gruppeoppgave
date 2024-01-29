@@ -49,7 +49,23 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void startFlight()
         {
-            Console.Write("\nFlight has started\n");
+            Console.Write($"\nFlight from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
+
+        }
+        public void simulateAirTime()
+        {
+            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
+            var remainingDistance = Length;
+            var currentSpeed = 0;
+            int secondCounter = 0;
+
+            while (remainingDistance > 0)
+            {
+                remainingDistance = remainingDistance - currentSpeed;
+                currentSpeed += ActiveAicraft.AccelerationOnGround;
+                secondCounter++;
+                Console.WriteLine(currentSpeed);
+            }
         }
     }
 }

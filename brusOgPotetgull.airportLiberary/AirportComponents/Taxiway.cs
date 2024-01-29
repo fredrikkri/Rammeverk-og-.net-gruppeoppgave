@@ -50,7 +50,7 @@ namespace brusOgPotetgull.airportLiberary
             {
                 remainingDistance = remainingDistance - currentSpeed;
                 currentSpeed += aircraft.AccelerationOnGround;
-                if (currentSpeed > aircraft.MaxSpeedOnGround)
+                if (currentSpeed > MaxSpeed)
                 {
                     currentSpeed = MaxSpeed;
                 }
