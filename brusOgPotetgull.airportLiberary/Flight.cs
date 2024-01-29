@@ -7,14 +7,6 @@ namespace brusOgPotetgull.airportLiberary
 	{
         private static int idCounter = 1;
         private int flightId;
-        private Aircraft activeAicraft;
-        private int length;
-		private Airport departureAirport;
-        private Airport arrivalAirport;
-        private Gate departureGate;
-        private Gate arrivalGate;
-        private Taxiway departureTaxiway;
-        private Taxiway arrivalTaxiway;
 
         public Flight(Aircraft activeAicraft, int length,
             Airport departureAirport, Airport arrivalAirport,

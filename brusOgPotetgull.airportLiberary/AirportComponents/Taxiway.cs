@@ -5,9 +5,7 @@ namespace brusOgPotetgull.airportLiberary
     {
         private static int idCounter = 1;
         private int id;
-		private int length;
         private Queue<Aircraft> taxiwayQueue = new Queue<Aircraft>();
-        private int maxSpeed;
 
         public Taxiway(int length, int maxSpeed)
 		{
