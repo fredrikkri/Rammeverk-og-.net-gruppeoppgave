@@ -28,13 +28,14 @@ namespace brusOgPotetgull.airportLiberary
         }
         public string GetIdAndAirportNickname()
         {
-            string returnString = (string)(Id + ", " + LocatedAtAirport.AirportNickname);
+            string returnString = (string)(Id + " " + LocatedAtAirport.AirportNickname);
             return returnString;
         }
         public void AddAircraftToQueue(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(aircraft);
+            aircraft.AddHistoryToAircraft(23, "Taxiway " + GetIdAndAirportNickname(), ", Enters taxiwayqueue");
         }
         public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft)
         {
@@ -59,11 +60,13 @@ namespace brusOgPotetgull.airportLiberary
             {
                 var nextAircraftInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
+                aircraft.AddHistoryToAircraft(2, "Taxiway " + GetIdAndAirportNickname(), ", Leaves taxiwayqueue");
                 SimulateTaxiway(nextAircraftInQueue);
             }
         }
         public void SimulateTaxiway(Aircraft aircraft)
         {
+            aircraft.AddHistoryToAircraft(3, "Taxiway " + GetIdAndAirportNickname(), ", Enters taxiway");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
             var currentSpeed = 0;
@@ -83,6 +86,7 @@ namespace brusOgPotetgull.airportLiberary
                 secondCounter++;
                 Console.WriteLine(currentSpeed);
             }
+            aircraft.AddHistoryToAircraft(4, GetIdAndAirportNickname(), ", Leaves taxiway");
         }
     }
 }

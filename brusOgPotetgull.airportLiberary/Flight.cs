@@ -76,20 +76,20 @@ namespace brusOgPotetgull.airportLiberary
             if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
             {
                 Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
-                ActiveAicraft.AddHistoryToAircraft(1, DepartureGate.GetIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(900, DepartureGate.GetIdAndAirportNickname(), ", no meesage");
 
                 Console.Write("\nAircraft has joined the queue for the taxiway\n");
                 DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
                 DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
-                ActiveAicraft.AddHistoryToAircraft(2, DepartureTaxiway.GetIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(901, DepartureTaxiway.GetIdAndAirportNickname(), ", no meesage");
 
-                ActiveAicraft.AddHistoryToAircraft(3, DepartureRunway.GetIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(902, DepartureRunway.GetIdAndAirportNickname(), ", no meesage");
 
-                ActiveAicraft.AddHistoryToAircraft(4, ArrivalRunway.GetIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(903, ArrivalRunway.GetIdAndAirportNickname(), ", no meesage");
 
-                ActiveAicraft.AddHistoryToAircraft(5, ArrivalTaxiway.GetIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(904, ArrivalTaxiway.GetIdAndAirportNickname(), ", no meesage");
 
-                ActiveAicraft.AddHistoryToAircraft(6, ArrivalGate.GetIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(905, ArrivalGate.GetIdAndAirportNickname(), ", no meesage");
 
                 Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
                 SimulateAirTime();
