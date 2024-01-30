@@ -13,8 +13,8 @@ namespace brusOgPotetgull.gruppeoppgave
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");
 
-            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass);
-            Gate nissegate = new Gate("Gate 22", ryggeFlyplass);
+            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass); supergate.addLegalAircraftThatCanUseGate(cargoCraftV12);
+            Gate nissegate = new Gate("Gate 22", ryggeFlyplass); nissegate.addLegalAircraftThatCanUseGate(cargoCraftV12);
 
             Taxiway mediumTaxiway = new Taxiway(535, 20, GardemoenFlyplass);
             Taxiway longTaxiway = new Taxiway(75, 35, ryggeFlyplass);

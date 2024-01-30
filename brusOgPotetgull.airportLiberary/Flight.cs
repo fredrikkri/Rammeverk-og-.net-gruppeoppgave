@@ -57,25 +57,32 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void startFlight()
         {
-            Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
+            // checks if the plane are adjusted for gates.
+            if (DepartureGate.checkIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.checkIfAircraftCanUseGate(ActiveAicraft) == true)
+            {
+                Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
+                ActiveAicraft.addHistoryToAircraft(1, DepartureGate.getIdAndAirportNickname());
 
-            ActiveAicraft.addHistoryToAircraft(1, DepartureGate.getIdAndAirportNickname());
+                Console.Write("\nAircraft has joined the queue for the taxiway\n");
+                DepartureTaxiway.addAircraftToQueue(ActiveAicraft);
+                DepartureTaxiway.peekToSeIfYourAircraftIsNext(ActiveAicraft);
+                ActiveAicraft.addHistoryToAircraft(2, DepartureTaxiway.getIdAndAirportNickname());
 
-            Console.Write("\nAircraft has joined the queue for the taxiway\n");
-            DepartureTaxiway.addAircraftToQueue(ActiveAicraft);
-            DepartureTaxiway.peekToSeIfYourAircraftIsNext(ActiveAicraft);
-            ActiveAicraft.addHistoryToAircraft(2, DepartureTaxiway.getIdAndAirportNickname());
+                ActiveAicraft.addHistoryToAircraft(3, DepartureRunway.getIdAndAirportNickname());
 
-            ActiveAicraft.addHistoryToAircraft(3, DepartureRunway.getIdAndAirportNickname());
+                ActiveAicraft.addHistoryToAircraft(4, ArrivalRunway.getIdAndAirportNickname());
 
-            ActiveAicraft.addHistoryToAircraft(4, ArrivalRunway.getIdAndAirportNickname());
+                ActiveAicraft.addHistoryToAircraft(5, ArrivalTaxiway.getIdAndAirportNickname());
 
-            ActiveAicraft.addHistoryToAircraft(5, ArrivalTaxiway.getIdAndAirportNickname());
+                ActiveAicraft.addHistoryToAircraft(6, ArrivalGate.getIdAndAirportNickname());
 
-            ActiveAicraft.addHistoryToAircraft(6, ArrivalGate.getIdAndAirportNickname());
-
-            Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
-            simulateAirTime();
+                Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
+                simulateAirTime();
+            }
+            else
+            {
+                Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
+            }
         }
         public void simulateAirTime()
         {

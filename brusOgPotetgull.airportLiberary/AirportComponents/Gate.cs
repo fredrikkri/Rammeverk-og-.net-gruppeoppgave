@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace brusOgPotetgull.airportLiberary
@@ -7,7 +8,6 @@ namespace brusOgPotetgull.airportLiberary
 	{
         private static int idCounter = 1;
         private int id;
-        private string gateName;
         private bool isOpen = true;
         // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
         private List<int> legalAircraftTypesId;
@@ -30,13 +30,13 @@ namespace brusOgPotetgull.airportLiberary
         public void printGateInformation()
         {
             Console.Write($"\nGateNr: {Id}\n" +
-                $"Name: {gateName}\n" +
+                $"Name: {GateName}\n" +
                 $"IsOpen: {isOpen}\n" +
                 $"Name: {LocatedAtAirport.AirportNickname}\n");
             Console.Write("Legal aircraftstypes: ");
-            foreach (int aircraft in legalAircraftTypesId)
+            foreach (int typeId in legalAircraftTypesId)
             {
-                Console.Write($"{aircraft} ");
+                Console.Write($"{typeId} ");
             }
         }
         public string getIdAndAirportNickname()
@@ -44,25 +44,35 @@ namespace brusOgPotetgull.airportLiberary
             string returnString = (string) (Id + ", " + LocatedAtAirport.AirportNickname);
             return returnString;
         }
-        public void addLegalAircraftThatCanUseGate(int aircraft)
+        public void addLegalAircraftThatCanUseGate(Aircraft aircraft)
         {
-            if (!legalAircraftTypesId.Contains(aircraft))
+            if (!legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
             {
-                legalAircraftTypesId.Add(aircraft);
+                legalAircraftTypesId.Add(aircraft.AircraftTypeId);
             } else
             {
                 Console.Write($"{aircraft} is already in list of legal aicrafts for this gate.");
             }
             
         }
-        public void removeLegalAircraftThatCanUseGate(int aircraft)
+        public void removeLegalAircraftThatCanUseGate(Aircraft aircraft)
         {
-            if (legalAircraftTypesId.Contains(aircraft))
+            if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
             {
-                legalAircraftTypesId.Remove(aircraft);
+                legalAircraftTypesId.Remove(aircraft.AircraftTypeId);
             } else
             {
-                Console.Write($"Aircraft: {aircraft} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
+                Console.Write($"Aircraft with type {aircraft.AircraftTypeId} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
+            }
+        }
+        public bool checkIfAircraftCanUseGate(Aircraft aircraft)
+        {
+            if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId)) {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

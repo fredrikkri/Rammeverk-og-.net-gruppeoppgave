@@ -11,7 +11,7 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
 		{
             this.AircraftTypeId = aircraftTypeId;
 		}
-        public int AircraftTypeId { get; }
+        public new int AircraftTypeId { get; }
         // (Microsoft , 2021)
         override public void printAircraftInformation()
         {
