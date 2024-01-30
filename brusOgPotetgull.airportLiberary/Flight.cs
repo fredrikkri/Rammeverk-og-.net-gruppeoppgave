@@ -55,6 +55,21 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Gate: {ArrivalGate.Id}\n");
 
         }
+        public void simulateAirTime()
+        {
+            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
+            var remainingDistance = Length;
+            var currentSpeed = 0;
+            int secondCounter = 0;
+
+            while (remainingDistance > 0)
+            {
+                remainingDistance = remainingDistance - currentSpeed;
+                currentSpeed += ActiveAicraft.AccelerationOnGround;
+                secondCounter++;
+                Console.WriteLine(currentSpeed);
+            }
+        }
         public void startFlight()
         {
             // checks if the plane are adjusted for gates.
@@ -82,21 +97,6 @@ namespace brusOgPotetgull.airportLiberary
             else
             {
                 Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
-            }
-        }
-        public void simulateAirTime()
-        {
-            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
-            var remainingDistance = Length;
-            var currentSpeed = 0;
-            int secondCounter = 0;
-
-            while (remainingDistance > 0)
-            {
-                remainingDistance = remainingDistance - currentSpeed;
-                currentSpeed += ActiveAicraft.AccelerationOnGround;
-                secondCounter++;
-                Console.WriteLine(currentSpeed);
             }
         }
     }
