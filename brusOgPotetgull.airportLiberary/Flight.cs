@@ -57,7 +57,7 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void SimulateAirTime()
         {
-            ActiveAicraft.AddHistoryToAircraft(702, DepartureGate.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
+            ActiveAicraft.AddHistoryToAircraft(702, "Runway " + DepartureRunway.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
             var currentSpeed = 0;
@@ -70,7 +70,7 @@ namespace brusOgPotetgull.airportLiberary
                 secondCounter++;
                 Console.WriteLine(currentSpeed);
             }
-            ActiveAicraft.AddHistoryToAircraft(7035, ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
+            ActiveAicraft.AddHistoryToAircraft(7035, "Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
         }
         public void StartFlight()
         {
@@ -86,6 +86,7 @@ namespace brusOgPotetgull.airportLiberary
 
                 Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
                 SimulateAirTime();
+                ActiveAicraft.AddHistoryToAircraft(37, "Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
             }
             else
             {
