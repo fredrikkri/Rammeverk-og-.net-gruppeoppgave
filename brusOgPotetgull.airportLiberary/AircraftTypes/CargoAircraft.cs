@@ -7,15 +7,29 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
 	{
         private int aircraftTypeId = 5;
         // (GeeksforGeeks, 2023)
-        public CargoAircraft(string model, int maxSpeedInAir, int accelerationInAir, int maxSpeedOnGround, int accelerationOnGround) : base(model, maxSpeedInAir, accelerationInAir, maxSpeedOnGround, accelerationOnGround)
+        public CargoAircraft(string model,
+            int maxSpeedInAir,
+            int accelerationInAir,
+            int maxSpeedOnGround,
+            int accelerationOnGround) :
+            base(model,
+                maxSpeedInAir,
+                accelerationInAir,
+                maxSpeedOnGround,
+                accelerationOnGround)
 		{
             this.AircraftTypeId = aircraftTypeId;
 		}
-        public int AircraftTypeId { get; }
+        public new int AircraftTypeId { get; }
         // (Microsoft , 2021)
-        override public void printAircraftInformation()
+        override public void PrintAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\nType: Cargo aircraft\nType(id): {AircraftTypeId}\nMax speed: {MaxSpeedInAir}\nAcceleration: {AccelerationInAir}\n");
+            Console.Write($"\nId: {Id}\n" +
+                $"Model: {Model}\n" +
+                $"Type: Cargo aircraft\n" +
+                $"Type(id): {AircraftTypeId}\n" +
+                $"Max speed: {MaxSpeedInAir}\n" +
+                $"Acceleration: {AccelerationInAir}\n");
         }
 
     }

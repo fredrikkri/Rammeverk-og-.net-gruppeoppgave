@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+﻿using System;
 using brusOgPotetgull.airportLiberary;
 using brusOgPotetgull.airportLiberary.AircraftTypes;
 namespace brusOgPotetgull.gruppeoppgave
@@ -7,28 +7,27 @@ namespace brusOgPotetgull.gruppeoppgave
     {
         static void Main(string[] args)
         {
+            
             Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 500, 30, 40, 5);
-            //cargoCraftV12.addHistoryToAircraft(1, "Gate 2");
-            //cargoCraftV12.printAircraftInformation(); cargoCraftV12.printFullAircraftHistory();
 
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
-            Airport fredrikstadAirport = new Airport("FRE", "Fredrikstad Flyplass", "Fredrikstad");
+            Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");
 
-            Gate supergate = new Gate("Gate 1A");
-            Gate nissegate = new Gate("Gate 22");
+            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass); supergate.AddLegalAircraftThatCanUseGate(cargoCraftV12);
+            Gate nissegate = new Gate("Gate 22", ryggeFlyplass); nissegate.AddLegalAircraftThatCanUseGate(cargoCraftV12);
 
-            Taxiway mediumTaxiway = new Taxiway(535, 20);
-            Taxiway longTaxiway = new Taxiway(75, 35);
+            Taxiway mediumTaxiway = new Taxiway(535, 20, GardemoenFlyplass);
+            Taxiway longTaxiway = new Taxiway(75, 35, ryggeFlyplass);
 
-            //fredrikstadAirport.addGateToList(nissegate);
-            //fredrikstadAirport.addGateToList(supergate);
+            Runway gammelRunway = new Runway(GardemoenFlyplass);
+            Runway slitenRunway = new Runway(ryggeFlyplass);
 
-            //fredrikstadAirport.printAirportInformation();
-            //Flight firstFlight = new Flight(10000, ryggeFlyplass, fredrikstadAirport, supergate, nissegate, longTaxiway, mediumTaxiway);
+            Flight firstFlight = new Flight(cargoCraftV12, 50000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
             //firstFlight.printFlightInformation();
 
-            mediumTaxiway.addAircraftToQueue(cargoCraftV12);
-            mediumTaxiway.firstInQueueEnterTaxiway(cargoCraftV12);
+            firstFlight.StartFlight();
+            cargoCraftV12.PrintFullAircraftHistory();
+
 
             System.Console.ReadLine();
         }

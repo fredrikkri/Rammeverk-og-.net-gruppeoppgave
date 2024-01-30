@@ -5,42 +5,64 @@ namespace brusOgPotetgull.airportLiberary
     {
         private static int idCounter = 1;
         private int id;
-		private int length;
         private Queue<Aircraft> taxiwayQueue = new Queue<Aircraft>();
-        private int maxSpeed;
 
-        public Taxiway(int length, int maxSpeed)
-		{
+        public Taxiway(int length, int maxSpeed, Airport locatedAtAirport)
+        {
             // (dosnetCore, 2020)
             id = idCounter++;
             this.Id = id;
             this.Length = length;
             this.MaxSpeed = maxSpeed;
-		}
+            this.LocatedAtAirport = locatedAtAirport;
+        }
         public int Length { get; private set; }
         public int Id { get; private set; }
         public int MaxSpeed { get; private set; }
+        public Airport LocatedAtAirport { get; private set; }
 
-        public void printTaxiwayInformation()
+        public void PrintTaxiwayInformation()
 		{
-            Console.Write($"\nTaxiwayId: {Id}\nTaxiway lenght: {Length}\n");
+            Console.Write($"\nTaxiwayId: {Id}\n" +
+                $"Taxiway lenght: {Length}\n");
         }
-        public void addAircraftToQueue(Aircraft aircraft)
+        public string GetIdAndAirportNickname()
+        {
+            string returnString = (string)(Id + ", " + LocatedAtAirport.AirportNickname);
+            return returnString;
+        }
+        public void AddAircraftToQueue(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(aircraft);
         }
-        public void firstInQueueEnterTaxiway(Aircraft aircraft)
+        public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft)
+        {
+            if (taxiwayQueue.Peek() == aircraft)
+            {
+                Console.Write($"\n{aircraft.Model} is first in queue\n");
+                FirstInQueueEnterTaxiway(aircraft);
+            }
+            else
+            {
+                while (taxiwayQueue.Peek() != aircraft)
+                {
+                    Console.Write("\nWaiting to be next in line to use taxiway...\n");
+                }
+            }
+
+        }
+        public void FirstInQueueEnterTaxiway(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
             if (taxiwayQueue.Count >= 1)
             {
                 var nextAircraftInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                simulateTaxiway(nextAircraftInQueue);
+                SimulateTaxiway(nextAircraftInQueue);
             }
         }
-        public void simulateTaxiway(Aircraft aircraft)
+        public void SimulateTaxiway(Aircraft aircraft)
         {
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
@@ -50,10 +72,13 @@ namespace brusOgPotetgull.airportLiberary
             while (remainingDistance > 0)
             {
                 remainingDistance = remainingDistance - currentSpeed;
-                currentSpeed += aircraft.AccelerationOnGround;
-                if (currentSpeed > aircraft.MaxSpeedOnGround)
+                if (currentSpeed == 0)
                 {
-                    currentSpeed = MaxSpeed;
+                    currentSpeed += aircraft.AccelerationOnGround;
+                }
+                if (currentSpeed <= MaxSpeed & currentSpeed <= aircraft.MaxSpeedOnGround)
+                {
+                    currentSpeed += aircraft.AccelerationOnGround;
                 }
                 secondCounter++;
                 Console.WriteLine(currentSpeed);

@@ -6,15 +6,14 @@ namespace brusOgPotetgull.airportLiberary
         private static int idCounter = 1;
         private int id;
         private int aircraftTypeId = 0;
-        private string model = "";
         // (Trupja, 2023)
         Dictionary<int, string> history;
-        private int maxSpeedInAir;
-        private int accelerationInAir;
-        private int maxSpeedOnGround;
-        private int accelerationOnGround;
 
-        public Aircraft(string model, int maxSpeedInAir, int accelerationInAir, int maxSpeedOnGround, int accelerationOnGround)
+        public Aircraft(string model,
+            int maxSpeedInAir,
+            int accelerationInAir,
+            int maxSpeedOnGround,
+            int accelerationOnGround)
 		{
             // (dosnetCore, 2020) 
             id = idCounter ++;
@@ -36,15 +35,18 @@ namespace brusOgPotetgull.airportLiberary
         public int MaxSpeedOnGround { get; private set; }
         public int AccelerationOnGround { get; private set; }
 
-        virtual public void printAircraftInformation()
+        virtual public void PrintAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\nModel: {Model}\nMax speed: {MaxSpeedInAir}\nAcceleration: {AccelerationInAir}\n");
+            Console.Write($"\nId: {Id}\n" +
+                $"Model: {Model}\n" +
+                $"Max speed: {MaxSpeedInAir}\n" +
+                $"Acceleration: {AccelerationInAir}\n");
         }
-        public void addHistoryToAircraft(int time, string anEvent)
+        public void AddHistoryToAircraft(int time, string anEvent)
         {
             history.Add(time, anEvent);
         }
-        public void printFullAircraftHistory()
+        public void PrintFullAircraftHistory()
         {
             Console.Write($"\nHistory for aircraft whith id: '{this.Id}'\n");
             // (Nagel, 2022, s. 216)
