@@ -40,7 +40,7 @@ namespace brusOgPotetgull.airportLiberary
         public Runway DepartureRunway { get; private set; }
         public Runway ArrivalRunway { get; private set; }
 
-        public void printFlightInformation()
+        public void PrintFlightInformation()
         {
             Console.Write($"\nFlightId: {FlightId}\n" +
                 $"Length: {Length}\n" +
@@ -55,7 +55,7 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Gate: {ArrivalGate.Id}\n");
 
         }
-        public void simulateAirTime()
+        public void SimulateAirTime()
         {
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
@@ -70,29 +70,29 @@ namespace brusOgPotetgull.airportLiberary
                 Console.WriteLine(currentSpeed);
             }
         }
-        public void startFlight()
+        public void StartFlight()
         {
             // checks if the plane are adjusted for gates.
-            if (DepartureGate.checkIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.checkIfAircraftCanUseGate(ActiveAicraft) == true)
+            if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
             {
                 Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
-                ActiveAicraft.addHistoryToAircraft(1, DepartureGate.getIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(1, DepartureGate.GetIdAndAirportNickname());
 
                 Console.Write("\nAircraft has joined the queue for the taxiway\n");
-                DepartureTaxiway.addAircraftToQueue(ActiveAicraft);
-                DepartureTaxiway.peekToSeIfYourAircraftIsNext(ActiveAicraft);
-                ActiveAicraft.addHistoryToAircraft(2, DepartureTaxiway.getIdAndAirportNickname());
+                DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
+                DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
+                ActiveAicraft.AddHistoryToAircraft(2, DepartureTaxiway.GetIdAndAirportNickname());
 
-                ActiveAicraft.addHistoryToAircraft(3, DepartureRunway.getIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(3, DepartureRunway.GetIdAndAirportNickname());
 
-                ActiveAicraft.addHistoryToAircraft(4, ArrivalRunway.getIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(4, ArrivalRunway.GetIdAndAirportNickname());
 
-                ActiveAicraft.addHistoryToAircraft(5, ArrivalTaxiway.getIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(5, ArrivalTaxiway.GetIdAndAirportNickname());
 
-                ActiveAicraft.addHistoryToAircraft(6, ArrivalGate.getIdAndAirportNickname());
+                ActiveAicraft.AddHistoryToAircraft(6, ArrivalGate.GetIdAndAirportNickname());
 
                 Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
-                simulateAirTime();
+                SimulateAirTime();
             }
             else
             {

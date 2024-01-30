@@ -16,7 +16,7 @@ namespace brusOgPotetgull.airportLiberary
         public int Id { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
 
-        public string getIdAndAirportNickname()
+        public string GetIdAndAirportNickname()
         {
             string returnString = (string)(Id + ", " + LocatedAtAirport.AirportNickname);
             return returnString;

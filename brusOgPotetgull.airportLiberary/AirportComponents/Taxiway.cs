@@ -21,27 +21,27 @@ namespace brusOgPotetgull.airportLiberary
         public int MaxSpeed { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
 
-        public void printTaxiwayInformation()
+        public void PrintTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\n" +
                 $"Taxiway lenght: {Length}\n");
         }
-        public string getIdAndAirportNickname()
+        public string GetIdAndAirportNickname()
         {
             string returnString = (string)(Id + ", " + LocatedAtAirport.AirportNickname);
             return returnString;
         }
-        public void addAircraftToQueue(Aircraft aircraft)
+        public void AddAircraftToQueue(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(aircraft);
         }
-        public void peekToSeIfYourAircraftIsNext(Aircraft aircraft)
+        public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft)
         {
             if (taxiwayQueue.Peek() == aircraft)
             {
                 Console.Write($"\n{aircraft.Model} is first in queue\n");
-                firstInQueueEnterTaxiway(aircraft);
+                FirstInQueueEnterTaxiway(aircraft);
             }
             else
             {
@@ -52,17 +52,17 @@ namespace brusOgPotetgull.airportLiberary
             }
 
         }
-        public void firstInQueueEnterTaxiway(Aircraft aircraft)
+        public void FirstInQueueEnterTaxiway(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
             if (taxiwayQueue.Count >= 1)
             {
                 var nextAircraftInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                simulateTaxiway(nextAircraftInQueue);
+                SimulateTaxiway(nextAircraftInQueue);
             }
         }
-        public void simulateTaxiway(Aircraft aircraft)
+        public void SimulateTaxiway(Aircraft aircraft)
         {
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;

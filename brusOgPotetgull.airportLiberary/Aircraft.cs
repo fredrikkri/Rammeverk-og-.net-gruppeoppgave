@@ -35,18 +35,18 @@ namespace brusOgPotetgull.airportLiberary
         public int MaxSpeedOnGround { get; private set; }
         public int AccelerationOnGround { get; private set; }
 
-        virtual public void printAircraftInformation()
+        virtual public void PrintAircraftInformation()
         {
             Console.Write($"\nId: {Id}\n" +
                 $"Model: {Model}\n" +
                 $"Max speed: {MaxSpeedInAir}\n" +
                 $"Acceleration: {AccelerationInAir}\n");
         }
-        public void addHistoryToAircraft(int time, string anEvent)
+        public void AddHistoryToAircraft(int time, string anEvent)
         {
             history.Add(time, anEvent);
         }
-        public void printFullAircraftHistory()
+        public void PrintFullAircraftHistory()
         {
             Console.Write($"\nHistory for aircraft whith id: '{this.Id}'\n");
             // (Nagel, 2022, s. 216)

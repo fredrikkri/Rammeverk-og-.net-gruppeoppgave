@@ -27,7 +27,7 @@ namespace brusOgPotetgull.airportLiberary
         public string GateName { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
 
-        public void printGateInformation()
+        public void PrintGateInformation()
         {
             Console.Write($"\nGateNr: {Id}\n" +
                 $"Name: {GateName}\n" +
@@ -39,12 +39,12 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"{typeId} ");
             }
         }
-        public string getIdAndAirportNickname()
+        public string GetIdAndAirportNickname()
         {
             string returnString = (string) (Id + ", " + LocatedAtAirport.AirportNickname);
             return returnString;
         }
-        public void addLegalAircraftThatCanUseGate(Aircraft aircraft)
+        public void AddLegalAircraftThatCanUseGate(Aircraft aircraft)
         {
             if (!legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
             {
@@ -55,7 +55,7 @@ namespace brusOgPotetgull.airportLiberary
             }
             
         }
-        public void removeLegalAircraftThatCanUseGate(Aircraft aircraft)
+        public void RemoveLegalAircraftThatCanUseGate(Aircraft aircraft)
         {
             if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
             {
@@ -65,7 +65,7 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"Aircraft with type {aircraft.AircraftTypeId} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
             }
         }
-        public bool checkIfAircraftCanUseGate(Aircraft aircraft)
+        public bool CheckIfAircraftCanUseGate(Aircraft aircraft)
         {
             if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId)) {
                 return true;
