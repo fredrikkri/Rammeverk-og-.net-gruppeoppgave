@@ -42,13 +42,13 @@ namespace brusOgPotetgull.airportLiberary
                 $"Max speed: {MaxSpeedInAir}\n" +
                 $"Acceleration: {AccelerationInAir}\n");
         }
-        public void AddHistoryToAircraft(int time, string anEvent)
+        public void AddHistoryToAircraft(int time, string anEvent, string message)
         {
-            history.Add(time, anEvent);
+            history.Add(time, anEvent + message);
         }
         public void PrintFullAircraftHistory()
         {
-            Console.Write($"\nHistory for aircraft whith id: '{this.Id}'\n");
+            Console.Write($"\n\tHistory for aircraft whith id: '{this.Id}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
             {
