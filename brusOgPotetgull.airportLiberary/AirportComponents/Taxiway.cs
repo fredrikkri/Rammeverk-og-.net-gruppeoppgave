@@ -7,27 +7,50 @@ namespace brusOgPotetgull.airportLiberary
         private int id;
         private Queue<Aircraft> taxiwayQueue = new Queue<Aircraft>();
 
-        public Taxiway(int length, int maxSpeed)
-		{
+        public Taxiway(int length, int maxSpeed, Airport locatedAtAirport)
+        {
             // (dosnetCore, 2020)
             id = idCounter++;
             this.Id = id;
             this.Length = length;
             this.MaxSpeed = maxSpeed;
-		}
+            this.LocatedAtAirport = locatedAtAirport;
+        }
         public int Length { get; private set; }
         public int Id { get; private set; }
         public int MaxSpeed { get; private set; }
+        public Airport LocatedAtAirport { get; private set; }
 
         public void printTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\n" +
                 $"Taxiway lenght: {Length}\n");
         }
+        public string getIdAndAirportNickname()
+        {
+            string returnString = (string)(Id + ", " + LocatedAtAirport.AirportNickname);
+            return returnString;
+        }
         public void addAircraftToQueue(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(aircraft);
+        }
+        public void peekToSeIfYourAircraftIsNext(Aircraft aircraft)
+        {
+            if (taxiwayQueue.Peek() == aircraft)
+            {
+                Console.Write($"\n{aircraft.Model} is first in queue\n");
+                firstInQueueEnterTaxiway(aircraft);
+            }
+            else
+            {
+                while (taxiwayQueue.Peek() != aircraft)
+                {
+                    Console.Write("\nWaiting to be next in line to use taxiway...\n");
+                }
+            }
+
         }
         public void firstInQueueEnterTaxiway(Aircraft aircraft)
         {

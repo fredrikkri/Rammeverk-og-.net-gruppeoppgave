@@ -11,7 +11,8 @@ namespace brusOgPotetgull.airportLiberary
         public Flight(Aircraft activeAicraft, int length,
             Airport departureAirport, Airport arrivalAirport,
             Gate departureGate, Gate arrivalGate,
-            Taxiway departureTaxiway, Taxiway arrivalTaxiway)
+            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
+            Runway departureRunway, Runway arrivalRunway)
 		{
             // (dosnetCore, 2020) 
             flightId = idCounter++;
@@ -24,6 +25,8 @@ namespace brusOgPotetgull.airportLiberary
             this.ArrivalGate = arrivalGate;
             this.DepartureTaxiway = departureTaxiway;
             this.ArrivalTaxiway = arrivalTaxiway;
+            this.DepartureRunway = departureRunway;
+            this.ArrivalRunway = arrivalRunway;
         }
         public int FlightId { get; private set; }
         public int Length { get; private set; }
@@ -34,6 +37,8 @@ namespace brusOgPotetgull.airportLiberary
         public Gate ArrivalGate { get; private set; }
         public Taxiway DepartureTaxiway { get; private set; }
         public Taxiway ArrivalTaxiway { get; private set; }
+        public Runway DepartureRunway { get; private set; }
+        public Runway ArrivalRunway { get; private set; }
 
         public void printFlightInformation()
         {
@@ -41,16 +46,36 @@ namespace brusOgPotetgull.airportLiberary
                 $"Length: {Length}\n" +
                 $"Aircraft: {ActiveAicraft.Model}\n" +
                 $"Departure Airport: {DepartureAirport.Name}\n" +
-                $"Arrival Airport: {ArrivalAirport.Name}\n" +
                 $"Departure Gate: {DepartureGate.Id}\n" +
-                $"Arrival Gate: {ArrivalGate.Id}\n" +
                 $"Departure Taxiway: {DepartureTaxiway.Id}\n" +
-                $"Arrival Taxiway: {ArrivalTaxiway.Id}\n");
+                $"Departure Runway: {DepartureRunway.Id}\n" +
+                $"Arrival Airport: {ArrivalAirport.Name}\n" +
+                $"Arrival Runway: {ArrivalRunway.Id}\n" +
+                $"Arrival Taxiway: {ArrivalTaxiway.Id}\n" +
+                $"Arrival Gate: {ArrivalGate.Id}\n");
+
         }
         public void startFlight()
         {
-            Console.Write($"\nFlight from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
+            Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
 
+            ActiveAicraft.addHistoryToAircraft(1, DepartureGate.getIdAndAirportNickname());
+
+            Console.Write("\nAircraft has joined the queue for the taxiway\n");
+            DepartureTaxiway.addAircraftToQueue(ActiveAicraft);
+            DepartureTaxiway.peekToSeIfYourAircraftIsNext(ActiveAicraft);
+            ActiveAicraft.addHistoryToAircraft(2, DepartureTaxiway.getIdAndAirportNickname());
+
+            ActiveAicraft.addHistoryToAircraft(3, DepartureRunway.getIdAndAirportNickname());
+
+            ActiveAicraft.addHistoryToAircraft(4, ArrivalRunway.getIdAndAirportNickname());
+
+            ActiveAicraft.addHistoryToAircraft(5, ArrivalTaxiway.getIdAndAirportNickname());
+
+            ActiveAicraft.addHistoryToAircraft(6, ArrivalGate.getIdAndAirportNickname());
+
+            Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
+            simulateAirTime();
         }
         public void simulateAirTime()
         {

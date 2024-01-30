@@ -12,29 +12,37 @@ namespace brusOgPotetgull.airportLiberary
         // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
         private List<int> legalAircraftTypesId;
 
-		public Gate(string gateName)
+		public Gate(string gateName, Airport locatedAtAirport)
 		{
             // (dosnetCore, 2020) 
             id = idCounter++;
             this.Id = id;
             this.GateName = gateName;
+            this.LocatedAtAirport = locatedAtAirport;
             this.isOpen = true;
             this.legalAircraftTypesId = new List<int>();
 
         }
         public int Id { get; private set; }
         public string GateName { get; private set; }
+        public Airport LocatedAtAirport { get; private set; }
 
         public void printGateInformation()
         {
             Console.Write($"\nGateNr: {Id}\n" +
                 $"Name: {gateName}\n" +
-                $"IsOpen: {isOpen}\n");
+                $"IsOpen: {isOpen}\n" +
+                $"Name: {LocatedAtAirport.AirportNickname}\n");
             Console.Write("Legal aircraftstypes: ");
             foreach (int aircraft in legalAircraftTypesId)
             {
                 Console.Write($"{aircraft} ");
             }
+        }
+        public string getIdAndAirportNickname()
+        {
+            string returnString = (string) (Id + ", " + LocatedAtAirport.AirportNickname);
+            return returnString;
         }
         public void addLegalAircraftThatCanUseGate(int aircraft)
         {
