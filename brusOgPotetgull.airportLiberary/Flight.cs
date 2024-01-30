@@ -40,7 +40,7 @@ namespace brusOgPotetgull.airportLiberary
         public Runway DepartureRunway { get; private set; }
         public Runway ArrivalRunway { get; private set; }
 
-        public void printFlightInformation()
+        public void PrintFlightInformation()
         {
             Console.Write($"\nFlightId: {FlightId}\n" +
                 $"Length: {Length}\n" +
@@ -55,36 +55,7 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Gate: {ArrivalGate.Id}\n");
 
         }
-        public void startFlight()
-        {
-            // checks if the plane are adjusted for gates.
-            if (DepartureGate.checkIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.checkIfAircraftCanUseGate(ActiveAicraft) == true)
-            {
-                Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
-                ActiveAicraft.addHistoryToAircraft(1, DepartureGate.getIdAndAirportNickname());
-
-                Console.Write("\nAircraft has joined the queue for the taxiway\n");
-                DepartureTaxiway.addAircraftToQueue(ActiveAicraft);
-                DepartureTaxiway.peekToSeIfYourAircraftIsNext(ActiveAicraft);
-                ActiveAicraft.addHistoryToAircraft(2, DepartureTaxiway.getIdAndAirportNickname());
-
-                ActiveAicraft.addHistoryToAircraft(3, DepartureRunway.getIdAndAirportNickname());
-
-                ActiveAicraft.addHistoryToAircraft(4, ArrivalRunway.getIdAndAirportNickname());
-
-                ActiveAicraft.addHistoryToAircraft(5, ArrivalTaxiway.getIdAndAirportNickname());
-
-                ActiveAicraft.addHistoryToAircraft(6, ArrivalGate.getIdAndAirportNickname());
-
-                Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
-                simulateAirTime();
-            }
-            else
-            {
-                Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
-            }
-        }
-        public void simulateAirTime()
+        public void SimulateAirTime()
         {
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
@@ -97,6 +68,35 @@ namespace brusOgPotetgull.airportLiberary
                 currentSpeed += ActiveAicraft.AccelerationOnGround;
                 secondCounter++;
                 Console.WriteLine(currentSpeed);
+            }
+        }
+        public void StartFlight()
+        {
+            // checks if the plane are adjusted for gates.
+            if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
+            {
+                Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
+                ActiveAicraft.AddHistoryToAircraft(900, DepartureGate.GetIdAndAirportNickname(), ", no meesage");
+
+                Console.Write("\nAircraft has joined the queue for the taxiway\n");
+                DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
+                DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
+                ActiveAicraft.AddHistoryToAircraft(901, DepartureTaxiway.GetIdAndAirportNickname(), ", no meesage");
+
+                ActiveAicraft.AddHistoryToAircraft(902, DepartureRunway.GetIdAndAirportNickname(), ", no meesage");
+
+                ActiveAicraft.AddHistoryToAircraft(903, ArrivalRunway.GetIdAndAirportNickname(), ", no meesage");
+
+                ActiveAicraft.AddHistoryToAircraft(904, ArrivalTaxiway.GetIdAndAirportNickname(), ", no meesage");
+
+                ActiveAicraft.AddHistoryToAircraft(905, ArrivalGate.GetIdAndAirportNickname(), ", no meesage");
+
+                Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
+                SimulateAirTime();
+            }
+            else
+            {
+                Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
             }
         }
     }

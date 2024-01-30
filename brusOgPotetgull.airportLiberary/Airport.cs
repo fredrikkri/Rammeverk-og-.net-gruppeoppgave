@@ -28,7 +28,7 @@ namespace brusOgPotetgull.airportLiberary
         public string Name { get; private set; }
         public string Location { get; private set; }
 
-        public void printAirportInformation()
+        public void PrintAirportInformation()
         {
             Console.Write($"\nAirport id: {AirportId}\n" +
                 $"Airport nickname: {AirportNickname}\n" +
@@ -50,19 +50,19 @@ namespace brusOgPotetgull.airportLiberary
             }
             Console.Write("\n");
         }
-        public void addRunwayToList(Runway Runway)
+        public void AddRunwayToList(Runway Runway)
         {
             listRunway.Add(Runway);
         }
-        public void addTaxiwayToList(Taxiway Taxiway)
+        public void AddTaxiwayToList(Taxiway Taxiway)
         {
             listTaxiway.Add(Taxiway);
         }
-        public void addGateToList(Gate Gate)
+        public void AddGateToList(Gate Gate)
         {
             listGate.Add(Gate);
         }
-        public void generateRunwayNumbers(int runwayNumber)
+        public void GenerateRunwayNumbers(int runwayNumber)
         {
             // (Nagel, 2022, s. 155)
             for (int i = 0; i < runwayNumber; i++)
@@ -70,7 +70,7 @@ namespace brusOgPotetgull.airportLiberary
                 //listRunway[i] = i + 1;
             }
         }
-        public void generateTaxiwayNumbers(int TaxiwayNumber)
+        public void GenerateTaxiwayNumbers(int TaxiwayNumber)
         {
             // (Nagel, 2022, s. 155)
             for (int i = 0; i < TaxiwayNumber; i++)
@@ -78,7 +78,7 @@ namespace brusOgPotetgull.airportLiberary
                // listTaxiway[i] = i + 1;
             }
         }
-        public void generateGateNumbers(int gateNumber)
+        public void GenerateGateNumbers(int gateNumber)
         {
             // (Nagel, 2022, s. 155)
             for (int i = 0; i < gateNumber; i++)
