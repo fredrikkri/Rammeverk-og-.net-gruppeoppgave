@@ -7,22 +7,30 @@ namespace brusOgPotetgull.gruppeoppgave
     {
         static void Main(string[] args)
         {
+            
             Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 500, 30, 40, 5);
 
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");
 
-            Gate supergate = new Gate("Gate 1A");
-            Gate nissegate = new Gate("Gate 22");
+            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass);
+            Gate nissegate = new Gate("Gate 22", ryggeFlyplass);
 
-            Taxiway mediumTaxiway = new Taxiway(535, 20);
-            Taxiway longTaxiway = new Taxiway(75, 35);
+            Taxiway mediumTaxiway = new Taxiway(535, 20, GardemoenFlyplass);
+            Taxiway longTaxiway = new Taxiway(75, 35, ryggeFlyplass);
 
-            mediumTaxiway.addAircraftToQueue(cargoCraftV12);
-            mediumTaxiway.firstInQueueEnterTaxiway(cargoCraftV12);
+            Runway gammelRunway = new Runway(GardemoenFlyplass);
+            Runway slitenRunway = new Runway(ryggeFlyplass);
 
-            Flight firstFlight = new Flight(cargoCraftV12, 50000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway);
-            firstFlight.printFlightInformation();
+            //mediumTaxiway.addAircraftToQueue(cargoCraftV12);
+            //mediumTaxiway.firstInQueueEnterTaxiway(cargoCraftV12);
+
+            Flight firstFlight = new Flight(cargoCraftV12, 50000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
+            //firstFlight.printFlightInformation();
+
+            firstFlight.startFlight();
+            cargoCraftV12.printFullAircraftHistory();
+
 
             System.Console.ReadLine();
         }
