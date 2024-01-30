@@ -57,6 +57,7 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void SimulateAirTime()
         {
+            ActiveAicraft.AddHistoryToAircraft(702, DepartureGate.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
             var currentSpeed = 0;
@@ -69,6 +70,7 @@ namespace brusOgPotetgull.airportLiberary
                 secondCounter++;
                 Console.WriteLine(currentSpeed);
             }
+            ActiveAicraft.AddHistoryToAircraft(7035, ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
         }
         public void StartFlight()
         {
@@ -76,20 +78,11 @@ namespace brusOgPotetgull.airportLiberary
             if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
             {
                 Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
-                ActiveAicraft.AddHistoryToAircraft(900, DepartureGate.GetIdAndAirportNickname(), ", no meesage");
+                ActiveAicraft.AddHistoryToAircraft(34,"Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
 
                 Console.Write("\nAircraft has joined the queue for the taxiway\n");
                 DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
                 DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
-                ActiveAicraft.AddHistoryToAircraft(901, DepartureTaxiway.GetIdAndAirportNickname(), ", no meesage");
-
-                ActiveAicraft.AddHistoryToAircraft(902, DepartureRunway.GetIdAndAirportNickname(), ", no meesage");
-
-                ActiveAicraft.AddHistoryToAircraft(903, ArrivalRunway.GetIdAndAirportNickname(), ", no meesage");
-
-                ActiveAicraft.AddHistoryToAircraft(904, ArrivalTaxiway.GetIdAndAirportNickname(), ", no meesage");
-
-                ActiveAicraft.AddHistoryToAircraft(905, ArrivalGate.GetIdAndAirportNickname(), ", no meesage");
 
                 Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
                 SimulateAirTime();
