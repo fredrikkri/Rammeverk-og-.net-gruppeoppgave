@@ -62,29 +62,5 @@ namespace brusOgPotetgull.airportLiberary
         {
             listGate.Add(Gate);
         }
-        public void GenerateRunwayNumbers(int runwayNumber)
-        {
-            // (Nagel, 2022, s. 155)
-            for (int i = 0; i < runwayNumber; i++)
-            {
-                //listRunway[i] = i + 1;
-            }
-        }
-        public void GenerateTaxiwayNumbers(int TaxiwayNumber)
-        {
-            // (Nagel, 2022, s. 155)
-            for (int i = 0; i < TaxiwayNumber; i++)
-            {
-               // listTaxiway[i] = i + 1;
-            }
-        }
-        public void GenerateGateNumbers(int gateNumber)
-        {
-            // (Nagel, 2022, s. 155)
-            for (int i = 0; i < gateNumber; i++)
-            {
-               // listGate[i] = i + 1;
-            }
-        }
     }
 }
