@@ -53,7 +53,6 @@ namespace brusOgPotetgull.airportLiberary
             {
                 Console.Write($"{aircraft} is already in list of legal aicrafts for this gate.");
             }
-            
         }
         public void RemoveLegalAircraftThatCanUseGate(Aircraft aircraft)
         {
