@@ -82,31 +82,51 @@ namespace brusOgPotetgull.airportLiberary
             ActiveAicraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
             Console.Write($"\n{ActiveAicraft.Model} has landed at runway\n");
         }
-        public void StartFlight()
+        public void StartFlight(DateTime flightDate)
         {
             // checks if the plane are adjusted for gates.
             if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
             {
-                // Start-gate
-                ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
-                Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
+                while (flightDate < DateTime.Now)
+                {
+                    // If the date it right, the flight will proceed. We dont care about seconds.
+                    if (flightDate.Year == DateTime.Now.Year &&
+                        flightDate.Month == DateTime.Now.Month &&
+                        flightDate.Hour == DateTime.Now.Hour &&
+                        flightDate.Minute == DateTime.Now.Minute)
+                    {
+                        // Start-gate
+                        ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
+                        Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
 
-                // Taxiway
-                DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
-                DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
+                        // Taxiway
+                        DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
+                        DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
 
-                // Runway
-                var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
+                        // Runway
+                        var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
 
-                // In air
-                SimulateAirTime(speedAfterTakeoff);
+                        // In air
+                        SimulateAirTime(speedAfterTakeoff);
 
-                // Arrival-gate
-                ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
+                        // Arrival-gate
+                        ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
+                    }
+                    // checks every minute to see if the date of the flight is now.
+                    Thread.Sleep(1000);
+                }
             }
             else
             {
                 Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
+            }
+        }
+        public void SetupDailyFlight(DateTime dateFlight, int numberOfDays)
+        {
+            for (int i = 0; i < numberOfDays; i++)
+            {
+                Console.Write($"\ndate of flight: {dateFlight}\n");
+                StartFlight(dateFlight.AddDays(i));
             }
         }
     }
