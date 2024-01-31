@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Net.Security;
 using System.Reflection;
 
 namespace brusOgPotetgull.airportLiberary
 {
-	public class Flight
-	{
+    public class Flight
+    {
         private static int idCounter = 1;
         private int flightId;
 
@@ -13,7 +14,7 @@ namespace brusOgPotetgull.airportLiberary
             Gate departureGate, Gate arrivalGate,
             Taxiway departureTaxiway, Taxiway arrivalTaxiway,
             Runway departureRunway, Runway arrivalRunway)
-		{
+        {
             // (dosnetCore, 2020) 
             flightId = idCounter++;
             this.FlightId = flightId;
@@ -87,6 +88,7 @@ namespace brusOgPotetgull.airportLiberary
             // checks if the plane are adjusted for gates.
             if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
             {
+
                 if (flightDate < DateTime.Now)
                 {
                     // If the date it right, the flight will proceed. We dont care about seconds.
@@ -99,6 +101,10 @@ namespace brusOgPotetgull.airportLiberary
                         Console.Write($"\n\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
                         ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
                         Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
+
+
+
+
 
                         // Taxiway
                         DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
@@ -116,20 +122,22 @@ namespace brusOgPotetgull.airportLiberary
                     // checks every minute to see if the date of the flight is now.
                     Thread.Sleep(1000);
                 }
-            }
-            else
-            {
-                Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
+
+                else
+                {
+                    Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
+                }
             }
         }
         public void SetupDailyFlight(DateTime dateFlight, int numberOfDays)
         {
             for (int i = 0; i < numberOfDays; i++)
             {
-                Console.Write($"\ndate of flight: {dateFlight}\n");
+
                 StartFlight(dateFlight.AddDays(i));
+                Console.Write($"\ndate of flight: \n" + dateFlight.AddDays(i));
+
             }
         }
     }
 }
-
