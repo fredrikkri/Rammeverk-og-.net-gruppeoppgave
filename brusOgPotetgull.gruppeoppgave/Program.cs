@@ -6,8 +6,7 @@ namespace brusOgPotetgull.gruppeoppgave
     internal class Program
     {
         static void Main(string[] args)
-        {
-            
+        {            
             Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 890, 50, 40, 5);
 
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
@@ -28,6 +27,8 @@ namespace brusOgPotetgull.gruppeoppgave
             cargoCraftV12.PrintFullAircraftHistory();
 
             firstFlight.SetupDailyFlight(DateTime.Now, 3);
+            firstFlight.SetupWeeklyFlight(DateTime.Now, 3);
+            Console.WriteLine(DateTime.Now.ToString(string));
 
             System.Console.ReadLine();
         }
