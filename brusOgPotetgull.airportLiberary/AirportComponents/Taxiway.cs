@@ -21,38 +21,61 @@ namespace brusOgPotetgull.airportLiberary
         public int MaxSpeed { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
 
+        /// <summary>
+        /// Prints the information about the taxiway.
+        /// </summary>
         public void PrintTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\n" +
                 $"Taxiway lenght: {Length}\n");
         }
+        /// <summary>
+        /// returns the id and the nickname for the airport that this taxiway is located at.
+        /// eksample: "Gate 1 GAR"
+        /// </summary>
+        /// <returns></returns>
         public string GetIdAndAirportNickname()
         {
             string returnString = (string)(Id + " " + LocatedAtAirport.AirportNickname);
             return returnString;
         }
+        /// <summary>
+        /// Adds an aircraft to the queue for the taxiway.
+        /// Parameter 'aircraft' is the aircraft that is insertet to the queue.
+        /// </summary>
+        /// <param name="aircraft"></param>
         public void AddAircraftToQueue(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(aircraft);
-            aircraft.AddHistoryToAircraft(23, "Taxiway " + GetIdAndAirportNickname(), ", Enters taxiwayqueue");
+            aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiwayqueue");
+            Console.Write($"\n{aircraft.Model} has arrived at taxiwayqueue\n");
         }
+        /// <summary>
+        /// Checks if the next aircraft in queue is the one thats passed as parameter.
+        /// </summary>
+        /// <param name="aircraft"></param>
         public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft)
         {
             if (taxiwayQueue.Peek() == aircraft)
             {
-                Console.Write($"\n{aircraft.Model} is first in queue\n");
+                Console.Write($"\n{aircraft.Model} is first in line to use taxiway\n");
                 FirstInQueueEnterTaxiway(aircraft);
             }
             else
             {
                 while (taxiwayQueue.Peek() != aircraft)
                 {
-                    Console.Write("\nWaiting to be next in line to use taxiway...\n");
+                    Console.Write($"\n{aircraft.Model} waiting to be next in line to use taxiway...\n");
                 }
             }
 
         }
+        /// <summary>
+        /// if there is aircrafts in the taxiwayqueue, then the first aircraft in queue will enter the taxiway.
+        /// parameter 'aircraft' is the aircraft that will enter the taxiway.
+        /// </summary>
+        /// <param name="aircraft"></param>
         public void FirstInQueueEnterTaxiway(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
@@ -60,13 +83,19 @@ namespace brusOgPotetgull.airportLiberary
             {
                 var nextAircraftInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                aircraft.AddHistoryToAircraft(2, "Taxiway " + GetIdAndAirportNickname(), ", Leaves taxiwayqueue");
+                aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
+                Console.Write($"\n{aircraft.Model} has arrived at taxiway\n");
                 SimulateTaxiway(nextAircraftInQueue);
             }
         }
+        /// <summary>
+        /// Simulates the use of a taxiway.
+        /// parameter 'aircraft' is the aircraft that is using the taxiway with the simulation.
+        /// </summary>
+        /// <param name="aircraft"></param>
         public void SimulateTaxiway(Aircraft aircraft)
         {
-            aircraft.AddHistoryToAircraft(3, "Taxiway " + GetIdAndAirportNickname(), ", Enters taxiway");
+            aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
             var currentSpeed = 0;
@@ -84,9 +113,11 @@ namespace brusOgPotetgull.airportLiberary
                     currentSpeed += aircraft.AccelerationOnGround;
                 }
                 secondCounter++;
-                Console.WriteLine(currentSpeed);
+                Thread.Sleep(50);
+                Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
-            aircraft.AddHistoryToAircraft(4, GetIdAndAirportNickname(), ", Leaves taxiway");
+            aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Left taxiway");
+            Console.Write($"\n{aircraft.Model} has left taxiway\n");
         }
     }
 }

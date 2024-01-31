@@ -7,7 +7,7 @@ namespace brusOgPotetgull.airportLiberary
         private int id;
         private int aircraftTypeId = 0;
         // (Trupja, 2023)
-        Dictionary<int, string> history;
+        Dictionary<DateTime, string> history;
 
         public Aircraft(string model,
             int maxSpeedInAir,
@@ -20,7 +20,7 @@ namespace brusOgPotetgull.airportLiberary
             this.Id = id;
             this.AircraftTypeId = aircraftTypeId;
             this.Model = model;
-            history = new Dictionary<int, string>();
+            history = new Dictionary<DateTime, string>();
             this.MaxSpeedInAir = maxSpeedInAir;
             this.AccelerationInAir = accelerationInAir;
             this.MaxSpeedOnGround = maxSpeedOnGround;
@@ -35,6 +35,9 @@ namespace brusOgPotetgull.airportLiberary
         public int MaxSpeedOnGround { get; private set; }
         public int AccelerationOnGround { get; private set; }
 
+        /// <summary>
+        /// Prints the information about the Aircraft.
+        /// </summary>
         virtual public void PrintAircraftInformation()
         {
             Console.Write($"\nId: {Id}\n" +
@@ -42,10 +45,20 @@ namespace brusOgPotetgull.airportLiberary
                 $"Max speed: {MaxSpeedInAir}\n" +
                 $"Acceleration: {AccelerationInAir}\n");
         }
-        public void AddHistoryToAircraft(int time, string anEvent, string message)
+        /// <summary>
+        /// logging an event to the history of the aircraft.
+        /// 'time' is when the event took place.
+        /// 'message' is where the plane was and the action of the plane.
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="message"></param>
+        public void AddHistoryToAircraft(string time, string message)
         {
-            history.Add(time, anEvent + message);
+            history.Add(DateTime.Now, time + message);
         }
+        /// <summary>
+        /// Prints the full history of the plane.
+        /// </summary>
         public void PrintFullAircraftHistory()
         {
             Console.Write($"\n\tHistory for aircraft whith id: '{this.Id}'\n");

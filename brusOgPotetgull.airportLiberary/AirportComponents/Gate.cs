@@ -27,6 +27,9 @@ namespace brusOgPotetgull.airportLiberary
         public string GateName { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
 
+        /// <summary>
+        /// Prints the information about the gate.
+        /// </summary>
         public void PrintGateInformation()
         {
             Console.Write($"\nGateNr: {Id}\n" +
@@ -39,11 +42,20 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"{typeId} ");
             }
         }
+        /// <summary>
+        /// returns the id and the nickname for the airport that this gate is located at.
+        /// </summary>
+        /// <returns></returns>
         public string GetIdAndAirportNickname()
         {
             string returnString = (string) (Id + " " + LocatedAtAirport.AirportNickname);
             return returnString;
         }
+        /// <summary>
+        /// Adds an aircraft that will be able to use the gate.
+        /// Parameter 'aircraft' is the aircraft that you want enable accsess for the gate.
+        /// </summary>
+        /// <param name="aircraft"></param>
         public void AddLegalAircraftThatCanUseGate(Aircraft aircraft)
         {
             if (!legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
@@ -53,8 +65,12 @@ namespace brusOgPotetgull.airportLiberary
             {
                 Console.Write($"{aircraft} is already in list of legal aicrafts for this gate.");
             }
-            
         }
+        /// <summary>
+        /// Removes an aircraft that will be able to use the gate.
+        /// Parameter 'aircraft' is the aircraft that you dont want deny accsess for the gate.
+        /// </summary>
+        /// <param name="aircraft"></param>
         public void RemoveLegalAircraftThatCanUseGate(Aircraft aircraft)
         {
             if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
@@ -65,6 +81,13 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"Aircraft with type {aircraft.AircraftTypeId} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
             }
         }
+        /// <summary>
+        /// Checks if an aircraft can use the gate.
+        /// Parameter 'aircraft' is the aircraft you want to do the check with.
+        /// Returns 'true' or 'false'.
+        /// </summary>
+        /// <param name="aircraft"></param>
+        /// <returns></returns>
         public bool CheckIfAircraftCanUseGate(Aircraft aircraft)
         {
             if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId)) {
