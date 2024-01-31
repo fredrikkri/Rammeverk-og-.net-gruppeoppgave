@@ -133,7 +133,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// Sets up daily flights.
         /// dateFlights is the date of when the flight will start.
-        /// numberOfDays is how many days after the choosen date that will contains the same flight.
+        /// numberOfDays is how many days after the choosen date that will contain the same flight.
         /// </summary>
         /// <param name="dateFlight"></param>
         /// <param name="numberOfDays"></param>
@@ -143,7 +143,6 @@ namespace brusOgPotetgull.airportLiberary
             { 
                 StartFlight(dateFlight.AddDays(i));
                 Console.Write($"\ndate of flight: \n" + dateFlight.AddDays(i));
-
             }
         }
     }
