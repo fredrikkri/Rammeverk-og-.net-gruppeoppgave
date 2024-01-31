@@ -98,24 +98,6 @@ namespace brusOgPotetgull.airportLiberary
                     Console.Write($"\n\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
                     ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
                     Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
-
-<<<<<<< Updated upstream
-                        // Taxiway
-                        DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
-                        DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
-
-                        // Runway
-                        var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
-
-                        // In air
-                        SimulateAirTime(speedAfterTakeoff);
-
-                        // Arrival-gate
-                        ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
-                    }
-                    // checks every minute to see if the date of the flight is now.
-                    Thread.Sleep(1000);
-=======
                     // Taxiway
                     DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
                     DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
@@ -128,12 +110,10 @@ namespace brusOgPotetgull.airportLiberary
 
                     // Arrival-gate
                     ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
->>>>>>> Stashed changes
                 }
                 // checks every minute to see if the date of the flight is now.
                 Thread.Sleep(1000);
             }
-
             else
             {
                 Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
@@ -143,9 +123,9 @@ namespace brusOgPotetgull.airportLiberary
         {
             for (int i = 0; i < numberOfDays; i++)
             {
-
-                StartFlight(dateFlight.AddDays(i));
-                Console.Write($"\ndate of flight: \n" + dateFlight.AddSeconds(i));
+                Thread threadDailyFlights = new Thread(StartFlight(dateFlight.AddSeconds(i)));
+                StartFlight(dateFlight.AddSeconds(i));
+                Console.Write($"\ndate of flight: \n" + dateFlight.AddSeconds(30));
 
             }
         }

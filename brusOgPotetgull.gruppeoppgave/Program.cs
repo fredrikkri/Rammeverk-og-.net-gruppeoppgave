@@ -27,7 +27,7 @@ namespace brusOgPotetgull.gruppeoppgave
             //firstFlight.StartFlight(DateTime.Now);
             cargoCraftV12.PrintFullAircraftHistory();
 
-            firstFlight.SetupDailyFlight(DateTime.Now, 4);
+            firstFlight.SetupDailyFlight(DateTime.Now, 3);
 
             System.Console.ReadLine();
         }
