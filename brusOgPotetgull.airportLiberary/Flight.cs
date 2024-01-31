@@ -87,7 +87,7 @@ namespace brusOgPotetgull.airportLiberary
             // checks if the plane are adjusted for gates.
             if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
             {
-                while (flightDate < DateTime.Now)
+                if (flightDate < DateTime.Now)
                 {
                     // If the date it right, the flight will proceed. We dont care about seconds.
                     if (flightDate.Year == DateTime.Now.Year &&
@@ -96,6 +96,7 @@ namespace brusOgPotetgull.airportLiberary
                         flightDate.Minute == DateTime.Now.Minute)
                     {
                         // Start-gate
+                        Console.Write($"\n\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
                         ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
                         Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
 
