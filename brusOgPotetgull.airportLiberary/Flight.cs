@@ -56,6 +56,10 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Gate: {ArrivalGate.Id}\n");
 
         }
+        /// <summary>
+        /// Simulates the time it takes to fly from one runway to another.
+        /// </summary>
+        /// <param name="speedAfterTakeoff"></param>
         public void SimulateAirTime(int speedAfterTakeoff)
         {
             ActiveAicraft.AddHistoryToAircraft("Runway " + DepartureRunway.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
@@ -83,6 +87,10 @@ namespace brusOgPotetgull.airportLiberary
             ActiveAicraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
             Console.Write($"\n{ActiveAicraft.Model} has landed at runway\n");
         }
+        /// <summary>
+        /// Starts a flight if the gates and the date for the flight is right.
+        /// </summary>
+        /// <param name="flightDate"></param>
         public void StartFlight(DateTime flightDate)
         {
             // checks if the plane are adjusted for gates.
@@ -122,10 +130,9 @@ namespace brusOgPotetgull.airportLiberary
         public void SetupDailyFlight(DateTime dateFlight, int numberOfDays)
         {
             for (int i = 0; i < numberOfDays; i++)
-            {
-                Thread threadDailyFlights = new Thread(StartFlight(dateFlight.AddSeconds(i)));
-                StartFlight(dateFlight.AddSeconds(i));
-                Console.Write($"\ndate of flight: \n" + dateFlight.AddSeconds(30));
+            { 
+                StartFlight(dateFlight.AddDays(i));
+                Console.Write($"\ndate of flight: \n" + dateFlight.AddDays(i));
 
             }
         }
