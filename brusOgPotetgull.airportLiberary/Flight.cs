@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Net.Security;
 using System.Reflection;
 
 namespace brusOgPotetgull.airportLiberary
 {
-	public class Flight
-	{
+    public class Flight
+    {
         private static int idCounter = 1;
         private int flightId;
 
@@ -13,7 +14,7 @@ namespace brusOgPotetgull.airportLiberary
             Gate departureGate, Gate arrivalGate,
             Taxiway departureTaxiway, Taxiway arrivalTaxiway,
             Runway departureRunway, Runway arrivalRunway)
-		{
+        {
             // (dosnetCore, 2020) 
             flightId = idCounter++;
             this.FlightId = flightId;
@@ -87,35 +88,31 @@ namespace brusOgPotetgull.airportLiberary
             // checks if the plane are adjusted for gates.
             if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
             {
-                if (flightDate < DateTime.Now)
+                // If the date it right, the flight will proceed. We dont care about seconds.
+                if (flightDate.Year == DateTime.Now.Year &&
+                    flightDate.Month == DateTime.Now.Month &&
+                    flightDate.Hour == DateTime.Now.Hour &&
+                    flightDate.Minute == DateTime.Now.Minute)
                 {
-                    // If the date it right, the flight will proceed. We dont care about seconds.
-                    if (flightDate.Year == DateTime.Now.Year &&
-                        flightDate.Month == DateTime.Now.Month &&
-                        flightDate.Hour == DateTime.Now.Hour &&
-                        flightDate.Minute == DateTime.Now.Minute)
-                    {
-                        // Start-gate
-                        Console.Write($"\n\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
-                        ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
-                        Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
+                    // Start-gate
+                    Console.Write($"\n\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
+                    ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
+                    Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
+                    // Taxiway
+                    DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
+                    DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
 
-                        // Taxiway
-                        DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
-                        DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
+                    // Runway
+                    var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
 
-                        // Runway
-                        var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
+                    // In air
+                    SimulateAirTime(speedAfterTakeoff);
 
-                        // In air
-                        SimulateAirTime(speedAfterTakeoff);
-
-                        // Arrival-gate
-                        ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
-                    }
-                    // checks every minute to see if the date of the flight is now.
-                    Thread.Sleep(1000);
+                    // Arrival-gate
+                    ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
                 }
+                // checks every minute to see if the date of the flight is now.
+                Thread.Sleep(1000);
             }
             else
             {
@@ -126,10 +123,11 @@ namespace brusOgPotetgull.airportLiberary
         {
             for (int i = 0; i < numberOfDays; i++)
             {
-                Console.Write($"\ndate of flight: {dateFlight}\n");
-                StartFlight(dateFlight.AddDays(i));
+                Thread threadDailyFlights = new Thread(StartFlight(dateFlight.AddSeconds(i)));
+                StartFlight(dateFlight.AddSeconds(i));
+                Console.Write($"\ndate of flight: \n" + dateFlight.AddSeconds(30));
+
             }
         }
     }
 }
-
