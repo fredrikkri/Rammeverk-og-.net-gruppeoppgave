@@ -22,6 +22,10 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
         }
         public new int AircraftTypeId { get; private set; }
         // (Microsoft , 2021)
+
+        /// <summary>
+        /// Prints the information about the aircraft.
+        /// </summary>
         override public void PrintAircraftInformation()
         {
             Console.Write($"\nId: {Id}\n" +

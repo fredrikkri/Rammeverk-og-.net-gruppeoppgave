@@ -89,6 +89,9 @@ namespace brusOgPotetgull.airportLiberary
         }
         /// <summary>
         /// Starts a flight if the gates and the date for the flight is right.
+        /// If the checks is ok, then the flight begins.
+        /// The function simulates every event in the timespace from when a plane picks up passengers at an gate, to when the passengers are delivered to the gate at an destination.
+        /// The function logs every event to the history of the used aircraft.
         /// </summary>
         /// <param name="flightDate"></param>
         public void StartFlight(DateTime flightDate)
@@ -127,6 +130,13 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
             }
         }
+        /// <summary>
+        /// Sets up daily flights.
+        /// dateFlights is the date of when the flight will start.
+        /// numberOfDays is how many days after the choosen date that will contains the same flight.
+        /// </summary>
+        /// <param name="dateFlight"></param>
+        /// <param name="numberOfDays"></param>
         public void SetupDailyFlight(DateTime dateFlight, int numberOfDays)
         {
             for (int i = 0; i < numberOfDays; i++)
