@@ -7,7 +7,7 @@ namespace brusOgPotetgull.airportLiberary
         private int id;
         private int aircraftTypeId = 0;
         // (Trupja, 2023)
-        Dictionary<int, string> history;
+        Dictionary<DateTime, string> history;
 
         public Aircraft(string model,
             int maxSpeedInAir,
@@ -20,7 +20,7 @@ namespace brusOgPotetgull.airportLiberary
             this.Id = id;
             this.AircraftTypeId = aircraftTypeId;
             this.Model = model;
-            history = new Dictionary<int, string>();
+            history = new Dictionary<DateTime, string>();
             this.MaxSpeedInAir = maxSpeedInAir;
             this.AccelerationInAir = accelerationInAir;
             this.MaxSpeedOnGround = maxSpeedOnGround;
@@ -42,9 +42,9 @@ namespace brusOgPotetgull.airportLiberary
                 $"Max speed: {MaxSpeedInAir}\n" +
                 $"Acceleration: {AccelerationInAir}\n");
         }
-        public void AddHistoryToAircraft(int time, string anEvent, string message)
+        public void AddHistoryToAircraft(string anEvent, string message)
         {
-            history.Add(time, anEvent + message);
+            history.Add(DateTime.Now, anEvent + message);
         }
         public void PrintFullAircraftHistory()
         {

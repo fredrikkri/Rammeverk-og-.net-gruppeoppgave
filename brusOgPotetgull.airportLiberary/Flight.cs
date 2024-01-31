@@ -55,38 +55,54 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Gate: {ArrivalGate.Id}\n");
 
         }
-        public void SimulateAirTime()
+        public void SimulateAirTime(int speedAfterTakeoff)
         {
-            ActiveAicraft.AddHistoryToAircraft(702, "Runway " + DepartureRunway.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
+            ActiveAicraft.AddHistoryToAircraft("Runway " + DepartureRunway.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
+            Console.Write($"\n{ActiveAicraft.Model} is now in the air\n");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
-            var currentSpeed = 0;
+            var currentSpeed = speedAfterTakeoff;
             int secondCounter = 0;
 
             while (remainingDistance > 0)
             {
                 remainingDistance = remainingDistance - currentSpeed;
-                currentSpeed += ActiveAicraft.AccelerationOnGround;
+                if (currentSpeed >= 0)
+                {
+                    currentSpeed += ActiveAicraft.AccelerationInAir;
+                }
+                if (currentSpeed >= ActiveAicraft.MaxSpeedInAir)
+                {
+                    currentSpeed = ActiveAicraft.MaxSpeedInAir;
+                }
                 secondCounter++;
-                Console.WriteLine(currentSpeed);
+                Thread.Sleep(5);
+                Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
-            ActiveAicraft.AddHistoryToAircraft(7035, "Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
+            ActiveAicraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
+            Console.Write($"\n{ActiveAicraft.Model} has landed at runway\n");
         }
         public void StartFlight()
         {
             // checks if the plane are adjusted for gates.
             if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
             {
-                Console.Write($"\nFlight with {ActiveAicraft.Model} from {DepartureAirport.Name} to {ArrivalAirport.Name} has started.\n");
-                ActiveAicraft.AddHistoryToAircraft(34,"Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
+                // Start-gate
+                ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
+                Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
 
-                Console.Write("\nAircraft has joined the queue for the taxiway\n");
+                // Taxiway
                 DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
                 DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
 
-                Console.Write($"\n{ActiveAicraft.Model} has taken off!\n");
-                SimulateAirTime();
-                ActiveAicraft.AddHistoryToAircraft(37, "Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
+                // Runway
+                var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
+
+                // In air
+                SimulateAirTime(speedAfterTakeoff);
+
+                // Arrival-gate
+                ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
             }
             else
             {
