@@ -35,20 +35,21 @@ namespace brusOgPotetgull.airportLiberary
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(aircraft);
-            aircraft.AddHistoryToAircraft(23, "Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiwayqueue");
+            aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiwayqueue");
+            Console.Write($"\n{aircraft.Model} has arrived at taxiwayqueue\n");
         }
         public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft)
         {
             if (taxiwayQueue.Peek() == aircraft)
             {
-                Console.Write($"\n{aircraft.Model} is first in queue\n");
+                Console.Write($"\n{aircraft.Model} is first in line to use taxiway\n");
                 FirstInQueueEnterTaxiway(aircraft);
             }
             else
             {
                 while (taxiwayQueue.Peek() != aircraft)
                 {
-                    Console.Write("\nWaiting to be next in line to use taxiway...\n");
+                    Console.Write($"\n{aircraft.Model} waiting to be next in line to use taxiway...\n");
                 }
             }
 
@@ -60,13 +61,14 @@ namespace brusOgPotetgull.airportLiberary
             {
                 var nextAircraftInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                aircraft.AddHistoryToAircraft(2, "Taxiway " + GetIdAndAirportNickname(), ", Left taxiwayqueue");
+                aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
+                Console.Write($"\n{aircraft.Model} has arrived at taxiway\n");
                 SimulateTaxiway(nextAircraftInQueue);
             }
         }
         public void SimulateTaxiway(Aircraft aircraft)
         {
-            aircraft.AddHistoryToAircraft(3, "Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
+            aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
             var currentSpeed = 0;
@@ -84,9 +86,11 @@ namespace brusOgPotetgull.airportLiberary
                     currentSpeed += aircraft.AccelerationOnGround;
                 }
                 secondCounter++;
-                Console.WriteLine(currentSpeed);
+                Thread.Sleep(50);
+                Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
-            aircraft.AddHistoryToAircraft(4, "Taxiway " + GetIdAndAirportNickname(), ", Left taxiway");
+            aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Left taxiway");
+            Console.Write($"\n{aircraft.Model} has left taxiway\n");
         }
     }
 }
