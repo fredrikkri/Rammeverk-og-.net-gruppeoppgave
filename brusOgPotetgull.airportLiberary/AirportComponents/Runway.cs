@@ -18,6 +18,10 @@ namespace brusOgPotetgull.airportLiberary
         public Airport LocatedAtAirport { get; private set; }
         public int Length { get; private set; }
 
+        /// <summary>
+        /// returns the id and the nickname for the airport that this runway is located at.
+        /// </summary>
+        /// <returns></returns>
         public string GetIdAndAirportNickname()
         {
             string returnString = (string)(Id + " " + LocatedAtAirport.AirportNickname);
