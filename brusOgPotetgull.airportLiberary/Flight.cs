@@ -102,10 +102,6 @@ namespace brusOgPotetgull.airportLiberary
                         ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
                         Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
 
-
-
-
-
                         // Taxiway
                         DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
                         DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
