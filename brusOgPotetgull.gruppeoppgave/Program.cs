@@ -8,7 +8,7 @@ namespace brusOgPotetgull.gruppeoppgave
         static void Main(string[] args)
         {
             
-            Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 890, 50, 40, 5);
+            Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 890, 50, 40, 5); cargoCraftV12.PrintAircraftInformation();
 
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");

@@ -32,6 +32,7 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
                 $"Model: {Model}\n" +
                 $"Type: Cargo aircraft\n" +
                 $"Type(id): {AircraftTypeId}\n" +
+                $"Out of service: {OutOfService}\n" +
                 $"Max speed: {MaxSpeedInAir}\n" +
                 $"Acceleration: {AccelerationInAir}\n");
         }

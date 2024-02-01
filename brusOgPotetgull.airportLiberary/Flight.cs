@@ -96,39 +96,45 @@ namespace brusOgPotetgull.airportLiberary
         /// <param name="flightDate"></param>
         public void StartFlight(DateTime flightDate)
         {
-            // checks if the plane are adjusted for gates.
-            if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
-            {
-                // If the date it right, the flight will proceed. We dont care about seconds.
-                if (flightDate.Year == DateTime.Now.Year &&
-                    flightDate.Month == DateTime.Now.Month &&
-                    flightDate.Day == DateTime.Now.Day &&
-                    flightDate.Hour == DateTime.Now.Hour &&
-                    flightDate.Minute == DateTime.Now.Minute)
+            if (ActiveAicraft.OutOfService == false) {
+                // checks if the plane are adjusted for gates.
+                if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
                 {
-                    // Start-gate
-                    Console.Write($"\n\t\t\t\t\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
-                    ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
-                    Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
-                    // Taxiway
-                    DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
-                    DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
+                    // If the date it right, the flight will proceed. We dont care about seconds.
+                    if (flightDate.Year == DateTime.Now.Year &&
+                        flightDate.Month == DateTime.Now.Month &&
+                        flightDate.Day == DateTime.Now.Day &&
+                        flightDate.Hour == DateTime.Now.Hour &&
+                        flightDate.Minute == DateTime.Now.Minute)
+                    {
+                        // Start-gate
+                        Console.Write($"\n\t\t\t\t\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
+                        ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
+                        Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
+                        // Taxiway
+                        DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
+                        DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
 
-                    // Runway
-                    var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
+                        // Runway
+                        var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
 
-                    // In air
-                    SimulateAirTime(speedAfterTakeoff);
+                        // In air
+                        SimulateAirTime(speedAfterTakeoff);
 
-                    // Arrival-gate
-                    ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
+                        // Arrival-gate
+                        ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
+                    }
+                    // checks every minute to see if the date of the flight is now.
+                    Thread.Sleep(1000);
                 }
-                // checks every minute to see if the date of the flight is now.
-                Thread.Sleep(1000);
+                else
+                {
+                    Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
+                }
             }
             else
             {
-                Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
+                Console.Write($"\nFlight with id '{flightId}': The Flight is out of service. The flight cannot be done...\n");
             }
         }
         /// <summary>
@@ -146,6 +152,13 @@ namespace brusOgPotetgull.airportLiberary
                 StartFlight(dateFlight.AddDays(i));
             }
         }
+        /// <summary>
+        /// Sets up weekly flights.
+        /// dateFlights is the date of when the flight will start.
+        /// numberOfWeeks is how many weeks after the choosen date that will contain the same flight.
+        /// </summary>
+        /// <param name="dateFlight"></param>
+        /// <param name="numberOfWeeks"></param>
         public void SetupWeeklyFlight(DateTime dateFlight, int numberOfWeeks)
         {
             for (int i = 0; i < numberOfWeeks; i++)
@@ -154,6 +167,13 @@ namespace brusOgPotetgull.airportLiberary
                 StartFlight(dateFlight.AddDays(i + (6 * i)));
             }
         }
+        /// <summary>
+        /// Sets up monthly flights.
+        /// dateFlights is the date of when the flight will start.
+        /// numberOfMonths is how many months after the choosen date that will contain the same flight.
+        /// </summary>
+        /// <param name="dateFlight"></param>
+        /// <param name="numberOfMonths"></param>
         public void SetupMonthlyFlight(DateTime dateFlight, int numberOfMonths)
         {
             for (int i = 0; i < numberOfMonths; i++)
