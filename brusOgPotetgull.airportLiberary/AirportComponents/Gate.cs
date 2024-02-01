@@ -53,7 +53,7 @@ namespace brusOgPotetgull.airportLiberary
         }
         /// <summary>
         /// Adds an aircraft that will be able to use the gate.
-        /// Parameter 'aircraft' is the aircraft that you want enable accsess for the gate.
+        /// Parameter 'aircraft' is the aircraft that you want to enable accsess for the gate.
         /// </summary>
         /// <param name="aircraft"></param>
         public void AddLegalAircraftThatCanUseGate(Aircraft aircraft)
@@ -61,14 +61,15 @@ namespace brusOgPotetgull.airportLiberary
             if (!legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
             {
                 legalAircraftTypesId.Add(aircraft.AircraftTypeId);
-            } else
+            }
+            else
             {
                 Console.Write($"{aircraft} is already in list of legal aicrafts for this gate.");
             }
         }
         /// <summary>
-        /// Removes an aircraft that will be able to use the gate.
-        /// Parameter 'aircraft' is the aircraft that you dont want deny accsess for the gate.
+        /// Removes an aircraft from being able to use the gate.
+        /// Parameter 'aircraft' is the aircraft that you want to deny accsess to the gate.
         /// </summary>
         /// <param name="aircraft"></param>
         public void RemoveLegalAircraftThatCanUseGate(Aircraft aircraft)
@@ -76,21 +77,23 @@ namespace brusOgPotetgull.airportLiberary
             if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
             {
                 legalAircraftTypesId.Remove(aircraft.AircraftTypeId);
-            } else
+            }
+            else
             {
                 Console.Write($"Aircraft with type {aircraft.AircraftTypeId} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
             }
         }
         /// <summary>
         /// Checks if an aircraft can use the gate.
-        /// Parameter 'aircraft' is the aircraft you want to do the check with.
-        /// Returns 'true' or 'false'.
+        /// Parameter 'aircraft' is the aircraft you want to check if it has access or not.
+        /// Returns 'true' if it has access or 'false' if it does not.
         /// </summary>
         /// <param name="aircraft"></param>
         /// <returns></returns>
         public bool CheckIfAircraftCanUseGate(Aircraft aircraft)
         {
-            if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId)) {
+            if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
+            {
                 return true;
             }
             else

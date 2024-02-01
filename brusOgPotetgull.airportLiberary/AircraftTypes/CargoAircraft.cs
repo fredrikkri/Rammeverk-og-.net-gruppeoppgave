@@ -24,7 +24,7 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
         // (Microsoft , 2021)
 
         /// <summary>
-        /// Prints the information about the aircraft.
+        /// Prints the information about the aircraft as a string.
         /// </summary>
         override public void PrintAircraftInformation()
         {
