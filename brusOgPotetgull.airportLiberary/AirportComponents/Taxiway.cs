@@ -89,7 +89,8 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
         /// <summary>
-        /// Simulates the use of a taxiway.
+        /// Simulates the time an aircraft spends on the taxiway. Based on the length of the taxiway,
+        /// acceleration and maxspeed of the aircraft on the ground defined by the aricraft object.
         /// parameter 'aircraft' is the aircraft that is using the taxiway with the simulation.
         /// </summary>
         /// <param name="aircraft"></param>
