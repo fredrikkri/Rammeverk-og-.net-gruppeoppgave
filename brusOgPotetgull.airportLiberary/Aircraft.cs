@@ -61,7 +61,7 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         public void PrintFullAircraftHistory()
         {
-            Console.Write($"\n\tHistory for aircraft whith id: '{this.Id}'\n");
+            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.Id}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
             {

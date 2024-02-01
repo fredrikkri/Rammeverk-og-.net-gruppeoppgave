@@ -24,9 +24,7 @@ namespace brusOgPotetgull.gruppeoppgave
 
             Flight firstFlight = new Flight(cargoCraftV12, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
 
-            firstFlight.StartFlight(DateTime.Now);
-
-            firstFlight.SetupDailyFlight(DateTime.Now, 3);
+            firstFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
             cargoCraftV12.PrintFullAircraftHistory();
 
             System.Console.ReadLine();

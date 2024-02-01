@@ -102,11 +102,12 @@ namespace brusOgPotetgull.airportLiberary
                 // If the date it right, the flight will proceed. We dont care about seconds.
                 if (flightDate.Year == DateTime.Now.Year &&
                     flightDate.Month == DateTime.Now.Month &&
+                    flightDate.Day == DateTime.Now.Day &&
                     flightDate.Hour == DateTime.Now.Hour &&
                     flightDate.Minute == DateTime.Now.Minute)
                 {
                     // Start-gate
-                    Console.Write($"\n\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
+                    Console.Write($"\n\t\t\t\t\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
                     ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
                     Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
                     // Taxiway
@@ -140,9 +141,10 @@ namespace brusOgPotetgull.airportLiberary
         public void SetupDailyFlight(DateTime dateFlight, int numberOfDays)
         {
             for (int i = 0; i < numberOfDays; i++)
-            { 
+            {
+                Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddDays(i));
                 StartFlight(dateFlight.AddDays(i));
-                Console.Write($"\ndate of flight: \n" + dateFlight.AddDays(i));
+                
             }
         }
     }
