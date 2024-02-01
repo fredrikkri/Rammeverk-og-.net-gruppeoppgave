@@ -124,7 +124,10 @@ namespace brusOgPotetgull.airportLiberary
             {
                 isAvailable = false;
                 aircraft.AddHistoryToAircraft("Gate " + GetIdAndAirportNickname(), ", Arrived at Gate");
-            } 
+            } else
+            {
+                Console.Write($"Gate with id: {Id}, is already booked. You cannot book this gate.");
+            }
         }
     }
 }

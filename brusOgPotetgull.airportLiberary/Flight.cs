@@ -120,7 +120,6 @@ namespace brusOgPotetgull.airportLiberary
                         SimulateAirTime(speedAfterTakeoff);
                         // Arrival-gate
                         ArrivalGate.bookGate(ActiveAicraft);
-                        
                     }
                 }
                 else
