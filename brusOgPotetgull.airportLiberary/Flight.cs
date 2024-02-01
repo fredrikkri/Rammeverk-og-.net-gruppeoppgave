@@ -82,7 +82,7 @@ namespace brusOgPotetgull.airportLiberary
                 }
                 secondCounter++;
                 Thread.Sleep(5);
-                Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
+                //Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
             ActiveAicraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
             Console.Write($"\n{ActiveAicraft.Model} has landed at runway\n");
@@ -94,7 +94,7 @@ namespace brusOgPotetgull.airportLiberary
         /// The function logs every event to the history of the used aircraft.
         /// </summary>
         /// <param name="flightDate"></param>
-        public void StartFlight(DateTime flightDate)
+        public void SetupFlight(DateTime flightDate)
         {
             if (ActiveAicraft.OutOfService == false) {
                 // checks if the plane are adjusted for gates.
@@ -144,7 +144,7 @@ namespace brusOgPotetgull.airportLiberary
             for (int i = 0; i < numberOfDays; i++)
             {
                 Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddDays(i));
-                StartFlight(dateFlight.AddDays(i));
+                SetupFlight(dateFlight.AddDays(i));
             }
         }
         /// <summary>
@@ -159,7 +159,7 @@ namespace brusOgPotetgull.airportLiberary
             for (int i = 0; i < numberOfWeeks; i++)
             {
                 Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddDays(i + (6 * i)));
-                StartFlight(dateFlight.AddDays(i + (6 * i)));
+                SetupFlight(dateFlight.AddDays(i + (6 * i)));
             }
         }
         /// <summary>
@@ -174,7 +174,7 @@ namespace brusOgPotetgull.airportLiberary
             for (int i = 0; i < numberOfMonths; i++)
             {
                 Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddMonths(i));
-                StartFlight(dateFlight.AddDays(i));
+                SetupFlight(dateFlight.AddDays(i));
             }
         }
     }
