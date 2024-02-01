@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace brusOgPotetgull.airportLiberary
 {
 	public class Aircraft
@@ -57,9 +59,20 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         /// <param name="time"></param>
         /// <param name="message"></param>
-        public void AddHistoryToAircraft(string time, string message)
+        public void AddHistoryToAircraft(string location, string message)
         {
-            history.Add(DateTime.Now, time + message);
+            history.Add(DateTime.Now, (location + message));
+        }
+        /// <summary>
+        /// Returns a string that contains the previous location of the plane. Value of the return can be "Gate", "Runway" or "Taxiway".
+        /// </summary>
+        /// <returns></returns>
+        public string checkPreviousLocation()
+        {
+            var last = history.Values.Last();
+            string[] singleWord = last.Split(" ");
+            string firstWord = singleWord.First();
+            return firstWord;
         }
         /// <summary>
         /// Prints the full history of the plane.
@@ -70,7 +83,7 @@ namespace brusOgPotetgull.airportLiberary
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
             {
-                Console.WriteLine($"Time: {line.Key}, {line.Value}");
+                Console.WriteLine($"{line.Key}, {line.Value}");
             }
         }
         /// <summary>
