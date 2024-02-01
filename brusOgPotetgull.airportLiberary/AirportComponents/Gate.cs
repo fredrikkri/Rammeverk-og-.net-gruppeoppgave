@@ -8,7 +8,8 @@ namespace brusOgPotetgull.airportLiberary
 	{
         private static int idCounter = 1;
         private int id;
-        private bool isOpen = true;
+        private bool isOpen;
+        private bool isAvailable;
         // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
         private List<int> legalAircraftTypesId;
 
@@ -20,6 +21,7 @@ namespace brusOgPotetgull.airportLiberary
             this.GateName = gateName;
             this.LocatedAtAirport = locatedAtAirport;
             this.isOpen = true;
+            this.isAvailable = true;
             this.legalAircraftTypesId = new List<int>();
 
         }
@@ -100,6 +102,29 @@ namespace brusOgPotetgull.airportLiberary
             {
                 return false;
             }
+        }
+        /// <summary>
+        ///  An aircraft leaves the gate. And saves it in aircrafthistory. The gate is now avalible for other aircrafts.
+        ///  Parameter 'aircraft' is the plane that is going to leave the gate.
+        /// </summary>
+        /// <param name="aircraft"></param>
+        public void leaveGate(Aircraft aircraft)
+        {
+            isAvailable = true;
+            aircraft.AddHistoryToAircraft("Gate " + GetIdAndAirportNickname(), ", Left Gate");
+        }
+        /// <summary>
+        /// An aircraft occupies a gate. And saves it in aircrafthistory. The gate is now unavalible for other aircrafts to use it.
+        /// Parameter 'aircraft' is the plane that is going to book the gate.
+        /// </summary>
+        /// <param name="aircraft"></param>
+        public void bookGate(Aircraft aircraft)
+        {
+            if (isAvailable == true)
+            {
+                isAvailable = false;
+                aircraft.AddHistoryToAircraft("Gate " + GetIdAndAirportNickname(), ", Arrived at Gate");
+            } 
         }
     }
 }

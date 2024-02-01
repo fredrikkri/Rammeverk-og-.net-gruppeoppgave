@@ -28,13 +28,15 @@ namespace brusOgPotetgull.gruppeoppgave
             Flight coolFlight = new Flight(superPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
             Flight coolFlight2 = new Flight(sickPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
 
-            coolFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
-            coolFlight2.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
-            firstFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
+            coolFlight.StartFlight(DateTime.Now);
 
-            cargoCraftV12.PrintFullAircraftHistory();
+            //coolFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
+            //coolFlight2.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
+            //firstFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
 
-            cargoCraftV12.checkPreviousLocation();
+            superPlane.PrintFullAircraftHistory();
+
+            //cargoCraftV12.checkPreviousLocation();
 
             System.Console.ReadLine();
         }

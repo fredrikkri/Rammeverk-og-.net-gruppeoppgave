@@ -107,25 +107,21 @@ namespace brusOgPotetgull.airportLiberary
                         flightDate.Hour == DateTime.Now.Hour &&
                         flightDate.Minute == DateTime.Now.Minute)
                     {
-                        // Start-gate
                         Console.Write($"\n\t\t\t\t\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
-                        ActiveAicraft.AddHistoryToAircraft("Gate " + DepartureGate.GetIdAndAirportNickname(), ", Left Gate");
-                        Console.Write($"\n{ActiveAicraft.Model} has Left Gate\n");
+
+                        // Start-gate
+                        DepartureGate.leaveGate(ActiveAicraft);
                         // Taxiway
                         DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
                         DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
-
                         // Runway
                         var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
-
                         // In air
                         SimulateAirTime(speedAfterTakeoff);
-
                         // Arrival-gate
-                        ActiveAicraft.AddHistoryToAircraft("Gate " + ArrivalGate.GetIdAndAirportNickname(), ", Arrived at Gate");
+                        ArrivalGate.bookGate(ActiveAicraft);
+                        
                     }
-                    // checks every minute to see if the date of the flight is now.
-                    Thread.Sleep(1000);
                 }
                 else
                 {
