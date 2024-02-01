@@ -53,34 +53,34 @@ namespace brusOgPotetgull.airportLiberary
         }
         /// <summary>
         /// Adds an aircraft that will be able to use the gate.
-        /// Parameter 'aircraft' is the aircraft that you want to enable accsess for the gate.
+        /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to enable accsess for the gate.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void AddLegalAircraftThatCanUseGate(Aircraft aircraft)
+        public void AddLegalAircraftThatCanUseGate(int aircraftTypeId)
         {
-            if (!legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
+            if (!legalAircraftTypesId.Contains(aircraftTypeId))
             {
-                legalAircraftTypesId.Add(aircraft.AircraftTypeId);
+                legalAircraftTypesId.Add(aircraftTypeId);
             }
             else
             {
-                Console.Write($"{aircraft} is already in list of legal aicrafts for this gate.");
+                Console.Write($"{aircraftTypeId} is already in list of legal aicrafts for this gate.");
             }
         }
         /// <summary>
         /// Removes an aircraft from being able to use the gate.
-        /// Parameter 'aircraft' is the aircraft that you want to deny accsess to the gate.
+        /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to deny accsess to the gate.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void RemoveLegalAircraftThatCanUseGate(Aircraft aircraft)
+        public void RemoveLegalAircraftThatCanUseGate(int aircraftTypeId)
         {
-            if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
+            if (legalAircraftTypesId.Contains(aircraftTypeId))
             {
-                legalAircraftTypesId.Remove(aircraft.AircraftTypeId);
+                legalAircraftTypesId.Remove(aircraftTypeId);
             }
             else
             {
-                Console.Write($"Aircraft with type {aircraft.AircraftTypeId} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
+                Console.Write($"Aircraft with type {aircraftTypeId} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
             }
         }
         /// <summary>
