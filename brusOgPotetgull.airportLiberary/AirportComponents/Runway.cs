@@ -42,7 +42,7 @@ namespace brusOgPotetgull.airportLiberary
                 currentSpeed += aircraft.AccelerationOnGround;
                 secondCounter++;
                 Thread.Sleep(10);
-                Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
+                //Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
             aircraft.AddHistoryToAircraft("Runway " + GetIdAndAirportNickname(), $", Taken off and left the airport");
             Console.Write($"\n{aircraft.Model} has taken off and left the airport\n");

@@ -115,7 +115,7 @@ namespace brusOgPotetgull.airportLiberary
                 }
                 secondCounter++;
                 Thread.Sleep(50);
-                Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
+                //Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
             aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Left taxiway");
             Console.Write($"\n{aircraft.Model} has left taxiway\n");
