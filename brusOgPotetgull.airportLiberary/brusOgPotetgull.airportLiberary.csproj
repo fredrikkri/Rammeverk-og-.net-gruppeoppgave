@@ -9,11 +9,9 @@
   <ItemGroup>
     <None Remove="AircraftTypes\" />
     <None Remove="AirportComponents\" />
-    <None Remove="Simulation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AircraftTypes\" />
     <Folder Include="AirportComponents\" />
-    <Folder Include="Simulation\" />
   </ItemGroup>
 </Project>
