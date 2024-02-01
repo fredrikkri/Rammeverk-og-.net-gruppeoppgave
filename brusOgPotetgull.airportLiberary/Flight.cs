@@ -144,7 +144,6 @@ namespace brusOgPotetgull.airportLiberary
             {
                 Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddDays(i));
                 StartFlight(dateFlight.AddDays(i));
-                
             }
         }
         public void SetupWeeklyFlight(DateTime dateFlight, int numberOfWeeks)
@@ -153,7 +152,14 @@ namespace brusOgPotetgull.airportLiberary
             {
                 Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddDays(i + (6 * i)));
                 StartFlight(dateFlight.AddDays(i + (6 * i)));
-
+            }
+        }
+        public void SetupMonthlyFlight(DateTime dateFlight, int numberOfMonths)
+        {
+            for (int i = 0; i < numberOfMonths; i++)
+            {
+                Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddMonths(i));
+                StartFlight(dateFlight.AddDays(i));
             }
         }
     }
