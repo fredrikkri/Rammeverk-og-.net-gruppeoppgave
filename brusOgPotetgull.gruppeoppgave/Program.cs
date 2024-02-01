@@ -26,6 +26,7 @@ namespace brusOgPotetgull.gruppeoppgave
 
             firstFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
             cargoCraftV12.PrintFullAircraftHistory();
+            cargoCraftV12.PrintAircraftHistoryForDay(2024,2,1);
 
             System.Console.ReadLine();
         }
