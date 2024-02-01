@@ -55,12 +55,12 @@ namespace brusOgPotetgull.airportLiberary
         /// Checks if the next aircraft in queue is the one thats passed as parameter.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft)
+        public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft, Runway runway)
         {
             if (taxiwayQueue.Peek() == aircraft)
             {
                 Console.Write($"\n{aircraft.Model} is first in line to use taxiway\n");
-                FirstInQueueEnterTaxiway(aircraft);
+                FirstInQueueEnterTaxiway(aircraft, runway);
             }
             else
             {
@@ -76,11 +76,13 @@ namespace brusOgPotetgull.airportLiberary
         /// parameter 'aircraft' is the aircraft that will enter the taxiway.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void FirstInQueueEnterTaxiway(Aircraft aircraft)
+        public void FirstInQueueEnterTaxiway(Aircraft aircraft, Runway runway)
         {
             // (Nagel, 2022, s. 203)
             if (taxiwayQueue.Count >= 1)
             {
+                //runway.UseRunway();
+
                 var nextAircraftInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
                 aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
