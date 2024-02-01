@@ -113,5 +113,17 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write("\nThe aircraft is already in operation.\n");
             }
         }
+        public void PrintAircraftHistoryForDay(int year, int month, int day)
+        {
+            DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
+            DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
+            foreach (var line in history)
+            {
+                if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
+                {
+                    Console.WriteLine($"Time: {line.Key}, {line.Value}");                  
+                }
+            }
+        }
     }
 }

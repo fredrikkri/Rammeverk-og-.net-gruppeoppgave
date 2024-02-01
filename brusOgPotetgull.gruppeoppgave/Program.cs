@@ -30,9 +30,14 @@ namespace brusOgPotetgull.gruppeoppgave
 
             coolFlight.StartFlight(DateTime.Now);
 
+
             //coolFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
             //coolFlight2.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
             //firstFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
+
+            //cargoCraftV12.PrintFullAircraftHistory();
+            //cargoCraftV12.PrintAircraftHistoryForDay(2024,2,1);
+
 
             superPlane.PrintFullAircraftHistory();
 
