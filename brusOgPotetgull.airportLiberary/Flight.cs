@@ -113,7 +113,7 @@ namespace brusOgPotetgull.airportLiberary
                         DepartureGate.leaveGate(ActiveAicraft);
                         // Taxiway
                         DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
-                        DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft);
+                        DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft, DepartureRunway);
                         // Runway
                         var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
                         // In air

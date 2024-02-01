@@ -5,6 +5,7 @@ namespace brusOgPotetgull.airportLiberary
 	{
         private static int idCounter = 1;
         private int id;
+        private bool inUse;
 
         public Runway(Airport locatedAtAirport, int length)
         {
@@ -13,6 +14,7 @@ namespace brusOgPotetgull.airportLiberary
             Id = id;
             this.LocatedAtAirport = locatedAtAirport;
             this.Length = length;
+            this.inUse = false;
         }
         public int Id { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
@@ -47,6 +49,14 @@ namespace brusOgPotetgull.airportLiberary
             aircraft.AddHistoryToAircraft("Runway " + GetIdAndAirportNickname(), $", Taken off and left the airport");
             Console.Write($"\n{aircraft.Model} has taken off and left the airport\n");
             return currentSpeed;
+        }
+        public void UseRunway()
+        {
+            inUse = true;
+        }
+        public void ExitRunway()
+        {
+            inUse = false;
         }
     }
 }
