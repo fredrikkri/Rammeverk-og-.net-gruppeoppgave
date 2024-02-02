@@ -37,7 +37,7 @@ namespace brusOgPotetgull.airportLiberary
             Console.Write($"\nGateNr: {Id}\n" +
                 $"Name: {GateName}\n" +
                 $"IsOpen: {isOpen}\n" +
-                $"Name: {LocatedAtAirport.AirportNickname}\n");
+                $"Name: {LocatedAtAirport.AirportCode}\n");
             Console.Write("Legal aircraftstypes: ");
             foreach (int typeId in legalAircraftTypesId)
             {
@@ -50,7 +50,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <returns></returns>
         public string GetIdAndAirportNickname()
         {
-            string returnString = (string) (Id + " " + LocatedAtAirport.AirportNickname);
+            string returnString = (string) (Id + " " + LocatedAtAirport.AirportCode);
             return returnString;
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace brusOgPotetgull.airportLiberary
         /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to enable accsess for the gate.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void AddLegalAircraftThatCanUseGate(int aircraftTypeId)
+        public void AddAircraftAllowedAtGate(int aircraftTypeId)
         {
             if (!legalAircraftTypesId.Contains(aircraftTypeId))
             {
@@ -74,7 +74,7 @@ namespace brusOgPotetgull.airportLiberary
         /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to deny accsess to the gate.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void RemoveLegalAircraftThatCanUseGate(int aircraftTypeId)
+        public void RemoveAircraftAllowedAtGate(int aircraftTypeId)
         {
             if (legalAircraftTypesId.Contains(aircraftTypeId))
             {
@@ -92,7 +92,7 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         /// <param name="aircraft"></param>
         /// <returns></returns>
-        public bool CheckIfAircraftCanUseGate(Aircraft aircraft)
+        public bool CheckAircraftAllowedAtGate(Aircraft aircraft)
         {
             if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
             {

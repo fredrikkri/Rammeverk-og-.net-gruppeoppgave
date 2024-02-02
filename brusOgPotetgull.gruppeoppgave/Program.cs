@@ -14,8 +14,8 @@ namespace brusOgPotetgull.gruppeoppgave
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");
 
-            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass); supergate.AddLegalAircraftThatCanUseGate(cargoCraftV12.AircraftTypeId); supergate.AddLegalAircraftThatCanUseGate(superPlane.AircraftTypeId);
-            Gate nissegate = new Gate("Gate 22", ryggeFlyplass); nissegate.AddLegalAircraftThatCanUseGate(cargoCraftV12.AircraftTypeId); nissegate.AddLegalAircraftThatCanUseGate(superPlane.AircraftTypeId);
+            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass); supergate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); supergate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+            Gate nissegate = new Gate("Gate 22", ryggeFlyplass); nissegate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); nissegate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
 
             Taxiway mediumTaxiway = new Taxiway(535, 20, GardemoenFlyplass);
             Taxiway longTaxiway = new Taxiway(75, 35, ryggeFlyplass);
