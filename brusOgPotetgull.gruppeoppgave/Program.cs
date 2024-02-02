@@ -43,7 +43,7 @@ namespace brusOgPotetgull.gruppeoppgave
 
             superPlane.PrintFullAircraftHistory();
 
-            cargoCraftV12.CheckPreviousLocation();
+            ///cargoCraftV12.CheckPreviousLocation();
 
             System.Console.ReadLine();
         }
