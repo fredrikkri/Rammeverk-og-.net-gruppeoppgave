@@ -16,10 +16,12 @@ namespace brusOgPotetgull.airportLiberary
             this.LocatedAtAirport = locatedAtAirport;
             this.Length = length;
             this.inUse = false;
+            InUse = inUse;
         }
         public int Id { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
         public int Length { get; private set; }
+        public bool InUse { get; private set; }
 
         /// <summary>
         /// returns the id and the nickname for the airport that this runway is located at.
