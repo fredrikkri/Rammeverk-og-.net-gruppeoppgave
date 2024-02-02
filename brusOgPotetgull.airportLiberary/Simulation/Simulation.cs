@@ -14,8 +14,9 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 ///finne fly som skal lette(for loop ?)
                     ///legge dem til i kø(kom til taxebane)
 
-                if (landekø.len != 0)
+                if (airport.GetRunwayList().Count() != 0)
                 {
+
                 ///land fly 1 i kø(husk å fjærne fly)
                 ///og gå til taxebane exit
                 ///leg til kø til gate er ledig
