@@ -53,6 +53,18 @@ namespace brusOgPotetgull.airportLiberary
             }
             Console.Write("\n");
         }
+        public List<Runway> GetRunwayList()
+        {
+            return listRunway;
+        }
+        public List<Gate> GetListGates()
+        {
+            return listGate;
+        }
+        public List<Taxiway> GetListTaxiways()
+        {
+            return listTaxiway;
+        }
         /// <summary>
         /// Adds a runway to the airport.
         /// </summary>
