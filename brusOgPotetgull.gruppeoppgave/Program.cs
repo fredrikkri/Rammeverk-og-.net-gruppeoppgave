@@ -24,7 +24,7 @@ namespace brusOgPotetgull.gruppeoppgave
             Runway slitenRunway = new Runway(ryggeFlyplass, 500);
 
             Flight firstFlight = new Flight(cargoCraftV12, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
-            Flight coolFlight = new Flight(superPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
+            Flight coolFlight = new Flight(superPlane, 5000, ryggeFlyplass, GardemoenFlyplass, nissegate, supergate, longTaxiway, mediumTaxiway, slitenRunway, gammelRunway);
             Flight coolFlight2 = new Flight(sickPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
 
             coolFlight.SetupFlight(DateTime.Now);
