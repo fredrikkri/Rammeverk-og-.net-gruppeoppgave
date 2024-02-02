@@ -98,7 +98,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             if (ActiveAicraft.OutOfService == false) {
                 // checks if the plane are adjusted for gates.
-                if (DepartureGate.CheckIfAircraftCanUseGate(ActiveAicraft) && ArrivalGate.CheckIfAircraftCanUseGate(ActiveAicraft) == true)
+                if (DepartureGate.CheckAircraftAllowedAtGate(ActiveAicraft) && ArrivalGate.CheckAircraftAllowedAtGate(ActiveAicraft) == true)
                 {
                     // If the date it right, the flight will proceed. We dont care about seconds.
                     if (flightDate.Year == DateTime.Now.Year &&
