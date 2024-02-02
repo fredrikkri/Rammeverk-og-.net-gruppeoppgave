@@ -1,22 +1,32 @@
-﻿/*using System;
+﻿using System;
 namespace brusOgPotetgull.airportLiberary.Simulation
 {
 	public class Simulation
 	{
-		public Simulation(Airport airport ,int år, int måned, int dag, int time, int min)
-		{
-            DateTime datetimeObj = new DateTime(år, måned, dag, time, min)
-            while (DateTime.Now <= datetimeObj)
+        public Simulation(Airport airport, int year, int month, int day, int hour, int min)
+        {
+            DateTime datetimeEnd = new DateTime(year, month, day, hour, min, 0);
+            while (DateTime.Now <= datetimeEnd)
             {
-
-                ///finne fly som skal lande(for loop ?)
-                    ///legge dem til i kø
-                ///finne fly som skal lette(for loop ?)
-                    ///legge dem til i kø(kom til taxebane)
-
-                if (airport.GetRunwayList().Count() != 0)
+                foreach (var incommingAircraft in airport.GetInncommingAircrafts())
                 {
+                    airport.AddToInncommingAircrafts(incommingAircraft);
+                }
 
+                foreach (var departuringAircraft in airport.GetDeparturingAircrafts())
+                {
+                    airport.AddToDeparturingQueue(departuringAircraft);
+                }
+
+                    
+                    
+                    
+
+                ///finne fly som skal lette(for loop ?)
+                ///legge dem til i kø(kom til taxebane)
+
+                if (airport.GetInncommingAircrafts().Count != 0)
+                {
                 ///land fly 1 i kø(husk å fjærne fly)
                 ///og gå til taxebane exit
                 ///leg til kø til gate er ledig
@@ -29,4 +39,4 @@ namespace brusOgPotetgull.airportLiberary.Simulation
         }
 	}
 }
-*/
+
