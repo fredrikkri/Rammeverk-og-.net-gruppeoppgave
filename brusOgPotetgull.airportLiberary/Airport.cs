@@ -10,7 +10,8 @@ namespace brusOgPotetgull.airportLiberary
         private List<Runway> listRunway;
         private List<Taxiway> listTaxiway;
         private List<Gate> listGate;
-        private List<Aircraft> listIncommingAircrafts;
+        private Queue<Aircraft> incommingAircrafts;
+        private Queue<Aircraft> departuringircrafts;
 
         public Airport(string airportCode, string name, string location)
 		{
@@ -23,7 +24,8 @@ namespace brusOgPotetgull.airportLiberary
             listRunway = new List<Runway>();
             listTaxiway = new List<Taxiway>();
             listGate = new List<Gate>();
-            listIncommingAircrafts = new List<Aircraft>();
+            incommingAircrafts = new Queue<Aircraft>();
+            departuringircrafts = new Queue<Aircraft>();
         }
         public int AirportId { get; private set; }
         public string AirportCode { get; private set; }
@@ -67,10 +69,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             return listTaxiway;
         }
-        public List<Aircraft> GetListInncommingAircrafts()
-        {
-            return listIncommingAircrafts;
-        }
+        
 
         /// <summary>
         /// Adds a runway to the airport.
@@ -95,6 +94,22 @@ namespace brusOgPotetgull.airportLiberary
         public void AddGateToList(Gate Gate)
         {
             listGate.Add(Gate);
+        }
+        public Queue<Aircraft> GetInncommingAircrafts()
+        {
+            return incommingAircrafts;
+        }
+        public void AddToInncommingAircrafts(Aircraft aircraft)
+        {
+            incommingAircrafts.Enqueue(aircraft);
+        }
+        public Queue<Aircraft> GetDeparturingAircrafts()
+        {
+            return departuringircrafts;
+        }
+        public void AddToDeparturingQueue(Aircraft aircraft)
+        {
+            departuringircrafts.Enqueue(aircraft);
         }
     }
 }
