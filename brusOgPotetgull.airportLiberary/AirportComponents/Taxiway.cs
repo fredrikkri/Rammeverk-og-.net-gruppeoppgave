@@ -87,7 +87,7 @@ namespace brusOgPotetgull.airportLiberary
                 taxiwayQueue.TrimExcess();
                 aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
                 Console.Write($"\n{aircraft.Model} has arrived at taxiway\n");
-                SimulateTaxiway(nextAircraftInQueue);
+                SimulateTaxiway(nextAircraftInQueue, runway);
             }
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace brusOgPotetgull.airportLiberary
         /// parameter 'aircraft' is the aircraft that is using the taxiway with the simulation.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void SimulateTaxiway(Aircraft aircraft)
+        public void SimulateTaxiway(Aircraft aircraft, Runway runway)
         {
             aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
@@ -121,6 +121,7 @@ namespace brusOgPotetgull.airportLiberary
             }
             aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Left taxiway");
             Console.Write($"\n{aircraft.Model} has left taxiway\n");
+            runway.AddAircraftToQueue(aircraft);
         }
     }
 }

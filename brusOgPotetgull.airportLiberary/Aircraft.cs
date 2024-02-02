@@ -67,7 +67,7 @@ namespace brusOgPotetgull.airportLiberary
         /// Returns a string that contains the previous location of the plane. Value of the return can be "Gate", "Runway" or "Taxiway".
         /// </summary>
         /// <returns></returns>
-        public string checkPreviousLocation()
+        public string CheckPreviousLocation()
         {
             var last = history.Values.Last();
             string[] singleWord = last.Split(" ");
