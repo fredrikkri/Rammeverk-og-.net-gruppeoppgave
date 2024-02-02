@@ -16,6 +16,9 @@ namespace brusOgPotetgull.gruppeoppgave
 
             Gate supergate = new Gate("Gate 1A", GardemoenFlyplass); supergate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); supergate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
             Gate nissegate = new Gate("Gate 22", ryggeFlyplass); nissegate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); nissegate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+            Gate hallaGate = new Gate("Gate 90", ryggeFlyplass); hallaGate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); nissegate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+            Gate YOYOGate = new Gate("Gate 2A", GardemoenFlyplass); YOYOGate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); nissegate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+
 
             Taxiway mediumTaxiway = new Taxiway(535, 20, GardemoenFlyplass);
             Taxiway longTaxiway = new Taxiway(75, 35, ryggeFlyplass);
@@ -23,15 +26,15 @@ namespace brusOgPotetgull.gruppeoppgave
             Runway gammelRunway = new Runway(GardemoenFlyplass, 400);
             Runway slitenRunway = new Runway(ryggeFlyplass, 500);
 
-            Flight firstFlight = new Flight(cargoCraftV12, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
+            Flight firstFlight = new Flight(cargoCraftV12, 5000, GardemoenFlyplass, ryggeFlyplass, YOYOGate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
             Flight coolFlight = new Flight(superPlane, 5000, ryggeFlyplass, GardemoenFlyplass, nissegate, supergate, longTaxiway, mediumTaxiway, slitenRunway, gammelRunway);
-            Flight coolFlight2 = new Flight(sickPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
+            Flight coolFlight2 = new Flight(sickPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, hallaGate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
 
-            coolFlight.SetupFlight(DateTime.Now);
-            coolFlight2.SetupFlight(DateTime.Now);
-            firstFlight.SetupFlight(DateTime.Now);
-           
-            
+            //coolFlight.SetupFlight(DateTime.Now);
+            //coolFlight2.SetupFlight(DateTime.Now);
+            //firstFlight.SetupFlight(DateTime.Now);
+
+            GardemoenFlyplass.GetListGates().Count();
 
             coolFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
             coolFlight2.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
