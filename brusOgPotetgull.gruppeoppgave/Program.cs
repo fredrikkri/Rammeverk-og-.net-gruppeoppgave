@@ -27,7 +27,8 @@ namespace brusOgPotetgull.gruppeoppgave
             Flight coolFlight = new Flight(superPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
             Flight coolFlight2 = new Flight(sickPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
 
-            coolFlight.SetupFlight(DateTime.Now);
+            ryggeFlyplass.AddFlightToList(firstFlight);
+            //coolFlight.SetupFlight(DateTime.Now);
 
 
             //coolFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
@@ -38,7 +39,7 @@ namespace brusOgPotetgull.gruppeoppgave
             //cargoCraftV12.PrintAircraftHistoryForDay(2024,2,1);
 
 
-            superPlane.PrintFullAircraftHistory();
+            //superPlane.PrintFullAircraftHistory();
 
             //cargoCraftV12.checkPreviousLocation();
 

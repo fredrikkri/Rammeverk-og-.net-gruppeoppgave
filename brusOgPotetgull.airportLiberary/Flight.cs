@@ -8,8 +8,9 @@ namespace brusOgPotetgull.airportLiberary
     {
         private static int idCounter = 1;
         private int flightId;
+        private DateTime dateTimeFlight;
 
-        public Flight(Aircraft activeAicraft, int length,
+        public Flight(Aircraft activeAicraft, DateTime dateTimeFlight, int length,
             Airport departureAirport, Airport arrivalAirport,
             Gate departureGate, Gate arrivalGate,
             Taxiway departureTaxiway, Taxiway arrivalTaxiway,
@@ -19,6 +20,7 @@ namespace brusOgPotetgull.airportLiberary
             flightId = idCounter++;
             this.FlightId = flightId;
             this.ActiveAicraft = activeAicraft;
+            this.dateTimeFlight = dateTimeFlight;
             this.Length = length;
             this.DepartureAirport = departureAirport;
             this.ArrivalAirport = arrivalAirport;
@@ -94,18 +96,18 @@ namespace brusOgPotetgull.airportLiberary
         /// The function logs every event to the history of the used aircraft.
         /// </summary>
         /// <param name="flightDate"></param>
-        public void SetupFlight(DateTime flightDate)
+        public void SetupFlight()
         {
             if (ActiveAicraft.OutOfService == false) {
                 // checks if the plane are adjusted for gates.
                 if (DepartureGate.CheckAircraftAllowedAtGate(ActiveAicraft) && ArrivalGate.CheckAircraftAllowedAtGate(ActiveAicraft) == true)
                 {
                     // If the date it right, the flight will proceed. We dont care about seconds.
-                    if (flightDate.Year == DateTime.Now.Year &&
-                        flightDate.Month == DateTime.Now.Month &&
-                        flightDate.Day == DateTime.Now.Day &&
-                        flightDate.Hour == DateTime.Now.Hour &&
-                        flightDate.Minute == DateTime.Now.Minute)
+                    if (dateTimeFlight.Year == DateTime.Now.Year &&
+                        dateTimeFlight.Month == DateTime.Now.Month &&
+                        dateTimeFlight.Day == DateTime.Now.Day &&
+                        dateTimeFlight.Hour == DateTime.Now.Hour &&
+                        dateTimeFlight.Minute == DateTime.Now.Minute)
                     {
                         Console.Write($"\n\t\t\t\t\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
 
@@ -139,12 +141,13 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         /// <param name="dateFlight"></param>
         /// <param name="numberOfDays"></param>
-        public void SetupDailyFlight(DateTime dateFlight, int numberOfDays)
-        {
+        public void SetupDailyFlight(int numberOfDays)
+        {   
             for (int i = 0; i < numberOfDays; i++)
             {
-                Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddDays(i));
-                SetupFlight(dateFlight.AddDays(i));
+                dateTimeFlight.AddDays(i);
+                Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i));
+                SetupFlight();
             }
         }
         /// <summary>
@@ -154,12 +157,13 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         /// <param name="dateFlight"></param>
         /// <param name="numberOfWeeks"></param>
-        public void SetupWeeklyFlight(DateTime dateFlight, int numberOfWeeks)
+        public void SetupWeeklyFlight(int numberOfWeeks)
         {
             for (int i = 0; i < numberOfWeeks; i++)
             {
-                Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddDays(i + (6 * i)));
-                SetupFlight(dateFlight.AddDays(i + (6 * i)));
+                dateTimeFlight.AddDays(i + (6 * i));
+                Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i + (6 * i)));
+                SetupFlight();
             }
         }
         /// <summary>
@@ -173,8 +177,9 @@ namespace brusOgPotetgull.airportLiberary
         {
             for (int i = 0; i < numberOfMonths; i++)
             {
+                dateTimeFlight.AddDays(i);
                 Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddMonths(i));
-                SetupFlight(dateFlight.AddDays(i));
+                SetupFlight();
             }
         }
     }
