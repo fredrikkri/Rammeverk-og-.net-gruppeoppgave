@@ -6,6 +6,7 @@ namespace brusOgPotetgull.airportLiberary
         private static int idCounter = 1;
         private int id;
         private bool inUse;
+        private Queue<Aircraft> runwayQueue = new Queue<Aircraft>();
 
         public Runway(Airport locatedAtAirport, int length)
         {
@@ -29,6 +30,62 @@ namespace brusOgPotetgull.airportLiberary
             string returnString = (string)(Id + " " + LocatedAtAirport.AirportCode);
             return returnString;
         }
+        /// <summary>
+        /// Adds aircraft to runway-queue.
+        /// </summary>
+        /// <param name="aircraft"></param>
+        public void AddAircraftToQueue(Aircraft aircraft)
+        {
+            if (aircraft.CheckPreviousLocation() != "Runway")
+            {
+                // (Nagel, 2022, s. 203)
+                runwayQueue.Enqueue(aircraft);
+                aircraft.AddHistoryToAircraft("Runway " + GetIdAndAirportNickname(), ", Arrived at Runwayqueue");
+                Console.Write($"\n{aircraft.Model} has arrived at Runwayqueue\n");
+            }
+            else
+            {
+                runwayQueue.Prepend(aircraft);
+                Console.Write($"\n{aircraft.Model} is added to index 0 at: {runwayQueue}\n");
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="aircraft"></param>
+        /// <param name="runway"></param>
+        public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft)
+        {
+            if (runwayQueue.Peek() == aircraft)
+            {
+                Console.Write($"\n{aircraft.Model} is first in line to use runway\n");
+                FirstInQueueEnterRunway(aircraft);
+            }
+            else
+            {
+                while (runwayQueue.Peek() != aircraft)
+                {
+                    Console.Write($"\n{aircraft.Model} waiting to be next in line to use runway...\n");
+                }
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="aircraft"></param>
+        /// <param name="runway"></param>
+        public void FirstInQueueEnterRunway(Aircraft aircraft)
+        {
+            // (Nagel, 2022, s. 203)
+            if (runwayQueue.Count >= 1)
+            {
+                var nextAircraftInQueue = runwayQueue.Dequeue();
+                runwayQueue.TrimExcess();
+                aircraft.AddHistoryToAircraft("Taxiway " + GetIdAndAirportNickname(), ", Arrived at taxiway");
+                Console.Write($"\n{aircraft.Model} has arrived at taxiway\n");
+                SimulateTakeoff(nextAircraftInQueue);
+            }
+        }
         public int SimulateTakeoff(Aircraft aircraft)
         {
             aircraft.AddHistoryToAircraft("Runway " + GetIdAndAirportNickname(), $", Arrived at runway");
@@ -51,6 +108,16 @@ namespace brusOgPotetgull.airportLiberary
             ExitRunway();
             Console.Write($"\n{aircraft.Model} has taken off and left the airport\n");
             return currentSpeed;
+        }
+        public void SimulateLanding(Aircraft aircraft)
+        {
+            aircraft.AddHistoryToAircraft("Runway " + GetIdAndAirportNickname(), $", About to land at runway");
+            Console.Write($"\n{aircraft.Model} is about to land at runway!\n");
+            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
+            var remainingDistance = Length;
+            var currentSpeed = 0;
+            int secondCounter = 0;
+
         }
         public void UseRunway()
         {

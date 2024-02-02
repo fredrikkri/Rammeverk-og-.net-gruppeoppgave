@@ -120,6 +120,8 @@ namespace brusOgPotetgull.airportLiberary
                         var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
                         // In air
                         SimulateAirTime(speedAfterTakeoff);
+                        // Arrival runway
+
                         // Arrival-gate
                         ArrivalGate.bookGate(ActiveAicraft);
                     }

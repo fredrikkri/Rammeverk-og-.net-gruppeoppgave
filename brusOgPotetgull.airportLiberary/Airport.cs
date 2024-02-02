@@ -11,6 +11,7 @@ namespace brusOgPotetgull.airportLiberary
         private List<Taxiway> listTaxiway;
         private List<Gate> listGate;
         private List<Flight> listFlights;
+        private List<Aircraft> listIncommingAircrafts;
 
         public Airport(string airportCode, string name, string location)
 		{
@@ -24,6 +25,7 @@ namespace brusOgPotetgull.airportLiberary
             listTaxiway = new List<Taxiway>();
             listGate = new List<Gate>();
             listFlights = new List<Flight>();
+            listIncommingAircrafts = new List<Aircraft>();
         }
         public int AirportId { get; private set; }
         public string AirportCode { get; private set; }
@@ -60,6 +62,23 @@ namespace brusOgPotetgull.airportLiberary
             }
             Console.Write("\n");
         }
+        public List<Runway> GetRunwayList()
+        {
+            return listRunway;
+        }
+        public List<Gate> GetListGates()
+        {
+            return listGate;
+        }
+        public List<Taxiway> GetListTaxiways()
+        {
+            return listTaxiway;
+        }
+        public List<Aircraft> GetListInncommingAircrafts()
+        {
+            return listIncommingAircrafts;
+        }
+
         /// <summary>
         /// Adds a runway to the airport.
         /// </summary>
