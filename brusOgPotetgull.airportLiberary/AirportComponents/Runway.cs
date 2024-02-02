@@ -107,6 +107,16 @@ namespace brusOgPotetgull.airportLiberary
             Console.Write($"\n{aircraft.Model} has taken off and left the airport\n");
             return currentSpeed;
         }
+        public void SimulateLanding(Aircraft aircraft)
+        {
+            aircraft.AddHistoryToAircraft("Runway " + GetIdAndAirportNickname(), $", About to land at runway");
+            Console.Write($"\n{aircraft.Model} is about to land at runway!\n");
+            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
+            var remainingDistance = Length;
+            var currentSpeed = 0;
+            int secondCounter = 0;
+
+        }
         public void UseRunway()
         {
             inUse = true;
