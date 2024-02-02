@@ -113,6 +113,9 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write("\nThe aircraft is already in operation.\n");
             }
         }
+        /// <summary>
+        /// reads trough the list of the aircrafts history and prints out the log for that day
+        /// </summary>
         public void PrintAircraftHistoryForDay(int year, int month, int day)
         {
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
