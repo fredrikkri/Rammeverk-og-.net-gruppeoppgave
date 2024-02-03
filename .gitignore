@@ -397,20 +397,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.AssemblyInfo.cs
-brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.AssemblyInfoInputs.cache
-brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.assets.cache
-brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.GeneratedMSBuildEditorConfig.editorconfig
-brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.dll
-brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.dll
-brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.dll
-brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.pdb
-brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.gruppeoppgave.dll
-brusOgPotetgull.gruppeoppgave/bin/Debug/net8.0/brusOgPotetgull.gruppeoppgave.pdb
-brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.AssemblyInfo.cs
-brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.AssemblyInfoInputs.cache
-brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.csproj.AssemblyReference.cache
-brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.dll
-brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/brusOgPotetgull.gruppeoppgave.pdb
-brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/ref/brusOgPotetgull.gruppeoppgave.dll
-brusOgPotetgull.gruppeoppgave/obj/Debug/net8.0/refint/brusOgPotetgull.gruppeoppgave.dll
+
