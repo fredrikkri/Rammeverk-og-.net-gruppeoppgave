@@ -23,6 +23,10 @@ namespace brusOgPotetgull.airportLiberary
         public int Length { get; private set; }
         public bool InUse { get; private set; }
 
+        public void PrintRunwayInformation()
+        {
+            Console.Write($"\nRunway id: {Id}\nLocated at airport: {LocatedAtAirport}\nLength: {Length}\nIn use: {InUse}\n");
+        }
         /// <summary>
         /// returns the id and the nickname for the airport that this runway is located at.
         /// </summary>
@@ -31,6 +35,10 @@ namespace brusOgPotetgull.airportLiberary
         {
             string returnString = (string)(Id + " " + LocatedAtAirport.AirportCode);
             return returnString;
+        }
+        public Aircraft RemoveFromQueue()
+        {
+            return runwayQueue.Dequeue();
         }
         /// <summary>
         /// Adds aircraft to runway-queue.
@@ -79,7 +87,7 @@ namespace brusOgPotetgull.airportLiberary
         public void FirstInQueueEnterRunway(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
-            if (runwayQueue.Count >= 1)
+            while (runwayQueue.Count >= 1)
             {
                 var nextAircraftInQueue = runwayQueue.Dequeue();
                 runwayQueue.TrimExcess();
