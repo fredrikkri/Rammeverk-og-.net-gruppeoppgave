@@ -56,11 +56,6 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"{gate.Id} ");
             }
             Console.Write("\n");
-            foreach (Flight flight in listFlights)
-            {
-                Console.Write($"{flight.FlightId} ");
-            }
-            Console.Write("\n");
         }
         public string GetIdAndAirportNickname()
         {

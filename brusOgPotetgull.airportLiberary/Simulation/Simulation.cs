@@ -6,13 +6,14 @@ namespace brusOgPotetgull.airportLiberary.Simulation
 
 
         // Starter simuleringen 
-        public Simulation(Airport airport, int year, int month, int day, int hour, int min)
+        public Simulation(Airport airport, DateTime startTime, DateTime endTime)
         {
-            // Oppretter et objekt for å angi sluttid for simuleringens varighet
-            DateTime datetimeEnd = new DateTime(year, month, day, hour, min, 0);
+            //Angir start og slutt tid for simulasjon
+            DateTime start = startTime;
+            DateTime end = endTime;
 
-            // Simulering starter, og kjører inntil tidspunktet for endelse er større eller lik starttidspunktet
-            while (DateTime.Now <= datetimeEnd)
+            // Simulering starter ved startTime, og kjører inntil tidspunktet for endtime er <= starttime
+            while (start <= end)
             {
                 // For hver innkommende Flight i luften som ønsker å lande på rullebane...
                 if (airport.GetInncommingAircraftsQueue().Count > 0)
@@ -35,6 +36,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 }
                 else
                 {
+                    //Går igjennom departuringAircraft queue, og legger til departuringAircraft 
                     // Sjekke om det eksisterer Flight som befinner seg på Taxiway, i kø til Runway for Departure
                     foreach (var departuringAircraft in airport.GetDeparturingAircraftsQueue())
                     {
@@ -54,7 +56,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         ///lett fly 1 i kø(husk å fjerne fly) fra DeparturingQueue
                     }
                 }
-                
+                start = start.AddDays(1);
             }
         }
 	}

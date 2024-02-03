@@ -144,7 +144,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <param name="dateFlight"></param>
         /// <param name="numberOfDays"></param>
         public void SetupDailyFlight(int numberOfDays)
-        {   
+        {
             for (int i = 0; i < numberOfDays; i++)
             {
                 dateTimeFlight.AddDays(i);
@@ -168,13 +168,13 @@ namespace brusOgPotetgull.airportLiberary
                 SetupFlight();
             }
         }
-        /// <summary>
-        /// Sets up monthly flights.
-        /// dateFlights is the date of when the flight will start.
-        /// numberOfMonths is how many months after the choosen date that will contain the same flight.
-        /// </summary>
-        /// <param name="dateFlight"></param>
-        /// <param name="numberOfMonths"></param>
+            /// <summary>
+            /// Sets up monthly flights.
+            /// dateFlights is the date of when the flight will start.
+            /// numberOfMonths is how many months after the choosen date that will contain the same flight.
+            /// </summary>
+            /// <param name="dateFlight"></param>
+            /// <param name="numberOfMonths"></param>
         public void SetupMonthlyFlight(DateTime dateFlight, int numberOfMonths)
         {
             for (int i = 0; i < numberOfMonths; i++)
@@ -184,5 +184,6 @@ namespace brusOgPotetgull.airportLiberary
                 SetupFlight();
             }
         }
+        
     }
 }
