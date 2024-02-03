@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 namespace brusOgPotetgull.airportLiberary.Simulation
 {
 	public class Simulation

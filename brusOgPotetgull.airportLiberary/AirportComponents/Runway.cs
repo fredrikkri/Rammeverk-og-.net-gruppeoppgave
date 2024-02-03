@@ -79,7 +79,7 @@ namespace brusOgPotetgull.airportLiberary
         public void FirstInQueueEnterRunway(Aircraft aircraft)
         {
             // (Nagel, 2022, s. 203)
-            if (runwayQueue.Count >= 1)
+            while (runwayQueue.Count >= 1)
             {
                 var nextAircraftInQueue = runwayQueue.Dequeue();
                 runwayQueue.TrimExcess();
