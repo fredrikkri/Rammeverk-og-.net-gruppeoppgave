@@ -125,7 +125,7 @@ namespace brusOgPotetgull.airportLiberary
         }
         public void ExitRunway()
         {
-            inUse = false;
+            inUse = false; 
         }
     }
 }

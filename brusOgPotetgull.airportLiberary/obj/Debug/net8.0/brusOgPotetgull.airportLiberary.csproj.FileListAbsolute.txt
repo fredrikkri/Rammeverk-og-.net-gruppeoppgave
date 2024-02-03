@@ -10,3 +10,15 @@
 /Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/refint/brusOgPotetgull.airportLiberary.dll
 /Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.pdb
 /Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/ref/brusOgPotetgull.airportLiberary.dll
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.deps.json
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.dll
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/bin/Debug/net8.0/brusOgPotetgull.airportLiberary.pdb
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.AssemblyInfoInputs.cache
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.AssemblyInfo.cs
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.csproj.CoreCompileInputs.cache
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.sourcelink.json
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.dll
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/refint/brusOgPotetgull.airportLiberary.dll
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.pdb
+/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/Debug/net8.0/ref/brusOgPotetgull.airportLiberary.dll
