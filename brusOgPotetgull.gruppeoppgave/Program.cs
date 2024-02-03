@@ -50,8 +50,8 @@ namespace brusOgPotetgull.gruppeoppgave
             coolFlight.SetupDailyFlight(3);
             firstFlight.SetupDailyFlight(3);
 
-            ryggeFlyplass.AddToIncommingFlightsQueue(superPlane);
-            ryggeFlyplass.AddToIncommingFlightsQueue(sickPlane);
+            //ryggeFlyplass.AddToIncommingFlightsQueue(superPlane);
+            //ryggeFlyplass.AddToIncommingFlightsQueue(sickPlane);
 
 
 

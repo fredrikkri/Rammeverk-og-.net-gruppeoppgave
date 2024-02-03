@@ -27,12 +27,16 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         if (runway.InUse == false)
                         {
                             Console.Write($"{currentFlight} bruker runway");
-                            runway.AddAircraftToQueue(currentFlight.ActiveAicraft);
                             runway.UseRunway();
                             Console.Write("\nFlyet lander\n");
                             runway.SimulateLanding(currentFlight.ActiveAicraft);
                             runway.RemoveFromQueue();
-                            currentFlight.ArrivalTaxiway.AddAircraftToQueue(currentFlight.ActiveAicraft);
+                            
+                        }
+                        else
+                        {
+                            runway.AddAircraftToQueue(currentFlight.ActiveAicraft);
+                            //currentFlight.ArrivalTaxiway.AddAircraftToQueue(currentFlight.ActiveAicraft);
                         }
                     }
                 }
