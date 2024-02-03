@@ -38,13 +38,13 @@ namespace brusOgPotetgull.gruppeoppgave
             coolFlight.SetupDailyFlight(3);
             firstFlight.SetupDailyFlight(3);
 
-            ryggeFlyplass.AddToInncommingAircraftsQueue(superPlane);
-            ryggeFlyplass.AddToInncommingAircraftsQueue(sickPlane);
+            ryggeFlyplass.AddToIncommingFlightsQueue(superPlane);
+            ryggeFlyplass.AddToIncommingFlightsQueue(sickPlane);
 
 
 
-            //Aircraft currentAircraft = ryggeFlyplass.RemoveInncommingAircraftsQueue();
-            Console.Write($"This plane: \n{ryggeFlyplass.GetInncommingAircraftsQueue().Count}\n");
+            //Aircraft currentAircraft = ryggeFlyplass.RemoveIncomingFlightsQueue();
+            Console.Write($"This plane: \n{ryggeFlyplass.GetIncomingFlightsQueue().Count}\n");
 
             /*foreach (var runway in ryggeFlyplass.GetRunwayList())
             {
