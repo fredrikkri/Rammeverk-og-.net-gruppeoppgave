@@ -9,17 +9,29 @@ namespace brusOgPotetgull.gruppeoppgave
     {
         static void Main(string[] args)
         {
+            Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
+            Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");
+
             Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 890, 50, 40, 5);
             Aircraft superPlane = new LightAircraft("Cristiano Ronaldo´s Plane, siuuuuu!", 800, 56, 20, 3);
             Aircraft sickPlane = new CargoAircraft("Franceco Totti´s Plane.", 800, 56, 20, 3);
 
-            Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
-            Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");
+            
 
-            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass); supergate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); supergate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
-            Gate nissegate = new Gate("Gate 22", ryggeFlyplass); nissegate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); nissegate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass);
+            supergate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId);
+            supergate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+
+            Gate nissegate = new Gate("Gate 22", ryggeFlyplass);
+            nissegate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId);
+            nissegate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+
             Gate hallaGate = new Gate("Gate 90", ryggeFlyplass);
-            Gate YOYOGate = new Gate("Gate 2A", GardemoenFlyplass); 
+
+
+            Gate YOYOGate = new Gate("Gate 2A", GardemoenFlyplass);
+            YOYOGate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId);
+            YOYOGate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
 
             Taxiway mediumTaxiway = new Taxiway(535, 20, GardemoenFlyplass);
             Taxiway longTaxiway = new Taxiway(75, 35, ryggeFlyplass);

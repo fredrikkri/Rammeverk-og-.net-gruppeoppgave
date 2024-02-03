@@ -32,6 +32,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             Console.Write("\nFlyet lander\n");
                             runway.SimulateLanding(currentFlight.ActiveAicraft);
                             runway.RemoveFromQueue();
+                            currentFlight.ArrivalTaxiway.AddAircraftToQueue(currentFlight.ActiveAicraft);
                         }
                     }
                 }
@@ -57,6 +58,11 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         ///lett fly 1 i kø(husk å fjerne fly) fra DeparturingQueue
                     }
                 }
+                foreach (Taxiway taxiway in airport.GetListTaxiways())
+                {
+                    //taxiway.FirstInQueueEnterTaxiway(airport.GetDeparturingFlightsQueue, /* runway som har minst kø, trenger funksjon for dette */);
+                }
+
                 start = start.AddMinutes(1);
             }
         }
