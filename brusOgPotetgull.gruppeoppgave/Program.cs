@@ -16,57 +16,37 @@ namespace brusOgPotetgull.gruppeoppgave
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");
 
-            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass);
-            Gate nissegate = new Gate("Gate 22", ryggeFlyplass); 
+            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass); supergate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); supergate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+            Gate nissegate = new Gate("Gate 22", ryggeFlyplass); nissegate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); nissegate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
             Gate hallaGate = new Gate("Gate 90", ryggeFlyplass);
             Gate YOYOGate = new Gate("Gate 2A", GardemoenFlyplass); 
-
 
             Taxiway mediumTaxiway = new Taxiway(535, 20, GardemoenFlyplass);
             Taxiway longTaxiway = new Taxiway(75, 35, ryggeFlyplass);
 
             Runway gammelRunway = new Runway(ryggeFlyplass, 400);
-            Runway slitenRunway = new Runway(ryggeFlyplass, 500); ryggeFlyplass.AddRunwayToList(slitenRunway); ryggeFlyplass.AddRunwayToList(gammelRunway);
-            gammelRunway.UseRunway();
+            Runway slitenRunway = new Runway(ryggeFlyplass, 500); ryggeFlyplass.AddRunwayToList(slitenRunway); ryggeFlyplass.AddRunwayToList(gammelRunway); gammelRunway.UseRunway();
 
-            Flight firstFlight = new Flight(cargoCraftV12, 5000, GardemoenFlyplass, ryggeFlyplass, YOYOGate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
-            Flight coolFlight = new Flight(superPlane, 5000, ryggeFlyplass, GardemoenFlyplass, nissegate, supergate, longTaxiway, mediumTaxiway, slitenRunway, gammelRunway);
-            Flight coolFlight2 = new Flight(sickPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, hallaGate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
-
-
-            //coolFlight.SetupFlight(DateTime.Now);
-            //coolFlight2.SetupFlight(DateTime.Now);
-            //firstFlight.SetupFlight(DateTime.Now);
+            Flight firstFlight = new Flight(cargoCraftV12, new DateTime(2024, 3, 2), 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
+            Flight coolFlight = new Flight(superPlane, new DateTime(2024, 3, 3), 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
+            Flight coolFlight2 = new Flight(sickPlane, new DateTime(2024, 3, 4), 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
 
             List<Flight> ListOfFlights = new List<Flight>();
             GardemoenFlyplass.GetListGates().Count();
 
+            coolFlight2.SetupDailyFlight(3);
+            coolFlight.SetupDailyFlight(3);
+            firstFlight.SetupDailyFlight(3);
 
-            //coolFlight2.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
-            //coolFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
-            //firstFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
-            //cargoCraftV12.PrintFullAircraftHistory();
-            //cargoCraftV12.PrintAircraftHistoryForDay(2024,2,1);
-
-            //Parallel.ForEach(ListOfFlights, flight =>
-            //{
-            //  flight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
-            //});
-
-            //superPlane.PrintFullAircraftHistory();
-
-            ///cargoCraftV12.CheckPreviousLocation();
-            ///
-
-            ryggeFlyplass.AddToInncommingAircraftsQueue(superPlane);
-            ryggeFlyplass.AddToInncommingAircraftsQueue(sickPlane);
+            ryggeFlyplass.AddToIncommingFlightsQueue(superPlane);
+            ryggeFlyplass.AddToIncommingFlightsQueue(sickPlane);
 
 
 
-            //Aircraft currentAircraft = ryggeFlyplass.RemoveInncommingAircraftsQueue();
-            Console.Write($"This plane: \n{ryggeFlyplass.GetInncommingAircraftsQueue().Count}\n");
+            //Aircraft currentAircraft = ryggeFlyplass.RemoveIncomingFlightsQueue();
+            Console.Write($"This plane: \n{ryggeFlyplass.GetIncomingFlightsQueue().Count}\n");
 
-            foreach (var runway in ryggeFlyplass.GetRunwayList())
+            /*foreach (var runway in ryggeFlyplass.GetRunwayList())
             {
                 if (runway.InUse == false)
                 {
@@ -76,9 +56,10 @@ namespace brusOgPotetgull.gruppeoppgave
                     //runway.SimulateLanding(currentAircraft);
                     runway.RemoveFromQueue();
                 }
-            }
-
-            //Simulation newSim = new Simulation(ryggeFlyplass, 2024, 2, 3, 14, 3);
+            }*/
+            DateTime start = new DateTime(2024, 3, 2);
+            DateTime end = new DateTime(2024, 3, 4);
+            Simulation newSim = new Simulation(ryggeFlyplass, start, end);
 
             
             System.Console.ReadLine();

@@ -99,6 +99,7 @@ namespace brusOgPotetgull.airportLiberary
         public int SimulateTakeoff(Aircraft aircraft)
         {
             aircraft.AddHistoryToAircraft("Runway " + GetIdAndAirportNickname(), $", Arrived at runway");
+            UseRunway();
             Console.Write($"\n{aircraft.Model} arrived at runway!\n");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
@@ -114,6 +115,7 @@ namespace brusOgPotetgull.airportLiberary
                 //Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
             aircraft.AddHistoryToAircraft("Runway " + GetIdAndAirportNickname(), $", Taken off and left the airport");
+            ExitRunway();
             Console.Write($"\n{aircraft.Model} has taken off and left the airport\n");
             return currentSpeed;
         }
