@@ -10,8 +10,8 @@ namespace brusOgPotetgull.airportLiberary
         private List<Runway> listRunway;
         private List<Taxiway> listTaxiway;
         private List<Gate> listGate;
-        private List<Aircraft> incommingAircraftsList;
-        private List<Aircraft> departuringircraftsList;
+        private Queue<Aircraft> incommingAircraftsQueue;
+        private Queue<Aircraft> departuringircraftsQueue;
 
         public Airport(string airportCode, string name, string location)
 		{
@@ -24,8 +24,8 @@ namespace brusOgPotetgull.airportLiberary
             listRunway = new List<Runway>();
             listTaxiway = new List<Taxiway>();
             listGate = new List<Gate>();
-            incommingAircraftsList = new List<Aircraft>();
-            departuringircraftsList = new List<Aircraft>();
+            incommingAircraftsQueue = new Queue<Aircraft>();
+            departuringircraftsQueue = new Queue<Aircraft>();
         }
         public int AirportId { get; private set; }
         public string AirportCode { get; private set; }
@@ -100,21 +100,25 @@ namespace brusOgPotetgull.airportLiberary
         {
             listGate.Add(Gate);
         }
-        public List<Aircraft> GetInncommingAircrafts()
+        public Queue<Aircraft> GetInncommingAircraftsQueue()
         {
-            return incommingAircraftsList;
+            return incommingAircraftsQueue;
         }
-        public void AddToInncommingAircrafts(Aircraft aircraft)
+        public void AddToInncommingAircraftsQueue(Aircraft aircraft)
         {
-            incommingAircraftsList.Append(aircraft);
+            incommingAircraftsQueue.Append(aircraft);
         }
-        public List<Aircraft> GetDeparturingAircrafts()
+        public Aircraft RemoveInncommingAircraftsQueue()
         {
-            return departuringircraftsList;
+            return incommingAircraftsQueue.Dequeue();
+        }
+        public Queue<Aircraft> GetDeparturingAircraftsQueue()
+        {
+            return departuringircraftsQueue;
         }
         public void AddToDeparturingQueue(Aircraft aircraft)
         {
-            departuringircraftsList.Append(aircraft);
+            departuringircraftsQueue.Append(aircraft);
         }
     }
 }
