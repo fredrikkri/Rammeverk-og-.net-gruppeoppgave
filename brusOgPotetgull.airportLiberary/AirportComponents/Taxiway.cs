@@ -79,7 +79,7 @@ namespace brusOgPotetgull.airportLiberary
         public void FirstInQueueEnterTaxiway(Aircraft aircraft, Runway runway)
         {
             // (Nagel, 2022, s. 203)
-            if (taxiwayQueue.Count >= 1)
+            while (taxiwayQueue.Count >= 1)
             {
                 //runway.UseRunway();
 

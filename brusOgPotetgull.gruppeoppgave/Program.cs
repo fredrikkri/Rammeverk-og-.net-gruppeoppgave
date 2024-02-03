@@ -27,17 +27,36 @@ namespace brusOgPotetgull.gruppeoppgave
             Flight coolFlight = new Flight(superPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
             Flight coolFlight2 = new Flight(sickPlane, 5000, GardemoenFlyplass, ryggeFlyplass, supergate, nissegate, mediumTaxiway, longTaxiway, gammelRunway, slitenRunway);
 
+<<<<<<< HEAD
             ryggeFlyplass.AddFlightToList(firstFlight);
+=======
+
+>>>>>>> fredrik_b_2
             //coolFlight.SetupFlight(DateTime.Now);
 
+<<<<<<< HEAD
 
             //coolFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
             //coolFlight2.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
             //firstFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
 
+=======
+            List<Flight> ListOfFlights = new List<Flight>();
+            ListOfFlights.Append(coolFlight2); ListOfFlights.Append(firstFlight);
+            GardemoenFlyplass.GetListGates().Count();
+
+   
+            coolFlight2.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
+            coolFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
+            firstFlight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
+>>>>>>> fredrik_b_2
             //cargoCraftV12.PrintFullAircraftHistory();
             //cargoCraftV12.PrintAircraftHistoryForDay(2024,2,1);
 
+            Parallel.ForEach(ListOfFlights, flight =>
+            {
+                flight.SetupDailyFlight(DateTime.Now.AddDays(0), 3);
+            });
 
             //superPlane.PrintFullAircraftHistory();
 
