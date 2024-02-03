@@ -4,7 +4,6 @@ namespace brusOgPotetgull.airportLiberary.Simulation
 	public class Simulation
 	{
 
-
         // Starter simuleringen 
         public Simulation(Airport airport, DateTime startTime, DateTime endTime)
         {
@@ -16,20 +15,22 @@ namespace brusOgPotetgull.airportLiberary.Simulation
             while (start <= end)
             {
                 // For hver innkommende Flight i luften som ønsker å lande på rullebane...
-                if (airport.GetInncommingAircraftsQueue().Count > 0)
+                if (airport.GetIncomingFlightsQueue().Count > 0)
                 {
-                    Aircraft currentAircraft = airport.RemoveInncommingAircraftsQueue();
-                    Console.Write($"This plane: \n{airport.GetInncommingAircraftsQueue().Count}\n");
+                    Flight currentFlight = airport.RemoveIncomingFlightsQueue();
+                    
+                    Console.Write($"This plane: \n{airport.GetIncomingFlightsQueue().Count}\n");
                    
                         // Flight som ønsker å lande, legges inn i en "Flight in air queue for landing"
-                        foreach (var runway in airport.GetRunwayList())
-                        {
+                    foreach (var runway in airport.GetRunwayList())
+                    {
                         if (runway.InUse == false)
                         {
-                            Console.Write("bruker runway");
+                            Console.Write($"{currentFlight} bruker runway");
+                            runway.AddAircraftToQueue(currentFlight.ActiveAicraft);
                             runway.UseRunway();
                             Console.Write("\nFlyet lander\n");
-                            runway.SimulateLanding(currentAircraft);
+                            runway.SimulateLanding(currentFlight.ActiveAicraft);
                             runway.RemoveFromQueue();
                         }
                     }
@@ -38,14 +39,14 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 {
                     //Går igjennom departuringAircraft queue, og legger til departuringAircraft 
                     // Sjekke om det eksisterer Flight som befinner seg på Taxiway, i kø til Runway for Departure
-                    foreach (var departuringAircraft in airport.GetDeparturingAircraftsQueue())
+                    foreach (var departuringAircraft in airport.GetDeparturingFlightsQueue())
                     {
                         // Flights i listen departuringAircraft[] legges til i køen AddToDeaprturingQueue() 
                         airport.AddToDeparturingQueue(departuringAircraft);
                     }
 
                     // Sjekker om det er fly i lufta som MÅ lande og dermed okkupere rullebane
-                    if (airport.GetInncommingAircraftsQueue().Count != 0)
+                    if (airport.GetIncomingFlightsQueue().Count != 0)
                     {
                         ///land fly 1 i kø(husk å fjerne fly)
                         ///og gå til taxebane exit
@@ -56,7 +57,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         ///lett fly 1 i kø(husk å fjerne fly) fra DeparturingQueue
                     }
                 }
-                start = start.AddDays(1);
+                start = start.AddMinutes(1);
             }
         }
 	}
