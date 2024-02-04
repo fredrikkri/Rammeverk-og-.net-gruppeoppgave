@@ -10,7 +10,7 @@ namespace brusOgPotetgull.airportLiberary
         private int flightId;
         private DateTime dateTimeFlight;
 
-        public Flight(Aircraft activeAicraft, DateTime dateTimeFlight, int length,
+        public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, int length,
             Airport departureAirport, Airport arrivalAirport,
             Gate departureGate, Gate arrivalGate,
             Taxiway departureTaxiway, Taxiway arrivalTaxiway,
@@ -19,7 +19,7 @@ namespace brusOgPotetgull.airportLiberary
             // (dosnetCore, 2020) 
             flightId = idCounter++;
             this.FlightId = flightId;
-            this.ActiveAicraft = activeAicraft;
+            this.ActiveAircraft = activeAircraft;
             this.dateTimeFlight = dateTimeFlight;
             this.Length = length;
             this.DepartureAirport = departureAirport;
@@ -33,7 +33,8 @@ namespace brusOgPotetgull.airportLiberary
         }
         public int FlightId { get; private set; }
         public int Length { get; private set; }
-        public Aircraft ActiveAicraft { get; private set; }
+        public Aircraft ActiveAircraft { get; private set; }
+        public DateTime DateTimeFlight { get; private set; }
         public Airport DepartureAirport { get; private set; }
         public Airport ArrivalAirport { get; private set; }
         public Gate DepartureGate { get; private set; }
@@ -47,7 +48,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             Console.Write($"\nFlightId: {FlightId}\n" +
                 $"Length: {Length}\n" +
-                $"Aircraft: {ActiveAicraft.Model}\n" +
+                $"Aircraft: {ActiveAircraft.Model}\n" +
                 $"Departure Airport: {DepartureAirport.Name}\n" +
                 $"Departure Gate: {DepartureGate.Id}\n" +
                 $"Departure Taxiway: {DepartureTaxiway.Id}\n" +
@@ -64,8 +65,8 @@ namespace brusOgPotetgull.airportLiberary
         /// <param name="speedAfterTakeoff"></param>
         public void SimulateAirTime(int speedAfterTakeoff)
         {
-            ActiveAicraft.AddHistoryToAircraft("Runway " + DepartureRunway.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
-            Console.Write($"\n{ActiveAicraft.Model} is now in the air\n");
+            ActiveAircraft.AddHistoryToAircraft("Runway " + DepartureRunway.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
+            Console.Write($"\n{ActiveAircraft.Model} is now in the air\n");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
             var currentSpeed = speedAfterTakeoff;
@@ -76,18 +77,18 @@ namespace brusOgPotetgull.airportLiberary
                 remainingDistance = remainingDistance - currentSpeed;
                 if (currentSpeed >= 0)
                 {
-                    currentSpeed += ActiveAicraft.AccelerationInAir;
+                    currentSpeed += ActiveAircraft.AccelerationInAir;
                 }
-                if (currentSpeed >= ActiveAicraft.MaxSpeedInAir)
+                if (currentSpeed >= ActiveAircraft.MaxSpeedInAir)
                 {
-                    currentSpeed = ActiveAicraft.MaxSpeedInAir;
+                    currentSpeed = ActiveAircraft.MaxSpeedInAir;
                 }
                 secondCounter++;
                 Thread.Sleep(5);
                 //Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
-            ActiveAicraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
-            Console.Write($"\n{ActiveAicraft.Model} has landed at runway\n");
+            ActiveAircraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
+            Console.Write($"\n{ActiveAircraft.Model} has landed at runway\n");
         }
         /// <summary>
         /// Starts a flight if the gates and the date for the flight is right.
@@ -96,35 +97,13 @@ namespace brusOgPotetgull.airportLiberary
         /// The function logs every event to the history of the used aircraft.
         /// </summary>
         /// <param name="flightDate"></param>
-        public void SetupFlight()
+        public void SetupFlight(Airport airport)
         {
-            if (ActiveAicraft.OutOfService == false) {
+            if (ActiveAircraft.OutOfService == false) {
                 // checks if the plane are adjusted for gates.
-                if (DepartureGate.CheckAircraftAllowedAtGate(ActiveAicraft) && ArrivalGate.CheckAircraftAllowedAtGate(ActiveAicraft) == true)
+                if (DepartureGate.CheckAircraftAllowedAtGate(ActiveAircraft) && ArrivalGate.CheckAircraftAllowedAtGate(ActiveAircraft) == true)
                 {
-                    // If the date it right, the flight will proceed. We dont care about seconds.
-                    if (dateTimeFlight.Year == DateTime.Now.Year &&
-                        dateTimeFlight.Month == DateTime.Now.Month &&
-                        dateTimeFlight.Day == DateTime.Now.Day &&
-                        dateTimeFlight.Hour == DateTime.Now.Hour &&
-                        dateTimeFlight.Minute == DateTime.Now.Minute)
-                    {
-                        Console.Write($"\n\t\t\t\t\tFlight with aircraft: {ActiveAicraft.Model} has started\n");
-
-                        // Start-gate
-                        DepartureGate.leaveGate(ActiveAicraft);
-                        // Taxiway
-                        DepartureTaxiway.AddAircraftToQueue(ActiveAicraft);
-                        DepartureTaxiway.PeekToSeIfYourAircraftIsNext(ActiveAicraft, DepartureRunway);
-                        // Runway
-                        var speedAfterTakeoff = DepartureRunway.SimulateTakeoff(ActiveAicraft);
-                        // In air
-                        SimulateAirTime(speedAfterTakeoff);
-                        // Arrival runway
-
-                        // Arrival-gate
-                        ArrivalGate.bookGate(ActiveAicraft);
-                    }
+                    // TODO: ny flygning
                 }
                 else
                 {

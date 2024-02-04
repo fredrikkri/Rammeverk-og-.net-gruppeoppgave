@@ -13,53 +13,89 @@ namespace brusOgPotetgull.airportLiberary.Simulation
 
             // Simulering starter ved startTime, og kjører inntil tidspunktet for endtime er <= starttime
             while (start <= end)
-            {
-                // For hver innkommende Flight i luften som ønsker å lande på rullebane...
-                if (airport.GetIncomingFlightsQueue().Count > 0)
-                {
-                    Flight currentFlight = airport.RemoveIncomingFlightsQueue();
-                    
-                    Console.Write($"This plane: \n{airport.GetIncomingFlightsQueue().Count}\n");
-                   
-                        // Flight som ønsker å lande, legges inn i en "Flight in air queue for landing"
-                    foreach (var runway in airport.GetRunwayList())
+            {   
+                // Hvis det finnnes innkommende flygninger
+                if (airport.GetArrivingFlights().Count > 0)
+                {   
+                    // Går igjennom alle flygninger, og legger til denne dersom tiden for flygningen er denne iterasjonen (datetime.start + simulasjonstid)
+                    foreach (Flight flight in airport.GetArrivingFlights())
                     {
-                        if (runway.InUse == false)
+                        if (flight.DateTimeFlight == start)
                         {
-                            Console.Write($"{currentFlight} bruker runway");
-                            runway.AddAircraftToQueue(currentFlight.ActiveAicraft);
-                            runway.UseRunway();
-                            Console.Write("\nFlyet lander\n");
-                            runway.SimulateLanding(currentFlight.ActiveAicraft);
-                            runway.RemoveFromQueue();
+                            //starter handlinger for flygning  ( når tiden for flygningen er inne )
+                            flight.ArrivalRunway.AddFlightToQueue(flight);
+                            // Fjerner flygningen fra innkommende flygninger når den legges til i runway kø
+                            airport.RemoveArrivingFlight(flight); 
+                            // Kan være lurt å endre fra queue til liste ????
+                            // trenger ikke køsystem på loggede flygninger, kun tidspunkt. Har allerede køsystem i runway og taxiway.
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+
+                    // Starte landingsprosess for fly i runway kø                                     
+                    // Sjekker alle runways
+                    foreach (Runway runway in airport.GetRunwayList())
+                    {   
+                        Runway currentRunway = runway;
+                        //Hvis det er fly i runway køen, og runway er ledig
+                        if (currentRunway.RunwayQueue.Count > 0 && currentRunway.InUse == false)                       
+                        {
+                            //utfør landing
+                            Flight nextFlight = currentRunway.CheckNextFlightInQueue();
+                            currentRunway.NextFlightEntersRunway(nextFlight);
+                            Console.Write($"{nextFlight.ActiveAircraft.Model} bruker runway");
+                            currentRunway.UseRunway();
+                            int secondsOnRunway = currentRunway.SimulateRunwayTime(nextFlight, 300, 40, nextFlight.ActiveAircraft.MaxSpeedOnGround);
+                            // potensielt problem - at sekundene for simulasjon blir lagt til for hver av rullebanene
+                            // som benyttes dersom vi har flere rullebaner.
+                            // --> start.AddSeconds(secondsOnRunway);
+                            currentRunway.ExitRunway();
+                        }
+                        else 
+                        {
+                            //La fly forbli i køen til neste iterasjon
+                            continue;
                         }
                     }
                 }
-                else
+                // Eller Hvis det finnes utgående flygninger
+                else if (airport.GetDepartingFlights().Count > 0)
                 {
-                    //Går igjennom departuringAircraft queue, og legger til departuringAircraft 
-                    // Sjekke om det eksisterer Flight som befinner seg på Taxiway, i kø til Runway for Departure
-                    foreach (var departuringAircraft in airport.GetDeparturingFlightsQueue())
+                    // Går igjennom lista med utgående flygninger
+                    foreach (var flight in airport.GetDepartingFlights())
                     {
-                        // Flights i listen departuringAircraft[] legges til i køen AddToDeaprturingQueue() 
-                        airport.AddToDeparturingQueue(departuringAircraft);
-                    }
+                        // Hvis tiden for flygningen er lik nåværende tid i simulasjonen
+                        if (flight.DateTimeFlight == start)
+                        {
+                            // Flight leaves gate
+                            flight.DepartureGate.leaveGate(flight.ActiveAircraft);
 
-                    // Sjekker om det er fly i lufta som MÅ lande og dermed okkupere rullebane
-                    if (airport.GetIncomingFlightsQueue().Count != 0)
-                    {
-                        ///land fly 1 i kø(husk å fjerne fly)
-                        ///og gå til taxebane exit
-                        ///leg til kø til gate er ledig
+                            // Enters taxiway queue
+                            flight.DepartureTaxiway.AddFlightToQueue(flight);
+                        }
                     }
-                    else
-                    {
-                        ///lett fly 1 i kø(husk å fjerne fly) fra DeparturingQueue
+                    // Hvis det ikke finnes arriving flights
+                    if (airport.GetArrivingFlights().Count == 0)
+                    {   
+                        foreach (var taxiway in airport.GetListTaxiways())
+                        {
+                            Flight currentFlight = taxiway.CheckNextFlightInQueue();
+                            currentFlight.DepartureTaxiway.NextFlightEnterTaxiway(currentFlight, currentFlight.DepartureRunway);
+                        }
+
+                        // Først
+                        
                     }
+                    // Sjekker om runway queue er tom
+                    // Sjekker om runway er ledig
+                    // Hvis først i køen --> Enters runway for takeoff                                                          
                 }
+                else { continue; }
                 start = start.AddMinutes(1);
             }
         }
 	}
 }
-
