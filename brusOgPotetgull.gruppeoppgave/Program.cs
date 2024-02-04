@@ -38,6 +38,7 @@ namespace brusOgPotetgull.gruppeoppgave
             Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 4), 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
 
             // TODO: Opprette to ulike konstruktører for flight ( Departing / Arriving ). En arriving flight behøver ikke Departure gate??
+                        // Fredrik har opprettet det i Flight klassen fra linje 35 - 48.
 
             // TODO: Må ordne opp i setupFlight
             /*flight3.SetupDailyFlight(3);

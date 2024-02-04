@@ -10,6 +10,7 @@ namespace brusOgPotetgull.airportLiberary
         private int flightId;
         private DateTime dateTimeFlight;
 
+        // Departuring flight
         public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, int length,
             Airport departureAirport, Airport arrivalAirport,
             Gate departureGate, Gate arrivalGate,
@@ -31,6 +32,21 @@ namespace brusOgPotetgull.airportLiberary
             this.DepartureRunway = departureRunway;
             this.ArrivalRunway = arrivalRunway;
         }
+        // incomming flight
+        public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport arrivalAirport, Runway arrivalRunway, Taxiway arrivalTaxiway, Gate arrivalGate)
+        {
+            // (dosnetCore, 2020) 
+            flightId = idCounter++;
+            this.FlightId = flightId;
+            this.ActiveAircraft = activeAircraft;
+            this.dateTimeFlight = dateTimeFlight;
+            this.Length = length;
+            this.ArrivalAirport = arrivalAirport;
+            this.ArrivalGate = arrivalGate;
+            this.ArrivalTaxiway = arrivalTaxiway;
+            this.ArrivalRunway = arrivalRunway;
+        }
+
         public int FlightId { get; private set; }
         public int Length { get; private set; }
         public Aircraft ActiveAircraft { get; private set; }
@@ -128,7 +144,7 @@ namespace brusOgPotetgull.airportLiberary
             {
                 dateTimeFlight.AddDays(i);
                 Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i));
-                SetupFlight();
+                //SetupFlight();
             }
         }
         /// <summary>
@@ -144,7 +160,7 @@ namespace brusOgPotetgull.airportLiberary
             {
                 dateTimeFlight.AddDays(i + (6 * i));
                 Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i + (6 * i)));
-                SetupFlight();
+                //SetupFlight();
             }
         }
             /// <summary>
@@ -160,7 +176,7 @@ namespace brusOgPotetgull.airportLiberary
             {
                 dateTimeFlight.AddDays(i);
                 Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddMonths(i));
-                SetupFlight();
+                //SetupFlight();
             }
         }
         
