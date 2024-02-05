@@ -14,7 +14,7 @@ namespace brusOgPotetgull.gruppeoppgave
             Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
             Aircraft SR71 = new MilitaryAircraft("S137", 700, 45, 30, 3);
 
-            List<Aircraft> aircraftTypes = [cargoCraftV12, superPlane, SR71];
+            List<Aircraft> aircraftTypes = new List<Aircraft> {cargoCraftV12, superPlane, SR71};
 
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport gardemoenFlyplass = new Airport("OSL", "Gardemoen Flyplass", "Oslo");
