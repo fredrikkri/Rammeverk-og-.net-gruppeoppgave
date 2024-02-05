@@ -86,7 +86,8 @@ namespace brusOgPotetgull.airportLiberary
 
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
-            int time = 0;            
+            int time = 0;
+            
             while (remainingDistance != 0)
             {
                 // trekker farten i meter per sekund fra Length
@@ -100,6 +101,7 @@ namespace brusOgPotetgull.airportLiberary
                     initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
                 }
                 time++;
+                break;
             }
 
             flight.ActiveAircraft.AddHistoryToAircraft($"Taxiway " + GetIdTaxiwayAndAirportCode(), ", at the end of the taxiway");
