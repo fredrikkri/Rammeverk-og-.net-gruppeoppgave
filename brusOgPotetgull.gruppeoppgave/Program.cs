@@ -9,6 +9,7 @@ namespace brusOgPotetgull.gruppeoppgave
     {
         static void Main(string[] args)
         {
+
             Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
             Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
             Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
@@ -23,6 +24,31 @@ namespace brusOgPotetgull.gruppeoppgave
             Gate gate2 = new Gate("Gate G2", gardemoenFlyplass);
             Gate gate3 = new Gate("Gate R3", ryggeFlyplass);
             Gate gate4 = new Gate("Gate R4", ryggeFlyplass);
+
+            Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
+            Airport GardemoenFlyplass = new Airport("GAR", "Gardemoen Flyplass", "Oslo");
+
+            Aircraft cargoCraftV12 = new CargoAircraft("Cargo plane v12", 890, 50, 40, 5);
+            Aircraft superPlane = new LightAircraft("Cristiano Ronaldo´s Plane, siuuuuu!", 800, 56, 20, 3);
+            Aircraft sickPlane = new CargoAircraft("Franceco Totti´s Plane.", 800, 56, 20, 3);
+
+            
+
+            Gate supergate = new Gate("Gate 1A", GardemoenFlyplass);
+            supergate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId);
+            supergate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+
+            Gate nissegate = new Gate("Gate 22", ryggeFlyplass);
+            nissegate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId);
+            nissegate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+
+            Gate hallaGate = new Gate("Gate 90", ryggeFlyplass);
+
+
+            Gate YOYOGate = new Gate("Gate 2A", GardemoenFlyplass);
+            YOYOGate.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId);
+            YOYOGate.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+
 
             // burde lage funksjonalitet for dette. At man kan legge til flere godkjente aircrafttypeid som får lov til å benytte gates,
             // og evt runways og taxiways
@@ -59,10 +85,15 @@ namespace brusOgPotetgull.gruppeoppgave
             // TODO: Opprette to ulike konstruktører for flight ( Departing / Arriving ). En arriving flight behøver ikke Departure gate??
                         // Fredrik har opprettet det i Flight klassen fra linje 35 - 48.
 
+
             // TODO: Må ordne opp i setupFlight
             /*flight3.SetupDailyFlight(3);
             flight2.SetupDailyFlight(3);
             flight1.SetupDailyFlight(3);*/
+
+            //ryggeFlyplass.AddToIncommingFlightsQueue(superPlane);
+            //ryggeFlyplass.AddToIncommingFlightsQueue(sickPlane);
+
 
             gardemoenFlyplass.AddDepartingFlight(flight1);
             gardemoenFlyplass.AddDepartingFlight(flight2);
