@@ -22,23 +22,9 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     {
                         if (flight.DateTimeFlight == start)
                         {
-
                             //starter handlinger for flygning  ( når tiden for flygningen er inne )
                             flight.ArrivalRunway.AddFlightToQueue(flight);
                             // trenger ikke køsystem på loggede flygninger, kun tidspunkt. Har allerede køsystem i runway og taxiway.
-
-                            Console.Write($"{currentFlight} bruker runway");
-                            runway.UseRunway();
-                            Console.Write("\nFlyet lander\n");
-                            runway.SimulateLanding(currentFlight.ActiveAicraft);
-                            runway.RemoveFromQueue();
-                            
-                        }
-                        else
-                        {
-                            runway.AddAircraftToQueue(currentFlight.ActiveAicraft);
-                            //currentFlight.ArrivalTaxiway.AddAircraftToQueue(currentFlight.ActiveAicraft);
-
                         }
                         else
                         {
@@ -134,15 +120,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         }                                                
                     }                                                    
                 }
-
                 else { continue; }
-
-                foreach (Taxiway taxiway in airport.GetListTaxiways())
-                {
-                    //taxiway.FirstInQueueEnterTaxiway(airport.GetDeparturingFlightsQueue, /* runway som har minst kø, trenger funksjon for dette */);
-                }
-
-
                 start = start.AddMinutes(1);
             }
         }

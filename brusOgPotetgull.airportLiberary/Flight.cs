@@ -10,8 +10,7 @@ namespace brusOgPotetgull.airportLiberary
         private int flightId;
         private DateTime dateTimeFlight;
 
-        // Departuring flight
-        public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, int length,
+        public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length,
             Airport departureAirport, Airport arrivalAirport,
             Gate departureGate, Gate arrivalGate,
             Taxiway departureTaxiway, Taxiway arrivalTaxiway,
@@ -21,26 +20,15 @@ namespace brusOgPotetgull.airportLiberary
             flightId = idCounter++;
             this.FlightId = flightId;
             this.ActiveAircraft = activeAircraft;
-            this.dateTimeFlight = dateTimeFlight;
+            this.DateTimeFlight = dateTimeFlight;
+            this.IsArrivingFlight = isArrivingFlight;
             this.Length = length;
+
             this.DepartureAirport = departureAirport;
-            this.ArrivalAirport = arrivalAirport;
             this.DepartureGate = departureGate;
-            this.ArrivalGate = arrivalGate;
             this.DepartureTaxiway = departureTaxiway;
-            this.ArrivalTaxiway = arrivalTaxiway;
             this.DepartureRunway = departureRunway;
-            this.ArrivalRunway = arrivalRunway;
-        }
-        // incomming flight
-        public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport arrivalAirport, Runway arrivalRunway, Taxiway arrivalTaxiway, Gate arrivalGate)
-        {
-            // (dosnetCore, 2020) 
-            flightId = idCounter++;
-            this.FlightId = flightId;
-            this.ActiveAircraft = activeAircraft;
-            this.dateTimeFlight = dateTimeFlight;
-            this.Length = length;
+
             this.ArrivalAirport = arrivalAirport;
             this.ArrivalGate = arrivalGate;
             this.ArrivalTaxiway = arrivalTaxiway;
@@ -51,6 +39,7 @@ namespace brusOgPotetgull.airportLiberary
         public int Length { get; private set; }
         public Aircraft ActiveAircraft { get; private set; }
         public DateTime DateTimeFlight { get; private set; }
+        public bool IsArrivingFlight { get; private set; }
         public Airport DepartureAirport { get; private set; }
         public Airport ArrivalAirport { get; private set; }
         public Gate DepartureGate { get; private set; }
@@ -138,13 +127,13 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         /// <param name="dateFlight"></param>
         /// <param name="numberOfDays"></param>
-        public void SetupDailyFlight(int numberOfDays)
+        /*public void SetupDailyFlight(int numberOfDays)
         {
             for (int i = 0; i < numberOfDays; i++)
             {
                 dateTimeFlight.AddDays(i);
                 Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i));
-                //SetupFlight();
+                SetupFlight();
             }
         }
         /// <summary>
@@ -160,7 +149,7 @@ namespace brusOgPotetgull.airportLiberary
             {
                 dateTimeFlight.AddDays(i + (6 * i));
                 Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i + (6 * i)));
-                //SetupFlight();
+                SetupFlight();
             }
         }
             /// <summary>
@@ -176,9 +165,9 @@ namespace brusOgPotetgull.airportLiberary
             {
                 dateTimeFlight.AddDays(i);
                 Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddMonths(i));
-                //SetupFlight();
+                SetupFlight();
             }
-        }
+        }*/
         
     }
 }
