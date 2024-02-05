@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ole_f\\OneDrive\\PRG1000\\GitHub\\5_Semester\\.Net\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj": {}
+    "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ole_f\\OneDrive\\PRG1000\\GitHub\\5_Semester\\.Net\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj": {
+    "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ole_f\\OneDrive\\PRG1000\\GitHub\\5_Semester\\.Net\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj",
+        "projectUniqueName": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj",
         "projectName": "brusOgPotetgull.airportLiberary",
-        "projectPath": "C:\\Users\\ole_f\\OneDrive\\PRG1000\\GitHub\\5_Semester\\.Net\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj",
-        "packagesPath": "C:\\Users\\ole_f\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ole_f\\OneDrive\\PRG1000\\GitHub\\5_Semester\\.Net\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.airportLiberary\\obj\\",
+        "projectPath": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj",
+        "packagesPath": "/Users/fredrikkristiansen/.nuget/packages/",
+        "outputPath": "/Users/fredrikkristiansen/Documents/GitHub/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ole_f\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/fredrikkristiansen/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
