@@ -61,39 +61,16 @@ namespace brusOgPotetgull.airportLiberary
             Flight nextFlight = taxiwayQueue.Peek();
             return nextFlight;
         }
-
-        /*public void PeekToSeIfYourAircraftIsNext(Aircraft aircraft, Runway runway)
-        {
-            if (taxiwayQueue.Peek() == aircraft)
-            {
-                Console.Write($"\n{aircraft.Model} is first in line to use taxiway\n");
-                NextFlightEnterTaxiway(aircraft, runway);
-            }
-            else
-            {
-                while (taxiwayQueue.Peek() != aircraft)
-                {
-                    Console.Write($"\n{aircraft.Model} waiting to be next in line to use taxiway...\n");
-                }
-            }
-
-        }*/
-
-        /// <summary>
-        /// if there is aircrafts in the taxiwayqueue, then the first aircraft in queue will enter the taxiway.
-        /// parameter 'aircraft' is the aircraft that will enter the taxiway.
-        /// </summary>
-        /// <param name="aircraft"></param>
-        public void NextFlightEnterTaxiway(Flight flight, Runway runway)
+        public void NextFlightLeavesTaxiway(Flight flight)
         {
             // (Nagel, 2022, s. 203)
             while (taxiwayQueue.Count >= 1)
             {
-                //runway.UseRunway();
-
                 var nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                SimulateTaxiwayTime(nextFlightInQueue, runway, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
+                flight.ActiveAircraft.AddHistoryToAircraft("Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
+                Console.Write($"\n{flight.ActiveAircraft.Model} leaves taxiwayqueue\n");
+                //Må ha denne i addtoqueue: SimulateTaxiwayTime(nextFlightInQueue, initialspeed, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
             }
         }
         /// <summary>
@@ -102,9 +79,9 @@ namespace brusOgPotetgull.airportLiberary
         /// parameter 'aircraft' is the aircraft that is using the taxiway with the simulation.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void SimulateTaxiwayTime(Flight flight, Runway runway, int initialSpeed, int speedChange, int maxSpeed)
+        public void SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed)
         {
-            runway.UseRunway();
+            Console.Write($"\n{flight.ActiveAircraft.Model} Arrived at taxiway\n");
             flight.ActiveAircraft.AddHistoryToAircraft($"Taxiway " + GetIdTaxiwayAndAirportCode(), ", Arrived at taxiway");
 
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
@@ -125,9 +102,8 @@ namespace brusOgPotetgull.airportLiberary
                 time++;
             }
 
-            runway.ExitRunway();
-            flight.ActiveAircraft.AddHistoryToAircraft($"Taxiway " + GetIdTaxiwayAndAirportCode(), ", Left taxiway");
-            Console.Write($"\n{flight.ActiveAircraft.Model} has left taxiway\n");
+            flight.ActiveAircraft.AddHistoryToAircraft($"Taxiway " + GetIdTaxiwayAndAirportCode(), ", at the end of the taxiway");
+            Console.Write($"\n{flight.ActiveAircraft.Model} is at the end of the taxiway\n");
             
         }
     }

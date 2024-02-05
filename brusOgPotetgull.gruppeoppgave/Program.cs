@@ -12,16 +12,34 @@ namespace brusOgPotetgull.gruppeoppgave
             Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
             Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
             Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
-            Aircraft SR71 = new MilitaryAircraft("C980", 700, 45, 30, 3);
+            Aircraft SR71 = new MilitaryAircraft("S137", 700, 45, 30, 3);
+
+            List<Aircraft> aircraftTypes = [cargoCraftV12, superPlane, SR71];
 
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport gardemoenFlyplass = new Airport("OSL", "Gardemoen Flyplass", "Oslo");
 
-            Gate gate1 = new Gate("Gate G1", gardemoenFlyplass); gate1.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); gate1.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
-            Gate gate2 = new Gate("Gate G2", gardemoenFlyplass); gate2.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); gate2.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
-            Gate gate3 = new Gate("Gate R3", ryggeFlyplass); gate3.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); gate3.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
-            Gate gate4 = new Gate("Gate R4", ryggeFlyplass); gate4.AddAircraftAllowedAtGate(cargoCraftV12.AircraftTypeId); gate4.AddAircraftAllowedAtGate(superPlane.AircraftTypeId);
+            Gate gate1 = new Gate("Gate G1", gardemoenFlyplass);
+            Gate gate2 = new Gate("Gate G2", gardemoenFlyplass);
+            Gate gate3 = new Gate("Gate R3", ryggeFlyplass);
+            Gate gate4 = new Gate("Gate R4", ryggeFlyplass);
 
+            // burde lage funksjonalitet for dette. At man kan legge til flere godkjente aircrafttypeid som får lov til å benytte gates,
+            // og evt runways og taxiways
+            foreach (var gate in ryggeFlyplass.GetListGates())
+            {
+                foreach (Aircraft aircraft in aircraftTypes)
+                {
+                    gate.AddAircraftAllowedAtGate(aircraft.AircraftTypeId);
+                }
+            }
+            foreach (var gate in gardemoenFlyplass.GetListGates())
+            {
+                foreach(Aircraft aircraft in aircraftTypes)
+                {
+                    gate.AddAircraftAllowedAtGate(aircraft.AircraftTypeId);
+                }
+            }
 
             Taxiway shortTaxiway = new Taxiway(300, 35, ryggeFlyplass);
             Taxiway mediumTaxiway = new Taxiway(750, 20, gardemoenFlyplass);
@@ -32,10 +50,11 @@ namespace brusOgPotetgull.gruppeoppgave
             Runway longRunway2 = new Runway(ryggeFlyplass, 1000); ryggeFlyplass.AddRunwayToList(longRunway2);
             Runway mediumRunway2 = new Runway(ryggeFlyplass, 800); ryggeFlyplass.AddRunwayToList(mediumRunway2);
 
-            Flight flight1 = new Flight(cargoCraftV12, new DateTime(2024, 3, 2), 5000, gardemoenFlyplass, ryggeFlyplass, gate1, gate3, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
-            Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 3), 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
-            Flight flight3 = new Flight(sickPlane, new DateTime(2024, 3, 4), 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
-            Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 4), 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
+            // Lagt til parameteret bool isArrivingFlight
+            Flight flight1 = new Flight(cargoCraftV12, new DateTime(2024, 3, 2), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate1, gate3, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
+            Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 3), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
+            Flight flight3 = new Flight(sickPlane, new DateTime(2024, 3, 1), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
+            Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 4), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
 
             // TODO: Opprette to ulike konstruktører for flight ( Departing / Arriving ). En arriving flight behøver ikke Departure gate??
                         // Fredrik har opprettet det i Flight klassen fra linje 35 - 48.
@@ -50,9 +69,17 @@ namespace brusOgPotetgull.gruppeoppgave
             gardemoenFlyplass.AddArrivingFlight(flight3);
             gardemoenFlyplass.AddArrivingFlight(flight4);
 
-            DateTime start = new DateTime(2024, 3, 2);
-            DateTime end = new DateTime(2024, 3, 4);
-            Simulation newSim = new Simulation(ryggeFlyplass, start, end);
+            DateTime start = new DateTime(2024, 3, 1);
+            DateTime end = new DateTime(2024, 3, 5);
+            Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
+
+            Console.Write("\nHistory of aircrafts:\n");
+            sickPlane.PrintFullAircraftHistory();      // C355
+            cargoCraftV12.PrintFullAircraftHistory();  // C420
+            SR71.PrintFullAircraftHistory();           // S137
+            superPlane.PrintFullAircraftHistory();     // A130
+
+
 
             System.Console.ReadLine();
         }

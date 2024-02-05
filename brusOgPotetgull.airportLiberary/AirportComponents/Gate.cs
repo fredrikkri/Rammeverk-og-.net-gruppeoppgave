@@ -13,6 +13,7 @@ namespace brusOgPotetgull.airportLiberary
         // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
         private List<int> legalAircraftTypesId;
 
+        // bruker egentlig ikke isOpen ????
 		public Gate(string gateName, Airport locatedAtAirport)
 		{
             // (dosnetCore, 2020) 
@@ -28,6 +29,7 @@ namespace brusOgPotetgull.airportLiberary
         public int Id { get; private set; }
         public string GateName { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
+        public bool IsAvailable { get; private set; }
 
         /// <summary>
         /// Prints the information about the gate.
