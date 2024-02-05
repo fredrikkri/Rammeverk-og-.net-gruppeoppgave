@@ -10,7 +10,7 @@ namespace brusOgPotetgull.airportLiberary
         private int flightId;
         private DateTime dateTimeFlight;
 
-        public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, int length,
+        public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length,
             Airport departureAirport, Airport arrivalAirport,
             Gate departureGate, Gate arrivalGate,
             Taxiway departureTaxiway, Taxiway arrivalTaxiway,
@@ -20,7 +20,8 @@ namespace brusOgPotetgull.airportLiberary
             flightId = idCounter++;
             this.FlightId = flightId;
             this.ActiveAircraft = activeAircraft;
-            this.dateTimeFlight = dateTimeFlight;
+            this.DateTimeFlight = dateTimeFlight;
+            this.IsArrivingFlight = isArrivingFlight;
             this.Length = length;
 
             this.DepartureAirport = departureAirport;
@@ -38,6 +39,7 @@ namespace brusOgPotetgull.airportLiberary
         public int Length { get; private set; }
         public Aircraft ActiveAircraft { get; private set; }
         public DateTime DateTimeFlight { get; private set; }
+        public bool IsArrivingFlight { get; private set; }
         public Airport DepartureAirport { get; private set; }
         public Airport ArrivalAirport { get; private set; }
         public Gate DepartureGate { get; private set; }

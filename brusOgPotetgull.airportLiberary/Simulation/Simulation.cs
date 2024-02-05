@@ -10,10 +10,10 @@ namespace brusOgPotetgull.airportLiberary.Simulation
             //Angir start og slutt tid for simulasjon
             DateTime start = startTime;
             DateTime end = endTime;
-            Console.Write("Hei");
             // Simulering starter ved startTime, og kjører inntil tidspunktet for endtime er <= starttime
             while (start <= end)
-            {   
+            {
+                Console.Write($"Simulation time: {start}\n");
                 // Hvis det finnnes innkommende flygninger
                 if (airport.GetArrivingFlights().Count > 0)
                 {   
@@ -42,10 +42,11 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             currentRunway.NextFlightEntersRunway(nextFlight);
                             Console.Write($"{nextFlight.ActiveAircraft.Model} bruker runway");
                             currentRunway.UseRunway();
-                            int secondsOnRunway = currentRunway.SimulateRunwayTime(nextFlight, 300, 40, nextFlight.ActiveAircraft.MaxSpeedOnGround);
-                            // potensielt problem - at sekundene for simulasjon blir lagt til for hver av rullebanene
-                            // som benyttes dersom vi har flere rullebaner.
-                            // --> start.AddSeconds(secondsOnRunway);
+                            // funksjonen og lokale variabelen under brukes ikke foreløpig.
+                            // Vurderer å benytte funksjonen til å logge et annet exit tidspunkt basert på tid brukt på runway
+                            // i tillegg er den veldig lik SimulateTaxiwayTime, slik at den kan egentlig flyttes til flight, og
+                            // kan egt flyttes til flight. Der kan den heller brukes for flybevegelser generelt.
+                            //int secondsOnRunway = currentRunway.SimulateRunwayTime(nextFlight, 300, 40, nextFlight.ActiveAircraft.MaxSpeedOnGround);
                             currentRunway.ExitRunway();
                             nextFlight.DepartureTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround);
                             nextFlight.ArrivalTaxiway.AddFlightToQueue(nextFlight);
@@ -60,7 +61,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         // Neste fly i taxiway køen
                         Flight nextFlight = taxiway.CheckNextFlightInQueue();
                         // Dersom flygning er arriving flight og gate er ledig
-                        if (airport.GetArrivingFlights().Contains(nextFlight) == true && nextFlight.ArrivalGate.IsAvailable == true)
+                        if (nextFlight.IsArrivingFlight == true && nextFlight.ArrivalGate.IsAvailable == true)
                         {
                             // Flygning forlater taxiway
                             nextFlight.ArrivalTaxiway.NextFlightLeavesTaxiway(nextFlight);
