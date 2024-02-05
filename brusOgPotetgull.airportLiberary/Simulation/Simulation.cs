@@ -121,6 +121,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }                                                    
                 }
                 else { continue; }
+                Thread.Sleep(500);
                 start = start.AddMinutes(1);
             }
         }

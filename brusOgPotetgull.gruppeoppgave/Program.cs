@@ -52,9 +52,10 @@ namespace brusOgPotetgull.gruppeoppgave
 
             // Lagt til parameteret bool isArrivingFlight
             Flight flight1 = new Flight(cargoCraftV12, new DateTime(2024, 3, 2), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate1, gate3, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
-            Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 3), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
-            Flight flight3 = new Flight(sickPlane, new DateTime(2024, 3, 1), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
-            Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 4), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
+            Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 1, 01, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
+            Flight flight3 = new Flight(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
+            Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 1, 00, 15, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
+
 
             // TODO: Må ordne opp i setupFlight
             /*flight3.SetupDailyFlight(3);
