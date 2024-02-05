@@ -10,8 +10,8 @@ namespace brusOgPotetgull.airportLiberary
         private List<Runway> listRunway;
         private List<Taxiway> listTaxiway;
         private List<Gate> listGate;
-        private Queue<Flight> incomingFlightsQueue;
-        private Queue<Flight> departuringFlightsQueue;
+        private List<Flight> arrivingFlights;
+        private List<Flight> departingFlights;
 
         public Airport(string airportCode, string name, string location)
 		{
@@ -24,8 +24,8 @@ namespace brusOgPotetgull.airportLiberary
             listRunway = new List<Runway>();
             listTaxiway = new List<Taxiway>();
             listGate = new List<Gate>();
-            incomingFlightsQueue = new Queue<Flight>();
-            departuringFlightsQueue = new Queue<Flight>();
+            arrivingFlights = new List<Flight>();
+            departingFlights = new List<Flight>();
         }
         public int AirportId { get; private set; }
         public string AirportCode { get; private set; }
@@ -100,25 +100,44 @@ namespace brusOgPotetgull.airportLiberary
         {
             listGate.Add(Gate);
         }
-        public Queue<Flight> GetIncomingFlightsQueue()
+        public List<Flight> GetArrivingFlights()
         {
-            return incomingFlightsQueue;
+            return arrivingFlights;
         }
-        public void AddToIncomingFlightsQueue(Flight flight)
+        public void AddArrivingFlight(Flight flight)
         {
-            incomingFlightsQueue.Append(flight);
+            arrivingFlights.Add(flight);
         }
-        public Flight RemoveIncomingFlightsQueue()
-        {
-            return incomingFlightsQueue.Dequeue();
+        public void RemoveArrivingFlight(Flight flight)
+        {   
+            if (arrivingFlights.Count > 0)
+            {
+                arrivingFlights.Remove(flight);
+            }
+            else
+            {
+                Console.Write("No arriving flights in list");
+            }
+            
         }
-        public Queue<Flight> GetDeparturingFlightsQueue()
+        public List<Flight> GetDepartingFlights()
         {
-            return departuringFlightsQueue;
+            return departingFlights;
         }
-        public void AddToDeparturingQueue(Flight flight)
+        public void AddDepartingFlight(Flight flight)
         {
-            departuringFlightsQueue.Append(flight);
+            departingFlights.Add(flight);
+        }
+        public void RemoveDepartingFlight(Flight flight)
+        {
+            if (departingFlights.Count > 0)
+            {
+                departingFlights.Remove(flight);
+            }
+            else
+            {
+                Console.Write("No departing flights in list");
+            }
         }
     }
 }
