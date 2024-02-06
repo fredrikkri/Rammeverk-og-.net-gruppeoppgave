@@ -76,7 +76,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
 
                             
                             Console.Write($"\n{nextFlight.ActiveAircraft.Model} using taxiyway\n");
-                            nextFlight.DepartureTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround);
+                            nextFlight.ArrivalTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround);
                             nextFlight.ArrivalTaxiway.AddFlightToQueue(nextFlight);
                         }
                         // La fly forbli i køen til neste iterasjon
@@ -154,7 +154,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }                                                    
                 }
                 else { continue; }
-                Thread.Sleep(4);
+                Thread.Sleep(100);
                 start = start.AddMinutes(1);
             }
         }
