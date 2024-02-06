@@ -59,7 +59,7 @@ namespace brusOgPotetgull.airportLiberary
         /// Adds an aircraft that will be able to use the gate.
         /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to enable accsess for the gate.
         /// </summary>
-        /// <param name="aircraft"></param>
+        /// <param name="aircraftTypeId"></param>
         public void AddAircraftAllowedAtGate(int aircraftTypeId)
         {
             if (!legalAircraftTypesId.Contains(aircraftTypeId))
@@ -69,6 +69,25 @@ namespace brusOgPotetgull.airportLiberary
             else
             {
                 Console.Write($"{aircraftTypeId} is already in list of legal aicrafts for this gate.");
+            }
+        }
+        /// <summary>
+        /// Adds multiple aircrafts that will be able to use the gate.
+        /// Parameter 'aircraftTypeIds' is a list of ids of aircrafts that you want to enable accsess for the gate
+        /// </summary>
+        /// <param name="aircraftTypeIds"></param>
+        public void AddMultipleAircraftAllowedAtGate(List<int> aircraftTypeIds)
+        {
+            foreach (int typeId in aircraftTypeIds)
+            {
+                if (!legalAircraftTypesId.Contains(typeId)
+                {
+                    legalAircraftTypesId.Add(typeId);                    
+                }
+                else
+                {
+                    Console.Write($"{typeId} is already in list of legal aicrafts for this gate.");
+                }
             }
         }
         /// <summary>
