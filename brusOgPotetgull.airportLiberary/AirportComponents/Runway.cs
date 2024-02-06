@@ -89,13 +89,13 @@ namespace brusOgPotetgull.airportLiberary
             }
         }*/
         // NY Versjon av metode over for å tilpasse den til både landing og takeoff
-        public void NextFlightEntersRunway(Flight flight)
+        public void NextFlightEntersRunway(Flight flight, DateTime time)
         {
             if (runwayQueue.Count != 0)
             {
                 var nextFlight = runwayQueue.Dequeue();
                 runwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft($"Runway " + GetIdRunwayAndAirportCode(), ", Enter the runway");
+                flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Enter the runway");
             } 
             else
             {
@@ -103,8 +103,8 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
         // Returns the time in seconds an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph
-        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) {
-            flight.ActiveAircraft.AddHistoryToAircraft("Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
+        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time) {
+            flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
             
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }

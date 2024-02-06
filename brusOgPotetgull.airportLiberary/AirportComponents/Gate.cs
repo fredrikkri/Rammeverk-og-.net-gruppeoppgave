@@ -129,22 +129,22 @@ namespace brusOgPotetgull.airportLiberary
         ///  Parameter 'aircraft' is the plane that is going to leave the gate.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void leaveGate(Aircraft aircraft)
+        public void leaveGate(Aircraft aircraft, DateTime time)
         {
             isAvailable = true;
-            aircraft.AddHistoryToAircraft("Gate " + GetIdAndAirportNickname(), ", Left Gate");
+            aircraft.AddHistoryToAircraft(time, "Gate " + GetIdAndAirportNickname(), ", Left Gate");
         }
         /// <summary>
         /// An aircraft occupies a gate. And saves it in aircrafthistory. The gate is now unavalible for other aircrafts to use it.
         /// Parameter 'aircraft' is the plane that is going to book the gate.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void bookGate(Aircraft aircraft)
+        public void bookGate(Aircraft aircraft, DateTime time)
         {
             if (isAvailable == true)
             {
                 isAvailable = false;
-                aircraft.AddHistoryToAircraft("Gate " + GetIdAndAirportNickname(), ", Arrived at Gate");
+                aircraft.AddHistoryToAircraft(time, "Gate " + GetIdAndAirportNickname(), ", Arrived at Gate");
             } else
             {
                 Console.Write($"Gate with id: {Id}, is already booked. You cannot book this gate.");

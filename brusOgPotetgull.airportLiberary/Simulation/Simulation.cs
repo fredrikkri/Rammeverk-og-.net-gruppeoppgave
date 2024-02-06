@@ -25,7 +25,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 {
                     if (flight.ArrivalTaxiway.GetNumberOfAircraftsInQueue() > 0 && flight.ArrivalTaxiway.CheckNextFlightInQueue() == flight)
                     {
-                        flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight);
+                        flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight, start);
                     }
                     else { continue; }
                 }
@@ -34,7 +34,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 {
                     if (flight.DepartureTaxiway.GetNumberOfAircraftsInQueue() > 0 && flight.DepartureTaxiway.CheckNextFlightInQueue() == flight)
                     {
-                        flight.DepartureTaxiway.NextFlightLeavesTaxiway(flight);
+                        flight.DepartureTaxiway.NextFlightLeavesTaxiway(flight, start);
                     }
                     else { continue; }
                 }
@@ -63,7 +63,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         {
                             //utfør landing
                             Flight nextFlight = currentRunway.CheckNextFlightInQueue();
-                            currentRunway.NextFlightEntersRunway(nextFlight);
+                            currentRunway.NextFlightEntersRunway(nextFlight, start);
                             Console.Write($"\n{nextFlight.ActiveAircraft.Model} using runway\n");
                             currentRunway.UseRunway();
                             // funksjonen og lokale variabelen under brukes ikke foreløpig.
@@ -76,8 +76,8 @@ namespace brusOgPotetgull.airportLiberary.Simulation
 
                             
                             Console.Write($"\n{nextFlight.ActiveAircraft.Model} using taxiyway\n");
-                            nextFlight.ArrivalTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround);
-                            nextFlight.ArrivalTaxiway.AddFlightToQueue(nextFlight);
+                            nextFlight.ArrivalTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround, start);
+                            nextFlight.ArrivalTaxiway.AddFlightToQueue(nextFlight, start);
                         }
                         // La fly forbli i køen til neste iterasjon
                         else { continue; }
@@ -92,10 +92,10 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         if (flight.IsArrivingFlight == true && flight.ArrivalGate.IsAvailable == true)
                         {
                             // Flygning forlater taxiway
-                            flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight);
+                            flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight, start);
                             Console.Write($"\n{flight.ActiveAircraft.Model} left taxiway\n");
                             // Flygning sjekker inn på gate
-                            flight.ArrivalGate.bookGate(flight.ActiveAircraft);
+                            flight.ArrivalGate.bookGate(flight.ActiveAircraft, start);
                             Console.Write($"\n{flight.ActiveAircraft.Model} reached gate\n");
 
                             // Fjerner flygningen fra innkommende flygninger når den er ferdig håndtert
@@ -120,14 +120,14 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         if (flight.DateTimeFlight == start)
                         {
                             // Flight leaves gate
-                            flight.DepartureGate.leaveGate(flight.ActiveAircraft);
+                            flight.DepartureGate.leaveGate(flight.ActiveAircraft, start);
                             Console.Write($"\n{flight.ActiveAircraft.Model} left gate\n");
 
                             // Tiden det tar for et fly å komme inn på taxiway til den er i enden.
-                            flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
+                            flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround, start);
 
                             // Enters taxiway queue
-                            flight.DepartureTaxiway.AddFlightToQueue(flight);
+                            flight.DepartureTaxiway.AddFlightToQueue(flight, start);
                             Console.Write($"\n{flight.ActiveAircraft.Model} reached taxiwayqueue\n");
                         }
                         else { continue; }
@@ -144,9 +144,9 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             // Hvis det finnes en flight i køen, og rullebane er ledig
                             if (currentFlight != null && currentFlight.DepartureRunway.InUse == false)
                             {
-                                currentFlight.DepartureTaxiway.NextFlightLeavesTaxiway(currentFlight);
+                                currentFlight.DepartureTaxiway.NextFlightLeavesTaxiway(currentFlight, start);
                                 currentFlight.DepartureRunway.UseRunway();
-                                currentFlight.DepartureRunway.SimulateRunwayTime(currentFlight, 0, currentFlight.ActiveAircraft.AccelerationInAir, currentFlight.ActiveAircraft.MaxSpeedInAir);
+                                currentFlight.DepartureRunway.SimulateRunwayTime(currentFlight, 0, currentFlight.ActiveAircraft.AccelerationInAir, currentFlight.ActiveAircraft.MaxSpeedInAir, start);
                                 currentFlight.DepartureRunway.ExitRunway();
                             }
                             else { continue; }
@@ -154,7 +154,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }                                                    
                 }
                 else { continue; }
-                Thread.Sleep(100);
+                Thread.Sleep(10);
                 start = start.AddMinutes(1);
             }
         }

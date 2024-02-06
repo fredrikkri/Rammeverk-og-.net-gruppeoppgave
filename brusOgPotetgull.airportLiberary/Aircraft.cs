@@ -59,9 +59,9 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         /// <param name="time"></param>
         /// <param name="message"></param>
-        public void AddHistoryToAircraft(string location, string message)
+        public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
-            history.Add(DateTime.Now, (location + message));
+            history.Add(time, (location + message));
         }
         /// <summary>
         /// Returns a string that contains the previous location of the plane. Value of the return can be "Gate", "Runway" or "Taxiway".

@@ -44,11 +44,11 @@ namespace brusOgPotetgull.airportLiberary
         /// Parameter 'aircraft' is the aircraft that is insertet to the queue.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void AddFlightToQueue(Flight flight)
+        public void AddFlightToQueue(Flight flight, DateTime time)
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(flight);
-            flight.ActiveAircraft.AddHistoryToAircraft("Taxiway " + GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
+            flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
             Console.Write($"\n{flight.ActiveAircraft.Model} has arrived at taxiwayqueue\n");
         }
         /// <summary>
@@ -61,21 +61,21 @@ namespace brusOgPotetgull.airportLiberary
             Flight nextFlight = taxiwayQueue.Peek();
             return nextFlight;
         }
-        public void NextFlightLeavesTaxiway(Flight flight)
+        public void NextFlightLeavesTaxiway(Flight flight, DateTime time)
         {
             // (Nagel, 2022, s. 203)
             while (taxiwayQueue.Count > 0)
             {
                 var nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft("Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
+                flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
                 Console.Write($"\n{flight.ActiveAircraft.Model} leaves taxiwayqueue\n");
                 //Må ha denne i addtoqueue: SimulateTaxiwayTime(nextFlightInQueue, initialspeed, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
             }
         }
-        public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed)
+        public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
         {
-            flight.ActiveAircraft.AddHistoryToAircraft("Taxiway " + GetIdTaxiwayAndAirportCode(), ", Enter taxiway");
+            flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Enter taxiway");
             
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
