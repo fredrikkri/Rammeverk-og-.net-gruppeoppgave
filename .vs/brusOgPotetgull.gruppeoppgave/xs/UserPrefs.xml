@@ -1,19 +1,16 @@
 ﻿<Properties StartupConfiguration="{C58CE0E2-4EA8-4230-A25D-AF2EABFF71C5}|Default">
-  <MonoDevelop.Ide.ItemProperties.brusOgPotetgull.gruppeoppgave PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="brusOgPotetgull.airportLiberary/Flight.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="brusOgPotetgull.airportLiberary/Simulation/Simulation.cs">
     <Files>
-      <File FileName="brusOgPotetgull.gruppeoppgave/Program.cs" Line="75" Column="1" />
-      <File FileName="brusOgPotetgull.airportLiberary/Simulation/Simulation.cs" Line="107" Column="90" />
-      <File FileName="brusOgPotetgull.airportLiberary/Flight.cs" Line="120" Column="14" />
-      <File FileName="brusOgPotetgull.airportLiberary/AirportComponents/Runway.cs" Line="25" Column="9" />
-      <File FileName="brusOgPotetgull.airportLiberary/AirportComponents/Taxiway.cs" Line="64" Column="44" />
-      <File FileName="brusOgPotetgull.airportLiberary/Aircraft.cs" Line="67" Column="13" />
-      <File FileName="brusOgPotetgull.airportLiberary/Airport.cs" Line="13" Column="45" />
+      <File FileName="brusOgPotetgull.gruppeoppgave/Program.cs" Line="20" Column="21" />
+      <File FileName="brusOgPotetgull.airportLiberary/Simulation/Simulation.cs" Line="12" Column="36" />
+      <File FileName="brusOgPotetgull.airportLiberary/Flight.cs" Line="192" Column="10" />
+      <File FileName="brusOgPotetgull.airportLiberary/AirportComponents/Runway.cs" />
+      <File FileName="brusOgPotetgull.airportLiberary/AirportComponents/Taxiway.cs" Line="86" Column="2" />
+      <File FileName="brusOgPotetgull.airportLiberary/Aircraft.cs" />
+      <File FileName="brusOgPotetgull.airportLiberary/Airport.cs" Line="142" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,7 +19,6 @@
             <Node name="brusOgPotetgull.airportLiberary" expanded="True">
               <Node name="AirportComponents" expanded="True" />
               <Node name="Simulation" expanded="True" />
-              <Node name="Flight.cs" selected="True" />
             </Node>
             <Node name="brusOgPotetgull.gruppeoppgave" expanded="True" />
           </Node>
@@ -30,5 +26,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.brusOgPotetgull.gruppeoppgave PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
