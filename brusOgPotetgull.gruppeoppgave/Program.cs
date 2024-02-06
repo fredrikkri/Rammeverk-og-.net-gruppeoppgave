@@ -71,7 +71,7 @@ namespace brusOgPotetgull.gruppeoppgave
             DateTime end = new DateTime(2024, 3, 1, 1,00,00);
             Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
 
-            Console.Write("\nHistory of aircrafts:\n");
+            Console.Write("\n\t\tHistory of aircrafts:\n");
 
             // Arriving
             sickPlane.PrintFullAircraftHistory();      // C355

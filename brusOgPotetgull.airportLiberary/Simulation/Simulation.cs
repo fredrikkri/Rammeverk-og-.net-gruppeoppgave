@@ -18,8 +18,29 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 // Fly drar fra Gate til en taksebane.
                 //foreach (Flight flight in airport.GetDepartingFlights())
                 //{
-                    // Må lage simulering/logikk for hvordan et fly kommer seg fra en gate til en taksebane.
+                // Må lage simulering/logikk for hvordan et fly kommer seg fra en gate til en taksebane.
                 //}
+
+
+                // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                /*
+                // fly ankommer gates
+                foreach (Flight flight in airport.GetArrivingFlights())
+                {
+                    flight.ArrivalGate.bookGate(flight.ActiveAircraft, start);
+                }
+                // fly bruker runway og drar fra flyplassen
+                foreach (Flight flight in airport.GetDepartingFlights())
+                {
+                    Aircraft flightFirstInQueue = flight.DepartureRunway.CheckNextFlightInQueue().ActiveAircraft;
+                    if (flightFirstInQueue == flight.ActiveAircraft)
+                    {
+                        // simmulere 
+                    }
+                }*/
+                // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
                 // Ankommende fly drar fra taksebane.
                 foreach (Flight flight in airport.GetArrivingFlights()) 
                 {
@@ -35,12 +56,13 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     if (flight.DepartureTaxiway.GetNumberOfAircraftsInQueue() > 0 && flight.DepartureTaxiway.CheckNextFlightInQueue() == flight)
                     {
                         flight.DepartureTaxiway.NextFlightLeavesTaxiway(flight, start);
+                        //flight.DepartureRunway.AddFlightToQueue(flight);
                     }
                     else { continue; }
                 }
                 // Hvis det finnnes innkommende flygninger
                 if (airport.GetArrivingFlights().Count > 0)
-                {   
+                {
                     // Går igjennom alle flygninger, og legger til denne dersom tiden for flygningen er denne iterasjonen (datetime.start + simulasjonstid)
                     foreach (Flight flight in airport.GetArrivingFlights())
                     {
@@ -50,11 +72,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             flight.ArrivalRunway.AddFlightToQueue(flight);
                             // trenger ikke køsystem på loggede flygninger, kun tidspunkt. Har allerede køsystem i runway og taxiway.
                         }
-                        else
-                        {
-                            continue;
-                        }
-                    }                             
+                    }                       
                     // Sjekker alle runways
                     foreach (Runway currentRunway in airport.GetRunwayList())
                     {
