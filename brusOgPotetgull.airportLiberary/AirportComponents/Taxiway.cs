@@ -86,11 +86,12 @@ namespace brusOgPotetgull.airportLiberary
 
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
-            int time = 0;            
-            while (remainingDistance != 0)
+            int time = 0;
+            
+            while (remainingDistance == 0)
             {
                 // trekker farten i meter per sekund fra Length
-                Length -= (initialSpeed * (5 / 18));
+                Length = Math.Max(Length - (initialSpeed * 5 / 18), 0);
                 if (initialSpeed < maxSpeed)
                 {
                     initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);

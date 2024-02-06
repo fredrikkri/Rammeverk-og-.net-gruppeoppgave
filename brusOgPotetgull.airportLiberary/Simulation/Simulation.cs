@@ -12,7 +12,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
             DateTime end = endTime;
             // Simulering starter ved startTime, og kjører inntil tidspunktet for endtime er <= starttime
             while (start <= end)
-            {
+            { 
                 Console.Write($"Simulation time: {start}\n");
                 // Hvis det finnnes innkommende flygninger
                 if (airport.GetArrivingFlights().Count > 0)
@@ -30,10 +30,10 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         {
                             continue;
                         }
-                    }                                 
+                    }                             
                     // Sjekker alle runways
                     foreach (Runway currentRunway in airport.GetRunwayList())
-                    {   
+                    {
                         //Hvis det er fly i runway køen, og runway er ledig
                         if (currentRunway.RunwayQueue.Count > 0 && currentRunway.InUse == false)                       
                         {
@@ -121,6 +121,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }                                                    
                 }
                 else { continue; }
+                Thread.Sleep(500);
                 start = start.AddMinutes(1);
             }
         }
