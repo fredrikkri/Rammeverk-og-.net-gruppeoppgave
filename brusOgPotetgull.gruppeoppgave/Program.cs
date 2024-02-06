@@ -51,10 +51,10 @@ namespace brusOgPotetgull.gruppeoppgave
             Runway mediumRunway2 = new Runway(ryggeFlyplass, 800); ryggeFlyplass.AddRunwayToList(mediumRunway2);
 
             // Lagt til parameteret bool isArrivingFlight
-            Flight flight1 = new Flight(cargoCraftV12, new DateTime(2024, 3, 2), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate1, gate3, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
-            Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 1, 01, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
+            Flight flight1 = new Flight(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate1, gate3, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
+            Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
             Flight flight3 = new Flight(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
-            Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 1, 00, 15, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
+            Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 1, 00, 02, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
 
 
             // TODO: Må ordne opp i setupFlight
@@ -72,9 +72,13 @@ namespace brusOgPotetgull.gruppeoppgave
             Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
 
             Console.Write("\nHistory of aircrafts:\n");
+
+            // Arriving
             sickPlane.PrintFullAircraftHistory();      // C355
-            cargoCraftV12.PrintFullAircraftHistory();  // C420
             SR71.PrintFullAircraftHistory();           // S137
+
+            // departuring
+            cargoCraftV12.PrintFullAircraftHistory();  // C420
             superPlane.PrintFullAircraftHistory();     // A130
 
 
