@@ -104,7 +104,8 @@ namespace brusOgPotetgull.airportLiberary
         /// <param name="flightDate"></param>
         public void SetupFlight(Airport airport)
         {
-            if (ActiveAircraft.OutOfService == false) {
+            if (ActiveAircraft.OutOfService == false)
+            {
                 // checks if the plane are adjusted for gates.
                 if (DepartureGate.CheckAircraftAllowedAtGate(ActiveAircraft) && ArrivalGate.CheckAircraftAllowedAtGate(ActiveAircraft) == true)
                 {
@@ -168,6 +169,26 @@ namespace brusOgPotetgull.airportLiberary
                 SetupFlight();
             }
         }*/
-        
+        public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
+        {
+            var remainingDistance = Length;
+            int time = 0;
+
+            while (remainingDistance == 0)
+            {
+                // trekker farten i meter per sekund fra Length
+                Length = Math.Max(Length - (initialSpeed * 5 / 18), 0);
+                if (initialSpeed < maxSpeed)
+                {
+                    initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
+                }
+                else if (initialSpeed > maxSpeed)
+                {
+                    initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
+                }
+                time++;
+            }
+            return time;
+        }
     }
 }

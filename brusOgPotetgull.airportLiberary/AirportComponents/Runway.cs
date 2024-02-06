@@ -105,27 +105,9 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
         // Returns the time in seconds an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph
-        public int SimulateRunwayTime(Flight flight ,int initialSpeed, int speedChange, int maxSpeed) {
-            var remainingDistance = Length;
-            int time = 0;
-            
-            while (remainingDistance == 0)
-            {
-                // trekker farten i meter per sekund fra Length
-                Length = Math.Max(Length - (initialSpeed * 5 / 18), 0);
-                if (initialSpeed < maxSpeed)
-                {
-                    initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
-                }
-                else if (initialSpeed > maxSpeed)
-                {
-                    initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
-                }
-                time++;
-            }
-            // TODO: Forbedre historikk meldingen EVT ikke ha historikken her ????
+        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) {
             flight.ActiveAircraft.AddHistoryToAircraft("", "Leaves Runway");
-            return time;
+            return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
         /*public int SimulateTakeoff(Aircraft aircraft)
         {
