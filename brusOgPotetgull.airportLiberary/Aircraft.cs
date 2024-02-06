@@ -10,7 +10,8 @@ namespace brusOgPotetgull.airportLiberary
         private int aircraftTypeId = 0;
         private bool outOfService = false;
         // (Trupja, 2023)
-        Dictionary<DateTime, string> history;
+        
+        List<KeyValuePair<DateTime, string>> history;
 
         public Aircraft(string model,
             int maxSpeedInAir,
@@ -24,7 +25,7 @@ namespace brusOgPotetgull.airportLiberary
             this.AircraftTypeId = aircraftTypeId;
             this.OutOfService = outOfService;
             this.Model = model;
-            history = new Dictionary<DateTime, string>();
+            history = new List<KeyValuePair<DateTime, string>>();
             this.MaxSpeedInAir = maxSpeedInAir;
             this.AccelerationInAir = accelerationInAir;
             this.MaxSpeedOnGround = maxSpeedOnGround;
@@ -61,19 +62,22 @@ namespace brusOgPotetgull.airportLiberary
         /// <param name="message"></param>
         public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
-            history.Add(time, (location + message));
+            history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
+            
         }
         /// <summary>
         /// Returns a string that contains the previous location of the plane. Value of the return can be "Gate", "Runway" or "Taxiway".
         /// </summary>
         /// <returns></returns>
+        ///
+        /*
         public string CheckPreviousLocation()
         {
             var last = history.Values.Last();
             string[] singleWord = last.Split(" ");
             string firstWord = singleWord.First();
             return firstWord;
-        }
+        }*/
         /// <summary>
         /// Prints the full history of the plane.
         /// </summary>
