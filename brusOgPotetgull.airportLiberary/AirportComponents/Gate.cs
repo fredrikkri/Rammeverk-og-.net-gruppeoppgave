@@ -80,7 +80,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             foreach (int typeId in aircraftTypeIds)
             {
-                if (!legalAircraftTypesId.Contains(typeId)
+                if (!legalAircraftTypesId.Contains(typeId))
                 {
                     legalAircraftTypesId.Add(typeId);                    
                 }

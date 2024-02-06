@@ -32,7 +32,7 @@ namespace brusOgPotetgull.airportLiberary
         /// returns the id and the nickname for the airport that this runway is located at.
         /// </summary>
         /// <returns></returns>
-        public string GetIdAndAirportNickname()
+        public string GetIdRunwayAndAirportCode()
         {
             string returnString = (string)(Id + " " + LocatedAtAirport.AirportCode);
             return returnString;
@@ -95,10 +95,9 @@ namespace brusOgPotetgull.airportLiberary
             {
                 var nextFlight = runwayQueue.Dequeue();
                 runwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft($"Runway {id}",
-                                                          $"Flight {flight.ActiveAircraft.Model}" +
+                flight.ActiveAircraft.AddHistoryToAircraft($" Runway {id}",
                                                           $" Number: {flight.ActiveAircraft.Id} enters the runway");
-            }
+            } 
             else
             {
                 Console.Write($"No flights in runway - {id} queue");
@@ -106,7 +105,8 @@ namespace brusOgPotetgull.airportLiberary
         }
         // Returns the time in seconds an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph
         public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) {
-            flight.ActiveAircraft.AddHistoryToAircraft("", "Leaves Runway");
+            flight.ActiveAircraft.AddHistoryToAircraft("Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
+            
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
         /*public int SimulateTakeoff(Aircraft aircraft)
