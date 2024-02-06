@@ -87,7 +87,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     // vi skal gjøre det i forhold til simuleringstiden.
                 }
                 // Eller Hvis det finnes utgående flygninger
-                else if (airport.GetDepartingFlights().Count > 0)
+                if (airport.GetDepartingFlights().Count > 0)
                 {
                     // Går igjennom lista med utgående flygninger
                     foreach (var flight in airport.GetDepartingFlights())
@@ -130,7 +130,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }                                                    
                 }
                 else { continue; }
-                Thread.Sleep(2);
+                Thread.Sleep(400);
                 start = start.AddMinutes(1);
             }
         }
