@@ -88,10 +88,10 @@ namespace brusOgPotetgull.airportLiberary
             var remainingDistance = Length;
             int time = 0;
             
-            while (remainingDistance != 0)
+            while (remainingDistance == 0)
             {
                 // trekker farten i meter per sekund fra Length
-                Length -= (initialSpeed * (5 / 18));
+                Length = Math.Max(Length - (initialSpeed * 5 / 18), 0);
                 if (initialSpeed < maxSpeed)
                 {
                     initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
@@ -101,7 +101,6 @@ namespace brusOgPotetgull.airportLiberary
                     initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
                 }
                 time++;
-                break;
             }
 
             flight.ActiveAircraft.AddHistoryToAircraft($"Taxiway " + GetIdTaxiwayAndAirportCode(), ", at the end of the taxiway");
