@@ -78,5 +78,9 @@ namespace brusOgPotetgull.airportLiberary
             flight.ActiveAircraft.AddHistoryToAircraft("", "Leaves Taxiway");
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
+        public int GetNumberOfAircraftsInQueue()
+        {
+            return taxiwayQueue.Count();
+        }
     }
 }
