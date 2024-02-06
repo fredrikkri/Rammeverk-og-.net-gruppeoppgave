@@ -95,8 +95,7 @@ namespace brusOgPotetgull.airportLiberary
             {
                 var nextFlight = runwayQueue.Dequeue();
                 runwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft($" Runway {id}",
-                                                          $" Number: {flight.ActiveAircraft.Id} enters the runway");
+                flight.ActiveAircraft.AddHistoryToAircraft($"Runway " + GetIdRunwayAndAirportCode(), ", Enter the runway");
             } 
             else
             {
