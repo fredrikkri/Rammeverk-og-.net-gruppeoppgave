@@ -70,7 +70,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <param name="speedAfterTakeoff"></param>
         public void SimulateAirTime(int speedAfterTakeoff)
         {
-            ActiveAircraft.AddHistoryToAircraft("Runway " + DepartureRunway.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
+            ActiveAircraft.AddHistoryToAircraft("Runway " + DepartureRunway.GetIdRunwayAndAirportCode(), $", Taken off and left {DepartureAirport.Name}");
             Console.Write($"\n{ActiveAircraft.Model} is now in the air\n");
             // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
             var remainingDistance = Length;
@@ -92,7 +92,7 @@ namespace brusOgPotetgull.airportLiberary
                 Thread.Sleep(5);
                 //Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
             }
-            ActiveAircraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
+            ActiveAircraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdRunwayAndAirportCode(), $", Arrived at {ArrivalAirport.Name}");
             Console.Write($"\n{ActiveAircraft.Model} has landed at runway\n");
         }
         /// <summary>

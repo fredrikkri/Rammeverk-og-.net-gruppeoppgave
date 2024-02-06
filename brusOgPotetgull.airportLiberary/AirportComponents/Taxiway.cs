@@ -75,7 +75,8 @@ namespace brusOgPotetgull.airportLiberary
         }
         public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed)
         {
-            flight.ActiveAircraft.AddHistoryToAircraft("", "Leaves Taxiway");
+            flight.ActiveAircraft.AddHistoryToAircraft("Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiway");
+            
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
         public int GetNumberOfAircraftsInQueue()
