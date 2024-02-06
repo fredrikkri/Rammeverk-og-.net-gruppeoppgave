@@ -58,8 +58,8 @@ namespace brusOgPotetgull.airportLiberary
         /// 
         public Flight CheckNextFlightInQueue()
         {
-            Flight nextFlight = taxiwayQueue.Peek();
-            return nextFlight;
+                Flight nextFlight = taxiwayQueue.Peek();
+                return nextFlight;
         }
         public void NextFlightLeavesTaxiway(Flight flight, DateTime time)
         {

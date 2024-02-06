@@ -41,9 +41,9 @@ namespace brusOgPotetgull.gruppeoppgave
                 }
             }
 
-            Taxiway shortTaxiway = new Taxiway(300, 35, ryggeFlyplass);
-            Taxiway mediumTaxiway = new Taxiway(750, 20, gardemoenFlyplass);
-            Taxiway longTaxiway = new Taxiway(1000, 35, gardemoenFlyplass);
+            Taxiway shortTaxiway = new Taxiway(300, 35, ryggeFlyplass); ryggeFlyplass.AddTaxiwayToList(shortTaxiway);
+            Taxiway mediumTaxiway = new Taxiway(750, 20, gardemoenFlyplass); gardemoenFlyplass.AddTaxiwayToList(mediumTaxiway);
+            Taxiway longTaxiway = new Taxiway(1000, 35, gardemoenFlyplass); gardemoenFlyplass.AddTaxiwayToList(longTaxiway);
 
             Runway longRunway1 = new Runway(gardemoenFlyplass, 1000); gardemoenFlyplass.AddRunwayToList(longRunway1);
             Runway mediumRunway1 = new Runway(gardemoenFlyplass, 800); gardemoenFlyplass.AddRunwayToList(mediumRunway1);
@@ -80,8 +80,6 @@ namespace brusOgPotetgull.gruppeoppgave
             // departuring
             cargoCraftV12.PrintFullAircraftHistory();  // C420
             superPlane.PrintFullAircraftHistory();     // A130
-
-
 
             System.Console.ReadLine();
         }
