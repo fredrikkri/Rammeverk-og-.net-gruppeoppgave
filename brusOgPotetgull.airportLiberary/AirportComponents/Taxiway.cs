@@ -73,38 +73,10 @@ namespace brusOgPotetgull.airportLiberary
                 //Må ha denne i addtoqueue: SimulateTaxiwayTime(nextFlightInQueue, initialspeed, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
             }
         }
-        /// <summary>
-        /// Simulates the time an aircraft spends on the taxiway. Based on the length of the taxiway,
-        /// acceleration and maxspeed of the aircraft on the ground defined by the aricraft object.
-        /// parameter 'aircraft' is the aircraft that is using the taxiway with the simulation.
-        /// </summary>
-        /// <param name="aircraft"></param>
-        public void SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed)
+        public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed)
         {
-            Console.Write($"\n{flight.ActiveAircraft.Model} Arrived at taxiway\n");
-            flight.ActiveAircraft.AddHistoryToAircraft($"Taxiway " + GetIdTaxiwayAndAirportCode(), ", Arrived at taxiway");
-
-            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
-            var remainingDistance = Length;
-            int time = 0;            
-            while (remainingDistance != 0)
-            {
-                // trekker farten i meter per sekund fra Length
-                Length -= (initialSpeed * (5 / 18));
-                if (initialSpeed < maxSpeed)
-                {
-                    initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
-                }
-                else if (initialSpeed > maxSpeed)
-                {
-                    initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
-                }
-                time++;
-            }
-
-            flight.ActiveAircraft.AddHistoryToAircraft($"Taxiway " + GetIdTaxiwayAndAirportCode(), ", at the end of the taxiway");
-            Console.Write($"\n{flight.ActiveAircraft.Model} is at the end of the taxiway\n");
-            
+            flight.ActiveAircraft.AddHistoryToAircraft("", "Leaves Taxiway");
+            return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
     }
 }
