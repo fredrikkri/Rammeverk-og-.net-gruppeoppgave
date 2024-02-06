@@ -11,6 +11,7 @@
 *.userosscache
 *.sln.docstates
 
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -397,6 +398,13 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+#trying to ignore files that already exists in repository, and causing conflict every time we pull
+brusOgPotetgull.airportLiberary/obj/
+brusOgPotetgull.gruppeoppgave/obj/
+
+
+#Static files that cause trouble 
 brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.AssemblyInfo.cs
 brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.AssemblyInfoInputs.cache
 brusOgPotetgull.airportLiberary/obj/Debug/net8.0/brusOgPotetgull.airportLiberary.assets.cache
