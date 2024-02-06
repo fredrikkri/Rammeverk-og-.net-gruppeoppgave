@@ -64,7 +64,7 @@ namespace brusOgPotetgull.airportLiberary
         public void NextFlightLeavesTaxiway(Flight flight)
         {
             // (Nagel, 2022, s. 203)
-            while (taxiwayQueue.Count >= 1)
+            while (taxiwayQueue.Count > 0)
             {
                 var nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();

@@ -13,17 +13,17 @@ namespace brusOgPotetgull.airportLiberary.Simulation
             // Simulering starter ved startTime, og kjører inntil tidspunktet for endtime er <= starttime
             while (start <= end)
             { 
-                Console.Write($"\n\tSimulation time: {start}\n");
+                Console.Write($"\n\t\t\t\t\t\tSimulation time: {start}\n");
 
                 // Fly drar fra Gate til en taksebane.
-                foreach (Flight flight in airport.GetDepartingFlights())
-                {
+                //foreach (Flight flight in airport.GetDepartingFlights())
+                //{
                     // Må lage simulering/logikk for hvordan et fly kommer seg fra en gate til en taksebane.
-                }
+                //}
                 // Ankommende fly drar fra taksebane.
                 foreach (Flight flight in airport.GetArrivingFlights()) 
                 {
-                    if (flight.ArrivalTaxiway.GetNumberOfAircraftsInQueue() > 0)
+                    if (flight.ArrivalTaxiway.GetNumberOfAircraftsInQueue() > 0 && flight.ArrivalTaxiway.CheckNextFlightInQueue() == flight)
                     {
                         flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight);
                     }
@@ -32,7 +32,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 // reisende fly drar fra taksebane.
                 foreach (Flight flight in airport.GetDepartingFlights())
                 {
-                    if (flight.DepartureTaxiway.GetNumberOfAircraftsInQueue() > 0)
+                    if (flight.DepartureTaxiway.GetNumberOfAircraftsInQueue() > 0 && flight.DepartureTaxiway.CheckNextFlightInQueue() == flight)
                     {
                         flight.DepartureTaxiway.NextFlightLeavesTaxiway(flight);
                     }
