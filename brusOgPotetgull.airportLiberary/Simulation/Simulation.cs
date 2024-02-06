@@ -64,7 +64,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             //utfør landing
                             Flight nextFlight = currentRunway.CheckNextFlightInQueue();
                             currentRunway.NextFlightEntersRunway(nextFlight);
-                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} bruker runway\n");
+                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} using runway\n");
                             currentRunway.UseRunway();
                             // funksjonen og lokale variabelen under brukes ikke foreløpig.
                             // Vurderer å benytte funksjonen til å logge et annet exit tidspunkt basert på tid brukt på runway
@@ -72,11 +72,11 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             // kan egt flyttes til flight. Der kan den heller brukes for flybevegelser generelt.
                             //int secondsOnRunway = currentRunway.SimulateRunwayTime(nextFlight, 300, 40, nextFlight.ActiveAircraft.MaxSpeedOnGround);
                             currentRunway.ExitRunway();
-                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} forlatt runway\n");
+                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} left runway\n");
 
-                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} bruker taxiyway\n");
+                            
+                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} using taxiyway\n");
                             nextFlight.DepartureTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround);
-                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} ankommet taxiwaykø\n");
                             nextFlight.ArrivalTaxiway.AddFlightToQueue(nextFlight);
                         }
                         // La fly forbli i køen til neste iterasjon
@@ -93,10 +93,10 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         {
                             // Flygning forlater taxiway
                             flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight);
-                            Console.Write($"\n{flight.ActiveAircraft.Model} forlatt taxiway\n");
+                            Console.Write($"\n{flight.ActiveAircraft.Model} left taxiway\n");
                             // Flygning sjekker inn på gate
                             flight.ArrivalGate.bookGate(flight.ActiveAircraft);
-                            Console.Write($"\n{flight.ActiveAircraft.Model} ankommet gate\n");
+                            Console.Write($"\n{flight.ActiveAircraft.Model} reached gate\n");
 
                             // Fjerner flygningen fra innkommende flygninger når den er ferdig håndtert
                             airport.RemoveArrivingFlight(flight);
@@ -121,14 +121,14 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         {
                             // Flight leaves gate
                             flight.DepartureGate.leaveGate(flight.ActiveAircraft);
-                            Console.Write($"\n{flight.ActiveAircraft.Model} forlatt gate\n");
+                            Console.Write($"\n{flight.ActiveAircraft.Model} left gate\n");
 
                             // Tiden det tar for et fly å komme inn på taxiway til den er i enden.
                             flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
 
                             // Enters taxiway queue
                             flight.DepartureTaxiway.AddFlightToQueue(flight);
-                            Console.Write($"\n{flight.ActiveAircraft.Model} ankommet taxiwaykø\n");
+                            Console.Write($"\n{flight.ActiveAircraft.Model} reached taxiwayqueue\n");
                         }
                         else { continue; }
                     }
