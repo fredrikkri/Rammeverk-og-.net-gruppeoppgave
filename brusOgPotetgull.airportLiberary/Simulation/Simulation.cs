@@ -13,7 +13,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
             // Simulering starter ved startTime, og kjører inntil tidspunktet for endtime er <= starttime
             while (start <= end)
             { 
-                Console.Write($"Simulation time: {start}\n");
+                Console.Write($"\n\tSimulation time: {start}\n");
                 // Hvis det finnnes innkommende flygninger
                 if (airport.GetArrivingFlights().Count > 0)
                 {   
@@ -40,7 +40,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             //utfør landing
                             Flight nextFlight = currentRunway.CheckNextFlightInQueue();
                             currentRunway.NextFlightEntersRunway(nextFlight);
-                            Console.Write($"{nextFlight.ActiveAircraft.Model} bruker runway");
+                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} bruker runway\n");
                             currentRunway.UseRunway();
                             // funksjonen og lokale variabelen under brukes ikke foreløpig.
                             // Vurderer å benytte funksjonen til å logge et annet exit tidspunkt basert på tid brukt på runway
@@ -48,7 +48,11 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             // kan egt flyttes til flight. Der kan den heller brukes for flybevegelser generelt.
                             //int secondsOnRunway = currentRunway.SimulateRunwayTime(nextFlight, 300, 40, nextFlight.ActiveAircraft.MaxSpeedOnGround);
                             currentRunway.ExitRunway();
+                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} forlatt runway\n");
+
+                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} bruker taxiyway\n");
                             nextFlight.DepartureTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround);
+                            Console.Write($"\n{nextFlight.ActiveAircraft.Model} ankommet taxiwaykø\n");
                             nextFlight.ArrivalTaxiway.AddFlightToQueue(nextFlight);
                         }
                         // La fly forbli i køen til neste iterasjon
@@ -59,17 +63,19 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     foreach (var taxiway in airport.GetListTaxiways())
                     {
                         // Neste fly i taxiway køen
-                        Flight nextFlight = taxiway.CheckNextFlightInQueue();
+                        Flight flight = taxiway.CheckNextFlightInQueue();
                         // Dersom flygning er arriving flight og gate er ledig
-                        if (nextFlight.IsArrivingFlight == true && nextFlight.ArrivalGate.IsAvailable == true)
+                        if (flight.IsArrivingFlight == true && flight.ArrivalGate.IsAvailable == true)
                         {
                             // Flygning forlater taxiway
-                            nextFlight.ArrivalTaxiway.NextFlightLeavesTaxiway(nextFlight);
+                            flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight);
+                            Console.Write($"\n{flight.ActiveAircraft.Model} forlatt taxiway\n");
                             // Flygning sjekker inn på gate
-                            nextFlight.ArrivalGate.bookGate(nextFlight.ActiveAircraft);
-                            
+                            flight.ArrivalGate.bookGate(flight.ActiveAircraft);
+                            Console.Write($"\n{flight.ActiveAircraft.Model} ankommet gate\n");
+
                             // Fjerner flygningen fra innkommende flygninger når den er ferdig håndtert
-                            airport.RemoveArrivingFlight(nextFlight);
+                            airport.RemoveArrivingFlight(flight);
                         }
                         else { continue; }                                                 
                     }
@@ -81,7 +87,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     // vi skal gjøre det i forhold til simuleringstiden.
                 }
                 // Eller Hvis det finnes utgående flygninger
-                else if (airport.GetDepartingFlights().Count > 0)
+                if (airport.GetDepartingFlights().Count > 0)
                 {
                     // Går igjennom lista med utgående flygninger
                     foreach (var flight in airport.GetDepartingFlights())
@@ -91,12 +97,14 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         {
                             // Flight leaves gate
                             flight.DepartureGate.leaveGate(flight.ActiveAircraft);
+                            Console.Write($"\n{flight.ActiveAircraft.Model} forlatt gate\n");
 
                             // Tiden det tar for et fly å komme inn på taxiway til den er i enden.
                             flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
 
                             // Enters taxiway queue
                             flight.DepartureTaxiway.AddFlightToQueue(flight);
+                            Console.Write($"\n{flight.ActiveAircraft.Model} ankommet taxiwaykø\n");
                         }
                         else { continue; }
                     }
@@ -108,6 +116,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         {
                             // neste fly i køen på gjeldene taxiway
                             Flight currentFlight = taxiway.CheckNextFlightInQueue();
+                            Console.Write($"\n{currentFlight.ActiveAircraft.Model} fly lagt til i liste\n");
                             // Hvis det finnes en flight i køen, og rullebane er ledig
                             if (currentFlight != null && currentFlight.DepartureRunway.InUse == false)
                             {
@@ -121,7 +130,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }                                                    
                 }
                 else { continue; }
-                Thread.Sleep(4);
+                Thread.Sleep(400);
                 start = start.AddMinutes(1);
             }
         }
