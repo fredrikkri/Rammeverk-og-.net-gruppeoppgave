@@ -64,37 +64,7 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Gate: {ArrivalGate.Id}\n");
 
         }
-        /// <summary>
-        /// Simulates the time it takes to fly from one runway to another.
-        /// </summary>
-        /// <param name="speedAfterTakeoff"></param>
-        public void SimulateAirTime(int speedAfterTakeoff)
-        {
-            ActiveAircraft.AddHistoryToAircraft("Runway " + DepartureRunway.GetIdAndAirportNickname(), $", Taken off and left {DepartureAirport.Name}");
-            Console.Write($"\n{ActiveAircraft.Model} is now in the air\n");
-            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
-            var remainingDistance = Length;
-            var currentSpeed = speedAfterTakeoff;
-            int secondCounter = 0;
-
-            while (remainingDistance > 0)
-            {
-                remainingDistance = remainingDistance - currentSpeed;
-                if (currentSpeed >= 0)
-                {
-                    currentSpeed += ActiveAircraft.AccelerationInAir;
-                }
-                if (currentSpeed >= ActiveAircraft.MaxSpeedInAir)
-                {
-                    currentSpeed = ActiveAircraft.MaxSpeedInAir;
-                }
-                secondCounter++;
-                Thread.Sleep(5);
-                //Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
-            }
-            ActiveAircraft.AddHistoryToAircraft("Runway " + ArrivalRunway.GetIdAndAirportNickname(), $", Arrived at {ArrivalAirport.Name}");
-            Console.Write($"\n{ActiveAircraft.Model} has landed at runway\n");
-        }
+       
         /// <summary>
         /// Starts a flight if the gates and the date for the flight is right.
         /// If the checks is ok, then the flight begins.

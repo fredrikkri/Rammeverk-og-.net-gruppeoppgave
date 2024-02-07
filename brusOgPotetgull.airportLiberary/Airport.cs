@@ -139,5 +139,6 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write("No departing flights in list");
             }
         }
+
     }
 }
