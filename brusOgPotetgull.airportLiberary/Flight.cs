@@ -8,7 +8,6 @@ namespace brusOgPotetgull.airportLiberary
     {
         private static int idCounter = 1;
         private int flightId;
-        private DateTime dateTimeFlight;
 
         public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length,
             Airport departureAirport, Airport arrivalAirport,
@@ -38,7 +37,7 @@ namespace brusOgPotetgull.airportLiberary
         public int FlightId { get; private set; }
         public int Length { get; private set; }
         public Aircraft ActiveAircraft { get; private set; }
-        public DateTime DateTimeFlight { get; private set; }
+        public DateTime DateTimeFlight { get; set; }
         public bool IsArrivingFlight { get; private set; }
         public Airport DepartureAirport { get; private set; }
         public Airport ArrivalAirport { get; private set; }
@@ -64,7 +63,28 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Gate: {ArrivalGate.Id}\n");
 
         }
-       
+
+        public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
+        {
+            var remainingDistance = Length;
+            int time = 0;
+
+            while (remainingDistance == 0)
+            {
+                // trekker farten i meter per sekund fra Length
+                Length = Math.Max(Length - (initialSpeed * 5 / 18), 0);
+                if (initialSpeed < maxSpeed)
+                {
+                    initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
+                }
+                else if (initialSpeed > maxSpeed)
+                {
+                    initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
+                }
+                time++;
+            }
+            return time;
+        }
         /// <summary>
         /// Starts a flight if the gates and the date for the flight is right.
         /// If the checks is ok, then the flight begins.
@@ -91,6 +111,7 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"\nFlight with id '{flightId}': The Flight is out of service. The flight cannot be done...\n");
             }
         }
+
         /// <summary>
         /// Sets up daily flights.
         /// dateFlights is the date of when the flight will start.
@@ -98,13 +119,14 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         /// <param name="dateFlight"></param>
         /// <param name="numberOfDays"></param>
-        /*public void SetupDailyFlight(int numberOfDays)
+        /*
+        public void SetupDailyDeparturingFlight(Airport airport, int numberOfDays)
         {
             for (int i = 0; i < numberOfDays; i++)
             {
                 dateTimeFlight.AddDays(i);
-                Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i));
-                SetupFlight();
+                //Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i));
+                airport.AddDepartingFlight();
             }
         }
         /// <summary>
@@ -139,26 +161,5 @@ namespace brusOgPotetgull.airportLiberary
                 SetupFlight();
             }
         }*/
-        public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
-        {
-            var remainingDistance = Length;
-            int time = 0;
-
-            while (remainingDistance == 0)
-            {
-                // trekker farten i meter per sekund fra Length
-                Length = Math.Max(Length - (initialSpeed * 5 / 18), 0);
-                if (initialSpeed < maxSpeed)
-                {
-                    initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
-                }
-                else if (initialSpeed > maxSpeed)
-                {
-                    initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
-                }
-                time++;
-            }
-            return time;
-        }
     }
 }
