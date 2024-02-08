@@ -399,9 +399,10 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-#trying to ignore files that already exists in repository, and causing conflict every time we pull
-brusOgPotetgull.airportLiberary/obj/
-brusOgPotetgull.gruppeoppgave/obj/
+# trying to ignore files that already exists in repository, and causing conflict every time we pull
+# brusOgPotetgull.airportLiberary/obj/
+# brusOgPotetgull.gruppeoppgave/obj/
+# did not work as intended, included more "modified files" to git pull requests 
 
 
 #Static files that cause trouble 
