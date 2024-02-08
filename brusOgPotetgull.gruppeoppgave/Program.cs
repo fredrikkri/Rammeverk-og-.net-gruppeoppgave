@@ -52,7 +52,7 @@ namespace brusOgPotetgull.gruppeoppgave
 
             // Lagt til parameteret bool isArrivingFlight
             Flight flight1 = new Flight(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate1, gate3, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
-            Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
+            //Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
             Flight flight3 = new Flight(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
             Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 1, 00, 02, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
 
@@ -63,12 +63,15 @@ namespace brusOgPotetgull.gruppeoppgave
             flight1.SetupDailyFlight(3);*/
 
             gardemoenFlyplass.AddDepartingFlight(flight1);
-            gardemoenFlyplass.AddDepartingFlight(flight2);
+            gardemoenFlyplass.AddDailyDeparturingFlight(4, superPlane, new DateTime(2024, 3, 1, 00, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
             gardemoenFlyplass.AddArrivingFlight(flight3);
             gardemoenFlyplass.AddArrivingFlight(flight4);
 
+
+            gardemoenFlyplass.PrintListDeparturingFlights();
+
             DateTime start = new DateTime(2024, 3, 1);
-            DateTime end = new DateTime(2024, 3, 1, 1,00,00);
+            DateTime end = new DateTime(2024, 3, 4, 1,00,00);
             Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
 
             Console.Write("\n\t\tHistory of aircrafts:\n");
@@ -81,6 +84,7 @@ namespace brusOgPotetgull.gruppeoppgave
             cargoCraftV12.PrintFullAircraftHistory();  // C420
             superPlane.PrintFullAircraftHistory();     // A130
 
+            cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
             System.Console.ReadLine();
         }
     }
