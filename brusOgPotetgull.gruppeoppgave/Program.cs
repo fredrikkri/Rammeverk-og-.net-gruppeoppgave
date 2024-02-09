@@ -73,6 +73,7 @@ namespace brusOgPotetgull.gruppeoppgave
             DateTime start = new DateTime(2024, 3, 1);
             DateTime end = new DateTime(2024, 3, 1, 4,00,00);
             Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
+            newSim.RunSimulation();
 
             Console.Write("\n\t\tHistory of aircrafts:\n");
 
