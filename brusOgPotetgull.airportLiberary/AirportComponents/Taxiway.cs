@@ -52,7 +52,6 @@ namespace brusOgPotetgull.airportLiberary
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(flight);
             flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
-            Console.Write($"\n{flight.ActiveAircraft.Model} has arrived at taxiwayqueue\n");
         }
 
         /// <summary>
@@ -78,8 +77,6 @@ namespace brusOgPotetgull.airportLiberary
                 var nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
                 flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
-                Console.Write($"\n{flight.ActiveAircraft.Model} leaves taxiwayqueue\n");
-                //Må ha denne i addtoqueue: SimulateTaxiwayTime(nextFlightInQueue, initialspeed, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
             }
         }
 

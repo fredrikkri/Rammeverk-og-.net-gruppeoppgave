@@ -72,14 +72,12 @@ namespace brusOgPotetgull.airportLiberary
         /// This method lets the next flight in queue enter the runway.
         /// </summary>
         /// <param name="flight">Used to remove the flight from the runwayqueue.</param>
-        /// <param name="time">Is used to log the history of the aircraft.</param>
-        public void NextFlightEntersRunway(Flight flight, DateTime time)
+        public void NextFlightEntersRunway(Flight flight)
         {
             if (runwayQueue.Count != 0)
             {
                 var nextFlight = runwayQueue.Dequeue();
                 runwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Enter the runway");
             } 
 
             else
@@ -95,28 +93,31 @@ namespace brusOgPotetgull.airportLiberary
         /// <param name="initialSpeed">Parameter for CalculateFlightMovement().</param>
         /// <param name="speedChange">Parameter for CalculateFlightMovement().</param>
         /// <param name="maxSpeed">Parameter for CalculateFlightMovement().</param>
-        /// <param name="time">Used to log the history for the plane.</param>
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
-        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time) {
-            flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
-            
+        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) {
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
 
         /// <summary>
         /// Sets the runwaystatus to 'inUse = true'
         /// </summary>
-        public void UseRunway()
+        /// <param name="flight">Is the aircraft that uses the runway.</param>
+        /// <param name="time">Is used to log the history of the aircraft.</param>
+        public void UseRunway(Flight flight, DateTime time)
         {
             inUse = true;
+            flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Enter the runway");
         }
 
         /// <summary>
         /// Sets the runwaystatus to 'inUse = false'
         /// </summary>
-        public void ExitRunway()
+        /// <param name="flight">Is the aircraft that is leaving the runway.</param>
+        /// <param name="time">Is used to log the history of the aircraft.</param>
+        public void ExitRunway(Flight flight, DateTime time)
         {
             inUse = false;
+            flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
         }
     }
 }
