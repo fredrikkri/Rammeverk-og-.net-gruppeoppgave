@@ -158,7 +158,6 @@ namespace brusOgPotetgull.airportLiberary
             return arrivingFlights;
         }
 
-
         /// <summary>
         /// This method adds an arriving flight to this airport.
         /// </summary>
