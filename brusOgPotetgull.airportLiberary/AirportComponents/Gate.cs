@@ -90,6 +90,14 @@ namespace brusOgPotetgull.airportLiberary
                 }
             }
         }
+        public void MakeAllAircraftTypesAllowedForThisGate()
+        {
+            int numberOfAircraftTypes = 6;
+            for (int i = 0; i < numberOfAircraftTypes; i++)
+            {
+                AddAircraftAllowedAtGate(i);
+            }
+        }
         /// <summary>
         /// Removes an aircraft from being able to use the gate.
         /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to deny accsess to the gate.
