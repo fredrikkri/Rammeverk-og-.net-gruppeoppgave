@@ -110,6 +110,7 @@ namespace brusOgPotetgull.airportLiberary
                     Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
                 }
             }
+
             else
             {
                 Console.Write($"\nFlight with id '{flightId}': The Flight is out of service. The flight cannot be done...\n");
