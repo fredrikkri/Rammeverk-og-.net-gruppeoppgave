@@ -71,7 +71,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         if (flight.IsArrivingFlight == true)
                         {
                             flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight, start);  // ------------------------------------------------------------------ step 3 arrving
-                            flight.ArrivalGate.bookGate(flight.ActiveAircraft, start);
+                            flight.ArrivalGate.BookGate(flight.ActiveAircraft, start);
 
                             Airport.RemoveArrivingFlight(flight);
                         }
@@ -87,7 +87,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         // Hvis tiden for flygningen er lik nåværende tid i simulasjonen
                         if (flight.DateTimeFlight == start)
                         {
-                            flight.DepartureGate.leaveGate(flight.ActiveAircraft, start); // ----------------------------------------------------------- step 1 Departing
+                            flight.DepartureGate.LeaveGate(flight.ActiveAircraft, start); // ----------------------------------------------------------- step 1 Departing
                             flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround, start);
                             flight.DepartureTaxiway.AddFlightToQueue(flight, start);
                         }

@@ -78,8 +78,6 @@ namespace brusOgPotetgull.airportLiberary
                 var nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
                 flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
-                Console.Write($"\n{flight.ActiveAircraft.Model} leaves taxiwayqueue\n");
-                //Må ha denne i addtoqueue: SimulateTaxiwayTime(nextFlightInQueue, initialspeed, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround);
             }
         }
 

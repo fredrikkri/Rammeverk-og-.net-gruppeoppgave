@@ -101,6 +101,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// Sets the runwaystatus to 'inUse = true'
         /// </summary>
+        /// <param name="flight">Is the aircraft that uses the runway.</param>
         /// <param name="time">Is used to log the history of the aircraft.</param>
         public void UseRunway(Flight flight, DateTime time)
         {
@@ -111,6 +112,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// Sets the runwaystatus to 'inUse = false'
         /// </summary>
+        /// <param name="flight">Is the aircraft that is leaving the runway.</param>
         /// <param name="time">Is used to log the history of the aircraft.</param>
         public void ExitRunway(Flight flight, DateTime time)
         {
