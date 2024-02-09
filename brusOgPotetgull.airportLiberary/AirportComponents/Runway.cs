@@ -18,6 +18,7 @@ namespace brusOgPotetgull.airportLiberary
             this.inUse = false;
             InUse = inUse;
         }
+
         public int Id { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
         public int Length { get; private set; }
@@ -28,6 +29,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             Console.Write($"\nRunway id: {Id}\nLocated at airport: {LocatedAtAirport}\nLength: {Length}\nIn use: {InUse}\n");
         }
+
         /// <summary>
         /// returns the id and the nickname for the airport that this runway is located at.
         /// </summary>
@@ -37,10 +39,12 @@ namespace brusOgPotetgull.airportLiberary
             string returnString = (string)(Id + " " + LocatedAtAirport.AirportCode);
             return returnString;
         }
+
         public Flight RemoveFromQueue()
         {
             return runwayQueue.Dequeue();
         }
+
         /// <summary>
         /// Adds flight to runway-queue.
         /// </summary>
@@ -61,6 +65,7 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"\n{flight.ActiveAircraft.Model} is added to index 0 at: {runwayQueue}\n");
             }*/
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -71,6 +76,7 @@ namespace brusOgPotetgull.airportLiberary
             Flight nextFlight = runwayQueue.Peek();
             return nextFlight;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -97,17 +103,20 @@ namespace brusOgPotetgull.airportLiberary
                 runwayQueue.TrimExcess();
                 flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Enter the runway");
             } 
+
             else
             {
                 Console.Write($"No flights in runway - {id} queue");
             }
         }
+
         // Returns the time in seconds an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph
         public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time) {
             flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
             
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
+
         /*public int SimulateTakeoff(Aircraft aircraft)
         {
             aircraft.AddHistoryToAircraft("Runway " + GetIdTaxiwayAndAirportCode(), $", Arrived at runway");
@@ -145,6 +154,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             inUse = true;
         }
+
         public void ExitRunway()
         {
             inUse = false;

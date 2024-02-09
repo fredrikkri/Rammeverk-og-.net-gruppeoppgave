@@ -27,6 +27,7 @@ namespace brusOgPotetgull.airportLiberary
             arrivingFlights = new List<Flight>();
             departingFlights = new List<Flight>();
         }
+
         public int AirportId { get; private set; }
         public string AirportCode { get; private set; }
         public string Name { get; private set; }
@@ -45,35 +46,43 @@ namespace brusOgPotetgull.airportLiberary
             {
                 Console.Write($"{runway.Id} ");
             }
+
             Console.Write($"\nList of taxiways: ");
             foreach (Taxiway taxiway in listTaxiway)
             {
                 Console.Write($"{taxiway.Id} ");
             }
+
             Console.Write($"\nList of gates: ");
             foreach (Gate gate in listGate)
             {
                 Console.Write($"{gate.Id} ");
             }
+
             Console.Write("\n");
         }
+
         public string GetIdAndAirportNickname()
         {
             string returnString = (string)(AirportId + " " + AirportCode);
             return returnString;
         }
+
         public List<Runway> GetRunwayList()
         {
             return listRunway;
         }
+
         public List<Gate> GetListGates()
         {
             return listGate;
         }
+
         public List<Taxiway> GetListTaxiways()
         {
             return listTaxiway;
         }
+
         public void PrintListDeparturingFlights()
         {
             Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
@@ -91,6 +100,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             listRunway.Add(Runway);
         }
+
         /// <summary>
         /// Adds a taxiway to the airport.
         /// </summary>
@@ -99,6 +109,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             listTaxiway.Add(Taxiway);
         }
+
         /// <summary>
         /// Adds a gate to the airport.
         /// </summary>
@@ -107,6 +118,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             listGate.Add(Gate);
         }
+
         public void MakeAllGatesAllowAllAircraftTypes()
         {
             foreach (var gate in GetListGates())
@@ -120,41 +132,48 @@ namespace brusOgPotetgull.airportLiberary
         {
             return arrivingFlights;
         }
+
         public void AddArrivingFlight(Flight flight)
         {
             arrivingFlights.Add(flight);
         }
+
         public void RemoveArrivingFlight(Flight flight)
         {   
             if (arrivingFlights.Count > 0)
             {
                 arrivingFlights.Remove(flight);
             }
+            
             else
             {
                 Console.Write("No arriving flights in list");
             }
-            
         }
+
         public List<Flight> GetDepartingFlights()
         {
             return departingFlights;
         }
+
         public void AddDepartingFlight(Flight flight)
         {
             departingFlights.Add(flight);
         }
+
         public void RemoveDepartingFlight(Flight flight)
         {
             if (departingFlights.Count > 0)
             {
                 departingFlights.Remove(flight);
             }
+
             else
             {
                 Console.Write("No departing flights in list");
             }
         }
+
         public void AddDailyArrivingFlight(int numberOfDays,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -175,6 +194,7 @@ namespace brusOgPotetgull.airportLiberary
                 arrivingFlights.Add(daily);
             }
         }
+
         public void AddWeeklyArrivingFlight(int numberOfWeeks,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -195,6 +215,7 @@ namespace brusOgPotetgull.airportLiberary
                 arrivingFlights.Add(weekly);
             }
         }
+
         public void AddDailyDeparturingFlight(int numberOfDays,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -215,6 +236,7 @@ namespace brusOgPotetgull.airportLiberary
                 departingFlights.Add(daily);
             }
         }
+
         public void AddWeeklyDeparturingFlight(int numberOfWeeks,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
