@@ -98,7 +98,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight, start);
                             Console.Write($"\n{flight.ActiveAircraft.Model} left taxiway\n");
                             // Flygning sjekker inn på gate
-                            flight.ArrivalGate.bookGate(flight.ActiveAircraft, start);
+                            flight.ArrivalGate.BookGate(flight.ActiveAircraft, start);
                             Console.Write($"\n{flight.ActiveAircraft.Model} reached gate\n");
 
                             // Fjerner flygningen fra innkommende flygninger når den er ferdig håndtert
@@ -124,7 +124,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         if (flight.DateTimeFlight == start)
                         {
                             // Flight leaves gate
-                            flight.DepartureGate.leaveGate(flight.ActiveAircraft, start);
+                            flight.DepartureGate.LeaveGate(flight.ActiveAircraft, start);
                             Console.Write($"\n{flight.ActiveAircraft.Model} left gate\n");
 
                             // Tiden det tar for et fly å komme inn på taxiway til den er i enden.
