@@ -14,8 +14,6 @@ namespace brusOgPotetgull.gruppeoppgave
             Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
             Aircraft SR71 = new MilitaryAircraft("S137", 700, 45, 30, 3);
 
-            List<Aircraft> aircraftTypes = new List<Aircraft> {cargoCraftV12, superPlane, SR71};
-
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
             Airport gardemoenFlyplass = new Airport("OSL", "Gardemoen Flyplass", "Oslo");
 
@@ -24,24 +22,7 @@ namespace brusOgPotetgull.gruppeoppgave
             Gate gate3 = new Gate("Gate R3", ryggeFlyplass);
             Gate gate4 = new Gate("Gate R4", ryggeFlyplass);
 
-            // burde lage funksjonalitet for dette. At man kan legge til flere godkjente aircrafttypeid som får lov til å benytte gates,
-            // og evt runways og taxiways
-            /*
-            foreach (var gate in ryggeFlyplass.GetListGates())
-            {
-                foreach (Aircraft aircraft in aircraftTypes)
-                {
-                    gate.AddAircraftAllowedAtGate(aircraft.AircraftTypeId);
-                }
-            }
-            foreach (var gate in gardemoenFlyplass.GetListGates())
-            {
-                foreach(Aircraft aircraft in aircraftTypes)
-                {
-                    gate.AddAircraftAllowedAtGate(aircraft.AircraftTypeId);
-                }
-            }*/
-
+            // Makes sure that all aircrafts are allowed for all gates.
             ryggeFlyplass.MakeAllGatesAllowAllAircraftTypes();
             gardemoenFlyplass.MakeAllGatesAllowAllAircraftTypes();
 
@@ -71,15 +52,15 @@ namespace brusOgPotetgull.gruppeoppgave
             gardemoenFlyplass.AddArrivingFlight(flight3);
             gardemoenFlyplass.AddArrivingFlight(flight4);
 
-
-            //gardemoenFlyplass.PrintListDeparturingFlights();
-
             DateTime start = new DateTime(2024, 3, 1);
             DateTime end = new DateTime(2024, 3, 1, 4, 00, 00);
             Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
             newSim.RunSimulation();
 
-            //Console.Write("\n\t\tHistory of aircrafts:\n");
+            cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
+            sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
+
+            //Console.Write("\n\t\tHistory for all aircrafts:\n");
 
             // Printer ut historie for arriving-flights
             //sickPlane.PrintFullAircraftHistory();      // C355
@@ -89,7 +70,6 @@ namespace brusOgPotetgull.gruppeoppgave
             //cargoCraftV12.PrintFullAircraftHistory();  // C420
             //superPlane.PrintFullAircraftHistory();     // A130
 
-            cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
             System.Console.ReadLine();
         }
     }
