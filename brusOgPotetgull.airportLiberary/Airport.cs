@@ -27,13 +27,14 @@ namespace brusOgPotetgull.airportLiberary
             arrivingFlights = new List<Flight>();
             departingFlights = new List<Flight>();
         }
+
         public int AirportId { get; private set; }
         public string AirportCode { get; private set; }
         public string Name { get; private set; }
         public string Location { get; private set; }
 
         /// <summary>
-        /// Prints the information about the airport.
+        /// Prints out the information about the airport.
         /// </summary>
         public void PrintAirportInformation()
         {
@@ -45,44 +46,72 @@ namespace brusOgPotetgull.airportLiberary
             {
                 Console.Write($"{runway.Id} ");
             }
+
             Console.Write($"\nList of taxiways: ");
             foreach (Taxiway taxiway in listTaxiway)
             {
                 Console.Write($"{taxiway.Id} ");
             }
+
             Console.Write($"\nList of gates: ");
             foreach (Gate gate in listGate)
             {
                 Console.Write($"{gate.Id} ");
             }
+
             Console.Write("\n");
         }
-        public string GetIdAndAirportNickname()
+
+        /// <summary>
+        /// Gets Id and airport-code for the current airport.
+        /// The function returns AirportId and AirportCode combined together into a string.
+        /// </summary>
+        /// <returns></returns>
+        public string GetIdAndAirportCode()
         {
             string returnString = (string)(AirportId + " " + AirportCode);
             return returnString;
         }
+
+        /// <summary>
+        /// returns the list that contains all runways for this airport.
+        /// </summary>
+        /// <returns></returns>
         public List<Runway> GetRunwayList()
         {
             return listRunway;
         }
+
+        /// <summary>
+        /// returns the list that contains all gates for this airport.
+        /// </summary>
+        /// <returns></returns>
         public List<Gate> GetListGates()
         {
             return listGate;
         }
+
+        /// <summary>
+        /// returns the list that contains all taxiways for this airport.
+        /// </summary>
+        /// <returns></returns>
         public List<Taxiway> GetListTaxiways()
         {
             return listTaxiway;
         }
-        public void PrintListDeparturingFlights()
+
+        /// <summary>
+        /// Prints out information about every flight in the list of departuring flights for this airport.
+        /// </summary>
+        public void PrintListOfDeparturingFlights()
         {
             Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
             foreach (Flight flight in departingFlights)
             {
                 Console.Write($"Aircraft:{flight.ActiveAircraft.Model}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
             }
-        }
-
+        } 
+    
         /// <summary>
         /// Adds a runway to the airport.
         /// </summary>
@@ -91,6 +120,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             listRunway.Add(Runway);
         }
+
         /// <summary>
         /// Adds a taxiway to the airport.
         /// </summary>
@@ -99,6 +129,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             listTaxiway.Add(Taxiway);
         }
+
         /// <summary>
         /// Adds a gate to the airport.
         /// </summary>
@@ -108,46 +139,60 @@ namespace brusOgPotetgull.airportLiberary
             listGate.Add(Gate);
         }
 
+        public void MakeAllGatesAllowAllAircraftTypes()
+        {
+            foreach (var gate in GetListGates())
+            {
+                gate.MakeAllAircraftTypesAllowedForThisGate();
+            }
+        }
 
         public List<Flight> GetArrivingFlights()
         {
             return arrivingFlights;
         }
+
         public void AddArrivingFlight(Flight flight)
         {
             arrivingFlights.Add(flight);
         }
+
         public void RemoveArrivingFlight(Flight flight)
         {   
             if (arrivingFlights.Count > 0)
             {
                 arrivingFlights.Remove(flight);
             }
+            
             else
             {
                 Console.Write("No arriving flights in list");
             }
-            
         }
+
         public List<Flight> GetDepartingFlights()
         {
             return departingFlights;
         }
+
         public void AddDepartingFlight(Flight flight)
         {
             departingFlights.Add(flight);
         }
+
         public void RemoveDepartingFlight(Flight flight)
         {
             if (departingFlights.Count > 0)
             {
                 departingFlights.Remove(flight);
             }
+
             else
             {
                 Console.Write("No departing flights in list");
             }
         }
+
         public void AddDailyArrivingFlight(int numberOfDays,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -168,6 +213,7 @@ namespace brusOgPotetgull.airportLiberary
                 arrivingFlights.Add(daily);
             }
         }
+
         public void AddWeeklyArrivingFlight(int numberOfWeeks,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -188,6 +234,7 @@ namespace brusOgPotetgull.airportLiberary
                 arrivingFlights.Add(weekly);
             }
         }
+
         public void AddDailyDeparturingFlight(int numberOfDays,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -208,6 +255,7 @@ namespace brusOgPotetgull.airportLiberary
                 departingFlights.Add(daily);
             }
         }
+
         public void AddWeeklyDeparturingFlight(int numberOfWeeks,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
