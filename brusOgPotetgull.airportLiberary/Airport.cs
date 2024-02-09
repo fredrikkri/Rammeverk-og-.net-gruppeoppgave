@@ -34,7 +34,7 @@ namespace brusOgPotetgull.airportLiberary
         public string Location { get; private set; }
 
         /// <summary>
-        /// Prints the information about the airport.
+        /// Prints out the information about the airport.
         /// </summary>
         public void PrintAirportInformation()
         {
@@ -62,36 +62,56 @@ namespace brusOgPotetgull.airportLiberary
             Console.Write("\n");
         }
 
-        public string GetIdAndAirportNickname()
+        /// <summary>
+        /// Gets Id and airport-code for the current airport.
+        /// The function returns AirportId and AirportCode combined together into a string.
+        /// </summary>
+        /// <returns></returns>
+        public string GetIdAndAirportCode()
         {
             string returnString = (string)(AirportId + " " + AirportCode);
             return returnString;
         }
 
+        /// <summary>
+        /// returns the list that contains all runways for this airport.
+        /// </summary>
+        /// <returns></returns>
         public List<Runway> GetRunwayList()
         {
             return listRunway;
         }
 
+        /// <summary>
+        /// returns the list that contains all gates for this airport.
+        /// </summary>
+        /// <returns></returns>
         public List<Gate> GetListGates()
         {
             return listGate;
         }
 
+        /// <summary>
+        /// returns the list that contains all taxiways for this airport.
+        /// </summary>
+        /// <returns></returns>
         public List<Taxiway> GetListTaxiways()
         {
             return listTaxiway;
         }
 
-        public void PrintListDeparturingFlights()
+        /// <summary>
+        /// Prints out information about every flight in the list of departuring flights for this airport.
+        /// </summary>
+        public void PrintListOfDeparturingFlights()
         {
             Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
             foreach (Flight flight in departingFlights)
             {
                 Console.Write($"Aircraft:{flight.ActiveAircraft.Model}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
             }
-        }
-
+        } 
+    
         /// <summary>
         /// Adds a runway to the airport.
         /// </summary>
@@ -126,7 +146,6 @@ namespace brusOgPotetgull.airportLiberary
                 gate.MakeAllAircraftTypesAllowedForThisGate();
             }
         }
-
 
         public List<Flight> GetArrivingFlights()
         {

@@ -62,7 +62,15 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Taxiway: {ArrivalTaxiway.Id}\n" +
                 $"Arrival Gate: {ArrivalGate.Id}\n");
         }
-
+      
+        /// <summary>
+        /// simulates the movement for an flight object for landing and takeoff. returns the time it takes.
+        /// </summary>
+        /// <param name="length"></param>
+        /// <param name="initialSpeed"></param>
+        /// <param name="speedChange"></param>
+        /// <param name="maxSpeed"></param>
+        /// <returns></returns>
         public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
         {
             var remainingDistance = Length;
@@ -87,84 +95,5 @@ namespace brusOgPotetgull.airportLiberary
 
             return time;
         }
-
-        /// <summary>
-        /// Starts a flight if the gates and the date for the flight is right.
-        /// If the checks is ok, then the flight begins.
-        /// The function simulates every event in the timespace from when a plane picks up passengers at an gate, to when the passengers are delivered to the gate at an destination.
-        /// The function logs every event to the history of the used aircraft.
-        /// </summary>
-        /// <param name="flightDate"></param>
-        public void SetupFlight(Airport airport)
-        {
-            if (ActiveAircraft.OutOfService == false)
-            {
-                // checks if the plane are adjusted for gates.
-                if (DepartureGate.CheckAircraftAllowedAtGate(ActiveAircraft) && ArrivalGate.CheckAircraftAllowedAtGate(ActiveAircraft) == true)
-                {
-                    // TODO: ny flygning
-                }
-
-                else
-                {
-                    Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");
-                }
-            }
-
-            else
-            {
-                Console.Write($"\nFlight with id '{flightId}': The Flight is out of service. The flight cannot be done...\n");
-            }
-        }
-
-        /// <summary>
-        /// Sets up daily flights.
-        /// dateFlights is the date of when the flight will start.
-        /// numberOfDays is how many days after the choosen date that will contain the same flight.
-        /// </summary>
-        /// <param name="dateFlight"></param>
-        /// <param name="numberOfDays"></param>
-        /*
-        public void SetupDailyDeparturingFlight(Airport airport, int numberOfDays)
-        {
-            for (int i = 0; i < numberOfDays; i++)
-            {
-                dateTimeFlight.AddDays(i);
-                //Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i));
-                airport.AddDepartingFlight();
-            }
-        }
-        /// <summary>
-        /// Sets up weekly flights.
-        /// dateFlights is the date of when the flight will start.
-        /// numberOfWeeks is how many weeks after the choosen date that will contain the same flight.
-        /// </summary>
-        /// <param name="dateFlight"></param>
-        /// <param name="numberOfWeeks"></param>
-        public void SetupWeeklyFlight(int numberOfWeeks)
-        {
-            for (int i = 0; i < numberOfWeeks; i++)
-            {
-                dateTimeFlight.AddDays(i + (6 * i));
-                Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i + (6 * i)));
-                SetupFlight();
-            }
-        }
-            /// <summary>
-            /// Sets up monthly flights.
-            /// dateFlights is the date of when the flight will start.
-            /// numberOfMonths is how many months after the choosen date that will contain the same flight.
-            /// </summary>
-            /// <param name="dateFlight"></param>
-            /// <param name="numberOfMonths"></param>
-        public void SetupMonthlyFlight(DateTime dateFlight, int numberOfMonths)
-        {
-            for (int i = 0; i < numberOfMonths; i++)
-            {
-                dateTimeFlight.AddDays(i);
-                Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddMonths(i));
-                SetupFlight();
-            }
-        }*/
     }
 }
