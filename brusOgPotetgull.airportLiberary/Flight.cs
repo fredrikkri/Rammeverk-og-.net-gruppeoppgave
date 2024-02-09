@@ -116,54 +116,6 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
 
-        /// <summary>
-        /// Sets up daily flights.
-        /// dateFlights is the date of when the flight will start.
-        /// numberOfDays is how many days after the choosen date that will contain the same flight.
-        /// </summary>
-        /// <param name="dateFlight"></param>
-        /// <param name="numberOfDays"></param>
-        /*
-        public void SetupDailyDeparturingFlight(Airport airport, int numberOfDays)
-        {
-            for (int i = 0; i < numberOfDays; i++)
-            {
-                dateTimeFlight.AddDays(i);
-                //Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i));
-                airport.AddDepartingFlight();
-            }
-        }
-        /// <summary>
-        /// Sets up weekly flights.
-        /// dateFlights is the date of when the flight will start.
-        /// numberOfWeeks is how many weeks after the choosen date that will contain the same flight.
-        /// </summary>
-        /// <param name="dateFlight"></param>
-        /// <param name="numberOfWeeks"></param>
-        public void SetupWeeklyFlight(int numberOfWeeks)
-        {
-            for (int i = 0; i < numberOfWeeks; i++)
-            {
-                dateTimeFlight.AddDays(i + (6 * i));
-                Console.Write($"\n\tdate of flight: \n\t" + dateTimeFlight.AddDays(i + (6 * i)));
-                SetupFlight();
-            }
-        }
-            /// <summary>
-            /// Sets up monthly flights.
-            /// dateFlights is the date of when the flight will start.
-            /// numberOfMonths is how many months after the choosen date that will contain the same flight.
-            /// </summary>
-            /// <param name="dateFlight"></param>
-            /// <param name="numberOfMonths"></param>
-        public void SetupMonthlyFlight(DateTime dateFlight, int numberOfMonths)
-        {
-            for (int i = 0; i < numberOfMonths; i++)
-            {
-                dateTimeFlight.AddDays(i);
-                Console.Write($"\n\tdate of flight: \n\t" + dateFlight.AddMonths(i));
-                SetupFlight();
-            }
-        }*/
+
     }
 }

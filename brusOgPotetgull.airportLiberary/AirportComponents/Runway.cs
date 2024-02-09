@@ -52,18 +52,6 @@ namespace brusOgPotetgull.airportLiberary
         public void AddFlightToQueue(Flight flight)
         {   
             runwayQueue.Enqueue(flight);
-            /*if (flight.ActiveAircraft.CheckPreviousLocation() != "Runway")
-            {
-                // (Nagel, 2022, s. 203)
-                runwayQueue.Enqueue(flight);
-                flight.ActiveAircraft.AddHistoryToAircraft("Runway " + GetIdTaxiwayAndAirportCode(), ", Arrived at Runwayqueue");
-                Console.Write($"\n{flight.ActiveAircraft.Model} has arrived at Runwayqueue\n");
-            }
-            else
-            {
-                runwayQueue.Prepend(flight);
-                Console.Write($"\n{flight.ActiveAircraft.Model} is added to index 0 at: {runwayQueue}\n");
-            }*/
         }
 
         /// <summary>
@@ -77,31 +65,12 @@ namespace brusOgPotetgull.airportLiberary
             return nextFlight;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="aircraft"></param>
-        /// <param name="runway"></param>
-        /*public void FirstInQueueEnterRunway(Aircraft aircraft)
-        {
-            // (Nagel, 2022, s. 203)
-            while (runwayQueue.Count >= 1)
-            {
-                var nextAircraftInQueue = runwayQueue.Dequeue();
-                runwayQueue.TrimExcess();
-                aircraft.AddHistoryToAircraft("Taxiway " + GetIdTaxiwayAndAirportCode(), ", Arrived at taxiway");
-                Console.Write($"\n{aircraft.Model} has arrived at taxiway\n");
-                SimulateTakeoff(nextAircraftInQueue);
-            }
-        }*/
-        // NY Versjon av metode over for å tilpasse den til både landing og takeoff
-        public void NextFlightEntersRunway(Flight flight, DateTime time)
+        public void NextFlightEntersRunway(Flight flight)
         {
             if (runwayQueue.Count != 0)
             {
                 var nextFlight = runwayQueue.Dequeue();
                 runwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Enter the runway");
             } 
 
             else
@@ -111,53 +80,20 @@ namespace brusOgPotetgull.airportLiberary
         }
 
         // Returns the time in seconds an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph
-        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time) {
-            flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
-            
+        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) {
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
 
-        /*public int SimulateTakeoff(Aircraft aircraft)
-        {
-            aircraft.AddHistoryToAircraft("Runway " + GetIdTaxiwayAndAirportCode(), $", Arrived at runway");
-            UseRunway();
-            Console.Write($"\n{aircraft.Model} arrived at runway!\n");
-            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
-            var remainingDistance = Length;
-            var currentSpeed = 0;
-            int secondCounter = 0;
-
-            while (remainingDistance > 0)
-            {
-                remainingDistance = remainingDistance - currentSpeed;
-                currentSpeed += aircraft.AccelerationOnGround;
-                secondCounter++;
-                Thread.Sleep(10);
-                //Console.WriteLine($"Current speed: {currentSpeed}, Remaining distance: {remainingDistance}");
-            }
-            aircraft.AddHistoryToAircraft("Runway " + GetIdTaxiwayAndAirportCode(), $", Taken off and left the airport");
-            ExitRunway();
-            Console.Write($"\n{aircraft.Model} has taken off and left the airport\n");
-            return currentSpeed;
-        }
-        public void SimulateLanding(Aircraft aircraft)
-        {
-            aircraft.AddHistoryToAircraft("Runway " + GetIdTaxiwayAndAirportCode(), $", About to land at runway");
-            Console.Write($"\n{aircraft.Model} is about to land at runway!\n");
-            // (Marius Geide, personlig kommunikasjon, 28.januar 2024) Brukt deler av kode som foreleser har lagt ut (TimeSteppedDriver.cs).
-            var remainingDistance = Length;
-            var currentSpeed = 0;
-            int secondCounter = 0;
-
-        }*/
-        public void UseRunway()
+        public void UseRunway(Flight flight, DateTime time)
         {
             inUse = true;
+            flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Enter the runway");
         }
 
-        public void ExitRunway()
+        public void ExitRunway(Flight flight, DateTime time)
         {
             inUse = false;
+            flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
         }
     }
 }

@@ -82,8 +82,8 @@ namespace brusOgPotetgull.gruppeoppgave
             //SR71.PrintFullAircraftHistory();           // S137
 
             // Printer ut historie for departuring-flights
-            //cargoCraftV12.PrintFullAircraftHistory();  // C420
-            //superPlane.PrintFullAircraftHistory();     // A130
+            cargoCraftV12.PrintFullAircraftHistory();  // C420
+            superPlane.PrintFullAircraftHistory();     // A130
 
             System.Console.ReadLine();
         }
