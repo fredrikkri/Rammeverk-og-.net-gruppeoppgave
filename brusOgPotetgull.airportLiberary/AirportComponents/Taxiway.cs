@@ -52,7 +52,6 @@ namespace brusOgPotetgull.airportLiberary
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(flight);
             flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
-            Console.Write($"\n{flight.ActiveAircraft.Model} has arrived at taxiwayqueue\n");
         }
 
         /// <summary>
