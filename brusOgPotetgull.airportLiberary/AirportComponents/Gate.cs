@@ -49,9 +49,9 @@ namespace brusOgPotetgull.airportLiberary
         }
 
         /// <summary>
-        /// returns the id and the nickname for the airport that this gate is located at.
+        /// Gets the id and the nickname for the airport that this gate is located at.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The id and the nickname as string</returns>
         public string GetIdAndAirportNickname()
         {
             string returnString = (string) (Id + " " + LocatedAtAirport.AirportCode);
@@ -60,9 +60,8 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// Adds an aircraft that will be able to use the gate.
-        /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to enable accsess for the gate.
         /// </summary>
-        /// <param name="aircraftTypeId"></param>
+        /// <param name="aircraftTypeId">The id of an type of aircraft that you want to enable accsess for the gate.</param>
         public void AddAircraftAllowedAtGate(int aircraftTypeId)
         {
             if (!legalAircraftTypesId.Contains(aircraftTypeId))
@@ -75,11 +74,11 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"{aircraftTypeId} is already in list of legal aicrafts for this gate.");
             }
         }
+
         /// <summary>
         /// Adds multiple aircrafts that will be able to use the gate.
-        /// Parameter 'aircraftTypeIds' is a list of ids of aircrafts that you want to enable accsess for the gate
         /// </summary>
-        /// <param name="aircraftTypeIds"></param>
+        /// <param name="aircraftTypeIds">A list of ids of aircrafts that you want to enable accsess for the gate</param>
         public void AddMultipleAircraftAllowedAtGate(List<int> aircraftTypeIds)
         {
             foreach (int typeId in aircraftTypeIds)
@@ -96,6 +95,9 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
 
+        /// <summary>
+        /// Makes all of the existing aircrafttypes to be able to use the gate.
+        /// </summary>
         public void MakeAllAircraftTypesAllowedForThisGate()
         {
             int numberOfAircraftTypes = 6;
@@ -107,9 +109,8 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// Removes an aircraft from being able to use the gate.
-        /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to deny accsess to the gate.
         /// </summary>
-        /// <param name="aircraft"></param>
+        /// <param name="aircraftTypeId">The id of an type of aircraft that you want to deny accsess to the gate.</param>
         public void RemoveAircraftAllowedAtGate(int aircraftTypeId)
         {
             if (legalAircraftTypesId.Contains(aircraftTypeId))
@@ -125,11 +126,9 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// Checks if an aircraft can use the gate.
-        /// Parameter 'aircraft' is the aircraft you want to check if it has access or not.
-        /// Returns 'true' if it has access or 'false' if it does not.
         /// </summary>
-        /// <param name="aircraft"></param>
-        /// <returns></returns>
+        /// <param name="aircraft">The aircraft you want to check if it has access or not.</param>
+        /// <returns>'true' if it has access or 'false' if it does not.</returns>
         public bool CheckAircraftAllowedAtGate(Aircraft aircraft)
         {
             if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
@@ -144,11 +143,11 @@ namespace brusOgPotetgull.airportLiberary
         }
 
         /// <summary>
-        ///  An aircraft leaves the gate. And saves it in aircrafthistory. The gate is now avalible for other aircrafts.
-        ///  Parameter 'aircraft' is the plane that is going to leave the gate.
+        /// An aircraft leaves the gate. And saves it in aircrafthistory. The gate is now avalible for other aircrafts.
         /// </summary>
-        /// <param name="aircraft"></param>
-        public void leaveGate(Aircraft aircraft, DateTime time)
+        /// <param name="aircraft">The aircraft that is going to leave the gate.</param>
+        /// <param name="time">Used to log the history for the aircraft.</param>
+        public void LeaveGate(Aircraft aircraft, DateTime time)
         {
             isAvailable = true;
             aircraft.AddHistoryToAircraft(time, "Gate " + GetIdAndAirportNickname(), ", Left Gate");
@@ -156,10 +155,10 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// An aircraft occupies a gate. And saves it in aircrafthistory. The gate is now unavalible for other aircrafts to use it.
-        /// Parameter 'aircraft' is the plane that is going to book the gate.
         /// </summary>
-        /// <param name="aircraft"></param>
-        public void bookGate(Aircraft aircraft, DateTime time)
+        /// <param name="aircraft">The aircraft that is going to book the gate.</param>
+        /// <param name="time">Used to log the history for the aircraft.</param>
+        public void BookGate(Aircraft aircraft, DateTime time)
         {
             if (isAvailable == true)
             {

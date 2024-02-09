@@ -56,30 +56,16 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// logging an event to the history of the aircraft.
-        /// 'time' is when the event took place.
-        /// 'message' is where the plane was and the action of the plane.
         /// </summary>
-        /// <param name="time"></param>
-        /// <param name="message"></param>
+        /// <param name="time">When the event took place.</param>
+        /// <param name="location">The location of the plane.</param>
+        /// <param name="message">The action of the plane.</param>
         public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
             history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
             
         }
 
-        /// <summary>
-        /// Returns a string that contains the previous location of the plane. Value of the return can be "Gate", "Runway" or "Taxiway".
-        /// </summary>
-        /// <returns></returns>
-        ///
-        /*
-        public string CheckPreviousLocation()
-        {
-            var last = history.Values.Last();
-            string[] singleWord = last.Split(" ");
-            string firstWord = singleWord.First();
-            return firstWord;
-        }*/
         /// <summary>
         /// Prints the full history of the plane.
         /// </summary>
@@ -126,8 +112,11 @@ namespace brusOgPotetgull.airportLiberary
         }
 
         /// <summary>
-        /// reads trough the list of the aircrafts history and prints out the log for that day
+        /// Reads trough the list of the aircrafts history and prints out the log for that day
         /// </summary>
+        /// <param name="year">The year it checks</param>
+        /// <param name="month">The month it checks</param>
+        /// <param name="day">The day it checks</param>
         public void PrintAircraftHistoryForDay(int year, int month, int day)
         {
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);

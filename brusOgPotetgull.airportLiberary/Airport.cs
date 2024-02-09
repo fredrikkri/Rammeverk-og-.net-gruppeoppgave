@@ -64,9 +64,8 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// Gets Id and airport-code for the current airport.
-        /// The function returns AirportId and AirportCode combined together into a string.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>String with AirportId and AirportCode combined</returns>
         public string GetIdAndAirportCode()
         {
             string returnString = (string)(AirportId + " " + AirportCode);
@@ -74,27 +73,27 @@ namespace brusOgPotetgull.airportLiberary
         }
 
         /// <summary>
-        /// returns the list that contains all runways for this airport.
+        /// Gets the list that contains all runways for this airport.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The list of runways for this airport</returns>
         public List<Runway> GetRunwayList()
         {
             return listRunway;
         }
 
         /// <summary>
-        /// returns the list that contains all gates for this airport.
+        /// Gets the list that contains all gates for this airport.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The list of gates for this airport.</returns>
         public List<Gate> GetListGates()
         {
             return listGate;
         }
 
         /// <summary>
-        /// returns the list that contains all taxiways for this airport.
+        /// Gets the list that contains all taxiways for this airport.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns the list that contains all taxiways for this airport.</returns>
         public List<Taxiway> GetListTaxiways()
         {
             return listTaxiway;
@@ -115,7 +114,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// Adds a runway to the airport.
         /// </summary>
-        /// <param name="Runway"></param>
+        /// <param name="Runway">The runway that is added to the list.</param>
         public void AddRunwayToList(Runway Runway)
         {
             listRunway.Add(Runway);
@@ -124,7 +123,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// Adds a taxiway to the airport.
         /// </summary>
-        /// <param name="Taxiway"></param>
+        /// <param name="Taxiway">The taxiway that is added to the list.</param>
         public void AddTaxiwayToList(Taxiway Taxiway)
         {
             listTaxiway.Add(Taxiway);
@@ -133,12 +132,15 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// Adds a gate to the airport.
         /// </summary>
-        /// <param name="Gate"></param>
+        /// <param name="Gate">The gate that is added to the list.</param>
         public void AddGateToList(Gate Gate)
         {
             listGate.Add(Gate);
         }
 
+        /// <summary>
+        /// This method makes all gates in a airport allow all aircraft types.
+        /// </summary>
         public void MakeAllGatesAllowAllAircraftTypes()
         {
             foreach (var gate in GetListGates())
@@ -147,16 +149,28 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
 
+        /// <summary>
+        /// Gets all arriving flights for this airport.
+        /// </summary>
+        /// <returns>List of arriving flights for this airport.</returns>
         public List<Flight> GetArrivingFlights()
         {
             return arrivingFlights;
         }
 
+        /// <summary>
+        /// This method adds an arriving flight to this airport.
+        /// </summary>
+        /// <param name="flight">The arriving flight that is added to the list.</param>
         public void AddArrivingFlight(Flight flight)
         {
             arrivingFlights.Add(flight);
         }
 
+        /// <summary>
+        /// This method removes an arriving flight from this airport.
+        /// </summary>
+        /// <param name="flight">The arriving flight that is removed from the list.</param>
         public void RemoveArrivingFlight(Flight flight)
         {   
             if (arrivingFlights.Count > 0)
@@ -170,16 +184,28 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
 
+        /// <summary>
+        /// This method gets all departuring flights for this airport.
+        /// </summary>
+        /// <returns>List of departuring flights.</returns>
         public List<Flight> GetDepartingFlights()
         {
             return departingFlights;
         }
 
+        /// <summary>
+        /// This method adds an departuring flight to this airport.
+        /// </summary>
+        /// <param name="flight">The departuring flight that is added to the list.</param>
         public void AddDepartingFlight(Flight flight)
         {
             departingFlights.Add(flight);
         }
 
+        /// <summary>
+        /// This method removes an departuring flight from this airport.
+        /// </summary>
+        /// <param name="flight">The departuring flight that is removed from the list.</param>
         public void RemoveDepartingFlight(Flight flight)
         {
             if (departingFlights.Count > 0)
@@ -193,6 +219,23 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
 
+        /// <summary>
+        /// This method generates daily arriving flights. The first flight starts 24 hours after the value of the datetimeFlight object.
+        /// The rest of the parameters except 'numberOfDays' is values for creating the Flight objects.
+        /// </summary>
+        /// <param name="numberOfDays">The number of days the flight will do its flights.</param>
+        /// <param name="activeAircraft"></param>
+        /// <param name="dateTimeFlight"></param>
+        /// <param name="isArrivingFlight"></param>
+        /// <param name="length"></param>
+        /// <param name="departureAirport"></param>
+        /// <param name="arrivalAirport"></param>
+        /// <param name="departureGate"></param>
+        /// <param name="arrivalGate"></param>
+        /// <param name="departureTaxiway"></param>
+        /// <param name="arrivalTaxiway"></param>
+        /// <param name="departureRunway"></param>
+        /// <param name="arrivalRunway"></param>
         public void AddDailyArrivingFlight(int numberOfDays,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -214,6 +257,23 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
 
+        /// <summary>
+        /// This method generates weekly arriving flights. The first flight starts 1 week after the value of the datetimeFlight object.
+        /// The rest of the parameters except 'numberOfWeeks' is values for creating the Flight objects.
+        /// </summary>
+        /// <param name="numberOfWeeks">The number of weeks the flight will do its flights.</param>
+        /// <param name="activeAircraft"></param>
+        /// <param name="dateTimeFlight"></param>
+        /// <param name="isArrivingFlight"></param>
+        /// <param name="length"></param>
+        /// <param name="departureAirport"></param>
+        /// <param name="arrivalAirport"></param>
+        /// <param name="departureGate"></param>
+        /// <param name="arrivalGate"></param>
+        /// <param name="departureTaxiway"></param>
+        /// <param name="arrivalTaxiway"></param>
+        /// <param name="departureRunway"></param>
+        /// <param name="arrivalRunway"></param>
         public void AddWeeklyArrivingFlight(int numberOfWeeks,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -235,6 +295,23 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
 
+        /// <summary>
+        /// This method generates daily departuring flights. The first flight starts 24 hours after the value of the datetimeFlight object.
+        /// The rest of the parameters except 'numberOfDays' is values for creating the Flight objects.
+        /// </summary>
+        /// <param name="numberOfDays">The number of days the flight will do its flights.</param>
+        /// <param name="activeAircraft"></param>
+        /// <param name="dateTimeFlight"></param>
+        /// <param name="isArrivingFlight"></param>
+        /// <param name="length"></param>
+        /// <param name="departureAirport"></param>
+        /// <param name="arrivalAirport"></param>
+        /// <param name="departureGate"></param>
+        /// <param name="arrivalGate"></param>
+        /// <param name="departureTaxiway"></param>
+        /// <param name="arrivalTaxiway"></param>
+        /// <param name="departureRunway"></param>
+        /// <param name="arrivalRunway"></param>
         public void AddDailyDeparturingFlight(int numberOfDays,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
@@ -256,6 +333,23 @@ namespace brusOgPotetgull.airportLiberary
             }
         }
 
+        /// <summary>
+        /// This method generates weekly departuring flights. The first flight starts 1 week after the value of the datetimeFlight object.
+        /// The rest of the parameters except 'numberOfWeeks' is values for creating the Flight objects.
+        /// </summary>
+        /// <param name="numberOfWeeks">The number of weeks the flight will do its flights.</param>
+        /// <param name="activeAircraft"></param>
+        /// <param name="dateTimeFlight"></param>
+        /// <param name="isArrivingFlight"></param>
+        /// <param name="length"></param>
+        /// <param name="departureAirport"></param>
+        /// <param name="arrivalAirport"></param>
+        /// <param name="departureGate"></param>
+        /// <param name="arrivalGate"></param>
+        /// <param name="departureTaxiway"></param>
+        /// <param name="arrivalTaxiway"></param>
+        /// <param name="departureRunway"></param>
+        /// <param name="arrivalRunway"></param>
         public void AddWeeklyDeparturingFlight(int numberOfWeeks,
             Aircraft activeAircraft, DateTime dateTimeFlight,
             bool isArrivingFlight, int length,
