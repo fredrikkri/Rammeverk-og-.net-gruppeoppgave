@@ -148,7 +148,7 @@ namespace brusOgPotetgull.airportLiberary
         ///  Parameter 'aircraft' is the plane that is going to leave the gate.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void leaveGate(Aircraft aircraft, DateTime time)
+        public void LeaveGate(Aircraft aircraft, DateTime time)
         {
             isAvailable = true;
             aircraft.AddHistoryToAircraft(time, "Gate " + GetIdAndAirportNickname(), ", Left Gate");
@@ -159,7 +159,7 @@ namespace brusOgPotetgull.airportLiberary
         /// Parameter 'aircraft' is the plane that is going to book the gate.
         /// </summary>
         /// <param name="aircraft"></param>
-        public void bookGate(Aircraft aircraft, DateTime time)
+        public void BookGate(Aircraft aircraft, DateTime time)
         {
             if (isAvailable == true)
             {
