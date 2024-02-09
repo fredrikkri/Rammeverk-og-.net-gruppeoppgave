@@ -57,9 +57,11 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// logging an event to the history of the aircraft.
         /// 'time' is when the event took place.
-        /// 'message' is where the plane was and the action of the plane.
+        /// 'location' is the location of the plane.
+        /// 'message' is the action of the plane.
         /// </summary>
         /// <param name="time"></param>
+        /// <param name="location"></param>
         /// <param name="message"></param>
         public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
@@ -67,19 +69,6 @@ namespace brusOgPotetgull.airportLiberary
             
         }
 
-        /// <summary>
-        /// Returns a string that contains the previous location of the plane. Value of the return can be "Gate", "Runway" or "Taxiway".
-        /// </summary>
-        /// <returns></returns>
-        ///
-        /*
-        public string CheckPreviousLocation()
-        {
-            var last = history.Values.Last();
-            string[] singleWord = last.Split(" ");
-            string firstWord = singleWord.First();
-            return firstWord;
-        }*/
         /// <summary>
         /// Prints the full history of the plane.
         /// </summary>
