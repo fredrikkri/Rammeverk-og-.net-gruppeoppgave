@@ -11,6 +11,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
             this.StartTime = startTime;
             this.EndTime = endTime;
         }
+
         public Airport Airport { get; private set; }
         public DateTime StartTime { get; private set; }
         public DateTime EndTime { get; private set; }
@@ -33,6 +34,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight, start);
                     }
                 }
+
                 // reisende fly drar fra taksebane.
                 foreach (Flight flight in Airport.GetDepartingFlights())
                 {
@@ -42,6 +44,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         //flight.DepartureRunway.AddFlightToQueue(flight);
                     }
                 }
+
                 // Hvis det finnnes innkommende flygninger
                 if (Airport.GetArrivingFlights().Count > 0)
                 {
@@ -56,6 +59,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         }
                     }
                 }
+
                 // Sjekker alle runways
                 foreach (Runway currentRunway in Airport.GetRunwayList())
                 {
@@ -78,6 +82,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }
                     // La fly forbli i køen til neste iterasjon
                 }
+
                 // For hver taxiway på flyplassen
                 foreach (var taxiway in Airport.GetListTaxiways())
                 {
@@ -101,6 +106,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         }
                     }
                 }
+
                 // TODO: Må håndtere at arriving flight som ikke er kommet til gate ikke lander på nytt,
                 // men samtidig at arriving flight forsøker å benytte gate på nytt dersom den var opptatt ved forrige iterasjon
                 // Notat: Mulig det fungerer siden simuleringen kun legger til flight i runway kø dersom tiden er riktig.
@@ -130,6 +136,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         }
                     }
                 }
+
                 // Hvis det ikke finnes arriving flights
                 if (Airport.GetArrivingFlights().Count == 0)
                 {
@@ -152,6 +159,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         }
                     }
                 }
+
                 Thread.Sleep(1);
                 start = start.AddMinutes(1);
             }

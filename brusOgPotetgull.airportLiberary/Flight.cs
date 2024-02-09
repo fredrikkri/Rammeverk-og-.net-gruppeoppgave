@@ -61,8 +61,8 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Runway: {ArrivalRunway.Id}\n" +
                 $"Arrival Taxiway: {ArrivalTaxiway.Id}\n" +
                 $"Arrival Gate: {ArrivalGate.Id}\n");
-
         }
+      
         /// <summary>
         /// simulates the movement for an flight object for landing and takeoff. returns the time it takes.
         /// </summary>
@@ -84,12 +84,15 @@ namespace brusOgPotetgull.airportLiberary
                 {
                     initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
                 }
+
                 else if (initialSpeed > maxSpeed)
                 {
                     initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
                 }
+
                 time++;
             }
+
             return time;
         }
     }
