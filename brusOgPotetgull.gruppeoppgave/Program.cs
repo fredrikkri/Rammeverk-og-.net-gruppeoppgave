@@ -26,6 +26,7 @@ namespace brusOgPotetgull.gruppeoppgave
 
             // burde lage funksjonalitet for dette. At man kan legge til flere godkjente aircrafttypeid som får lov til å benytte gates,
             // og evt runways og taxiways
+            /*
             foreach (var gate in ryggeFlyplass.GetListGates())
             {
                 foreach (Aircraft aircraft in aircraftTypes)
@@ -39,28 +40,31 @@ namespace brusOgPotetgull.gruppeoppgave
                 {
                     gate.AddAircraftAllowedAtGate(aircraft.AircraftTypeId);
                 }
-            }
+            }*/
 
-            Taxiway shortTaxiway = new Taxiway(300, 35, ryggeFlyplass); ryggeFlyplass.AddTaxiwayToList(shortTaxiway);
-            Taxiway mediumTaxiway = new Taxiway(750, 20, gardemoenFlyplass); gardemoenFlyplass.AddTaxiwayToList(mediumTaxiway);
-            Taxiway longTaxiway = new Taxiway(1000, 35, gardemoenFlyplass); gardemoenFlyplass.AddTaxiwayToList(longTaxiway);
+            ryggeFlyplass.MakeAllGatesAllowAllAircraftTypes();
+            gardemoenFlyplass.MakeAllGatesAllowAllAircraftTypes();
 
-            Runway longRunway1 = new Runway(gardemoenFlyplass, 1000); gardemoenFlyplass.AddRunwayToList(longRunway1);
-            Runway mediumRunway1 = new Runway(gardemoenFlyplass, 800); gardemoenFlyplass.AddRunwayToList(mediumRunway1);
-            Runway longRunway2 = new Runway(ryggeFlyplass, 1000); ryggeFlyplass.AddRunwayToList(longRunway2);
-            Runway mediumRunway2 = new Runway(ryggeFlyplass, 800); ryggeFlyplass.AddRunwayToList(mediumRunway2);
+            Taxiway shortTaxiway = new Taxiway(300, 35, ryggeFlyplass);
+            ryggeFlyplass.AddTaxiwayToList(shortTaxiway);
+            Taxiway mediumTaxiway = new Taxiway(750, 20, gardemoenFlyplass);
+            gardemoenFlyplass.AddTaxiwayToList(mediumTaxiway);
+            Taxiway longTaxiway = new Taxiway(1000, 35, gardemoenFlyplass);
+            gardemoenFlyplass.AddTaxiwayToList(longTaxiway);
 
-            // Lagt til parameteret bool isArrivingFlight
+            Runway longRunway1 = new Runway(gardemoenFlyplass, 1000);
+            gardemoenFlyplass.AddRunwayToList(longRunway1);
+            Runway mediumRunway1 = new Runway(gardemoenFlyplass, 800);
+            gardemoenFlyplass.AddRunwayToList(mediumRunway1);
+            Runway longRunway2 = new Runway(ryggeFlyplass, 1000);
+            ryggeFlyplass.AddRunwayToList(longRunway2);
+            Runway mediumRunway2 = new Runway(ryggeFlyplass, 800);
+            ryggeFlyplass.AddRunwayToList(mediumRunway2);
+
             Flight flight1 = new Flight(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate1, gate3, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
             //Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
             Flight flight3 = new Flight(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
             Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 1, 00, 02, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
-
-
-            // TODO: Må ordne opp i setupFlight
-            /*flight3.SetupDailyFlight(3);
-            flight2.SetupDailyFlight(3);
-            flight1.SetupDailyFlight(3);*/
 
             gardemoenFlyplass.AddDepartingFlight(flight1);
             gardemoenFlyplass.AddDailyDeparturingFlight(4, superPlane, new DateTime(2024, 3, 1, 00, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
@@ -68,22 +72,22 @@ namespace brusOgPotetgull.gruppeoppgave
             gardemoenFlyplass.AddArrivingFlight(flight4);
 
 
-            gardemoenFlyplass.PrintListDeparturingFlights();
+            //gardemoenFlyplass.PrintListDeparturingFlights();
 
             DateTime start = new DateTime(2024, 3, 1);
-            DateTime end = new DateTime(2024, 3, 1, 4,00,00);
+            DateTime end = new DateTime(2024, 3, 1, 4, 00, 00);
             Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
             newSim.RunSimulation();
 
-            Console.Write("\n\t\tHistory of aircrafts:\n");
+            //Console.Write("\n\t\tHistory of aircrafts:\n");
 
-            // Arriving
-            sickPlane.PrintFullAircraftHistory();      // C355
-            SR71.PrintFullAircraftHistory();           // S137
+            // Printer ut historie for arriving-flights
+            //sickPlane.PrintFullAircraftHistory();      // C355
+            //SR71.PrintFullAircraftHistory();           // S137
 
-            // departuring
-            cargoCraftV12.PrintFullAircraftHistory();  // C420
-            superPlane.PrintFullAircraftHistory();     // A130
+            // Printer ut historie for departuring-flights
+            //cargoCraftV12.PrintFullAircraftHistory();  // C420
+            //superPlane.PrintFullAircraftHistory();     // A130
 
             cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
             System.Console.ReadLine();

@@ -107,6 +107,13 @@ namespace brusOgPotetgull.airportLiberary
         {
             listGate.Add(Gate);
         }
+        public void MakeAllGatesAllowAllAircraftTypes()
+        {
+            foreach (var gate in GetListGates())
+            {
+                gate.MakeAllAircraftTypesAllowedForThisGate();
+            }
+        }
 
 
         public List<Flight> GetArrivingFlights()
