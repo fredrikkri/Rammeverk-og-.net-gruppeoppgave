@@ -71,7 +71,7 @@ namespace brusOgPotetgull.gruppeoppgave
             gardemoenFlyplass.PrintListDeparturingFlights();
 
             DateTime start = new DateTime(2024, 3, 1);
-            DateTime end = new DateTime(2024, 3, 4, 1,00,00);
+            DateTime end = new DateTime(2024, 3, 1, 4,00,00);
             Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
 
             Console.Write("\n\t\tHistory of aircrafts:\n");

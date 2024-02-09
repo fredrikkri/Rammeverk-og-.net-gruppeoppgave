@@ -151,9 +151,6 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         }
                     }
                 }
-
-
-                
                 // Hvis det ikke finnes arriving flights
                 if (airport.GetArrivingFlights().Count == 0)
                 {
@@ -176,7 +173,6 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         }
                     }
                 }
-                
                 Thread.Sleep(1);
                 start = start.AddMinutes(1);
             }
