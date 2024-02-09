@@ -74,7 +74,14 @@ namespace brusOgPotetgull.airportLiberary
         {
             return listTaxiway;
         }
-        
+        public void PrintListDeparturingFlights()
+        {
+            Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
+            foreach (Flight flight in departingFlights)
+            {
+                Console.Write($"Aircraft:{flight.ActiveAircraft.Model}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
+            }
+        }
 
         /// <summary>
         /// Adds a runway to the airport.
@@ -100,6 +107,15 @@ namespace brusOgPotetgull.airportLiberary
         {
             listGate.Add(Gate);
         }
+        public void MakeAllGatesAllowAllAircraftTypes()
+        {
+            foreach (var gate in GetListGates())
+            {
+                gate.MakeAllAircraftTypesAllowedForThisGate();
+            }
+        }
+
+
         public List<Flight> GetArrivingFlights()
         {
             return arrivingFlights;
@@ -139,6 +155,85 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write("No departing flights in list");
             }
         }
+        public void AddDailyArrivingFlight(int numberOfDays,
+            Aircraft activeAircraft, DateTime dateTimeFlight,
+            bool isArrivingFlight, int length,
+            Airport departureAirport, Airport arrivalAirport,
+            Gate departureGate, Gate arrivalGate,
+            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
+            Runway departureRunway, Runway arrivalRunway)
+        {
+            for (int i = 1; i <= numberOfDays; i++)
+            {
+                Flight daily = new Flight(activeAircraft, dateTimeFlight.AddDays(i),
+                    isArrivingFlight, length,
+                    departureAirport, arrivalAirport,
+                    departureGate, arrivalGate,
+                    departureTaxiway, arrivalTaxiway,
+                    departureRunway, arrivalRunway);
 
+                arrivingFlights.Add(daily);
+            }
+        }
+        public void AddWeeklyArrivingFlight(int numberOfWeeks,
+            Aircraft activeAircraft, DateTime dateTimeFlight,
+            bool isArrivingFlight, int length,
+            Airport departureAirport, Airport arrivalAirport,
+            Gate departureGate, Gate arrivalGate,
+            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
+            Runway departureRunway, Runway arrivalRunway)
+        {
+            for (int i = 1; i <= numberOfWeeks; i++)
+            {
+                Flight weekly = new Flight(activeAircraft, dateTimeFlight.AddDays(i * 7),
+                    isArrivingFlight, length,
+                    departureAirport, arrivalAirport,
+                    departureGate, arrivalGate,
+                    departureTaxiway, arrivalTaxiway,
+                    departureRunway, arrivalRunway);
+
+                arrivingFlights.Add(weekly);
+            }
+        }
+        public void AddDailyDeparturingFlight(int numberOfDays,
+            Aircraft activeAircraft, DateTime dateTimeFlight,
+            bool isArrivingFlight, int length,
+            Airport departureAirport, Airport arrivalAirport,
+            Gate departureGate, Gate arrivalGate,
+            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
+            Runway departureRunway, Runway arrivalRunway)
+        {
+            for (int i = 1; i <= numberOfDays; i++)
+            {
+                Flight daily = new Flight(activeAircraft, dateTimeFlight.AddDays(i),
+                    isArrivingFlight,  length,
+                    departureAirport,  arrivalAirport,
+                    departureGate,  arrivalGate,
+                    departureTaxiway,  arrivalTaxiway,
+                    departureRunway,  arrivalRunway);
+
+                departingFlights.Add(daily);
+            }
+        }
+        public void AddWeeklyDeparturingFlight(int numberOfWeeks,
+            Aircraft activeAircraft, DateTime dateTimeFlight,
+            bool isArrivingFlight, int length,
+            Airport departureAirport, Airport arrivalAirport,
+            Gate departureGate, Gate arrivalGate,
+            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
+            Runway departureRunway, Runway arrivalRunway)
+        {
+            for (int i = 1; i <= numberOfWeeks; i++)
+            {
+                Flight weekly = new Flight(activeAircraft, dateTimeFlight.AddDays(i*7),
+                    isArrivingFlight, length,
+                    departureAirport, arrivalAirport,
+                    departureGate, arrivalGate,
+                    departureTaxiway, arrivalTaxiway,
+                    departureRunway, arrivalRunway);
+
+                departingFlights.Add(weekly);
+            }
+        }
     }
 }

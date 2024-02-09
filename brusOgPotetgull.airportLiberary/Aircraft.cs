@@ -124,6 +124,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
             DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
+            Console.Write($"\n\n\tHistory for aircraft: '{Model}' and id: '{Id}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
             foreach (var line in history)
             {
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
