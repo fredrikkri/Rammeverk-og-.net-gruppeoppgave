@@ -92,7 +92,6 @@ namespace brusOgPotetgull.airportLiberary
 
                 time++;
             }
-
             return time;
         }
     }
