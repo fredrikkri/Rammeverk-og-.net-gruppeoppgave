@@ -26,6 +26,7 @@ namespace brusOgPotetgull.airportLiberary
             this.legalAircraftTypesId = new List<int>();
 
         }
+
         public int Id { get; private set; }
         public string GateName { get; private set; }
         public Airport LocatedAtAirport { get; private set; }
@@ -46,6 +47,7 @@ namespace brusOgPotetgull.airportLiberary
                 Console.Write($"{typeId} ");
             }
         }
+
         /// <summary>
         /// returns the id and the nickname for the airport that this gate is located at.
         /// </summary>
@@ -55,6 +57,7 @@ namespace brusOgPotetgull.airportLiberary
             string returnString = (string) (Id + " " + LocatedAtAirport.AirportCode);
             return returnString;
         }
+
         /// <summary>
         /// Adds an aircraft that will be able to use the gate.
         /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to enable accsess for the gate.
@@ -66,6 +69,7 @@ namespace brusOgPotetgull.airportLiberary
             {
                 legalAircraftTypesId.Add(aircraftTypeId);
             }
+
             else
             {
                 Console.Write($"{aircraftTypeId} is already in list of legal aicrafts for this gate.");
@@ -84,12 +88,14 @@ namespace brusOgPotetgull.airportLiberary
                 {
                     legalAircraftTypesId.Add(typeId);                    
                 }
+
                 else
                 {
                     Console.Write($"{typeId} is already in list of legal aicrafts for this gate.");
                 }
             }
         }
+
         public void MakeAllAircraftTypesAllowedForThisGate()
         {
             int numberOfAircraftTypes = 6;
@@ -98,6 +104,7 @@ namespace brusOgPotetgull.airportLiberary
                 AddAircraftAllowedAtGate(i);
             }
         }
+
         /// <summary>
         /// Removes an aircraft from being able to use the gate.
         /// Parameter 'aircraftTypeId' is the id of an type of aircraft that you want to deny accsess to the gate.
@@ -109,11 +116,13 @@ namespace brusOgPotetgull.airportLiberary
             {
                 legalAircraftTypesId.Remove(aircraftTypeId);
             }
+
             else
             {
                 Console.Write($"Aircraft with type {aircraftTypeId} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
             }
         }
+
         /// <summary>
         /// Checks if an aircraft can use the gate.
         /// Parameter 'aircraft' is the aircraft you want to check if it has access or not.
@@ -127,11 +136,13 @@ namespace brusOgPotetgull.airportLiberary
             {
                 return true;
             }
+
             else
             {
                 return false;
             }
         }
+
         /// <summary>
         ///  An aircraft leaves the gate. And saves it in aircrafthistory. The gate is now avalible for other aircrafts.
         ///  Parameter 'aircraft' is the plane that is going to leave the gate.
@@ -142,6 +153,7 @@ namespace brusOgPotetgull.airportLiberary
             isAvailable = true;
             aircraft.AddHistoryToAircraft(time, "Gate " + GetIdAndAirportNickname(), ", Left Gate");
         }
+
         /// <summary>
         /// An aircraft occupies a gate. And saves it in aircrafthistory. The gate is now unavalible for other aircrafts to use it.
         /// Parameter 'aircraft' is the plane that is going to book the gate.
@@ -153,7 +165,9 @@ namespace brusOgPotetgull.airportLiberary
             {
                 isAvailable = false;
                 aircraft.AddHistoryToAircraft(time, "Gate " + GetIdAndAirportNickname(), ", Arrived at Gate");
-            } else
+            }
+            
+            else
             {
                 Console.Write($"Gate with id: {Id}, is already booked. You cannot book this gate.");
             }

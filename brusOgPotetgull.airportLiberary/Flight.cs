@@ -61,7 +61,6 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Runway: {ArrivalRunway.Id}\n" +
                 $"Arrival Taxiway: {ArrivalTaxiway.Id}\n" +
                 $"Arrival Gate: {ArrivalGate.Id}\n");
-
         }
 
         public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
@@ -77,14 +76,18 @@ namespace brusOgPotetgull.airportLiberary
                 {
                     initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
                 }
+
                 else if (initialSpeed > maxSpeed)
                 {
                     initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
                 }
+
                 time++;
             }
+
             return time;
         }
+
         /// <summary>
         /// Starts a flight if the gates and the date for the flight is right.
         /// If the checks is ok, then the flight begins.
@@ -101,6 +104,7 @@ namespace brusOgPotetgull.airportLiberary
                 {
                     // TODO: ny flygning
                 }
+
                 else
                 {
                     Console.Write($"\nFlight with id '{flightId}': One of the gates does not fit with the plane. The flight cannot be done...\n");

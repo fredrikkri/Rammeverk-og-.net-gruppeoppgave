@@ -30,8 +30,8 @@ namespace brusOgPotetgull.airportLiberary
             this.AccelerationInAir = accelerationInAir;
             this.MaxSpeedOnGround = maxSpeedOnGround;
             this.AccelerationOnGround = accelerationOnGround;
-
         }
+
         public int Id { get; private set; }
         public int AircraftTypeId { get; private set; }
         public bool OutOfService { get; private set; }
@@ -53,6 +53,7 @@ namespace brusOgPotetgull.airportLiberary
                 $"Max speed: {MaxSpeedInAir}\n" +
                 $"Acceleration: {AccelerationInAir}\n");
         }
+
         /// <summary>
         /// logging an event to the history of the aircraft.
         /// 'time' is when the event took place.
@@ -65,6 +66,7 @@ namespace brusOgPotetgull.airportLiberary
             history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
             
         }
+
         /// <summary>
         /// Returns a string that contains the previous location of the plane. Value of the return can be "Gate", "Runway" or "Taxiway".
         /// </summary>
@@ -90,6 +92,7 @@ namespace brusOgPotetgull.airportLiberary
                 Console.WriteLine($"{line.Key}, {line.Value}");
             }
         }
+
         /// <summary>
         /// Changes the variable 'bool outOfService' from false to true, but only if the status already is set to 'false'. 
         /// </summary>
@@ -98,11 +101,14 @@ namespace brusOgPotetgull.airportLiberary
             if (OutOfService == false)
             {
                 OutOfService = true;
-            } else
+            } 
+            
+            else
             {
                 Console.Write("\nThe aircraft is already out of service.\n");
             }
         }
+
         /// <summary>
         /// Changes the variable 'bool outOfService' from "true" to "false", but only if the status already is set to 'true'. 
         /// </summary>
@@ -112,11 +118,13 @@ namespace brusOgPotetgull.airportLiberary
             {
                 OutOfService = false;
             }
+
             else
             {
                 Console.Write("\nThe aircraft is already in operation.\n");
             }
         }
+
         /// <summary>
         /// reads trough the list of the aircrafts history and prints out the log for that day
         /// </summary>
