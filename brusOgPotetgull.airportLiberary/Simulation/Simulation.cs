@@ -25,32 +25,6 @@ namespace brusOgPotetgull.airportLiberary.Simulation
             {
                 Console.Write($"\n\t\t\t\t\t\tSimulation time: {start}\n");
 
-                // Fly drar fra Gate til en taksebane.
-                //foreach (Flight flight in airport.GetDepartingFlights())
-                //{
-                // Må lage simulering/logikk for hvordan et fly kommer seg fra en gate til en taksebane.
-                //}
-
-
-                // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                /*
-                // fly ankommer gates
-                foreach (Flight flight in airport.GetArrivingFlights())
-                {
-                    flight.ArrivalGate.bookGate(flight.ActiveAircraft, start);
-                }
-                // fly bruker runway og drar fra flyplassen
-                foreach (Flight flight in airport.GetDepartingFlights())
-                {
-                    Aircraft flightFirstInQueue = flight.DepartureRunway.CheckNextFlightInQueue().ActiveAircraft;
-                    if (flightFirstInQueue == flight.ActiveAircraft)
-                    {
-                        // simmulere 
-                    }
-                }*/
-                // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-
                 // Ankommende fly drar fra taksebane.
                 foreach (Flight flight in Airport.GetArrivingFlights())
                 {
@@ -94,11 +68,6 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         currentRunway.NextFlightEntersRunway(nextFlight, start);
                         Console.Write($"\n{nextFlight.ActiveAircraft.Model} using runway\n");
                         currentRunway.UseRunway();
-                        // funksjonen og lokale variabelen under brukes ikke foreløpig.
-                        // Vurderer å benytte funksjonen til å logge et annet exit tidspunkt basert på tid brukt på runway
-                        // i tillegg er den veldig lik SimulateTaxiwayTime, slik at den kan egentlig flyttes til flight, og
-                        // kan egt flyttes til flight. Der kan den heller brukes for flybevegelser generelt.
-                        //int secondsOnRunway = currentRunway.SimulateRunwayTime(nextFlight, 300, 40, nextFlight.ActiveAircraft.MaxSpeedOnGround);
                         currentRunway.ExitRunway();
                         Console.Write($"\n{nextFlight.ActiveAircraft.Model} left runway\n");
 
