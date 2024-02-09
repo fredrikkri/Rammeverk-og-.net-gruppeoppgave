@@ -33,7 +33,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// returns the id and the code (nickname) for the airport that this runway is located at.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>String containing id and airportcode.</returns>
         public string GetIdRunwayAndAirportCode()
         {
             string returnString = (string)(Id + " " + LocatedAtAirport.AirportCode);
@@ -43,7 +43,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// Removed the flight located first in line in the runwayqueue.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Flight object that is removed from the beginning of the queue.</returns>
         public Flight RemoveFromQueue()
         {
             return runwayQueue.Dequeue();
@@ -61,7 +61,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <summary>
         /// Checks which flight that is located first in line in runwayqueue.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Flight object that is first in line at queue.</returns>
         public Flight CheckNextFlightInQueue()
         {
             Flight nextFlight = runwayQueue.Peek();
@@ -96,7 +96,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <param name="speedChange">Parameter for CalculateFlightMovement().</param>
         /// <param name="maxSpeed">Parameter for CalculateFlightMovement().</param>
         /// <param name="time">Used to log the history for the plane.</param>
-        /// <returns></returns>
+        /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
         public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time) {
             flight.ActiveAircraft.AddHistoryToAircraft(time, "Runway " + GetIdRunwayAndAirportCode(), ", Leaves Runway");
             

@@ -35,7 +35,7 @@ namespace brusOgPotetgull.airportLiberary
         /// returns the id and the code (nickname) for the airport that this taxiway is located at.
         /// eksample: "Gate 1 GAR"
         /// </summary>
-        /// <returns></returns>
+        /// <returns>String that contain id and airportcode.</returns>
         public string GetIdTaxiwayAndAirportCode()
         {
             string returnString = (string)(Id + " " + LocatedAtAirport.AirportCode);
@@ -44,11 +44,9 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// Adds an flight to the queue for the taxiway.
-        /// Parameter 'flight' is the flight that is insertet into the queue.
-        /// Parameter 'time' is used to log the time to the history of the used aircraft.
         /// </summary>
-        /// <param name="flight"></param>
-        /// <param name="time"></param>
+        /// <param name="flight">The flight that is insertet into the queue.</param>
+        /// <param name="time">Used to log the time to the history of the used aircraft.</param>
         public void AddFlightToQueue(Flight flight, DateTime time)
         {
             // (Nagel, 2022, s. 203)
@@ -59,9 +57,8 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// This method checks which flight is next in line for this taxiway.
-        /// Returns a flight object.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A flight object.</returns>
         public Flight CheckNextFlightInQueue()
         {
                 Flight nextFlight = taxiwayQueue.Peek();
@@ -70,11 +67,9 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// The aircraft first in line for taxiwayqueue leaves the taxiwayqueue.
-        /// Parameter 'flight' is used to log correct history for the used aircraft.
-        /// Parameter 'time' is used to log correct history for the used aircraft.
         /// </summary>
-        /// <param name="flight"></param>
-        /// <param name="time"></param>
+        /// <param name="flight">Used to log correct history for the used aircraft.</param>
+        /// <param name="time">Used to log correct history for the used aircraft.</param>
         public void NextFlightLeavesTaxiway(Flight flight, DateTime time)
         {
             // (Nagel, 2022, s. 203)
@@ -90,16 +85,14 @@ namespace brusOgPotetgull.airportLiberary
 
         /// <summary>
         /// Simulates an aircraft using the taxiway
-        /// Parameter 'flight' is the flight thats is using the taxiway.
-        /// Parameter 'time' is used to log the history of the plane.
-        /// The other parameters: initialSpeed, speedChange, maxSpeed is passed on to the CalculateFlightMovement() method.
+        /// The parameters: initialSpeed, speedChange, maxSpeed is passed on to the CalculateFlightMovement() method.
         /// </summary>
-        /// <param name="flight"></param>
+        /// <param name="flight">The flight thats is using the taxiway.</param>
         /// <param name="initialSpeed"></param>
         /// <param name="speedChange"></param>
         /// <param name="maxSpeed"></param>
-        /// <param name="time"></param>
-        /// <returns></returns>
+        /// <param name="time">Used to log the history of the plane.</param>
+        /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
         public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
         {
             flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Enter taxiway");

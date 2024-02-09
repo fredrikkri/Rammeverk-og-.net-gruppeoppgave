@@ -62,15 +62,15 @@ namespace brusOgPotetgull.airportLiberary
                 $"Arrival Taxiway: {ArrivalTaxiway.Id}\n" +
                 $"Arrival Gate: {ArrivalGate.Id}\n");
         }
-      
+
         /// <summary>
-        /// simulates the movement for an flight object for landing and takeoff. returns the time it takes.
+        /// simulates the movement for an flight object for landing and takeoff.
         /// </summary>
-        /// <param name="length"></param>
-        /// <param name="initialSpeed"></param>
-        /// <param name="speedChange"></param>
-        /// <param name="maxSpeed"></param>
-        /// <returns></returns>
+        /// <param name="length">Traveldistance.</param>
+        /// <param name="initialSpeed">The speed at which the aircraft starts with in kph.</param>
+        /// <param name="speedChange">The change in speed (kph).</param>
+        /// <param name="maxSpeed">Maximum speed for this calculation. (kph)</param>
+        /// <returns>The time it takes to do the simulation.</returns>
         public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
         {
             var remainingDistance = Length;
