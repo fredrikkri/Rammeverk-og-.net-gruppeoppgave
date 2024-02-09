@@ -1,16 +1,26 @@
 ﻿ using System;
+using brusOgPotetgull.airportLiberary;
+
 namespace brusOgPotetgull.airportLiberary.Simulation
 {
 	public class Simulation
 	{
-
-        // Starter simuleringen 
         public Simulation(Airport airport, DateTime startTime, DateTime endTime)
         {
-            //Angir start og slutt tid for simulasjon
-            DateTime start = startTime;
-            DateTime end = endTime;
-            // Simulering starter ved startTime, og kjører inntil tidspunktet for endtime er <= starttime
+            this.Airport = airport;
+            this.StartTime = startTime;
+            this.EndTime = endTime;
+        }
+        public Airport Airport { get; private set; }
+        public DateTime StartTime { get; private set; }
+        public DateTime EndTime { get; private set; }
+
+        public void RunSimulation()
+        {
+
+            DateTime start = StartTime;
+            DateTime end = EndTime;
+
             while (start <= end)
             {
                 Console.Write($"\n\t\t\t\t\t\tSimulation time: {start}\n");
@@ -42,7 +52,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
 
 
                 // Ankommende fly drar fra taksebane.
-                foreach (Flight flight in airport.GetArrivingFlights())
+                foreach (Flight flight in Airport.GetArrivingFlights())
                 {
                     if (flight.ArrivalTaxiway.GetNumberOfAircraftsInQueue() > 0 && flight.ArrivalTaxiway.CheckNextFlightInQueue() == flight)
                     {
@@ -50,7 +60,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }
                 }
                 // reisende fly drar fra taksebane.
-                foreach (Flight flight in airport.GetDepartingFlights())
+                foreach (Flight flight in Airport.GetDepartingFlights())
                 {
                     if (flight.DepartureTaxiway.GetNumberOfAircraftsInQueue() > 0 && flight.DepartureTaxiway.CheckNextFlightInQueue() == flight)
                     {
@@ -59,10 +69,10 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }
                 }
                 // Hvis det finnnes innkommende flygninger
-                if (airport.GetArrivingFlights().Count > 0)
+                if (Airport.GetArrivingFlights().Count > 0)
                 {
                     // Går igjennom alle flygninger, og legger til denne dersom tiden for flygningen er denne iterasjonen (datetime.start + simulasjonstid)
-                    foreach (Flight flight in airport.GetArrivingFlights())
+                    foreach (Flight flight in Airport.GetArrivingFlights())
                     {
                         if (flight.DateTimeFlight == start)
                         {
@@ -73,7 +83,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }
                 }
                 // Sjekker alle runways
-                foreach (Runway currentRunway in airport.GetRunwayList())
+                foreach (Runway currentRunway in Airport.GetRunwayList())
                 {
 
                     //Hvis det er fly i runway køen, og runway er ledig
@@ -100,13 +110,13 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     // La fly forbli i køen til neste iterasjon
                 }
                 // For hver taxiway på flyplassen
-                foreach (var taxiway in airport.GetListTaxiways())
+                foreach (var taxiway in Airport.GetListTaxiways())
                 {
                     // Neste fly i taxiway køen
                     if (taxiway.GetNumberOfAircraftsInQueue() > 0)
                     {
                         Flight flight = taxiway.CheckNextFlightInQueue();
-                        
+
                         // Dersom flygning er arriving flight og gate er ledig
                         if (flight.IsArrivingFlight == true) //&& flight.ArrivalGate.IsAvailable == true)
                         {
@@ -118,7 +128,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                             Console.Write($"\n{flight.ActiveAircraft.Model} reached gate\n");
 
                             // Fjerner flygningen fra innkommende flygninger når den er ferdig håndtert
-                            airport.RemoveArrivingFlight(flight);
+                            Airport.RemoveArrivingFlight(flight);
                         }
                     }
                 }
@@ -130,10 +140,10 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 // vi skal gjøre det i forhold til simuleringstiden.
 
                 // Eller Hvis det finnes utgående flygninger
-                if (airport.GetDepartingFlights().Count > 0)
+                if (Airport.GetDepartingFlights().Count > 0)
                 {
                     // Går igjennom lista med utgående flygninger
-                    foreach (var flight in airport.GetDepartingFlights())
+                    foreach (var flight in Airport.GetDepartingFlights())
                     {
                         // Hvis tiden for flygningen er lik nåværende tid i simulasjonen
                         if (flight.DateTimeFlight == start)
@@ -152,10 +162,10 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                     }
                 }
                 // Hvis det ikke finnes arriving flights
-                if (airport.GetArrivingFlights().Count == 0)
+                if (Airport.GetArrivingFlights().Count == 0)
                 {
                     //For hver taxiway på flyplassen
-                    foreach (var taxiway in airport.GetListTaxiways())
+                    foreach (var taxiway in Airport.GetListTaxiways())
                     {
                         if (taxiway.GetNumberOfAircraftsInQueue() > 0)
                         {
@@ -173,6 +183,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                         }
                     }
                 }
+
                 Thread.Sleep(1);
                 start = start.AddMinutes(1);
             }
