@@ -60,7 +60,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 }
 
                 // For hver taxiway på flyplassen
-                foreach (var taxiway in Airport.GetListTaxiways())
+                foreach (Taxiway taxiway in Airport.GetListTaxiways())
                 {
                     // Neste fly i taxiway køen
                     if (taxiway.GetNumberOfAircraftsInQueue() > 0)
@@ -82,7 +82,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 if (Airport.GetDepartingFlights().Count > 0)
                 {
                     // Går igjennom lista med utgående flygninger
-                    foreach (var flight in Airport.GetDepartingFlights())
+                    foreach (Flight flight in Airport.GetDepartingFlights())
                     {
                         // Hvis tiden for flygningen er lik nåværende tid i simulasjonen
                         if (flight.DateTimeFlight == start)
@@ -95,7 +95,7 @@ namespace brusOgPotetgull.airportLiberary.Simulation
                 }
 
                 //For hver taxiway på flyplassen
-                foreach (var taxiway in Airport.GetListTaxiways())
+                foreach (Taxiway taxiway in Airport.GetListTaxiways())
                 {
                     if (taxiway.GetNumberOfAircraftsInQueue() > 0)
                     {

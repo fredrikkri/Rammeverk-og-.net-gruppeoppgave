@@ -143,7 +143,7 @@ namespace brusOgPotetgull.airportLiberary
         /// </summary>
         public void MakeAllGatesAllowAllAircraftTypes()
         {
-            foreach (var gate in GetListGates())
+            foreach (Gate gate in GetListGates())
             {
                 gate.MakeAllAircraftTypesAllowedForThisGate();
             }

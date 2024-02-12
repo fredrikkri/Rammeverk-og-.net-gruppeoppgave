@@ -76,7 +76,7 @@ namespace brusOgPotetgull.airportLiberary
         {
             if (runwayQueue.Count != 0)
             {
-                var nextFlight = runwayQueue.Dequeue();
+                Flight nextFlight = runwayQueue.Dequeue();
                 runwayQueue.TrimExcess();
             } 
 
