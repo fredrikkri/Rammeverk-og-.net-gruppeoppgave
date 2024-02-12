@@ -115,27 +115,27 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Adds a runway to the airport.
         /// </summary>
         /// <param name="Runway">The runway that is added to the list.</param>
-        public void AddRunwayToList(Runway Runway)
+        public void AddRunwayToList(Runway runway)
         {
-            listRunway.Add(Runway);
+            listRunway.Add(runway);
         }
 
         /// <summary>
         /// Adds a taxiway to the airport.
         /// </summary>
         /// <param name="Taxiway">The taxiway that is added to the list.</param>
-        public void AddTaxiwayToList(Taxiway Taxiway)
+        public void AddTaxiwayToList(Taxiway taxiway)
         {
-            listTaxiway.Add(Taxiway);
+            listTaxiway.Add(taxiway);
         }
 
         /// <summary>
         /// Adds a gate to the airport.
         /// </summary>
         /// <param name="Gate">The gate that is added to the list.</param>
-        public void AddGateToList(Gate Gate)
+        public void AddGateToList(Gate gate)
         {
-            listGate.Add(Gate);
+            listGate.Add(gate);
         }
 
         /// <summary>
