@@ -1,9 +1,9 @@
 ﻿using System;
-using brusOgPotetgull.airportLiberary;
-using brusOgPotetgull.airportLiberary.AircraftTypes;
-using brusOgPotetgull.airportLiberary.Simulation;
+using BrusOgPotetgull.AirportLiberary;
+using BrusOgPotetgull.AirportLiberary.AircraftTypes;
+using BrusOgPotetgull.AirportLiberary.Simulation;
 
-namespace brusOgPotetgull.gruppeoppgave
+namespace BrusOgPotetgull.Gruppeoppgave
 {
     internal class Program
     {

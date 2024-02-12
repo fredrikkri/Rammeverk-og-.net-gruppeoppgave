@@ -1,33 +1,18 @@
 ﻿<Properties StartupConfiguration="{C58CE0E2-4EA8-4230-A25D-AF2EABFF71C5}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="brusOgPotetgull.airportLiberary/Simulation/Simulation.cs">
     <Files>
-      <File FileName="brusOgPotetgull.gruppeoppgave/Program.cs" Line="20" Column="21" />
-      <File FileName="brusOgPotetgull.airportLiberary/Simulation/Simulation.cs" Line="12" Column="36" />
-      <File FileName="brusOgPotetgull.airportLiberary/Flight.cs" Line="192" Column="10" />
+      <File FileName="brusOgPotetgull.gruppeoppgave/Program.cs" />
+      <File FileName="brusOgPotetgull.airportLiberary/Flight.cs" />
       <File FileName="brusOgPotetgull.airportLiberary/AirportComponents/Runway.cs" />
-      <File FileName="brusOgPotetgull.airportLiberary/AirportComponents/Taxiway.cs" Line="86" Column="2" />
+      <File FileName="brusOgPotetgull.airportLiberary/AirportComponents/Taxiway.cs" />
       <File FileName="brusOgPotetgull.airportLiberary/Aircraft.cs" />
-      <File FileName="brusOgPotetgull.airportLiberary/Airport.cs" Line="142" Column="1" />
+      <File FileName="brusOgPotetgull.airportLiberary/Airport.cs" />
+      <File FileName="brusOgPotetgull.airportLiberary/Simulation/Simulation.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="brusOgPotetgull.gruppeoppgave" expanded="True">
-            <Node name="brusOgPotetgull.airportLiberary" expanded="True">
-              <Node name="AirportComponents" expanded="True" />
-              <Node name="Simulation" expanded="True" />
-            </Node>
-            <Node name="brusOgPotetgull.gruppeoppgave" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.brusOgPotetgull.gruppeoppgave PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.BrusOgPotetgull.Gruppeoppgave PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

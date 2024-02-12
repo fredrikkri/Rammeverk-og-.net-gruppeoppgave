@@ -2,7 +2,7 @@
 using System.Net.Security;
 using System.Reflection;
 
-namespace brusOgPotetgull.airportLiberary
+namespace BrusOgPotetgull.AirportLiberary
 {
     public class Flight
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace brusOgPotetgull.airportLiberary
+namespace BrusOgPotetgull.AirportLiberary
 {
 	public class Runway
 	{
