@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 {
+    /// <summary>
+    /// Large Aircraft is a bigger aircraft with bigger capacity.
+    /// </summary>
 	public class LargeAircraft : Aircraft
 	{
         private int aircraftTypeId = 4;

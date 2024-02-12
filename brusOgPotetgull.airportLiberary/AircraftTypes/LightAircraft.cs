@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 {
+    /// <summary>
+    /// Light aircraft is a smaller aircraft. It can be an private plane.
+    /// </summary>
 	public class LightAircraft : Aircraft
 	{
         private int aircraftTypeId = 1;
