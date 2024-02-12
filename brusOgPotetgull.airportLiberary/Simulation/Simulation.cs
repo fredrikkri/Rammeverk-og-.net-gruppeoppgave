@@ -3,8 +3,17 @@ using BrusOgPotetgull.AirportLiberary;
 
 namespace BrusOgPotetgull.AirportLiberary.Simulation
 {
+    /// <summary>
+    /// A simulation that is used to simulate how an airport works.
+    /// </summary>
 	public class Simulation
 	{
+        /// <summary>
+        /// Creates an simulation of the choosen airport.
+        /// </summary>
+        /// <param name="airport">Which airport that is using the simulation.</param>
+        /// <param name="startTime">The start of the simulation.</param>
+        /// <param name="endTime">The end of the simulation.</param>
         public Simulation(Airport airport, DateTime startTime, DateTime endTime)
         {
             this.Airport = airport;
@@ -16,6 +25,9 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
         public DateTime StartTime { get; private set; }
         public DateTime EndTime { get; private set; }
 
+        /// <summary>
+        /// This method is starting the simulation.
+        /// </summary>
         public void RunSimulation()
         {
 

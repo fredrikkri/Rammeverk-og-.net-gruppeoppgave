@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 {
+    /// <summary>
+    /// Long medium aircraft is a madium sized aircraft with greate length.
+    /// </summary>
 	public class LongMediumAircraft : Aircraft
 	{
         private int aircraftTypeId = 3;

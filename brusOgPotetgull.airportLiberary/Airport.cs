@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
+    /// <summary>
+    /// This class defines how a airport is defined.
+    /// </summary>
 	public class Airport
     {
         private static int idCounter = 1;
@@ -13,6 +16,12 @@ namespace BrusOgPotetgull.AirportLiberary
         private List<Flight> arrivingFlights;
         private List<Flight> departingFlights;
 
+        /// <summary>
+        /// Creates an airport.
+        /// </summary>
+        /// <param name="airportCode">The code for the airport. typicaly 3 letters. Eksample: RYG</param>
+        /// <param name="name">The name of the airport.</param>
+        /// <param name="location">Where the airport is located at.</param>
         public Airport(string airportCode, string name, string location)
 		{
             // (dosnetCore, 2020) 

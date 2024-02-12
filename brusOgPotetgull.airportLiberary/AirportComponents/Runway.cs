@@ -1,6 +1,9 @@
 ﻿using System;
 namespace BrusOgPotetgull.AirportLiberary
 {
+    /// <summary>
+    /// The runway class is defining how a runway is designed.
+    /// </summary>
 	public class Runway
 	{
         private static int idCounter = 1;
@@ -8,6 +11,11 @@ namespace BrusOgPotetgull.AirportLiberary
         private bool inUse;
         private Queue<Flight> runwayQueue = new Queue<Flight>();
 
+        /// <summary>
+        /// creates a runway.
+        /// </summary>
+        /// <param name="locatedAtAirport">Which airport it is located at.</param>
+        /// <param name="length">The length of the runway.</param>
         public Runway(Airport locatedAtAirport, int length)
         {
             // (dosnetCore, 2020) 

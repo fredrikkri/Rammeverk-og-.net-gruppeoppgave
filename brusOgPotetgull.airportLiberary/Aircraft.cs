@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
+    /// <summary>
+    /// Aircraft class is a blueprint for how an aircraft would look like. 
+    /// </summary>
 	public class Aircraft
     {
         private static int idCounter = 1;
@@ -13,6 +16,14 @@ namespace BrusOgPotetgull.AirportLiberary
         
         List<KeyValuePair<DateTime, string>> history;
 
+        /// <summary>
+        /// Creates an aircraft.
+        /// </summary>
+        /// <param name="model">What the model of the aircraft is called.</param>
+        /// <param name="maxSpeedInAir">Maximum in-air speed.</param>
+        /// <param name="accelerationInAir">The accleration in-air</param>
+        /// <param name="maxSpeedOnGround">Maximum on-ground speed.</param>
+        /// <param name="accelerationOnGround">acceleration on ground.</param>
         public Aircraft(string model,
             int maxSpeedInAir,
             int accelerationInAir,

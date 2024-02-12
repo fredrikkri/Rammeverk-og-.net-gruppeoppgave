@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
+    /// <summary>
+    /// The gate class is defining how a gate is designed.
+    /// </summary>
 	public class Gate
 	{
         private static int idCounter = 1;
@@ -13,7 +16,11 @@ namespace BrusOgPotetgull.AirportLiberary
         // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
         private List<int> legalAircraftTypesId;
 
-        // bruker egentlig ikke isOpen ????
+        /// <summary>
+        /// Creates a gate.
+        /// </summary>
+        /// <param name="gateName">The name of the gate.</param>
+        /// <param name="locatedAtAirport">Which airport the gate is locatad at.</param>
 		public Gate(string gateName, Airport locatedAtAirport)
 		{
             // (dosnetCore, 2020) 

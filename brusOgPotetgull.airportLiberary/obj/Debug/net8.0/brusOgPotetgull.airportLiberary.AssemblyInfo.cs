@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("brusOgPotetgull.airportLiberary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4943217bde4004e6a4371a35cd8539250b8e72f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fae72538689dc6e7212a8fac1b0a7d4793714cdf")]
 [assembly: System.Reflection.AssemblyProductAttribute("brusOgPotetgull.airportLiberary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("brusOgPotetgull.airportLiberary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
