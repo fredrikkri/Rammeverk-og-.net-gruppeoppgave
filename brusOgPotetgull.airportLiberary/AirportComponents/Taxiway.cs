@@ -74,7 +74,7 @@ namespace brusOgPotetgull.airportLiberary
             // (Nagel, 2022, s. 203)
             while (taxiwayQueue.Count > 0)
             {
-                var nextFlightInQueue = taxiwayQueue.Dequeue();
+                Flight nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
                 flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
             }

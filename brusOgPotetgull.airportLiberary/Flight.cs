@@ -73,7 +73,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <returns>The time it takes to do the simulation.</returns>
         public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
         {
-            var remainingDistance = Length;
+            int remainingDistance = Length;
             int time = 0;
 
             while (remainingDistance == 0)
