@@ -1,12 +1,21 @@
 ﻿using System;
-namespace brusOgPotetgull.airportLiberary
+namespace BrusOgPotetgull.AirportLiberary
 {
+    /// <summary>
+    /// The taxiway class is defining how a taxiway is designed.
+    /// </summary>
 	public class Taxiway
     {
         private static int idCounter = 1;
         private int id;
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="length">Length of the taxiway.</param>
+        /// <param name="maxSpeed">Legal maxspeed for the taxiway</param>
+        /// <param name="locatedAtAirport">Which airport it is located at.</param>
         public Taxiway(int length, int maxSpeed, Airport locatedAtAirport)
         {
             // (dosnetCore, 2020)
@@ -74,7 +83,7 @@ namespace brusOgPotetgull.airportLiberary
             // (Nagel, 2022, s. 203)
             while (taxiwayQueue.Count > 0)
             {
-                var nextFlightInQueue = taxiwayQueue.Dequeue();
+                Flight nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
                 flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
             }

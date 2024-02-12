@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Reflection;
 
-namespace brusOgPotetgull.airportLiberary.AircraftTypes
+namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 {
+    /// <summary>
+    /// Short medium aircraft is an aircraft with bigger size than light aircraft, but smaller than long medium aircraft.
+    /// </summary>
 	public class ShortMediumAircraft : Aircraft
 	{
         private int aircraftTypeId = 2;

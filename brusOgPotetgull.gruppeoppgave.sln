@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1706.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brusOgPotetgull.gruppeoppgave", "brusOgPotetgull.gruppeoppgave\brusOgPotetgull.gruppeoppgave.csproj", "{C58CE0E2-4EA8-4230-A25D-AF2EABFF71C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrusOgPotetgull.Gruppeoppgave", "brusOgPotetgull.gruppeoppgave\brusOgPotetgull.gruppeoppgave.csproj", "{C58CE0E2-4EA8-4230-A25D-AF2EABFF71C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brusOgPotetgull.airportLiberary", "brusOgPotetgull.airportLiberary\brusOgPotetgull.airportLiberary.csproj", "{ABA6DC69-2528-47CD-B3E3-9B2E28801CDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrusOgPotetgull.AirportLiberary", "brusOgPotetgull.airportLiberary\brusOgPotetgull.airportLiberary.csproj", "{ABA6DC69-2528-47CD-B3E3-9B2E28801CDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

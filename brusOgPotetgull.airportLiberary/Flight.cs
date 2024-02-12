@@ -2,13 +2,31 @@
 using System.Net.Security;
 using System.Reflection;
 
-namespace brusOgPotetgull.airportLiberary
+namespace BrusOgPotetgull.AirportLiberary
 {
+    /// <summary>
+    /// The Flight class is defined with the aircraft that is used in the flight, together with all the components on the airports its using. Eksamples is: taxiways, gates and runways.
+    /// </summary>
     public class Flight
     {
         private static int idCounter = 1;
         private int flightId;
 
+        /// <summary>
+        /// Creates a flight object.
+        /// </summary>
+        /// <param name="activeAircraft">The aircraft that is used for this flight</param>
+        /// <param name="dateTimeFlight">Date of the flight.</param>
+        /// <param name="isArrivingFlight">True if the flight it arriving at the airport.</param>
+        /// <param name="length">Length of the flight im KM.</param>
+        /// <param name="departureAirport">The airport that the aircraft departure from.</param>
+        /// <param name="arrivalAirport">The airport that the aircraft is arriving at.</param>
+        /// <param name="departureGate">The gate that the aircraft departure from.</param>
+        /// <param name="arrivalGate">The gate that the aircraft is arriving at.</param>
+        /// <param name="departureTaxiway">The taxiway that the aircraft is using to departure from.</param>
+        /// <param name="arrivalTaxiway">The taxiway that the aircraft is arriving at.</param>
+        /// <param name="departureRunway">The runway that the aircraft is departuring from.</param>
+        /// <param name="arrivalRunway">The runway that the aircraft is arriving at.</param>
         public Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length,
             Airport departureAirport, Airport arrivalAirport,
             Gate departureGate, Gate arrivalGate,
@@ -73,7 +91,7 @@ namespace brusOgPotetgull.airportLiberary
         /// <returns>The time it takes to do the simulation.</returns>
         public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
         {
-            var remainingDistance = Length;
+            int remainingDistance = Length;
             int time = 0;
 
             while (remainingDistance == 0)

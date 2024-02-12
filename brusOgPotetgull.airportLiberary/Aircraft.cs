@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace brusOgPotetgull.airportLiberary
+namespace BrusOgPotetgull.AirportLiberary
 {
+    /// <summary>
+    /// Aircraft class is a blueprint for how an aircraft would look like. 
+    /// </summary>
 	public class Aircraft
     {
         private static int idCounter = 1;
@@ -13,6 +16,14 @@ namespace brusOgPotetgull.airportLiberary
         
         List<KeyValuePair<DateTime, string>> history;
 
+        /// <summary>
+        /// Creates an aircraft.
+        /// </summary>
+        /// <param name="model">What the model of the aircraft is called.</param>
+        /// <param name="maxSpeedInAir">Maximum in-air speed.</param>
+        /// <param name="accelerationInAir">The accleration in-air</param>
+        /// <param name="maxSpeedOnGround">Maximum on-ground speed.</param>
+        /// <param name="accelerationOnGround">acceleration on ground.</param>
         public Aircraft(string model,
             int maxSpeedInAir,
             int accelerationInAir,
@@ -123,7 +134,7 @@ namespace brusOgPotetgull.airportLiberary
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
             DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
             Console.Write($"\n\n\tHistory for aircraft: '{Model}' and id: '{Id}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
-            foreach (var line in history)
+            foreach (KeyValuePair<DateTime, string> line in history)
             {
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
                 {

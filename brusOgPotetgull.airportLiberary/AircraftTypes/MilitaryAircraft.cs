@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Reflection;
 
-namespace brusOgPotetgull.airportLiberary.AircraftTypes
+namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 {
+    /// <summary>
+    /// Military aircraft is an aircraft equiped with weapons and is designed to be used in warfare.
+    /// </summary>
 	public class MilitaryAircraft : Aircraft
 	{
         private int aircraftTypeId = 6;

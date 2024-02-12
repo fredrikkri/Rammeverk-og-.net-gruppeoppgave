@@ -1,9 +1,9 @@
 ﻿using System;
-using brusOgPotetgull.airportLiberary;
-using brusOgPotetgull.airportLiberary.AircraftTypes;
-using brusOgPotetgull.airportLiberary.Simulation;
+using BrusOgPotetgull.AirportLiberary;
+using BrusOgPotetgull.AirportLiberary.AircraftTypes;
+using BrusOgPotetgull.AirportLiberary.Simulation;
 
-namespace brusOgPotetgull.gruppeoppgave
+namespace BrusOgPotetgull.Gruppeoppgave
 {
     internal class Program
     {
@@ -75,10 +75,6 @@ namespace brusOgPotetgull.gruppeoppgave
             cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
-
-
-
-
 
             //Console.Write("\n\t\tHistory for all aircrafts:\n");
 

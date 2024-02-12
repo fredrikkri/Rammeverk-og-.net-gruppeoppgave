@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Reflection;
 
-namespace brusOgPotetgull.airportLiberary.AircraftTypes
+namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 {
+    /// <summary>
+    /// Cargo aircraft is an aircrafttype that has its mainpourpose to carry cargo.
+    /// </summary>
 	public class CargoAircraft : Aircraft
 	{
         private int aircraftTypeId = 5;
