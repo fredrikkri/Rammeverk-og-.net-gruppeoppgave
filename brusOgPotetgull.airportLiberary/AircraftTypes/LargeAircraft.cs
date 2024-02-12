@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace brusOgPotetgull.airportLiberary.AircraftTypes
+namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 {
 	public class LargeAircraft : Aircraft
 	{

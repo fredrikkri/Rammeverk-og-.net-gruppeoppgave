@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace brusOgPotetgull.airportLiberary
+namespace BrusOgPotetgull.AirportLiberary
 {
 	public class Gate
 	{

@@ -1,7 +1,7 @@
 ﻿ using System;
-using brusOgPotetgull.airportLiberary;
+using BrusOgPotetgull.AirportLiberary;
 
-namespace brusOgPotetgull.airportLiberary.Simulation
+namespace BrusOgPotetgull.AirportLiberary.Simulation
 {
 	public class Simulation
 	{
