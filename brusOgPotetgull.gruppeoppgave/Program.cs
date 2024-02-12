@@ -71,10 +71,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
 
-
-
-
-
             //Console.Write("\n\t\tHistory for all aircrafts:\n");
 
             // Printer ut historie for arriving-flights
