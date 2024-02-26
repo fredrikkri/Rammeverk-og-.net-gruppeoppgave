@@ -11,7 +11,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
 
         /// <summary>
-        /// 
+        /// Creates a taxiway.
         /// </summary>
         /// <param name="length">Length of the taxiway.</param>
         /// <param name="maxSpeed">Legal maxspeed for the taxiway</param>
