@@ -10,6 +10,15 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 	{
         private int aircraftTypeId = 5;
         // (GeeksforGeeks, 2023)
+
+        /// <summary>
+        /// Creates an cargo-aircraft.
+        /// </summary>
+        /// <param name="model">Name of the model for this aircraft</param>
+        /// <param name="maxSpeedInAir">Maximum speed in air for this aircraft</param>
+        /// <param name="accelerationInAir">Maximum acceleration in air for this aircraft</param>
+        /// <param name="maxSpeedOnGround">Maximum speed on ground for this aircraft</param>
+        /// <param name="accelerationOnGround">Maximum acceleration on ground for this aircraft</param>
         public CargoAircraft(string model,
             int maxSpeedInAir,
             int accelerationInAir,
