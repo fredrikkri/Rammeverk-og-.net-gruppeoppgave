@@ -20,31 +20,31 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Airport gardemoenFlyplass = new Airport("OSL", "Gardemoen Flyplass", "Oslo");
 
             // Creating gates.
-            Gate gate1 = new Gate("Gate G1", gardemoenFlyplass);
-            Gate gate2 = new Gate("Gate G2", gardemoenFlyplass);
-            Gate gate3 = new Gate("Gate R3", ryggeFlyplass);
-            Gate gate4 = new Gate("Gate R4", ryggeFlyplass);
+            Gate gate1 = new Gate("Gate G1");
+            Gate gate2 = new Gate("Gate G2");
+            Gate gate3 = new Gate("Gate R3");
+            Gate gate4 = new Gate("Gate R4");
 
             // Making sure that all aircrafts are allowed for all gates.
             ryggeFlyplass.MakeAllGatesAllowAllAircraftTypes();
             gardemoenFlyplass.MakeAllGatesAllowAllAircraftTypes();
 
             // Creating taxiways.
-            Taxiway shortTaxiway = new Taxiway(300, 35, ryggeFlyplass);
+            Taxiway shortTaxiway = new Taxiway(300, 35);
             ryggeFlyplass.AddTaxiwayToList(shortTaxiway);
-            Taxiway mediumTaxiway = new Taxiway(750, 20, gardemoenFlyplass);
+            Taxiway mediumTaxiway = new Taxiway(750, 20);
             gardemoenFlyplass.AddTaxiwayToList(mediumTaxiway);
-            Taxiway longTaxiway = new Taxiway(1000, 35, gardemoenFlyplass);
+            Taxiway longTaxiway = new Taxiway(1000, 35);
             gardemoenFlyplass.AddTaxiwayToList(longTaxiway);
 
             // Creating runways.
-            Runway longRunway1 = new Runway(gardemoenFlyplass, 1000);
+            Runway longRunway1 = new Runway(1000);
             gardemoenFlyplass.AddRunwayToList(longRunway1);
-            Runway mediumRunway1 = new Runway(gardemoenFlyplass, 800);
+            Runway mediumRunway1 = new Runway(800);
             gardemoenFlyplass.AddRunwayToList(mediumRunway1);
-            Runway longRunway2 = new Runway(ryggeFlyplass, 1000);
+            Runway longRunway2 = new Runway(1000);
             ryggeFlyplass.AddRunwayToList(longRunway2);
-            Runway mediumRunway2 = new Runway(ryggeFlyplass, 800);
+            Runway mediumRunway2 = new Runway(800);
             ryggeFlyplass.AddRunwayToList(mediumRunway2);
 
             // Creating flights.
