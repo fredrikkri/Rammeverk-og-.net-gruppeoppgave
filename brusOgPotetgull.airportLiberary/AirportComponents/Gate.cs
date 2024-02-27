@@ -21,13 +21,12 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         /// <param name="gateName">The name of the gate.</param>
         /// <param name="locatedAtAirport">Which airport the gate is locatad at.</param>
-		public Gate(string gateName, Airport locatedAtAirport)
+		public Gate(string gateName)
 		{
             // (dosnetCore, 2020) 
             id = idCounter++;
             this.Id = id;
             this.GateName = gateName;
-            this.LocatedAtAirport = locatedAtAirport;
             this.isOpen = true;
             this.isAvailable = true;
             this.legalAircraftTypesId = new List<int>();
@@ -36,7 +35,6 @@ namespace BrusOgPotetgull.AirportLiberary
 
         public int Id { get; private set; }
         public string GateName { get; private set; }
-        public Airport LocatedAtAirport { get; private set; }
         public bool IsAvailable { get; private set; }
 
         /// <summary>
@@ -46,8 +44,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             Console.Write($"\nGateNr: {Id}\n" +
                 $"Name: {GateName}\n" +
-                $"IsOpen: {isOpen}\n" +
-                $"Name: {LocatedAtAirport.AirportCode}\n");
+                $"IsOpen: {isOpen}\n");
             Console.Write("Legal aircraftstypes: ");
             foreach (int typeId in legalAircraftTypesId)
             {
@@ -61,7 +58,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>The id and the nickname as string</returns>
         public string GetIdAndAirportNickname()
         {
-            string returnString = (string) (Id + " " + LocatedAtAirport.AirportCode);
+            string returnString = (string) (GateName + ", Id: " + Id);
             return returnString;
         }
 
@@ -157,7 +154,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void LeaveGate(Aircraft aircraft, DateTime time)
         {
             isAvailable = true;
-            aircraft.AddHistoryToAircraft(time, "Gate " + GetIdAndAirportNickname(), ", Left Gate");
+            aircraft.AddHistoryToAircraft(time, GetIdAndAirportNickname(), ", Left Gate");
         }
 
         /// <summary>
@@ -170,7 +167,7 @@ namespace BrusOgPotetgull.AirportLiberary
             if (isAvailable == true)
             {
                 isAvailable = false;
-                aircraft.AddHistoryToAircraft(time, "Gate " + GetIdAndAirportNickname(), ", Arrived at Gate");
+                aircraft.AddHistoryToAircraft(time, GetIdAndAirportNickname(), ", Arrived at Gate");
             }
             
             else
