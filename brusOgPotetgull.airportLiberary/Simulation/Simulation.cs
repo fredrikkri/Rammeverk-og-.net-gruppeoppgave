@@ -12,8 +12,8 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
         /// Creates an simulation of the choosen airport.
         /// </summary>
         /// <param name="airport">Which airport that is using the simulation.</param>
-        /// <param name="startTime">The start of the simulation.</param>
-        /// <param name="endTime">The end of the simulation.</param>
+        /// <param name="startTime">The day that is the start of the simulation.</param>
+        /// <param name="endTime">The day that is the end of the simulation.</param>
         public Simulation(Airport airport, DateTime startTime, DateTime endTime)
         {
             this.Airport = airport;
