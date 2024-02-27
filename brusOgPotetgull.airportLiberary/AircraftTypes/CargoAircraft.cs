@@ -14,11 +14,11 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         /// <summary>
         /// Creates an cargo-aircraft.
         /// </summary>
-        /// <param name="model">Name of the model for this aircraft</param>
-        /// <param name="maxSpeedInAir">Maximum speed in air for this aircraft</param>
-        /// <param name="accelerationInAir">Maximum acceleration in air for this aircraft</param>
-        /// <param name="maxSpeedOnGround">Maximum speed on ground for this aircraft</param>
-        /// <param name="accelerationOnGround">Maximum acceleration on ground for this aircraft</param>
+        /// <param name="model">What the model of the aircraft is called.</param>
+        /// <param name="maxSpeedInAir">Maximum in-air speed (Km/h).</param>
+        /// <param name="accelerationInAir">The accleration in-air (Km/h).</param>
+        /// <param name="maxSpeedOnGround">Maximum on-ground speed (Km/h).</param>
+        /// <param name="accelerationOnGround">acceleration on ground (Km/h).</param>
         public CargoAircraft(string model,
             int maxSpeedInAir,
             int accelerationInAir,

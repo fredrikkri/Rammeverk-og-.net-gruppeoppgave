@@ -20,10 +20,10 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Creates an aircraft.
         /// </summary>
         /// <param name="model">What the model of the aircraft is called.</param>
-        /// <param name="maxSpeedInAir">Maximum in-air speed.</param>
-        /// <param name="accelerationInAir">The accleration in-air</param>
-        /// <param name="maxSpeedOnGround">Maximum on-ground speed.</param>
-        /// <param name="accelerationOnGround">acceleration on ground.</param>
+        /// <param name="maxSpeedInAir">Maximum in-air speed (Km/h).</param>
+        /// <param name="accelerationInAir">The accleration in-air (Km/h).</param>
+        /// <param name="maxSpeedOnGround">Maximum on-ground speed (Km/h).</param>
+        /// <param name="accelerationOnGround">acceleration on ground (Km/h).</param>
         public Aircraft(string model,
             int maxSpeedInAir,
             int accelerationInAir,
