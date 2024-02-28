@@ -10,6 +10,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private int id;
         private bool inUse;
         private Queue<Flight> runwayQueue = new Queue<Flight>();
+        private string? airportLocation;
 
         /// <summary>
         /// creates a runway.
@@ -31,9 +32,21 @@ namespace BrusOgPotetgull.AirportLiberary
         public bool InUse { get; private set; }
         public Queue<Flight> RunwayQueue { get {  return runwayQueue; } }
 
+        /// <summary>
+        /// Updates the information for which airport the Runway is located at.
+        /// </summary>
+        /// <param name="airportName">Name of the airport that the Runway is located at now.</param>
+        public void UpdateGateLocation(string airportName)
+        {
+            airportLocation = airportName;
+        }
+
+        /// <summary>
+        /// Prints the information about the Runway.
+        /// </summary>
         public void PrintRunwayInformation()
         {
-            Console.Write($"\nRunway id: {Id}\nLength: {Length}\nIn use: {InUse}\n");
+            Console.Write($"\nRunway id: {Id}\nLength: {Length}\nIn use: {InUse}\nAirport location: {airportLocation}\n");
         }
 
         /// <summary>
@@ -42,7 +55,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>String containing id and airportcode.</returns>
         private string GetIdRunwayAndAirportCode()
         {
-            string returnString = (string)("Runway-id: " + Id);
+            string returnString = (string)(airportLocation +", "+ "Runway-id: " + Id);
             return returnString;
         }
 

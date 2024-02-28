@@ -39,6 +39,10 @@ namespace BrusOgPotetgull.AirportLiberary
         public string GateName { get; private set; }
         public bool IsAvailable { get; private set; }
 
+        /// <summary>
+        /// Updates the information for which airport the gate is located at.
+        /// </summary>
+        /// <param name="airportName">Name of the airport that the gate is located at now.</param>
         public void UpdateGateLocation(string airportName)
         {
             airportLocation = airportName;
@@ -49,7 +53,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintGateInformation()
         {
-            Console.Write($"\n\nGateNr: {Id}\n" +
+            Console.Write($"\nGateNr: {Id}\n" +
                 $"Name: {GateName}\n" +
                 $"IsOpen: {isOpen}\n" +
                 $"Airport location: {airportLocation}\n");
@@ -58,6 +62,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 Console.Write($"{typeId} ");
             }
+            Console.Write("\n");
         }
 
         /// <summary>
@@ -66,7 +71,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>The id and the nickname as string</returns>
         private string GetIdAndAirportNickname()
         {
-            string returnString = (string) (GateName + ", Id: " + Id);
+            string returnString = (string) (airportLocation +", "+ GateName + ", Id: " + Id);
             return returnString;
         }
 

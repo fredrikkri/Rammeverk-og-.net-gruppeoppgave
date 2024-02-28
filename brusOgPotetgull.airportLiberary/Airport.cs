@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
@@ -126,6 +127,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="Runway">The runway that is added to the list.</param>
         public void AddRunwayToList(Runway runway)
         {
+            runway.UpdateGateLocation(Name);
             listRunway.Add(runway);
         }
 
@@ -135,6 +137,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="Taxiway">The taxiway that is added to the list.</param>
         public void AddTaxiwayToList(Taxiway taxiway)
         {
+            taxiway.UpdateGateLocation(Name);
             listTaxiway.Add(taxiway);
         }
 

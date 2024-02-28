@@ -21,9 +21,13 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             // Creating gates.
             Gate gate1 = new Gate("Gate G1");
+            gardemoenFlyplass.AddGateToList(gate1);
             Gate gate2 = new Gate("Gate G2");
+            gardemoenFlyplass.AddGateToList(gate2);
             Gate gate3 = new Gate("Gate R3");
+            ryggeFlyplass.AddGateToList(gate3);
             Gate gate4 = new Gate("Gate R4");
+            ryggeFlyplass.AddGateToList(gate4);
 
             // Making sure that all aircrafts are allowed for all gates.
             ryggeFlyplass.MakeAllGatesAllowAllAircraftTypes();
@@ -89,6 +93,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
             gate2.MakeAllAircraftTypesAllowedForThisGate();
             gate2.PrintGateInformation();
             gate3.PrintGateInformation();
+            longRunway1.PrintRunwayInformation();
+            longTaxiway.PrintTaxiwayInformation();
 
             System.Console.ReadLine();
         }
