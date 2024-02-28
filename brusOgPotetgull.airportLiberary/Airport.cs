@@ -144,7 +144,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="Gate">The gate that is added to the list.</param>
         public void AddGateToList(Gate gate)
         {
+            gate.UpdateGateLocation(Name);
             listGate.Add(gate);
+            
         }
 
         /// <summary>
