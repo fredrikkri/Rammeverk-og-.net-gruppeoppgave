@@ -14,17 +14,17 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         /// <summary>
         /// Creates an cargo-aircraft.
         /// </summary>
-        /// <param name="model">What the model of the aircraft is called.</param>
+        /// <param name="modelName">What the model of the aircraft is called.</param>
         /// <param name="maxSpeedInAir">Maximum in-air speed (Km/h).</param>
         /// <param name="accelerationInAir">The accleration in-air (Km/h).</param>
         /// <param name="maxSpeedOnGround">Maximum on-ground speed (Km/h).</param>
         /// <param name="accelerationOnGround">acceleration on ground (Km/h).</param>
-        public CargoAircraft(string model,
+        public CargoAircraft(string modelName,
             int maxSpeedInAir,
             int accelerationInAir,
             int maxSpeedOnGround,
             int accelerationOnGround) :
-            base(model,
+            base(modelName,
                 maxSpeedInAir,
                 accelerationInAir,
                 maxSpeedOnGround,
@@ -42,7 +42,7 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         override public void PrintAircraftInformation()
         {
             Console.Write($"\nId: {Id}\n" +
-                $"Model: {Model}\n" +
+                $"Model: {ModelName}\n" +
                 $"Type: Cargo aircraft\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +

@@ -19,12 +19,12 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates an aircraft.
         /// </summary>
-        /// <param name="model">What the model of the aircraft is called.</param>
+        /// <param name="modelName">What the model of the aircraft is called.</param>
         /// <param name="maxSpeedInAir">Maximum in-air speed (Km/h).</param>
         /// <param name="accelerationInAir">The accleration in-air (Km/h).</param>
         /// <param name="maxSpeedOnGround">Maximum on-ground speed (Km/h).</param>
         /// <param name="accelerationOnGround">acceleration on ground (Km/h).</param>
-        public Aircraft(string model,
+        public Aircraft(string modelName,
             int maxSpeedInAir,
             int accelerationInAir,
             int maxSpeedOnGround,
@@ -35,7 +35,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.Id = id;
             this.AircraftTypeId = aircraftTypeId;
             this.OutOfService = outOfService;
-            this.Model = model;
+            this.ModelName = modelName;
             history = new List<KeyValuePair<DateTime, string>>();
             this.MaxSpeedInAir = maxSpeedInAir;
             this.AccelerationInAir = accelerationInAir;
@@ -46,7 +46,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public int Id { get; private set; }
         public int AircraftTypeId { get; private set; }
         public bool OutOfService { get; private set; }
-        public string Model { get; private set; }
+        public string ModelName { get; private set; }
         public int MaxSpeedInAir { get; private set; }
         public int AccelerationInAir { get; private set; }
         public int MaxSpeedOnGround { get; private set; }
@@ -58,7 +58,7 @@ namespace BrusOgPotetgull.AirportLiberary
         virtual public void PrintAircraftInformation()
         {
             Console.Write($"\nId: {Id}\n" +
-                $"Model: {Model}\n" +
+                $"Model: {ModelName}\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
                 $"Max speed: {MaxSpeedInAir}\n" +
@@ -82,7 +82,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintFullAircraftHistory()
         {
-            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.Id}' and model: '{this.Model}'\n");
+            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.Id}' and model: '{this.ModelName}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
             {
@@ -132,7 +132,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
             DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
-            Console.Write($"\n\n\tHistory for aircraft: '{Model}' and id: '{Id}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
+            Console.Write($"\n\n\tHistory for aircraft: '{ModelName}' and id: '{Id}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
             foreach (KeyValuePair<DateTime, string> line in history)
             {
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
