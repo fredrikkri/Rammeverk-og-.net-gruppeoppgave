@@ -9,6 +9,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private static int idCounter = 1;
         private int id;
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
+        private string? airportLocation;
 
         /// <summary>
         /// Creates a taxiway.
@@ -29,13 +30,19 @@ namespace BrusOgPotetgull.AirportLiberary
         public int Id { get; private set; }
         public int MaxSpeed { get; private set; }
 
+        public void UpdateGateLocation(string airportName)
+        {
+            airportLocation = airportName;
+        }
+
         /// <summary>
         /// Prints the information about the taxiway.
         /// </summary>
         public void PrintTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\n" +
-                $"Taxiway lenght: {Length}\n");
+                $"Taxiway lenght: {Length}\n" +
+                $"Airport location: { airportLocation}\n");
         }
 
         /// <summary>
@@ -45,7 +52,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>String that contain id and airportcode.</returns>
         private string GetIdTaxiwayAndAirportCode()
         {
-            string returnString = (string)("Taxiway-id: " + Id);
+            string returnString = (string)(airportLocation +", "+ "Taxiway-id: " + Id);
             return returnString;
         }
 
