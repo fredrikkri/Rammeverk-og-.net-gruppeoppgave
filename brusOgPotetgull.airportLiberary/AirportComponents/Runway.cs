@@ -32,11 +32,18 @@ namespace BrusOgPotetgull.AirportLiberary
         public bool InUse { get; private set; }
         public Queue<Flight> RunwayQueue { get {  return runwayQueue; } }
 
+        /// <summary>
+        /// Updates the information for which airport the Runway is located at.
+        /// </summary>
+        /// <param name="airportName">Name of the airport that the Runway is located at now.</param>
         public void UpdateGateLocation(string airportName)
         {
             airportLocation = airportName;
         }
 
+        /// <summary>
+        /// Prints the information about the Runway.
+        /// </summary>
         public void PrintRunwayInformation()
         {
             Console.Write($"\nRunway id: {Id}\nLength: {Length}\nIn use: {InUse}\nAirport location: {airportLocation}\n");
