@@ -114,10 +114,21 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintListOfDeparturingFlights()
         {
-            Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
-            foreach (Flight flight in departingFlights)
+            try
             {
-                Console.Write($"Aircraft:{flight.ActiveAircraft.ModelName}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
+                if (departingFlights.Count == 0)
+                {
+                    throw new InvalidOperationException($"List of departuring flights is empty for airport: '{Name}'");
+                }
+            }
+            finally
+            {
+                Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
+                foreach (Flight flight in departingFlights)
+                {
+                    Console.Write($"Aircraft:{flight.ActiveAircraft.ModelName}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
+
+                }
             }
         } 
     
@@ -128,6 +139,11 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddRunwayToList(Runway runway)
         {
             runway.UpdateGateLocation(Name);
+            if (listRunway.Contains(runway))
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with id: '{runway.Id}' allready exists in airport: '{Name}'");
+            }
             listRunway.Add(runway);
         }
 
@@ -138,6 +154,11 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddTaxiwayToList(Taxiway taxiway)
         {
             taxiway.UpdateGateLocation(Name);
+            if (listTaxiway.Contains(taxiway))
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with id: '{taxiway.Id}' allready exists in airport: '{Name}'");
+            }
             listTaxiway.Add(taxiway);
         }
 
@@ -149,15 +170,22 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             try
             {
-                gate.UpdateGateLocation(Name);
                 listGate.Add(gate);
             }
-            catch
+            catch (InvalidOperationException ex)
             {
-
+                Console.WriteLine($"Gate: '{gate.GateName}' allready exists in airport: '{Name}'" + ex.Message);
             }
-            
         }
+/*
+            gate.UpdateGateLocation(Name);
+            if (listGate.Contains(gate))
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate: '{gate.GateName}' allready exists in airport: '{Name}'");
+            }
+            listGate.Add(gate);
+        } */
 
         /// <summary>
         /// This method makes all gates in a airport allow all aircraft types.

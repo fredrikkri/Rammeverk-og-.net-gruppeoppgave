@@ -22,6 +22,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             // Creating gates.
             Gate gate1 = new Gate("Gate G1");
             gardemoenFlyplass.AddGateToList(gate1);
+            gardemoenFlyplass.AddGateToList(gate1);
             Gate gate2 = new Gate("Gate G2");
             gardemoenFlyplass.AddGateToList(gate2);
             Gate gate3 = new Gate("Gate R3");
@@ -96,6 +97,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             longRunway1.PrintRunwayInformation();
             longTaxiway.PrintTaxiwayInformation();
 
+            gardemoenFlyplass.PrintListOfDeparturingFlights();
             System.Console.ReadLine();
         }
     }
