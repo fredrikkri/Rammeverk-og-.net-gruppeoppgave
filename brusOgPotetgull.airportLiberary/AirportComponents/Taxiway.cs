@@ -30,6 +30,10 @@ namespace BrusOgPotetgull.AirportLiberary
         public int Id { get; private set; }
         public int MaxSpeed { get; private set; }
 
+        /// <summary>
+        /// Updates the information for which airport the taxiway is located at.
+        /// </summary>
+        /// <param name="airportName">Name of the airport that the taxiway is located at now.</param>
         public void UpdateGateLocation(string airportName)
         {
             airportLocation = airportName;
