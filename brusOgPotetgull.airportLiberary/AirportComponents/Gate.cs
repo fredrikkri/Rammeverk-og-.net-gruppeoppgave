@@ -53,7 +53,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintGateInformation()
         {
-            Console.Write($"\n\nGateNr: {Id}\n" +
+            Console.Write($"\nGateNr: {Id}\n" +
                 $"Name: {GateName}\n" +
                 $"IsOpen: {isOpen}\n" +
                 $"Airport location: {airportLocation}\n");
@@ -62,6 +62,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 Console.Write($"{typeId} ");
             }
+            Console.Write("\n");
         }
 
         /// <summary>
