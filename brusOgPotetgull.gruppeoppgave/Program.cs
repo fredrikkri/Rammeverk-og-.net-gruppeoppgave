@@ -93,6 +93,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
             gate2.MakeAllAircraftTypesAllowedForThisGate();
             gate2.PrintGateInformation();
             gate3.PrintGateInformation();
+            longRunway1.PrintRunwayInformation();
+            longTaxiway.PrintTaxiwayInformation();
 
             System.Console.ReadLine();
         }
