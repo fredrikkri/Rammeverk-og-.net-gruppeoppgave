@@ -84,10 +84,11 @@ namespace BrusOgPotetgull.Gruppeoppgave
             gate2.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.CargoAircraft);
             gate2.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.MilitaryAircraft);
 
-            gate3.AddAircraftAllowedAtGate(Choo)
+            gate3.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.Aircraft);
 
             gate2.MakeAllAircraftTypesAllowedForThisGate();
             gate2.PrintGateInformation();
+            gate3.PrintGateInformation();
 
             System.Console.ReadLine();
         }
