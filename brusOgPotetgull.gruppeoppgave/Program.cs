@@ -90,7 +90,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             gate2.PrintGateInformation();
             gate3.PrintGateInformation();
 
-            gate2.PrintGateInformation();
             System.Console.ReadLine();
         }
     }

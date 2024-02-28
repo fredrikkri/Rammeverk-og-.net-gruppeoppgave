@@ -43,7 +43,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// eksample: "Gate 1 GAR"
         /// </summary>
         /// <returns>String that contain id and airportcode.</returns>
-        public string GetIdTaxiwayAndAirportCode()
+        private string GetIdTaxiwayAndAirportCode()
         {
             string returnString = (string)("Taxiway-id: " + Id);
             return returnString;

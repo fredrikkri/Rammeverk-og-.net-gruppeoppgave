@@ -93,7 +93,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Changes the variable 'bool outOfService' from false to true, but only if the status already is set to 'false'. 
         /// </summary>
-        public void SetAircraftOutOfService()
+        private void SetAircraftOutOfService()
         {
             if (OutOfService == false)
             {
@@ -109,7 +109,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Changes the variable 'bool outOfService' from "true" to "false", but only if the status already is set to 'true'. 
         /// </summary>
-        public void SetAircraftInOperation()
+        private void SetAircraftInOperation()
         {
             if (OutOfService == true)
             {

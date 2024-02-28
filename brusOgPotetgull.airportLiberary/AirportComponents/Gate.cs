@@ -57,7 +57,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Gets the id and the nickname for the airport that this gate is located at.
         /// </summary>
         /// <returns>The id and the nickname as string</returns>
-        public string GetIdAndAirportNickname()
+        private string GetIdAndAirportNickname()
         {
             string returnString = (string) (GateName + ", Id: " + Id);
             return returnString;

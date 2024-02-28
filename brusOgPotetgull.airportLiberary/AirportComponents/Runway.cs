@@ -40,7 +40,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// returns the id and the code (nickname) for the airport that this runway is located at.
         /// </summary>
         /// <returns>String containing id and airportcode.</returns>
-        public string GetIdRunwayAndAirportCode()
+        private string GetIdRunwayAndAirportCode()
         {
             string returnString = (string)("Runway-id: " + Id);
             return returnString;
