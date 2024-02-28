@@ -75,7 +75,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Gets Id and airport-code for the current airport.
         /// </summary>
         /// <returns>String with AirportId and AirportCode combined</returns>
-        public string GetIdAndAirportCode()
+        private string GetIdAndAirportCode()
         {
             string returnString = (string)(AirportId + " " + AirportCode);
             return returnString;
