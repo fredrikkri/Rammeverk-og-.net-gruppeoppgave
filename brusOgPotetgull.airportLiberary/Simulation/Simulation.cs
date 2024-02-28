@@ -66,7 +66,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         currentRunway.ExitRunway(nextFlight, start);
 
                         // simulerer tid og legge fly i taxiway kø
-                        nextFlight.ArrivalTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround, start);
+                        nextFlight.ArrivalTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGroundKMH, nextFlight.ActiveAircraft.MaxSpeedOnGroundKMH, start);
                         nextFlight.ArrivalTaxiway.AddFlightToQueue(nextFlight, start);
                     }
                 }
@@ -100,7 +100,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         if (flight.DateTimeFlight == start)
                         {
                             flight.DepartureGate.LeaveGate(flight.ActiveAircraft, start); // ----------------------------------------------------------- step 1 Departing
-                            flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround, start);
+                            flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGroundKMH, flight.ActiveAircraft.MaxSpeedOnGroundKMH, start);
                             flight.DepartureTaxiway.AddFlightToQueue(flight, start);
                         }
                     }
@@ -118,7 +118,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                             {
                                 currentFlight.DepartureTaxiway.NextFlightLeavesTaxiway(currentFlight, start); // ------------------------------------------ Departuring step 2
                                 currentFlight.DepartureRunway.UseRunway(currentFlight, start);
-                                currentFlight.DepartureRunway.SimulateRunwayTime(currentFlight, 0, currentFlight.ActiveAircraft.AccelerationInAir, currentFlight.ActiveAircraft.MaxSpeedInAir);
+                                currentFlight.DepartureRunway.SimulateRunwayTime(currentFlight, 0, currentFlight.ActiveAircraft.AccelerationInAirKMH, currentFlight.ActiveAircraft.MaxSpeedInAirKMH);
                                 currentFlight.DepartureRunway.ExitRunway(currentFlight, start); // kunne tatt start + addsecounds for å få til bedre logging, men må ha med tid fra taxiway da
                             }
                         }
