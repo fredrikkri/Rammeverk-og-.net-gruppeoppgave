@@ -81,6 +81,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             //cargoCraftV12.PrintFullAircraftHistory();  // C420
             //superPlane.PrintFullAircraftHistory();     // A130
 
+            gate2.AddAircraftAllowedAtGate(3);
+            gate2.AddAircraftAllowedAtGate(4);
+            gate2.PrintGateInformation();
+
             System.Console.ReadLine();
         }
     }
