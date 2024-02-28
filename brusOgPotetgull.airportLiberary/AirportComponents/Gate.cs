@@ -16,6 +16,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private bool isAvailable;
         // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
         private List<int> legalAircraftTypesId;
+        private string? airportLocation;
 
         /// <summary>
         /// Creates a gate.
@@ -38,6 +39,11 @@ namespace BrusOgPotetgull.AirportLiberary
         public string GateName { get; private set; }
         public bool IsAvailable { get; private set; }
 
+        public void UpdateGateLocation(string airportName)
+        {
+            airportLocation = airportName;
+        }
+
         /// <summary>
         /// Prints the information about the gate.
         /// </summary>
@@ -45,7 +51,8 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             Console.Write($"\n\nGateNr: {Id}\n" +
                 $"Name: {GateName}\n" +
-                $"IsOpen: {isOpen}\n");
+                $"IsOpen: {isOpen}\n" +
+                $"Airport location: {airportLocation}\n");
             Console.Write("Legal aircraftstypes: ");
             foreach (int typeId in legalAircraftTypesId)
             {
