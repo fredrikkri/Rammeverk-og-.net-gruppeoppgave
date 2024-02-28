@@ -70,7 +70,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             Console.Write($"\nFlightId: {FlightId}\n" +
                 $"Length: {Length}\n" +
-                $"Aircraft: {ActiveAircraft.Model}\n" +
+                $"Aircraft: {ActiveAircraft.ModelName}\n" +
                 $"Departure Airport: {DepartureAirport.Name}\n" +
                 $"Departure Gate: {DepartureGate.Id}\n" +
                 $"Departure Taxiway: {DepartureTaxiway.Id}\n" +

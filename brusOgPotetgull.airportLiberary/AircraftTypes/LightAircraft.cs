@@ -14,17 +14,17 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         /// <summary>
         /// Creates an light aircraft.
         /// </summary>
-        /// <param name="model">Name of the model for this aircraft</param>
+        /// <param name="modelName">Name of the model for this aircraft</param>
         /// <param name="maxSpeedInAir">Maximum speed in air for this aircraft</param>
         /// <param name="accelerationInAir">Maximum acceleration in air for this aircraft</param>
         /// <param name="maxSpeedOnGround">Maximum speed on ground for this aircraft</param>
         /// <param name="accelerationOnGround">Maximum acceleration on ground for this aircraft</param>
-        public LightAircraft(string model,
+        public LightAircraft(string modelName,
             int maxSpeedInAir,
             int accelerationInAir,
             int maxSpeedOnGround,
             int accelerationOnGround) :
-            base(model,
+            base(modelName,
                 maxSpeedInAir,
                 accelerationInAir,
                 maxSpeedOnGround,
@@ -42,7 +42,7 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         override public void PrintAircraftInformation()
         {
             Console.Write($"\nId: {Id}\n" +
-                $"Model: {Model}\n" +
+                $"Model: {ModelName}\n" +
                 $"Type: Light aircraft\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
