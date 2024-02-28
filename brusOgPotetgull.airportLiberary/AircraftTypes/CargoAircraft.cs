@@ -15,20 +15,20 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         /// Creates an cargo-aircraft.
         /// </summary>
         /// <param name="modelName">What the model of the aircraft is called.</param>
-        /// <param name="maxSpeedInAir">Maximum in-air speed (Km/h).</param>
-        /// <param name="accelerationInAir">The accleration in-air (Km/h).</param>
-        /// <param name="maxSpeedOnGround">Maximum on-ground speed (Km/h).</param>
-        /// <param name="accelerationOnGround">acceleration on ground (Km/h).</param>
+        /// <param name="maxSpeedInAirKMH">Maximum in-air speed (Km/h).</param>
+        /// <param name="accelerationInAirKMH">The accleration in-air (Km/h).</param>
+        /// <param name="maxSpeedOnGroundKMH">Maximum on-ground speed (Km/h).</param>
+        /// <param name="accelerationOnGroundKMH">acceleration on ground (Km/h).</param>
         public CargoAircraft(string modelName,
-            int maxSpeedInAir,
-            int accelerationInAir,
-            int maxSpeedOnGround,
-            int accelerationOnGround) :
+            int maxSpeedInAirKMH,
+            int accelerationInAirKMH,
+            int maxSpeedOnGroundKMH,
+            int accelerationOnGroundKMH) :
             base(modelName,
-                maxSpeedInAir,
-                accelerationInAir,
-                maxSpeedOnGround,
-                accelerationOnGround)
+                maxSpeedInAirKMH,
+                accelerationInAirKMH,
+                maxSpeedOnGroundKMH,
+                accelerationOnGroundKMH)
 		{
             this.AircraftTypeId = aircraftTypeId;
 		}
@@ -46,8 +46,8 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
                 $"Type: Cargo aircraft\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
-                $"Max speed: {MaxSpeedInAir}\n" +
-                $"Acceleration: {AccelerationInAir}\n");
+                $"Max speed: {MaxSpeedInAirKMH}\n" +
+                $"Acceleration: {AccelerationInAirKMH}\n");
         }
 
     }
