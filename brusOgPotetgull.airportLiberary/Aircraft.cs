@@ -20,15 +20,15 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Creates an aircraft.
         /// </summary>
         /// <param name="modelName">What the model of the aircraft is called.</param>
-        /// <param name="maxSpeedInAirKMH">Maximum in-air speed (Km/h).</param>
-        /// <param name="accelerationInAirKMH">The accleration in-air (Km/h).</param>
-        /// <param name="maxSpeedOnGroundKMH">Maximum on-ground speed (Km/h).</param>
-        /// <param name="accelerationOnGroundKMH">acceleration on ground (Km/h).</param>
+        /// <param name="maxSpeedInAirKPH">Maximum in-air speed (Kp/h).</param>
+        /// <param name="accelerationInAirKPH">The accleration in-air (Kp/h).</param>
+        /// <param name="maxSpeedOnGroundKPH">Maximum on-ground speed (Kp/h).</param>
+        /// <param name="accelerationOnGroundKPH">acceleration on ground (Kp/h).</param>
         public Aircraft(string modelName,
-            int maxSpeedInAirKMH,
-            int accelerationInAirKMH,
-            int maxSpeedOnGroundKMH,
-            int accelerationOnGroundKMH)
+            int maxSpeedInAirKPH,
+            int accelerationInAirKPH,
+            int maxSpeedOnGroundKPH,
+            int accelerationOnGroundKPH)
 		{
             // (dosnetCore, 2020) 
             id = idCounter ++;
@@ -37,20 +37,20 @@ namespace BrusOgPotetgull.AirportLiberary
             this.OutOfService = outOfService;
             this.ModelName = modelName;
             history = new List<KeyValuePair<DateTime, string>>();
-            this.MaxSpeedInAirKMH = maxSpeedInAirKMH;
-            this.AccelerationInAirKMH = accelerationInAirKMH;
-            this.MaxSpeedOnGroundKMH = maxSpeedOnGroundKMH;
-            this.AccelerationOnGroundKMH = accelerationOnGroundKMH;
+            this.MaxSpeedInAirKPH = maxSpeedInAirKPH;
+            this.AccelerationInAirKPH = accelerationInAirKPH;
+            this.MaxSpeedOnGroundKPH = maxSpeedOnGroundKPH;
+            this.AccelerationOnGroundKPH = accelerationOnGroundKPH;
         }
 
         public int Id { get; private set; }
         public int AircraftTypeId { get; private set; }
         public bool OutOfService { get; private set; }
         public string ModelName { get; private set; }
-        public int MaxSpeedInAirKMH { get; private set; }
-        public int AccelerationInAirKMH { get; private set; }
-        public int MaxSpeedOnGroundKMH { get; private set; }
-        public int AccelerationOnGroundKMH { get; private set; }
+        public int MaxSpeedInAirKPH { get; private set; }
+        public int AccelerationInAirKPH { get; private set; }
+        public int MaxSpeedOnGroundKPH { get; private set; }
+        public int AccelerationOnGroundKPH { get; private set; }
 
         /// <summary>
         /// Prints the information about the Aircraft.
@@ -61,8 +61,8 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Model: {ModelName}\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
-                $"Max speed: {MaxSpeedInAirKMH}\n" +
-                $"Acceleration: {AccelerationInAirKMH}\n");
+                $"Max speed: {MaxSpeedInAirKPH}\n" +
+                $"Acceleration: {AccelerationInAirKPH}\n");
         }
 
         /// <summary>
