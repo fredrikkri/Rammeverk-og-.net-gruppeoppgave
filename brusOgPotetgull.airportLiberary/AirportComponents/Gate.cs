@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using brusOgPotetgull.airportLiberary.AircraftTypes;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
@@ -42,7 +43,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintGateInformation()
         {
-            Console.Write($"\nGateNr: {Id}\n" +
+            Console.Write($"\n\nGateNr: {Id}\n" +
                 $"Name: {GateName}\n" +
                 $"IsOpen: {isOpen}\n");
             Console.Write("Legal aircraftstypes: ");
@@ -66,16 +67,16 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Adds an aircraft that will be able to use the gate.
         /// </summary>
         /// <param name="aircraftTypeId">The id of an type of aircraft that you want to enable accsess for the gate.</param>
-        public void AddAircraftAllowedAtGate(int aircraftTypeId)
+        public void AddAircraftAllowedAtGate(ChooseAircraftType aircraftType)
         {
-            if (!legalAircraftTypesId.Contains(aircraftTypeId))
+            if (!legalAircraftTypesId.Contains((int)aircraftType))
             {
-                legalAircraftTypesId.Add(aircraftTypeId);
+                legalAircraftTypesId.Add((int)aircraftType);
             }
 
             else
             {
-                Console.Write($"{aircraftTypeId} is already in list of legal aicrafts for this gate.");
+                Console.Write($"{aircraftType} is already in list of legal aicrafts for this gate.");
             }
         }
 
@@ -83,7 +84,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Adds multiple aircrafts that will be able to use the gate.
         /// </summary>
         /// <param name="aircraftTypeIds">A list of ids of aircrafts that you want to enable accsess for the gate</param>
-        public void AddMultipleAircraftAllowedAtGate(List<int> aircraftTypeIds)
+        public void AddMultipleAircraftAllowedAtGate(List<ChooseAircraftType> aircraftTypeIds)
         {
             foreach (int typeId in aircraftTypeIds)
             {
@@ -105,9 +106,18 @@ namespace BrusOgPotetgull.AirportLiberary
         public void MakeAllAircraftTypesAllowedForThisGate()
         {
             int numberOfAircraftTypes = 6;
-            for (int i = 0; i < numberOfAircraftTypes; i++)
+            for (int i = 0; i <= numberOfAircraftTypes; i++)
             {
-                AddAircraftAllowedAtGate(i);
+                //AddAircraftAllowedAtGate(i);
+                if (!legalAircraftTypesId.Contains(i))
+                {
+                    legalAircraftTypesId.Add(i);
+                }
+                else
+                {
+                    Console.Write($"\nAircraftType with id '{i}' is already in list of legal aicrafts for this gate.");
+                }
+                
             }
         }
 
@@ -115,11 +125,11 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Removes an aircraft from being able to use the gate.
         /// </summary>
         /// <param name="aircraftTypeId">The id of an type of aircraft that you want to deny accsess to the gate.</param>
-        public void RemoveAircraftAllowedAtGate(int aircraftTypeId)
+        public void RemoveAircraftAllowedAtGate(ChooseAircraftType aircraftTypeId)
         {
-            if (legalAircraftTypesId.Contains(aircraftTypeId))
+            if (legalAircraftTypesId.Contains((int)aircraftTypeId))
             {
-                legalAircraftTypesId.Remove(aircraftTypeId);
+                legalAircraftTypesId.Remove((int)aircraftTypeId);
             }
 
             else
