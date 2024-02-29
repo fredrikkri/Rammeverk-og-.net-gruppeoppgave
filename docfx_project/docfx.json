@@ -2,11 +2,9 @@
   "metadata": [
     {
       "src": [
-        {
-          "files": [
-            "brusOgPotetgull.airportLiberary.csproj"
-          ],
-          "src": "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary"
+        {          
+          "files": [ "brusOgPotetgull.airportLibrary/brusOgPotetgull.airportLibrary.csproj" ],
+          "cwd": "../"     
         }
       ],
       "dest": "api",
