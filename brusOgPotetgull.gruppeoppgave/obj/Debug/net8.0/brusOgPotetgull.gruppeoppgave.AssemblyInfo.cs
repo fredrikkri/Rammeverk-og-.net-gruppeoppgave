@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("brusOgPotetgull.gruppeoppgave")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1dfcea4d6e7c34b5b4990a79c4d8b6b2bf47c63a")]
+>>>>>>> d91521bef19cf08121282d1a9b2d9e8636abaa3b
 [assembly: System.Reflection.AssemblyProductAttribute("brusOgPotetgull.gruppeoppgave")]
 [assembly: System.Reflection.AssemblyTitleAttribute("brusOgPotetgull.gruppeoppgave")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

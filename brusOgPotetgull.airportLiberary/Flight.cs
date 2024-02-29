@@ -52,6 +52,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 DepartureGate = departureGate;
                 DepartureTaxiway = departureTaxiway;
                 DepartureRunway = departureRunway;
+                departureAirport.AddDepartingFlight(this);
             }
 
             /// <summary>
@@ -99,6 +100,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 ArrivalGate = arrivalGate;
                 ArrivalTaxiway = arrivalTaxiway;
                 ArrivalRunway = arrivalRunway;
+                arrivalAirport.AddArrivingFlight(this);
             }
 
             /// <summary>
