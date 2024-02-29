@@ -210,7 +210,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// This method adds an arriving flight to this airport.
         /// </summary>
         /// <param name="flight">The arriving flight that is added to the list.</param>
-        public void AddArrivingFlight(Flight flight)
+        public void AddArrivingFlight(Flight.Arriving flight)
         {
             arrivingFlights.Add(flight);
         }
@@ -219,7 +219,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// This method removes an arriving flight from this airport.
         /// </summary>
         /// <param name="flight">The arriving flight that is removed from the list.</param>
-        public void RemoveArrivingFlight(Flight flight)
+        public void RemoveArrivingFlight(Flight.Arriving flight)
         {   
             if (arrivingFlights.Count > 0)
             {
@@ -245,7 +245,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// This method adds an departuring flight to this airport.
         /// </summary>
         /// <param name="flight">The departuring flight that is added to the list.</param>
-        public void AddDepartingFlight(Flight flight)
+        public void AddDepartingFlight(Flight.Departing flight)
         {
             departingFlights.Add(flight);
         }
@@ -254,7 +254,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// This method removes an departuring flight from this airport.
         /// </summary>
         /// <param name="flight">The departuring flight that is removed from the list.</param>
-        public void RemoveDepartingFlight(Flight flight)
+        public void RemoveDepartingFlight(Flight.Departing flight)
         {
             if (departingFlights.Count > 0)
             {
@@ -274,32 +274,23 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="numberOfDays">The number of days the flight will do its flights.</param>
         /// <param name="activeAircraft"></param>
         /// <param name="dateTimeFlight"></param>
-        /// <param name="isArrivingFlight"></param>
         /// <param name="length"></param>
-        /// <param name="departureAirport"></param>
         /// <param name="arrivalAirport"></param>
-        /// <param name="departureGate"></param>
         /// <param name="arrivalGate"></param>
-        /// <param name="departureTaxiway"></param>
         /// <param name="arrivalTaxiway"></param>
-        /// <param name="departureRunway"></param>
         /// <param name="arrivalRunway"></param>
         public void AddDailyArrivingFlight(int numberOfDays,
             Aircraft activeAircraft, DateTime dateTimeFlight,
-            bool isArrivingFlight, int length,
-            Airport departureAirport, Airport arrivalAirport,
-            Gate departureGate, Gate arrivalGate,
-            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
-            Runway departureRunway, Runway arrivalRunway)
+            int length, Airport arrivalAirport,
+            Gate arrivalGate, Taxiway arrivalTaxiway,
+            Runway arrivalRunway)
         {
             for (int i = 1; i <= numberOfDays; i++)
             {
-                Flight daily = new Flight(activeAircraft, dateTimeFlight.AddDays(i),
-                    isArrivingFlight, length,
-                    departureAirport, arrivalAirport,
-                    departureGate, arrivalGate,
-                    departureTaxiway, arrivalTaxiway,
-                    departureRunway, arrivalRunway);
+                Flight.Arriving daily = new (activeAircraft, 
+                     dateTimeFlight.AddDays(i), length,
+                     arrivalAirport, arrivalGate,
+                     arrivalTaxiway, arrivalRunway);
 
                 arrivingFlights.Add(daily);
             }
@@ -312,32 +303,23 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="numberOfWeeks">The number of weeks the flight will do its flights.</param>
         /// <param name="activeAircraft"></param>
         /// <param name="dateTimeFlight"></param>
-        /// <param name="isArrivingFlight"></param>
         /// <param name="length"></param>
-        /// <param name="departureAirport"></param>
         /// <param name="arrivalAirport"></param>
-        /// <param name="departureGate"></param>
         /// <param name="arrivalGate"></param>
-        /// <param name="departureTaxiway"></param>
         /// <param name="arrivalTaxiway"></param>
-        /// <param name="departureRunway"></param>
         /// <param name="arrivalRunway"></param>
         public void AddWeeklyArrivingFlight(int numberOfWeeks,
             Aircraft activeAircraft, DateTime dateTimeFlight,
-            bool isArrivingFlight, int length,
-            Airport departureAirport, Airport arrivalAirport,
-            Gate departureGate, Gate arrivalGate,
-            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
-            Runway departureRunway, Runway arrivalRunway)
+            int length, Airport arrivalAirport,
+            Gate arrivalGate, Taxiway arrivalTaxiway,
+            Runway arrivalRunway)
         {
             for (int i = 1; i <= numberOfWeeks; i++)
             {
-                Flight weekly = new Flight(activeAircraft, dateTimeFlight.AddDays(i * 7),
-                    isArrivingFlight, length,
-                    departureAirport, arrivalAirport,
-                    departureGate, arrivalGate,
-                    departureTaxiway, arrivalTaxiway,
-                    departureRunway, arrivalRunway);
+                Flight.Arriving weekly = new (activeAircraft,
+                     dateTimeFlight.AddDays(i * 7), length,
+                     arrivalAirport, arrivalGate,
+                     arrivalTaxiway, arrivalRunway);
 
                 arrivingFlights.Add(weekly);
             }
@@ -350,32 +332,23 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="numberOfDays">The number of days the flight will do its flights.</param>
         /// <param name="activeAircraft"></param>
         /// <param name="dateTimeFlight"></param>
-        /// <param name="isArrivingFlight"></param>
         /// <param name="length"></param>
         /// <param name="departureAirport"></param>
-        /// <param name="arrivalAirport"></param>
         /// <param name="departureGate"></param>
-        /// <param name="arrivalGate"></param>
         /// <param name="departureTaxiway"></param>
-        /// <param name="arrivalTaxiway"></param>
         /// <param name="departureRunway"></param>
-        /// <param name="arrivalRunway"></param>
         public void AddDailyDeparturingFlight(int numberOfDays,
             Aircraft activeAircraft, DateTime dateTimeFlight,
-            bool isArrivingFlight, int length,
-            Airport departureAirport, Airport arrivalAirport,
-            Gate departureGate, Gate arrivalGate,
-            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
-            Runway departureRunway, Runway arrivalRunway)
+            int length, Airport departureAirport, 
+            Gate departureGate, Taxiway departureTaxiway,
+            Runway departureRunway)
         {
             for (int i = 1; i <= numberOfDays; i++)
             {
-                Flight daily = new Flight(activeAircraft, dateTimeFlight.AddDays(i),
-                    isArrivingFlight,  length,
-                    departureAirport,  arrivalAirport,
-                    departureGate,  arrivalGate,
-                    departureTaxiway,  arrivalTaxiway,
-                    departureRunway,  arrivalRunway);
+                Flight.Departing daily = new(activeAircraft,
+                    dateTimeFlight.AddDays(i), length,
+                    departureAirport, departureGate,
+                    departureTaxiway, departureRunway);
 
                 departingFlights.Add(daily);
             }
@@ -388,32 +361,23 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="numberOfWeeks">The number of weeks the flight will do its flights.</param>
         /// <param name="activeAircraft"></param>
         /// <param name="dateTimeFlight"></param>
-        /// <param name="isArrivingFlight"></param>
         /// <param name="length"></param>
         /// <param name="departureAirport"></param>
-        /// <param name="arrivalAirport"></param>
         /// <param name="departureGate"></param>
-        /// <param name="arrivalGate"></param>
         /// <param name="departureTaxiway"></param>
-        /// <param name="arrivalTaxiway"></param>
         /// <param name="departureRunway"></param>
-        /// <param name="arrivalRunway"></param>
         public void AddWeeklyDeparturingFlight(int numberOfWeeks,
             Aircraft activeAircraft, DateTime dateTimeFlight,
-            bool isArrivingFlight, int length,
-            Airport departureAirport, Airport arrivalAirport,
-            Gate departureGate, Gate arrivalGate,
-            Taxiway departureTaxiway, Taxiway arrivalTaxiway,
-            Runway departureRunway, Runway arrivalRunway)
+            int length, Airport departureAirport,
+            Gate departureGate, Taxiway departureTaxiway,
+            Runway departureRunway)
         {
             for (int i = 1; i <= numberOfWeeks; i++)
             {
-                Flight weekly = new Flight(activeAircraft, dateTimeFlight.AddDays(i*7),
-                    isArrivingFlight, length,
-                    departureAirport, arrivalAirport,
-                    departureGate, arrivalGate,
-                    departureTaxiway, arrivalTaxiway,
-                    departureRunway, arrivalRunway);
+                Flight.Departing weekly = new (activeAircraft,
+                    dateTimeFlight.AddDays(i*7), length,
+                    departureAirport, departureGate,
+                    departureTaxiway, departureRunway);
 
                 departingFlights.Add(weekly);
             }

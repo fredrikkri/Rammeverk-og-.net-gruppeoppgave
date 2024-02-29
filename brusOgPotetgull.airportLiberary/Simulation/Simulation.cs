@@ -42,7 +42,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                 if (Airport.GetArrivingFlights().Count > 0)
                 {
                     // Går igjennom alle flygninger, og legger til denne dersom tiden for flygningen er denne iterasjonen (datetime.start + simulasjonstid)
-                    foreach (Flight flight in Airport.GetArrivingFlights())
+                    foreach (Flight.Arriving flight in Airport.GetArrivingFlights())
                     {
                         if (flight.DateTimeFlight == start)
                         {
@@ -60,7 +60,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                     if (currentRunway.RunwayQueue.Count > 0 && currentRunway.InUse == false)
                     {
                         //utfør landing
-                        Flight nextFlight = currentRunway.CheckNextFlightInQueue(); //  -------------------------------------------------------------------- step 2 arrving
+                        Flight.Arriving nextFlight = (Flight.Arriving) currentRunway.CheckNextFlightInQueue(); //  -------------------------------------------------------------------- step 2 arrving
                         currentRunway.NextFlightEntersRunway(nextFlight);
                         currentRunway.UseRunway(nextFlight, start);
                         currentRunway.ExitRunway(nextFlight, start);
@@ -77,7 +77,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                     // Neste fly i taxiway køen
                     if (taxiway.GetNumberOfAircraftsInQueue() > 0)
                     {
-                        Flight flight = taxiway.CheckNextFlightInQueue(); 
+                        Flight.Arriving flight = (Flight.Arriving) taxiway.CheckNextFlightInQueue(); 
 
                         // Dersom flygning er arriving flight
                         if (flight.IsArrivingFlight == true)
@@ -94,7 +94,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                 if (Airport.GetDepartingFlights().Count > 0)
                 {
                     // Går igjennom lista med utgående flygninger
-                    foreach (Flight flight in Airport.GetDepartingFlights())
+                    foreach (Flight.Departing flight in Airport.GetDepartingFlights())
                     {
                         // Hvis tiden for flygningen er lik nåværende tid i simulasjonen
                         if (flight.DateTimeFlight == start)
@@ -111,7 +111,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                 {
                     if (taxiway.GetNumberOfAircraftsInQueue() > 0)
                     {
-                        Flight currentFlight = taxiway.CheckNextFlightInQueue();
+                        Flight.Departing currentFlight = (Flight.Departing) taxiway.CheckNextFlightInQueue();
                         if (currentFlight.IsArrivingFlight == false) 
                         {
                             if (currentFlight != null && currentFlight.DepartureRunway.InUse == false)
