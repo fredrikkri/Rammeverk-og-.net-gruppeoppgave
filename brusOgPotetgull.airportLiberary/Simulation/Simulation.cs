@@ -134,7 +134,6 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         }
                     }
                 }                
-
                 Thread.Sleep(1);
                 start = start.AddMinutes(1);
             }
