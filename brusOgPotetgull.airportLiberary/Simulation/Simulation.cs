@@ -84,8 +84,18 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         {
                             flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight, start);  // ------------------------------------------------------------------ step 3 arrving
                             flight.ArrivalGate.BookGate(flight.ActiveAircraft, start);
-
-                            Airport.RemoveArrivingFlight(flight);
+                            try
+                            {
+                                if (!Airport.GetArrivingFlights().Contains(flight))
+                                {
+                                    throw new InvalidOperationException($"{flight} could not be removed from 'arrivingFlights-list'. It does not exist in the list.");
+                                }
+                                Airport.RemoveArrivingFlight(flight);
+                            }
+                            catch (InvalidOperationException e)
+                            {
+                                Console.WriteLine("Error: " + e.Message);
+                            }
                         }
                     }
                 }

@@ -9,7 +9,7 @@ namespace BrusOgPotetgull.AirportLiberary
     /// The gate class is defining how a gate is designed.
     /// </summary>
 	public class Gate
-	{
+    {
         private static int idCounter = 1;
         private int id;
         private bool isOpen;
@@ -24,7 +24,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="gateName">The name of the gate.</param>
         /// <param name="locatedAtAirport">Which airport the gate is locatad at.</param>
 		public Gate(string gateName)
-		{
+        {
             // (dosnetCore, 2020) 
             id = idCounter++;
             this.Id = id;
@@ -71,7 +71,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>The id and the nickname as string</returns>
         private string GetIdAndAirportNickname()
         {
-            string returnString = (string) (airportLocation +", "+ GateName + ", Id: " + Id);
+            string returnString = (string)(airportLocation + ", " + GateName + ", Id: " + Id);
             return returnString;
         }
 
@@ -81,14 +81,17 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftTypeId">The id of an type of aircraft that you want to enable accsess for the gate.</param>
         public void AddAircraftAllowedAtGate(AircraftType aircraftType)
         {
-            if (!legalAircraftTypesId.Contains((int)aircraftType))
+            try
             {
+                if (legalAircraftTypesId.Contains((int)aircraftType))
+                {
+                    throw new InvalidOperationException($"{aircraftType} is already in list of legal aicrafts for this gate. Cant add single aircraft.");
+                }
                 legalAircraftTypesId.Add((int)aircraftType);
             }
-
-            else
+            catch (InvalidOperationException e)
             {
-                Console.Write($"{aircraftType} is already in list of legal aicrafts for this gate.");
+                Console.WriteLine($"\n\t\t\tError: " + e.Message);
             }
         }
 
@@ -102,12 +105,11 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 if (!legalAircraftTypesId.Contains(typeId))
                 {
-                    legalAircraftTypesId.Add(typeId);                    
+                    legalAircraftTypesId.Add(typeId);
                 }
-
                 else
                 {
-                    Console.Write($"{typeId} is already in list of legal aicrafts for this gate.");
+                    Console.Write($"\n{typeId} is already in list of legal aicrafts for this gate. Cant add multiple aircrafts.");
                 }
             }
         }
@@ -127,9 +129,9 @@ namespace BrusOgPotetgull.AirportLiberary
                 }
                 else
                 {
-                    Console.Write($"\nAircraftType with id '{i}' is already in list of legal aicrafts for this gate.");
+                    Console.Write($"\nAircraftType with id '{i}' is already in list of legal aicrafts for this gate.Cant add all aircraftTypes.");
                 }
-                
+
             }
         }
 
@@ -186,15 +188,15 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="time">Used to log the history for the aircraft.</param>
         public void BookGate(Aircraft aircraft, DateTime time)
         {
+
             if (isAvailable == true)
             {
                 isAvailable = false;
                 aircraft.AddHistoryToAircraft(time, GetIdAndAirportNickname(), ", Arrived at Gate");
             }
-            
             else
             {
-                Console.Write($"Gate with id: {Id}, is already booked. You cannot book this gate.");
+                Console.Write($"Error: Gate with id: {Id}, is already booked. You cannot book this gate.");
             }
         }
     }

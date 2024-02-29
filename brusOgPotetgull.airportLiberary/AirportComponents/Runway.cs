@@ -63,11 +63,8 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Removed the flight located first in line in the runwayqueue.
         /// </summary>
         /// <returns>Flight object that is removed from the beginning of the queue.</returns>
-        public Flight RemoveFromQueue()
-        {
-            return runwayQueue.Dequeue();
-        }
-
+        public Flight RemoveFromQueue() => runwayQueue.Dequeue();
+ 
         /// <summary>
         /// Adds flight to runway-queue.
         /// </summary>
@@ -113,10 +110,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="speedChange">Parameter for CalculateFlightMovement().</param>
         /// <param name="maxSpeed">Parameter for CalculateFlightMovement().</param>
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
-        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed)
-        {
-            return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
-        }
+        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) => flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
 
         /// <summary>
         /// Sets the runwaystatus to 'inUse = true'
