@@ -63,11 +63,8 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Removed the flight located first in line in the runwayqueue.
         /// </summary>
         /// <returns>Flight object that is removed from the beginning of the queue.</returns>
-        public Flight RemoveFromQueue()
-        {
-            return runwayQueue.Dequeue();
-        }
-
+        public Flight RemoveFromQueue() => runwayQueue.Dequeue();
+ 
         /// <summary>
         /// Adds flight to runway-queue.
         /// </summary>
