@@ -6,27 +6,16 @@
     <Nullable>enable</Nullable>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<NoWarn>$(NoWarn);1591</NoWarn>
-
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="AircraftTypes\" />
     <None Remove="AirportComponents\" />
     <None Remove="Simulation\" />
-    <None Remove="Exceptions\" />
-    <None Remove="Exceptions\CustomExceptions\" />
-    <None Remove="Exceptions\SystemExceptions\" />
-    <None Remove="Exceptions\ApplicationExceptions\" />
-    <None Remove="Exceptions\IOExceptions\" />
   </ItemGroup>
   <ItemGroup>
-	<Folder Include="AircraftTypes\" />
+    <Folder Include="AircraftTypes\" />
     <Folder Include="AirportComponents\" />
     <Folder Include="Simulation\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Exceptions\CustomExceptions\" />
-    <Folder Include="Exceptions\SystemExceptions\" />
-    <Folder Include="Exceptions\ApplicationExceptions\" />
-    <Folder Include="Exceptions\IOExceptions\" />
   </ItemGroup>
 </Project>

@@ -10,16 +10,25 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 	{
         private int aircraftTypeId = 4;
         // (GeeksforGeeks, 2023)
-        public LargeAircraft(string model,
-            int maxSpeedInAir,
-            int accelerationInAir,
-            int maxSpeedOnGround,
-            int accelerationOnGround) :
-            base(model,
-                maxSpeedInAir,
-                accelerationInAir,
-                maxSpeedOnGround,
-                accelerationOnGround)
+
+        /// <summary>
+        /// Creates an large aircraft.
+        /// </summary>
+        /// <param name="modelName">What the model of the aircraft is called.</param>
+        /// <param name="maxSpeedInAirKPH">Maximum in-air speed (Kp/h).</param>
+        /// <param name="accelerationInAirKPH">The accleration in-air (Kp/h).</param>
+        /// <param name="maxSpeedOnGroundKPH">Maximum on-ground speed (Kp/h).</param>
+        /// <param name="accelerationOnGroundKPH">acceleration on ground (Kp/h).</param>
+        public LargeAircraft(string modelName,
+            int maxSpeedInAirKPH,
+            int accelerationInAirKPH,
+            int maxSpeedOnGroundKPH,
+            int accelerationOnGroundKPH) :
+            base(modelName,
+                maxSpeedInAirKPH,
+                accelerationInAirKPH,
+                maxSpeedOnGroundKPH,
+                accelerationOnGroundKPH)
         {
             this.AircraftTypeId = aircraftTypeId;
         }
@@ -32,13 +41,13 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         /// </summary>
         override public void PrintAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\n" +
-                $"Model: {Model}\n" +
+            Console.Write($"\nId: {Halenummer}\n" +
+                $"Model: {ModelName}\n" +
                 $"Type: Large aircraft\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
-                $"Max speed: {MaxSpeedInAir}\n" +
-                $"Acceleration: {AccelerationInAir}\n");
+                $"Max speed: {MaxSpeedInAirKPH}\n" +
+                $"Acceleration: {AccelerationInAirKPH}\n");
         }
     }
 }

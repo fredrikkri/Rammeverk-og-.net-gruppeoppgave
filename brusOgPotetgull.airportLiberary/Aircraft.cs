@@ -9,7 +9,7 @@ namespace BrusOgPotetgull.AirportLiberary
 	public class Aircraft
     {
         private static int idCounter = 1;
-        private int id;
+        private int halenummer;
         private int aircraftTypeId = 0;
         private bool outOfService = false;
         // (Trupja, 2023)
@@ -19,50 +19,50 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates an aircraft.
         /// </summary>
-        /// <param name="model">What the model of the aircraft is called.</param>
-        /// <param name="maxSpeedInAir">Maximum in-air speed.</param>
-        /// <param name="accelerationInAir">The accleration in-air</param>
-        /// <param name="maxSpeedOnGround">Maximum on-ground speed.</param>
-        /// <param name="accelerationOnGround">acceleration on ground.</param>
-        public Aircraft(string model,
-            int maxSpeedInAir,
-            int accelerationInAir,
-            int maxSpeedOnGround,
-            int accelerationOnGround)
+        /// <param name="modelName">What the model of the aircraft is called.</param>
+        /// <param name="maxSpeedInAirKPH">Maximum in-air speed (Kp/h).</param>
+        /// <param name="accelerationInAirKPH">The accleration in-air (Kp/h).</param>
+        /// <param name="maxSpeedOnGroundKPH">Maximum on-ground speed (Kp/h).</param>
+        /// <param name="accelerationOnGroundKPH">acceleration on ground (Kp/h).</param>
+        public Aircraft(string modelName,
+            int maxSpeedInAirKPH,
+            int accelerationInAirKPH,
+            int maxSpeedOnGroundKPH,
+            int accelerationOnGroundKPH)
 		{
             // (dosnetCore, 2020) 
-            id = idCounter ++;
-            this.Id = id;
+            halenummer = idCounter ++;
+            this.Halenummer = halenummer;
             this.AircraftTypeId = aircraftTypeId;
             this.OutOfService = outOfService;
-            this.Model = model;
+            this.ModelName = modelName;
             history = new List<KeyValuePair<DateTime, string>>();
-            this.MaxSpeedInAir = maxSpeedInAir;
-            this.AccelerationInAir = accelerationInAir;
-            this.MaxSpeedOnGround = maxSpeedOnGround;
-            this.AccelerationOnGround = accelerationOnGround;
+            this.MaxSpeedInAirKPH = maxSpeedInAirKPH;
+            this.AccelerationInAirKPH = accelerationInAirKPH;
+            this.MaxSpeedOnGroundKPH = maxSpeedOnGroundKPH;
+            this.AccelerationOnGroundKPH = accelerationOnGroundKPH;
         }
 
-        public int Id { get; private set; }
+        public int Halenummer { get; private set; }
         public int AircraftTypeId { get; private set; }
         public bool OutOfService { get; private set; }
-        public string Model { get; private set; }
-        public int MaxSpeedInAir { get; private set; }
-        public int AccelerationInAir { get; private set; }
-        public int MaxSpeedOnGround { get; private set; }
-        public int AccelerationOnGround { get; private set; }
+        public string ModelName { get; private set; }
+        public int MaxSpeedInAirKPH { get; private set; }
+        public int AccelerationInAirKPH { get; private set; }
+        public int MaxSpeedOnGroundKPH { get; private set; }
+        public int AccelerationOnGroundKPH { get; private set; }
 
         /// <summary>
         /// Prints the information about the Aircraft.
         /// </summary>
         virtual public void PrintAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\n" +
-                $"Model: {Model}\n" +
+            Console.Write($"\nId: {Halenummer}\n" +
+                $"Model: {ModelName}\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
-                $"Max speed: {MaxSpeedInAir}\n" +
-                $"Acceleration: {AccelerationInAir}\n");
+                $"Max speed: {MaxSpeedInAirKPH}\n" +
+                $"Acceleration: {AccelerationInAirKPH}\n");
         }
 
         // TODO: Undersøke hvordan vi kan hente ulike TimeStamp fremfor DateTime, slik at: for hver gang et aircraft endrer lokasjon, registreres det TimeStamp -> og tilhørende location + message
@@ -74,8 +74,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="message">The action of the plane.</param>
         public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
-            history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
-            
+                history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
         }
 
         /// <summary>
@@ -83,7 +82,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintFullAircraftHistory()
         {
-            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.Id}' and model: '{this.Model}'\n");
+            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.Halenummer}' and model: '{this.ModelName}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
             {
@@ -94,7 +93,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Changes the variable 'bool outOfService' from false to true, but only if the status already is set to 'false'. 
         /// </summary>
-        public void SetAircraftOutOfService()
+        private void SetAircraftOutOfService()
         {
             if (OutOfService == false)
             {
@@ -110,7 +109,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Changes the variable 'bool outOfService' from "true" to "false", but only if the status already is set to 'true'. 
         /// </summary>
-        public void SetAircraftInOperation()
+        private void SetAircraftInOperation()
         {
             if (OutOfService == true)
             {
@@ -133,7 +132,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
             DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
-            Console.Write($"\n\n\tHistory for aircraft: '{Model}' and id: '{Id}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
+            Console.Write($"\n\n\tHistory for aircraft: '{ModelName}' and id: '{Halenummer}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
             foreach (KeyValuePair<DateTime, string> line in history)
             {
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)

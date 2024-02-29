@@ -10,16 +10,25 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 	{
         private int aircraftTypeId = 2;
         // (GeeksforGeeks, 2023)
-        public ShortMediumAircraft(string model,
-            int maxSpeedInAir,
-            int accelerationInAir,
-            int maxSpeedOnGround,
-            int accelerationOnGround) :
-            base(model,
-                maxSpeedInAir,
-                accelerationInAir,
-                maxSpeedOnGround,
-                accelerationOnGround)
+
+        /// <summary>
+        /// Creates an short-medium aircraft.
+        /// </summary>
+        /// <param name="modelName">Name of the model for this aircraft</param>
+        /// <param name="maxSpeedInAirKPH">Maximum speed in air for this aircraft (Kp/h)</param>
+        /// <param name="accelerationInAirKPH">Maximum acceleration in air for this aircraft (Kp/h)</param>
+        /// <param name="maxSpeedOnGroundKPH">Maximum speed on ground for this aircraft (Kp/h)</param>
+        /// <param name="accelerationOnGroundKPH">Maximum acceleration on ground for this aircraft (Kp/h)</param>
+        public ShortMediumAircraft(string modelName,
+            int maxSpeedInAirKPH,
+            int accelerationInAirKPH,
+            int maxSpeedOnGroundKPH,
+            int accelerationOnGroundKPH) :
+            base(modelName,
+                maxSpeedInAirKPH,
+                accelerationInAirKPH,
+                maxSpeedOnGroundKPH,
+                accelerationOnGroundKPH)
         {
             this.AircraftTypeId = aircraftTypeId;
         }
@@ -32,13 +41,13 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         /// </summary>
         override public void PrintAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\n" +
-                $"Model: {Model}\n" +
+            Console.Write($"\nId: {Halenummer}\n" +
+                $"Model: {ModelName}\n" +
                 $"Type: Short-medium aircraft\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
-                $"Max speed: {MaxSpeedInAir}\n" +
-                $"Acceleration: {AccelerationInAir}\n");
+                $"Max speed: {MaxSpeedInAirKPH}\n" +
+                $"Acceleration: {AccelerationInAirKPH}\n");
         }
     }
 }

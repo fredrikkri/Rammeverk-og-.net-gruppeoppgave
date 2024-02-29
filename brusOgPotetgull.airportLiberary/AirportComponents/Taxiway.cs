@@ -9,27 +9,34 @@ namespace BrusOgPotetgull.AirportLiberary
         private static int idCounter = 1;
         private int id;
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
+        private string? airportLocation;
 
         /// <summary>
-        /// 
+        /// Creates a taxiway.
         /// </summary>
         /// <param name="length">Length of the taxiway.</param>
         /// <param name="maxSpeed">Legal maxspeed for the taxiway</param>
-        /// <param name="locatedAtAirport">Which airport it is located at.</param>
-        public Taxiway(int length, int maxSpeed, Airport locatedAtAirport)
+        public Taxiway(int length, int maxSpeed)
         {
             // (dosnetCore, 2020)
             id = idCounter++;
             this.Id = id;
             this.Length = length;
             this.MaxSpeed = maxSpeed;
-            this.LocatedAtAirport = locatedAtAirport;
         }
 
         public int Length { get; private set; }
         public int Id { get; private set; }
         public int MaxSpeed { get; private set; }
-        public Airport LocatedAtAirport { get; private set; }
+
+        /// <summary>
+        /// Updates the information for which airport the taxiway is located at.
+        /// </summary>
+        /// <param name="airportName">Name of the airport that the taxiway is located at now.</param>
+        public void UpdateGateLocation(string airportName)
+        {
+            airportLocation = airportName;
+        }
 
         /// <summary>
         /// Prints the information about the taxiway.
@@ -37,7 +44,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void PrintTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\n" +
-                $"Taxiway lenght: {Length}\n");
+                $"Taxiway lenght: {Length}\n" +
+                $"Airport location: { airportLocation}\n");
         }
 
         /// <summary>
@@ -45,9 +53,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// eksample: "Gate 1 GAR"
         /// </summary>
         /// <returns>String that contain id and airportcode.</returns>
-        public string GetIdTaxiwayAndAirportCode()
+        private string GetIdTaxiwayAndAirportCode()
         {
-            string returnString = (string)(Id + " " + LocatedAtAirport.AirportCode);
+            string returnString = (string)(airportLocation +", "+ "Taxiway-id: " + Id);
             return returnString;
         }
 
@@ -60,7 +68,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(flight);
-            flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
+            flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
         }
 
         /// <summary>
@@ -85,7 +93,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 Flight nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
+                flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
             }
         }
 
@@ -101,7 +109,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
         public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
         {
-            flight.ActiveAircraft.AddHistoryToAircraft(time, "Taxiway " + GetIdTaxiwayAndAirportCode(), ", Enter taxiway");
+            flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdTaxiwayAndAirportCode(), ", Enter taxiway");
             
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
