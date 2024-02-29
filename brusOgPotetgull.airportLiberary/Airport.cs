@@ -154,7 +154,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Adds a taxiway to the airport.
         /// </summary>
-        /// <param name="Taxiway">The taxiway that is added to the list.</param>
+        /// <param name="taxiway">The taxiway that is added to the list.</param>
         public void AddTaxiwayToList(Taxiway taxiway)
         {
             taxiway.UpdateGateLocation(Name);
@@ -173,7 +173,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Adds a gate to the airport.
         /// </summary>
-        /// <param name="Gate">The gate that is added to the list.</param>
+        /// <param name="gate">The gate that is added to the list.</param>
         public void AddGateToList(Gate gate)
         {
             gate.UpdateGateLocation(Name);

@@ -1,4 +1,5 @@
 ﻿using System;
+using brusOgPotetgull.airportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
 
 namespace BrusOgPotetgull.AirportLiberary.Simulation
@@ -88,11 +89,11 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                             {
                                 if (!Airport.GetArrivingFlights().Contains(flight))
                                 {
-                                    throw new InvalidOperationException($"{flight} could not be removed from 'arrivingFlights-list'. It does not exist in the list.");
+                                    throw new DuplicateOfContentException($"{flight} could not be removed from 'arrivingFlights-list'. It does not exist in the list.");
                                 }
                                 Airport.RemoveArrivingFlight(flight);
                             }
-                            catch (InvalidOperationException e)
+                            catch (DuplicateOfContentException e)
                             {
                                 Console.WriteLine("Error: " + e.Message);
                             }
