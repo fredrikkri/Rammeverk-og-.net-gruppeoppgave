@@ -21,7 +21,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             // Creating gates.
             Gate gate1 = new Gate("Gate G1");
-            gardemoenFlyplass.AddGateToList(gate1);
+            //gardemoenFlyplass.AddGateToList(gate1);
             gardemoenFlyplass.AddGateToList(gate1);
             Gate gate2 = new Gate("Gate G2");
             gardemoenFlyplass.AddGateToList(gate2);
@@ -86,7 +86,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             //cargoCraftV12.PrintFullAircraftHistory();  // C420
             //superPlane.PrintFullAircraftHistory();     // A130
 
-            gate2.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.CargoAircraft);
+            gate2.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.LightAircraft);
             gate2.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.MilitaryAircraft);
 
             gate3.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.Aircraft);
@@ -98,6 +98,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             longTaxiway.PrintTaxiwayInformation();
 
             gardemoenFlyplass.PrintListOfDeparturingFlights();
+
+
+            gardemoenFlyplass.PrintAirportInformation();
+
             System.Console.ReadLine();
         }
     }
