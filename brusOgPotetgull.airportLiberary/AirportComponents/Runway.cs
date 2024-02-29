@@ -15,7 +15,6 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// creates a runway.
         /// </summary>
-        /// <param name="locatedAtAirport">Which airport it is located at.</param>
         /// <param name="length">The length of the runway.</param>
         public Runway(int length)
         {

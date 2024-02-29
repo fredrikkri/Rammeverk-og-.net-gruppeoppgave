@@ -22,7 +22,6 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Creates a gate.
         /// </summary>
         /// <param name="gateName">The name of the gate.</param>
-        /// <param name="locatedAtAirport">Which airport the gate is locatad at.</param>
 		public Gate(string gateName)
         {
             // (dosnetCore, 2020) 
@@ -78,7 +77,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Adds an aircraft that will be able to use the gate.
         /// </summary>
-        /// <param name="aircraftTypeId">The id of an type of aircraft that you want to enable accsess for the gate.</param>
+        /// <param name="aircraftType">An Enum that represent the id of an aircraftType that you want to enable accsess for the gate.</param>
         public void AddAircraftAllowedAtGate(AircraftType aircraftType)
         {
             try
