@@ -114,10 +114,18 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintListOfDeparturingFlights()
         {
-            Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
-            foreach (Flight flight in departingFlights)
+
+            if (departingFlights.Count == 0)
             {
-                Console.Write($"Aircraft:{flight.ActiveAircraft.ModelName}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
+                throw new InvalidOperationException($"List of departuring flights is empty for airport: '{Name}'");
+            }
+            else
+            { 
+            Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
+                foreach (Flight flight in departingFlights)
+                {
+                    Console.Write($"Aircraft:{flight.ActiveAircraft.ModelName}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
+                }
             }
         } 
     
@@ -128,7 +136,17 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddRunwayToList(Runway runway)
         {
             runway.UpdateGateLocation(Name);
-            listRunway.Add(runway);
+            if (!listRunway.Contains(runway))
+            {
+                listRunway.Add(runway);
+                
+            }
+            else
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with id: '{runway.Id}' allready exists in airport: '{Name}'");
+            }
+            
         }
 
         /// <summary>
@@ -138,7 +156,16 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddTaxiwayToList(Taxiway taxiway)
         {
             taxiway.UpdateGateLocation(Name);
-            listTaxiway.Add(taxiway);
+            if (!listTaxiway.Contains(taxiway))
+            {
+                listTaxiway.Add(taxiway);
+            }
+            
+            else
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with id: '{taxiway.Id}' allready exists in airport: '{Name}'");
+            }
         }
 
         /// <summary>
@@ -148,8 +175,15 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddGateToList(Gate gate)
         {
             gate.UpdateGateLocation(Name);
-            listGate.Add(gate);
-            
+            if (!listGate.Contains(gate))
+            {
+                listGate.Add(gate);
+            }
+            else 
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with id: '{gate.Id}' allready exists in airport: '{Name}'");
+            }
         }
 
         /// <summary>
