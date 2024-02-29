@@ -16,6 +16,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private List<Gate> listGate;
         private List<Flight> arrivingFlights;
         private List<Flight> departingFlights;
+        
 
         /// <summary>
         /// Creates an airport.
@@ -42,6 +43,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public string AirportCode { get; private set; }
         public string Name { get; private set; }
         public string Location { get; private set; }
+        
 
         /// <summary>
         /// Prints out the information about the airport.
@@ -132,7 +134,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Adds a runway to the airport.
         /// </summary>
-        /// <param name="Runway">The runway that is added to the list.</param>
+        /// <param name="runway">The runway that is added to the list.</param>
         public void AddRunwayToList(Runway runway)
         {
             runway.UpdateGateLocation(Name);
@@ -152,7 +154,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Adds a taxiway to the airport.
         /// </summary>
-        /// <param name="Taxiway">The taxiway that is added to the list.</param>
+        /// <param name="taxiway">The taxiway that is added to the list.</param>
         public void AddTaxiwayToList(Taxiway taxiway)
         {
             taxiway.UpdateGateLocation(Name);
@@ -171,7 +173,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Adds a gate to the airport.
         /// </summary>
-        /// <param name="Gate">The gate that is added to the list.</param>
+        /// <param name="gate">The gate that is added to the list.</param>
         public void AddGateToList(Gate gate)
         {
             gate.UpdateGateLocation(Name);
@@ -236,10 +238,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// This method gets all departuring flights for this airport.
         /// </summary>
         /// <returns>List of departuring flights.</returns>
-        public List<Flight> GetDepartingFlights()
-        {
-            return departingFlights;
-        }
+        public List<Flight> GetDepartingFlights() => departingFlights;
 
         /// <summary>
         /// This method adds an departuring flight to this airport.

@@ -1,4 +1,5 @@
 ﻿using System;
+using brusOgPotetgull.airportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
 
 namespace BrusOgPotetgull.AirportLiberary.Simulation
@@ -84,8 +85,18 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         {
                             flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight, start);  // ------------------------------------------------------------------ step 3 arrving
                             flight.ArrivalGate.BookGate(flight.ActiveAircraft, start);
-
-                            Airport.RemoveArrivingFlight(flight);
+                            try
+                            {
+                                if (!Airport.GetArrivingFlights().Contains(flight))
+                                {
+                                    throw new DuplicateOfContentException($"{flight} could not be removed from 'arrivingFlights-list'. It does not exist in the list.");
+                                }
+                                Airport.RemoveArrivingFlight(flight);
+                            }
+                            catch (DuplicateOfContentException e)
+                            {
+                                Console.WriteLine("Error: " + e.Message);
+                            }
                         }
                     }
                 }
@@ -124,8 +135,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         }
                     }
                 }                
-
-                //Thread.Sleep(1);
+                Thread.Sleep(1);
                 start = start.AddMinutes(1);
             }
         }

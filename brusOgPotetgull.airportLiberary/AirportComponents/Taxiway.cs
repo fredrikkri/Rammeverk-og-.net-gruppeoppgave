@@ -16,7 +16,6 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         /// <param name="length">Length of the taxiway.</param>
         /// <param name="maxSpeed">Legal maxspeed for the taxiway</param>
-        /// <param name="locatedAtAirport">Which airport it is located at.</param>
         public Taxiway(int length, int maxSpeed)
         {
             // (dosnetCore, 2020)

@@ -26,16 +26,8 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Creates a departing flight object.
+        /// A departing flight.
         /// </summary>
-        /// <param name="activeAircraft">The aircraft that is used for this flight</param>
-        /// <param name="dateTimeFlight">Date of the flight.</param>
-        /// <param name="isArrivingFlight">True if the flight it arriving at the airport.</param>
-        /// <param name="length">Length of the flight im KM.</param>
-        /// <param name="departureAirport">The airport that the aircraft departure from.</param>
-        /// <param name="departureGate">The gate that the aircraft departure from.</param>
-        /// <param name="departureTaxiway">The taxiway that the aircraft is using to departure from.</param>
-        /// <param name="departureRunway">The runway that the aircraft is departuring from.</param>
         public class Departing : Flight
         {
             public Airport DepartureAirport { get; private set; }
@@ -43,6 +35,16 @@ namespace BrusOgPotetgull.AirportLiberary
             public Taxiway DepartureTaxiway { get; private set; }
             public Runway DepartureRunway { get; private set; }
 
+            /// <summary>
+            /// Creates a departing flight object.
+            /// </summary>
+            /// <param name="activeAircraft">The aircraft that is used for this flight.</param>
+            /// <param name="dateTimeFlight">Date of the flight.</param>
+            /// <param name="length">Length of the flight im KM.</param>
+            /// <param name="departureAirport">The airport that the aircraft departure from.</param>
+            /// <param name="departureGate">The gate that the aircraft departure from.</param>
+            /// <param name="departureTaxiway">The taxiway that the aircraft is using to departure from.</param>
+            /// <param name="departureRunway">The runway that the aircraft is departuring from.</param>
             public Departing(Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport departureAirport, Gate departureGate, Taxiway departureTaxiway, Runway departureRunway)
                 : base(activeAircraft, dateTimeFlight, false, length)
             {
@@ -72,16 +74,8 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Creates an arriving flight object.
+        /// An Arriving Flight
         /// </summary>
-        /// <param name="activeAircraft">The aircraft that is used for this flight</param>
-        /// <param name="dateTimeFlight">Date of the flight.</param>
-        /// <param name="isArrivingFlight">True if the flight it arriving at the airport.</param>
-        /// <param name="length">Length of the flight im KM.</param>
-        /// <param name="arrivalAirport">The airport that the aircraft is arriving at.</param>
-        /// <param name="arrivalGate">The gate that the aircraft is arriving at.</param>
-        /// <param name="arrivalTaxiway">The taxiway that the aircraft is arriving at.</param>
-        /// <param name="arrivalRunway">The runway that the aircraft is arriving at.</param>
         public class Arriving : Flight
         {
             public Airport ArrivalAirport { get; private set; }
@@ -89,6 +83,16 @@ namespace BrusOgPotetgull.AirportLiberary
             public Taxiway ArrivalTaxiway { get; private set; }
             public Runway ArrivalRunway { get; private set; }
 
+            /// <summary>
+            /// Creates an arriving flight object.
+            /// </summary>
+            /// <param name="activeAircraft">The aircraft that is used for this flight</param>
+            /// <param name="dateTimeFlight">Date of the flight.</param>
+            /// <param name="length">Length of the flight im KM.</param>
+            /// <param name="arrivalAirport">The airport that the aircraft is arriving at.</param>
+            /// <param name="arrivalGate">The gate that the aircraft is arriving at.</param>
+            /// <param name="arrivalTaxiway">The taxiway that the aircraft is arriving at.</param>
+            /// <param name="arrivalRunway">The runway that the aircraft is arriving at.</param>
             public Arriving(Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport arrivalAirport, Gate arrivalGate, Taxiway arrivalTaxiway, Runway arrivalRunway)
                 : base(activeAircraft, dateTimeFlight, true, length)
             {
