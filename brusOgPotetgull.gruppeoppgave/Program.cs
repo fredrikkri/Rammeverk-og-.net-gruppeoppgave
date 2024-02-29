@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
+using brusOgPotetgull.airportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary.Simulation;
@@ -50,17 +52,17 @@ namespace BrusOgPotetgull.Gruppeoppgave
             ryggeFlyplass.AddRunwayToList(longRunway2);
             Runway mediumRunway2 = new Runway(800);
             ryggeFlyplass.AddRunwayToList(mediumRunway2);
-
+            
             // Creating flights.
-            Flight flight1 = new Flight(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate1, gate3, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
-            Flight flight2 = new Flight(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), false, 5000, gardemoenFlyplass, ryggeFlyplass, gate2, gate4, longTaxiway, shortTaxiway, longRunway1, mediumRunway2);
-            Flight flight3 = new Flight(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
-            Flight flight4 = new Flight(SR71, new DateTime(2024, 3, 1, 00, 02, 00), true, 5000, ryggeFlyplass, gardemoenFlyplass, gate4, gate2, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
+            Flight.Departing flight1 = new Flight.Departing(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);
+            Flight.Departing flight2 = new Flight.Departing(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, gardemoenFlyplass, gate2, longTaxiway, longRunway1);
+            Flight.Arriving flight3 = new Flight.Arriving(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, ryggeFlyplass, gate3, shortTaxiway, longRunway2);
+            Flight.Arriving flight4 = new Flight.Arriving(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, ryggeFlyplass, gate4, shortTaxiway, longRunway2);
 
             // Deciding if flights is departuring or arraving for choosen airport.
             gardemoenFlyplass.AddDepartingFlight(flight1);
             gardemoenFlyplass.AddDepartingFlight(flight2);
-            gardemoenFlyplass.AddDailyArrivingFlight(2, SR71, new DateTime(2024, 3, 1, 00, 17, 00), false, 5000, ryggeFlyplass, gardemoenFlyplass, gate3, gate1, shortTaxiway, mediumTaxiway, longRunway2, mediumRunway1);
+            gardemoenFlyplass.AddDailyArrivingFlight(2, SR71, new DateTime(2024, 3, 1, 00, 17, 00), 5000, ryggeFlyplass, gate3, shortTaxiway, longRunway2);
             gardemoenFlyplass.AddArrivingFlight(flight3);
             gardemoenFlyplass.AddArrivingFlight(flight4);
 
@@ -85,17 +87,16 @@ namespace BrusOgPotetgull.Gruppeoppgave
             //cargoCraftV12.PrintFullAircraftHistory();  // C420
             //superPlane.PrintFullAircraftHistory();     // A130
 
-            gate2.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.CargoAircraft);
-            gate2.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.MilitaryAircraft);
-
-            gate3.AddAircraftAllowedAtGate(brusOgPotetgull.airportLiberary.AircraftTypes.ChooseAircraftType.Aircraft);
+            gate2.AddAircraftAllowedAtGate(AircraftType.Cargo);
+            gate2.AddAircraftAllowedAtGate(AircraftType.Military);
+            gate3.AddAircraftAllowedAtGate(AircraftType.Undefined);
 
             gate2.MakeAllAircraftTypesAllowedForThisGate();
             gate2.PrintGateInformation();
             gate3.PrintGateInformation();
             longRunway1.PrintRunwayInformation();
             longTaxiway.PrintTaxiwayInformation();
-
+            
             System.Console.ReadLine();
         }
     }
