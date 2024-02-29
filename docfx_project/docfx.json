@@ -3,8 +3,8 @@
     {
       "src": [
         {          
-          "files": [ "brusOgPotetgull.airportLibrary/brusOgPotetgull.airportLibrary.csproj" ],
-          "cwd": "../"     
+          "files": [ "brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj" ],
+          "cwd": ".."     
         }
       ],
       "dest": "api",
