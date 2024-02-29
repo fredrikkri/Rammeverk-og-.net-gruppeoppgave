@@ -36,7 +36,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
 
             while (start <= end)
             {
-                Console.Write($"\n\t\t\t\t\t\tSimulation time: {start}\n");
+                //Console.Write($"\n\t\t\t\t\t\tSimulation time: {start}\n");
 
                 // Hvis det finnnes innkommende flygninger
                 if (Airport.GetArrivingFlights().Count > 0)
@@ -125,7 +125,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                     }
                 }                
 
-                Thread.Sleep(1);
+                //Thread.Sleep(1);
                 start = start.AddMinutes(1);
             }
         }

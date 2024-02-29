@@ -88,7 +88,7 @@ namespace BrusOgPotetgull.AirportLiberary
 
             else
             {
-                Console.Write($"{aircraftType} is already in list of legal aicrafts for this gate.");
+                Console.Write($"{aircraftType} is already in list of legal aicrafts for this gate.\n");
             }
         }
 
