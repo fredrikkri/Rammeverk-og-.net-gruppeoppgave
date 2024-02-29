@@ -141,7 +141,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 listRunway.Add(runway);
                 
             }
-            else 
+            else
             {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{runway.Id}' allready exists in airport: '{Name}'");

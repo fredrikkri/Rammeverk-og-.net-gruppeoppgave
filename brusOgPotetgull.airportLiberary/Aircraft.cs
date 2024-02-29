@@ -9,7 +9,7 @@ namespace BrusOgPotetgull.AirportLiberary
 	public class Aircraft
     {
         private static int idCounter = 1;
-        private int id;
+        private int halenummer;
         private int aircraftTypeId = 0;
         private bool outOfService = false;
         // (Trupja, 2023)
@@ -31,8 +31,8 @@ namespace BrusOgPotetgull.AirportLiberary
             int accelerationOnGroundKPH)
 		{
             // (dosnetCore, 2020) 
-            id = idCounter ++;
-            this.Id = id;
+            halenummer = idCounter ++;
+            this.Halenummer = halenummer;
             this.AircraftTypeId = aircraftTypeId;
             this.OutOfService = outOfService;
             this.ModelName = modelName;
@@ -43,7 +43,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.AccelerationOnGroundKPH = accelerationOnGroundKPH;
         }
 
-        public int Id { get; private set; }
+        public int Halenummer { get; private set; }
         public int AircraftTypeId { get; private set; }
         public bool OutOfService { get; private set; }
         public string ModelName { get; private set; }
@@ -57,7 +57,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         virtual public void PrintAircraftInformation()
         {
-            Console.Write($"\nId: {Id}\n" +
+            Console.Write($"\nId: {Halenummer}\n" +
                 $"Model: {ModelName}\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
@@ -81,7 +81,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintFullAircraftHistory()
         {
-            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.Id}' and model: '{this.ModelName}'\n");
+            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.Halenummer}' and model: '{this.ModelName}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
             {
@@ -131,7 +131,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
             DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
-            Console.Write($"\n\n\tHistory for aircraft: '{ModelName}' and id: '{Id}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
+            Console.Write($"\n\n\tHistory for aircraft: '{ModelName}' and id: '{Halenummer}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
             foreach (KeyValuePair<DateTime, string> line in history)
             {
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
