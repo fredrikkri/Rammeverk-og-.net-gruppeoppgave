@@ -73,8 +73,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="message">The action of the plane.</param>
         public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
-            history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
-            
+                history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
         }
 
         /// <summary>
