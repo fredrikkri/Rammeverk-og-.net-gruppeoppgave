@@ -22,6 +22,7 @@
   <ItemGroup>
 	<Folder Include="AircraftTypes\" />
     <Folder Include="AirportComponents\" />
+    <Folder Include="docfx_project\src\" />
     <Folder Include="Simulation\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Exceptions\CustomExceptions\" />

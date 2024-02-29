@@ -55,3 +55,4 @@ C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotet
 C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.gruppeoppgave\obj\Debug\net8.0\brusOgPotetgull.gruppeoppgave.pdb
 C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.gruppeoppgave\obj\Debug\net8.0\brusOgPotetgull.gruppeoppgave.genruntimeconfig.cache
 C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.gruppeoppgave\obj\Debug\net8.0\ref\brusOgPotetgull.gruppeoppgave.dll
+C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.gruppeoppgave\bin\Debug\net8.0\brusOgPotetgull.airportLiberary.xml
