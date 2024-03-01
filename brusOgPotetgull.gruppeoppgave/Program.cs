@@ -69,11 +69,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
             DateTime start = new (2024, 3, 1);
             DateTime end = new (2024, 3, 1, 4, 00, 00);
             Simulation newSim = new (gardemoenFlyplass, start, end);
-            AirportMonitor airportMonitor = new AirportMonitor();
+
+            // Events setup
+            AirportMonitor airportMonitor = new();
             airportMonitor.subcribeRunwayEvents(longRunway1);
-            airportMonitor.subcribeRunwayEvents(longRunway2);
             airportMonitor.subcribeRunwayEvents(mediumRunway1);
-            airportMonitor.subcribeRunwayEvents(mediumRunway2);
+
             newSim.RunSimulation();
 
             // Printing history for aircrafts on a given day.

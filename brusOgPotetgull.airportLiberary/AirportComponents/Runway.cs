@@ -124,18 +124,20 @@ namespace BrusOgPotetgull.AirportLiberary
         public void UseRunway(Flight flight, DateTime time)
         {
             inUse = true;
-            //flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Enter the runway");
-            if (flight.IsArrivingFlight == true) 
+            if (flight.IsArrivingFlight == true)
             {
-                RaiseFlightArrived((Flight.Arriving)flight, $"{flight.ActiveAircraft.ModelName} has landed");
+                RaiseFlightArrived((Flight.Arriving)flight, time, $"{flight.ActiveAircraft.ModelName} has landed");
             }
-                    
+            else 
+            {
+                flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Enters the runway");
+            }
         }
 
         // Triggers
-        protected virtual void RaiseFlightArrived(Flight.Arriving flight, string message)
+        protected virtual void RaiseFlightArrived(Flight.Arriving flight, DateTime time, string message)
         {
-            FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, message));
+            FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, time, message));
         }
 
         /// <summary>
@@ -148,14 +150,18 @@ namespace BrusOgPotetgull.AirportLiberary
             inUse = false;
             if (flight.IsArrivingFlight == false) 
             {
-                RaiseFlightDeparted((Flight.Departing)flight, $"{flight.ActiveAircraft.ModelName} has departed");
-            }  
+                RaiseFlightDeparted((Flight.Departing)flight, time, $"{flight.ActiveAircraft.ModelName} has departed");
+            }
+            else
+            {
+                flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Leaves the runway");
+            }
         }
 
 
-        protected virtual void RaiseFlightDeparted(Flight.Departing flight, string message)
+        protected virtual void RaiseFlightDeparted(Flight.Departing flight, DateTime time, string message)
         {
-            FlightDeparted?.Invoke(this, new DepartingEventArgs(flight, message));
+            FlightDeparted?.Invoke(this, new DepartingEventArgs(flight, time, message));
         }
     }
 }
