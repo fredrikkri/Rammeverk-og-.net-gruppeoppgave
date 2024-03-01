@@ -187,7 +187,7 @@ namespace BrusOgPotetgull.AirportLiberary
             }
             else
             {
-                Console.Write($"Gate with id: {Id}, is already booked. Aircraft with id: '{aircraft.Halenummer}' cannot book this gate.");
+                Console.Write($"Gate with id: {Id}, is already booked. Aircraft with id: '{aircraft.TailNumber}' cannot book this gate.");
             }
         }
     }

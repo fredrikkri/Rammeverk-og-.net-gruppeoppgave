@@ -41,7 +41,7 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         /// </summary>
         override public void PrintAircraftInformation()
         {
-            Console.Write($"\nId: {Halenummer}\n" +
+            Console.Write($"\nId: {TailNumber}\n" +
                 $"Model: {ModelName}\n" +
                 $"Type: Large aircraft\n" +
                 $"Type(id): {AircraftTypeId}\n" +

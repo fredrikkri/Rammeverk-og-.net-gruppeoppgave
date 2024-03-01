@@ -10,7 +10,7 @@ namespace BrusOgPotetgull.AirportLiberary
 	public class Aircraft
     {
         private static int idCounter = 1;
-        private int halenummer;
+        private int tailNumber;
         private int aircraftTypeId = 0;
         private bool outOfService = false;
         // (Trupja, 2023)
@@ -32,8 +32,8 @@ namespace BrusOgPotetgull.AirportLiberary
             int accelerationOnGroundKPH)
 		{
             // (dosnetCore, 2020) 
-            halenummer = idCounter ++;
-            this.Halenummer = halenummer;
+            tailNumber = idCounter ++;
+            this.TailNumber = tailNumber;
             this.AircraftTypeId = aircraftTypeId;
             this.OutOfService = outOfService;
             this.ModelName = modelName;
@@ -44,7 +44,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.AccelerationOnGroundKPH = accelerationOnGroundKPH;
         }
 
-        public int Halenummer { get; private set; }
+        public int TailNumber { get; private set; }
         public int AircraftTypeId { get; private set; }
         public bool OutOfService { get; private set; }
         public string ModelName { get; private set; }
@@ -58,7 +58,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         virtual public void PrintAircraftInformation()
         {
-            Console.Write($"\nId: {Halenummer}\n" +
+            Console.Write($"\nId: {TailNumber}\n" +
                 $"Model: {ModelName}\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
@@ -78,7 +78,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 if (pair.Key == time && pair.Value == (location + message))
                 {
-                    throw new DuplicateOfContentException($"{time}, {location} {message} could not be added to history for plane with talenumber: '{Halenummer}'. The excact same line of history already exists for this plane.");
+                    throw new DuplicateOfContentException($"{time}, {location} {message} could not be added to history for plane with talenumber: '{TailNumber}'. The excact same line of history already exists for this plane.");
                 }
             }
             history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
@@ -90,7 +90,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintFullAircraftHistory()
         {
-            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.Halenummer}' and model: '{this.ModelName}'\n");
+            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.TailNumber}' and model: '{this.ModelName}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
             {
@@ -110,7 +110,7 @@ namespace BrusOgPotetgull.AirportLiberary
             
             else
             {
-                throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{halenummer}' is already set to 'true'.");
+                throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'true'.");
             }
         }
 
@@ -126,7 +126,7 @@ namespace BrusOgPotetgull.AirportLiberary
 
             else
             {
-                throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{halenummer}' is already set to 'false'.");
+                throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'false'.");
             }
         }
 
@@ -140,7 +140,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
             DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
-            Console.Write($"\n\n\tHistory for aircraft: '{ModelName}' and id: '{Halenummer}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
+            Console.Write($"\n\n\tHistory for aircraft: '{ModelName}' and id: '{TailNumber}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
             foreach (KeyValuePair<DateTime, string> line in history)
             {
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
