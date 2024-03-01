@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using brusOgPotetgull.airportLiberary.AircraftTypes;
 using brusOgPotetgull.airportLiberary.CustomExceptions;
+using brusOgPotetgull.airportLiberary.EventHandler;
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary.Simulation;
@@ -80,6 +81,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
             DateTime start = new (2024, 3, 1);
             DateTime end = new (2024, 3, 1, 4, 00, 00);
             Simulation newSim = new (gardemoenFlyplass, start, end);
+
+            // Events setup
+            AirportMonitor airportMonitor = new();
+            airportMonitor.subcribeRunwayEvents(longRunway1);
+            airportMonitor.subcribeRunwayEvents(mediumRunway1);
+
             newSim.RunSimulation();
 
             // Printing history for aircrafts on a given day.
