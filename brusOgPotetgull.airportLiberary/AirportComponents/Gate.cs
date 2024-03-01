@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using brusOgPotetgull.airportLiberary.AircraftTypes;
+using brusOgPotetgull.airportLiberary.CustomExceptions;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
@@ -80,17 +81,13 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftType">An Enum that represent the id of an aircraftType that you want to enable accsess for the gate.</param>
         public void AddAircraftAllowedAtGate(AircraftType aircraftType)
         {
-            try
+            if (!legalAircraftTypesId.Contains((int)aircraftType))
             {
-                if (legalAircraftTypesId.Contains((int)aircraftType))
-                {
-                    throw new InvalidOperationException($"{aircraftType} is already in list of legal aicrafts for this gate. Cant add single aircraft.");
-                }
                 legalAircraftTypesId.Add((int)aircraftType);
             }
-            catch (InvalidOperationException e)
+            else
             {
-                Console.WriteLine($"\n\t\t\tError: " + e.Message);
+                throw new DuplicateOfContentException($"{aircraftType} already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
             }
         }
 
@@ -102,13 +99,14 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             foreach (int typeId in aircraftTypeIds)
             {
+
                 if (!legalAircraftTypesId.Contains(typeId))
                 {
                     legalAircraftTypesId.Add(typeId);
                 }
                 else
                 {
-                    Console.Write($"\n{typeId} is already in list of legal aicrafts for this gate. Cant add multiple aircrafts.");
+                    throw new DuplicateOfContentException($"Aircraft with id '{typeId}' already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
                 }
             }
         }
@@ -126,11 +124,6 @@ namespace BrusOgPotetgull.AirportLiberary
                 {
                     legalAircraftTypesId.Add(i);
                 }
-                else
-                {
-                    Console.Write($"\nAircraftType with id '{i}' is already in list of legal aicrafts for this gate.Cant add all aircraftTypes.");
-                }
-
             }
         }
 
@@ -144,10 +137,9 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 legalAircraftTypesId.Remove((int)aircraftTypeId);
             }
-
             else
             {
-                Console.Write($"Aircraft with type {aircraftTypeId} cannot be removed from the list of legal aircrafts for this gate because it does not exist in the list.");
+                throw new InvalidOperationException($"Aircraft with type {aircraftTypeId} cannot be removed from the list of legal aircrafts for gate with id: '{Id}', because it does not exist in the list.");
             }
         }
 
@@ -195,7 +187,7 @@ namespace BrusOgPotetgull.AirportLiberary
             }
             else
             {
-                Console.Write($"Error: Gate with id: {Id}, is already booked. You cannot book this gate.");
+                Console.Write($"Error: Gate with id: {Id}, is already booked. Aircraft with id: '{aircraft.Halenummer}' cannot book this gate.");
             }
         }
     }
