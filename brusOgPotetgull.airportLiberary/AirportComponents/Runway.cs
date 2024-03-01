@@ -1,4 +1,5 @@
 ﻿using System;
+using brusOgPotetgull.airportLiberary.CustomExceptions;
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
@@ -86,20 +87,26 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// This method lets the next flight in queue enter the runway.
         /// </summary>
-        /// <param name="flight">Used to remove the flight from the runwayqueue.</param>
-        public void NextFlightEntersRunway(Flight flight)
+        public void NextFlightEntersRunway()
         {
-            if (runwayQueue.Count != 0)
+            try
             {
-                Flight nextFlight = runwayQueue.Dequeue();
-                runwayQueue.TrimExcess();
-            } 
-
-            else
+                if (runwayQueue.Count != 0)
+                {
+                    Flight nextFlight = runwayQueue.Dequeue();
+                    runwayQueue.TrimExcess();
+                }
+                else
+                {
+                    Console.Write($"No flights in runway - {id} queue");
+                }
+            }
+            catch (NegativeNumberException)
             {
-                Console.Write($"No flights in runway - {id} queue");
+                Console.WriteLine("RunwayQueue.Count is a negative number.");
             }
         }
+        
 
         /// <summary>
         /// Returns the time in seconds that an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph.
