@@ -6,18 +6,19 @@ public class AirportMonitor
 {
     public void subcribeRunwayEvents(Runway runway)
     {
-        runway.FlightArrived += OnFlightArrived;
-        runway.FlightDeparted += OnFlightDeparted;
+        runway.FlightArrived += RaiseFlightArrived;
+        runway.FlightDeparted += RaiseFlightDeparted;
     }
-    public void OnFlightArrived(object sender, ArrivingEventArgs e)
+    public void RaiseFlightArrived(object sender, ArrivingEventArgs e)
     {
         // Kan skrive annen logikk som logging her, i stede for de stedene vi har logget tidligere
         e.Flight.ActiveAircraft.AddHistoryToAircraft(System.DateTime.Now, e.Flight.ArrivalRunway.GetIdRunwayAndAirportCode(), " Enters the runway");
         Console.WriteLine("Arrival: " + e.Message);
     }
 
-    public void OnFlightDeparted(object sender, DepartingEventArgs e)
+    public void RaiseFlightDeparted(object sender, DepartingEventArgs e)
     {
+        e.Flight.ActiveAircraft.AddHistoryToAircraft(System.DateTime.Now, e.Flight.DepartureRunway.GetIdRunwayAndAirportCode(), " Leaves the runway");
         Console.WriteLine("Departure: " + e.Message);
     }
 }

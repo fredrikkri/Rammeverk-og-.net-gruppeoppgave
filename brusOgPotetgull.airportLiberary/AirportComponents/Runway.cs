@@ -14,8 +14,8 @@ namespace BrusOgPotetgull.AirportLiberary
         private string? airportLocation;
 
         // events
-        public event EventHandler<ArrivingEventArgs> FlightArrived;
-        public event EventHandler<DepartingEventArgs> FlightDeparted;
+        public event EventHandler <ArrivingEventArgs> FlightArrived;
+        public event EventHandler <DepartingEventArgs> FlightDeparted;
 
         /// <summary>
         /// creates a runway.
@@ -146,12 +146,14 @@ namespace BrusOgPotetgull.AirportLiberary
         public void ExitRunway(Flight flight, DateTime time)
         {
             inUse = false;
-            flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Leaves Runway");
-            // OnFlightDeparted($"{e.ActiveAircraft} has departed");
+            if (flight.IsArrivingFlight == false) 
+            {
+                RaiseFlightDeparted((Flight.Departing)flight, $"{flight.ActiveAircraft.ModelName} has departed");
+            }  
         }
 
 
-        protected virtual void OnFlightDeparted(Flight.Departing flight, string message)
+        protected virtual void RaiseFlightDeparted(Flight.Departing flight, string message)
         {
             FlightDeparted?.Invoke(this, new DepartingEventArgs(flight, message));
         }
