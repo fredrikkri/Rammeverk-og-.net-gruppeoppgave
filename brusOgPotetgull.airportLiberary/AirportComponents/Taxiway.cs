@@ -66,10 +66,18 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="time">Used to log the time to the history of the used aircraft.</param>
         public void AddFlightToQueue(Flight flight, DateTime time)
         {
+            // Sjekk om flight allerede finnes i køen
+            if (taxiwayQueue.Contains(flight))
+                {
+                    throw new InvalidOperationException($"Flight with id {flight.FlightId} already exists in queue");
 
-            // (Nagel, 2022, s. 203)
-            taxiwayQueue.Enqueue(flight);
-            flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
+                }
+            else {
+                // (Nagel, 2022, s. 203)
+                taxiwayQueue.Enqueue(flight);
+                flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
+            }
+            
         }
 
 
