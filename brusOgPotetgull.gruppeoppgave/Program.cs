@@ -22,14 +22,14 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Airport gardemoenFlyplass = new Airport("OSL", "Gardemoen Flyplass", "Oslo");
 
             // Creating gates.
-            Gate gate1 = new Gate("Gate G1");
+            Gate gate1 = new ("Gate G1");
             //gardemoenFlyplass.AddGateToList(gate1);
             gardemoenFlyplass.AddGateToList(gate1);
-            Gate gate2 = new Gate("Gate G2");
+            Gate gate2 = new ("Gate G2");
             gardemoenFlyplass.AddGateToList(gate2);
-            Gate gate3 = new Gate("Gate R3");
+            Gate gate3 = new ("Gate R3");
             ryggeFlyplass.AddGateToList(gate3);
-            Gate gate4 = new Gate("Gate R4");
+            Gate gate4 = new ("Gate R4");
             ryggeFlyplass.AddGateToList(gate4);
 
             // Making sure that all aircrafts are allowed for all gates.
@@ -37,41 +37,37 @@ namespace BrusOgPotetgull.Gruppeoppgave
             gardemoenFlyplass.MakeAllGatesAllowAllAircraftTypes();
 
             // Creating taxiways.
-            Taxiway shortTaxiway = new Taxiway(300, 35);
+            Taxiway shortTaxiway = new (300, 35);
             ryggeFlyplass.AddTaxiwayToList(shortTaxiway);
-            Taxiway mediumTaxiway = new Taxiway(750, 20);
+            Taxiway mediumTaxiway = new (750, 20);
             gardemoenFlyplass.AddTaxiwayToList(mediumTaxiway);
-            Taxiway longTaxiway = new Taxiway(1000, 35);
+            Taxiway longTaxiway = new (1000, 35);
             gardemoenFlyplass.AddTaxiwayToList(longTaxiway);
 
             // Creating runways.
-            Runway longRunway1 = new Runway(1000);
+            Runway longRunway1 = new (1000);
             gardemoenFlyplass.AddRunwayToList(longRunway1);
-            Runway mediumRunway1 = new Runway(800);
+            Runway mediumRunway1 = new (800);
             gardemoenFlyplass.AddRunwayToList(mediumRunway1);
-            Runway longRunway2 = new Runway(1000);
+            Runway longRunway2 = new (1000);
             ryggeFlyplass.AddRunwayToList(longRunway2);
-            Runway mediumRunway2 = new Runway(800);
+            Runway mediumRunway2 = new (800);
             ryggeFlyplass.AddRunwayToList(mediumRunway2);
             
             // Creating flights.
-            Flight.Departing flight1 = new Flight.Departing(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);
-            Flight.Departing flight2 = new Flight.Departing(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, gardemoenFlyplass, gate2, longTaxiway, longRunway1);
-            Flight.Arriving flight3 = new Flight.Arriving(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, gardemoenFlyplass, gate1, mediumTaxiway, mediumRunway1);
-            Flight.Arriving flight4 = new Flight.Arriving(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, gardemoenFlyplass, gate2, longTaxiway, mediumRunway1);
-
-            // Deciding if flights is departuring or arriving for choosen airport.
-            //gardemoenFlyplass.AddDepartingFlight(flight1);
-            //gardemoenFlyplass.AddDepartingFlight(flight2);
-            //gardemoenFlyplass.AddArrivingFlight(flight3);
-            //gardemoenFlyplass.AddArrivingFlight(flight4);
+            Flight.Departing flight1 = new (cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);
+            Flight.Departing flight2 = new (superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, gardemoenFlyplass, gate2, longTaxiway, longRunway1);
+            Flight.Arriving flight3 = new (sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, gardemoenFlyplass, gate1, mediumTaxiway, mediumRunway1);
+            Flight.Arriving flight4 = new (SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, gardemoenFlyplass, gate2, longTaxiway, mediumRunway1);
+            
+            // Creating a daily arriving flight
             gardemoenFlyplass.AddDailyArrivingFlight(2, SR71, new DateTime(2024, 3, 1, 00, 17, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);
 
 
             // Creating the simulation
-            DateTime start = new DateTime(2024, 3, 1);
-            DateTime end = new DateTime(2024, 3, 1, 4, 00, 00);
-            Simulation newSim = new Simulation(gardemoenFlyplass, start, end);
+            DateTime start = new (2024, 3, 1);
+            DateTime end = new (2024, 3, 1, 4, 00, 00);
+            Simulation newSim = new (gardemoenFlyplass, start, end);
             newSim.RunSimulation();
 
             // Printing history for aircrafts on a given day.
