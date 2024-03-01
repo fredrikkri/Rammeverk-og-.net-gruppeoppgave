@@ -1,4 +1,5 @@
 ﻿using System;
+using brusOgPotetgull.airportLiberary;
 using brusOgPotetgull.airportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
 
@@ -9,6 +10,11 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
     /// </summary>
 	public class Simulation
 	{
+        // events
+        public event EventHandler <AirportEventArgs> FlightArrived;
+        public event EventHandler <AirportEventArgs> FlightDeparted;
+        public event EventHandler <> nyEvent;
+        
         /// <summary>
         /// Creates an simulation of the choosen airport.
         /// </summary>
@@ -25,6 +31,17 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
         public Airport Airport { get; private set; }
         public DateTime StartTime { get; private set; }
         public DateTime EndTime { get; private set; }
+
+        // Triggers
+        protected virtual void OnFlightArrived(string message)
+        {
+            FlightArrived?.Invoke(this, new AirportEventArgs(message));
+        }
+
+        protected virtual void OnFlightDeparted(string message) 
+        {
+            FlightDeparted?.Invoke(this, new AirportEventArgs(message));
+        }
 
         /// <summary>
         /// This method is starting the simulation.
@@ -64,6 +81,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         Flight.Arriving nextFlight = (Flight.Arriving) currentRunway.CheckNextFlightInQueue(); //  -------------------------------------------------------------------- step 2 arrving
                         currentRunway.NextFlightEntersRunway(nextFlight);
                         currentRunway.UseRunway(nextFlight, start);
+                        OnFlightArrived($"{nextFlight.ActiveAircraft.ModelName} has landed");
                         currentRunway.ExitRunway(nextFlight, start);
 
                         // simulerer tid og legge fly i taxiway kø
