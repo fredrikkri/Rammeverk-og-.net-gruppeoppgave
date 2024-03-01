@@ -13,11 +13,16 @@ namespace BrusOgPotetgull.Gruppeoppgave
     {
         static void Main(string[] args)
         {
-            // Creating aircrafts.
+
+            // Creating aircrafts with category 
             Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
             Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
             Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
             Aircraft SR71 = new MilitaryAircraft("S137", 700, 45, 30, 3);
+
+            // Creating aircraft without category
+            Aircraft norwegianHeyerdahl = new Aircraft("Boeing-737-900", 943, 60, 50, 100);
+
 
             // Creating airports.
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");

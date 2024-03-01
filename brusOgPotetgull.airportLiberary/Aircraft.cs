@@ -66,6 +66,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Acceleration: {AccelerationInAirKPH}\n");
         }
 
+        // TODO: Undersøke hvordan vi kan hente ulike TimeStamp fremfor DateTime, slik at: for hver gang et aircraft endrer lokasjon, registreres det TimeStamp -> og tilhørende location + message
         /// <summary>
         /// logging an event to the history of the aircraft.
         /// </summary>

@@ -1,31 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj": {}
+    "/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj": {
+    "/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj",
+        "projectUniqueName": "/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj",
         "projectName": "brusOgPotetgull.airportLiberary",
-        "projectPath": "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj",
-        "packagesPath": "C:\\Users\\ole_f\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\obj\\",
+        "projectPath": "/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/brusOgPotetgull.airportLiberary.csproj",
+        "packagesPath": "/Users/lemon/.nuget/packages/",
+        "outputPath": "/Users/lemon/Repositories/BrusOgPotetgull/Rammeverk-og-.net-gruppeoppgave/brusOgPotetgull.airportLiberary/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ole_f\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/lemon/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,11 +33,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -64,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
