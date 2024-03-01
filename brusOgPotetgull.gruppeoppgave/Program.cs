@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using brusOgPotetgull.airportLiberary.AircraftTypes;
+using brusOgPotetgull.airportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary.Simulation;
@@ -83,10 +84,16 @@ namespace BrusOgPotetgull.Gruppeoppgave
             superPlane.PrintFullAircraftHistory();     // A130
             sickPlane.PrintFullAircraftHistory();      // C355
             SR71.PrintFullAircraftHistory();           // S137 */
-
-            gate2.AddAircraftAllowedAtGate(AircraftType.Cargo);
-            gate2.AddAircraftAllowedAtGate(AircraftType.Military);
-            gate3.AddAircraftAllowedAtGate(AircraftType.Undefined);
+            try
+            {
+                gate2.AddAircraftAllowedAtGate(AircraftType.Cargo);
+                gate2.AddAircraftAllowedAtGate(AircraftType.Military);
+                gate3.AddAircraftAllowedAtGate(AircraftType.Undefined);
+            }
+            catch (DuplicateOfContentException e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+            }
 
             //gate2.MakeAllAircraftTypesAllowedForThisGate();
             gate2.PrintGateInformation();
