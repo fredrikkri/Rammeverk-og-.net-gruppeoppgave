@@ -62,7 +62,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                     {
                         //utfør landing
                         Flight.Arriving nextFlight = (Flight.Arriving) currentRunway.CheckNextFlightInQueue(); //  -------------------------------------------------------------------- step 2 arrving
-                        currentRunway.NextFlightEntersRunway(nextFlight);
+                        currentRunway.NextFlightEntersRunway();
                         currentRunway.UseRunway(nextFlight, start);
                         currentRunway.ExitRunway(nextFlight, start);
 
