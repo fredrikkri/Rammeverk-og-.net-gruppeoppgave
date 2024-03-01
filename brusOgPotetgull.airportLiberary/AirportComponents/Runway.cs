@@ -1,4 +1,5 @@
 ﻿using System;
+using brusOgPotetgull.airportLiberary.EventHandler;
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
@@ -11,6 +12,10 @@ namespace BrusOgPotetgull.AirportLiberary
         private bool inUse;
         private Queue<Flight> runwayQueue = new Queue<Flight>();
         private string? airportLocation;
+
+        // events
+        public event EventHandler<ArrivingEventArgs> FlightArrived;
+        public event EventHandler<DepartingEventArgs> FlightDeparted;
 
         /// <summary>
         /// creates a runway.
@@ -52,7 +57,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// returns the id and the code (nickname) for the airport that this runway is located at.
         /// </summary>
         /// <returns>String containing id and airportcode.</returns>
-        private string GetIdRunwayAndAirportCode()
+        public string GetIdRunwayAndAirportCode()
         {
             string returnString = (string)(airportLocation +", "+ "Runway-id: " + Id);
             return returnString;
@@ -119,7 +124,18 @@ namespace BrusOgPotetgull.AirportLiberary
         public void UseRunway(Flight flight, DateTime time)
         {
             inUse = true;
-            flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Enter the runway");
+            //flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Enter the runway");
+            if (flight.IsArrivingFlight == true) 
+            {
+                RaiseFlightArrived((Flight.Arriving)flight, $"{flight.ActiveAircraft.ModelName} has landed");
+            }
+                    
+        }
+
+        // Triggers
+        protected virtual void RaiseFlightArrived(Flight.Arriving flight, string message)
+        {
+            FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, message));
         }
 
         /// <summary>
@@ -131,6 +147,13 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             inUse = false;
             flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Leaves Runway");
+            // OnFlightDeparted($"{e.ActiveAircraft} has departed");
+        }
+
+
+        protected virtual void OnFlightDeparted(Flight.Departing flight, string message)
+        {
+            FlightDeparted?.Invoke(this, new DepartingEventArgs(flight, message));
         }
     }
 }

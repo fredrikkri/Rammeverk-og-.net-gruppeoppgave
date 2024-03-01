@@ -16,7 +16,6 @@
   </ItemGroup>
   <ItemGroup>
 	<Folder Include="AircraftTypes\" />
-    <Folder Include="AirportComponents\" />
     <Folder Include="Simulation\" />
   </ItemGroup>
 </Project>

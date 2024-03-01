@@ -10,9 +10,6 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
     /// </summary>
 	public class Simulation
 	{
-        // events
-        public event EventHandler <AirportEventArgs> FlightArrived;
-        public event EventHandler <AirportEventArgs> FlightDeparted;
         
         /// <summary>
         /// Creates an simulation of the choosen airport.
@@ -30,17 +27,6 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
         public Airport Airport { get; private set; }
         public DateTime StartTime { get; private set; }
         public DateTime EndTime { get; private set; }
-
-        // Triggers
-        protected virtual void OnFlightArrived(string message)
-        {
-            FlightArrived?.Invoke(this, new AirportEventArgs(message));
-        }
-
-        protected virtual void OnFlightDeparted(string message) 
-        {
-            FlightDeparted?.Invoke(this, new AirportEventArgs(message));
-        }
 
         /// <summary>
         /// This method is starting the simulation.
@@ -80,7 +66,6 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         Flight.Arriving nextFlight = (Flight.Arriving) currentRunway.CheckNextFlightInQueue(); //  -------------------------------------------------------------------- step 2 arrving
                         currentRunway.NextFlightEntersRunway(nextFlight);
                         currentRunway.UseRunway(nextFlight, start);
-                        OnFlightArrived($"{nextFlight.ActiveAircraft.ModelName} has landed");
                         currentRunway.ExitRunway(nextFlight, start);
 
                         // simulerer tid og legge fly i taxiway kø
@@ -146,7 +131,6 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                             {
                                 currentFlight.DepartureTaxiway.NextFlightLeavesTaxiway(currentFlight, start); // ------------------------------------------ Departuring step 2
                                 currentFlight.DepartureRunway.UseRunway(currentFlight, start);
-                                OnFlightDeparted($"{currentFlight.ActiveAircraft} has departed");
                                 currentFlight.DepartureRunway.SimulateRunwayTime(currentFlight, 0, currentFlight.ActiveAircraft.AccelerationInAirKPH, currentFlight.ActiveAircraft.MaxSpeedInAirKPH);
                                 currentFlight.DepartureRunway.ExitRunway(currentFlight, start); // kunne tatt start + addsecounds for å få til bedre logging, men må ha med tid fra taxiway da
                             }
