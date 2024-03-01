@@ -39,8 +39,20 @@ namespace BrusOgPotetgull.Gruppeoppgave
             ryggeFlyplass.AddGateToList(gate4);
 
             // Making sure that all aircrafts are allowed for all gates.
-            ryggeFlyplass.MakeAllGatesAllowAllAircraftTypes();
-            gardemoenFlyplass.MakeAllGatesAllowAllAircraftTypes();
+            //ryggeFlyplass.MakeAllGatesAllowAllAircraftTypes();
+            //gardemoenFlyplass.MakeAllGatesAllowAllAircraftTypes();
+
+            // Make gates allow aircraft types
+            try
+            {
+                gate1.AddAircraftAllowedAtGate(AircraftType.Cargo);
+                gate2.AddAircraftAllowedAtGate(AircraftType.Light);
+                gate2.AddAircraftAllowedAtGate(AircraftType.Military);
+            }
+            catch (DuplicateOfContentException e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+            }
 
             // Creating taxiways.
             Taxiway shortTaxiway = new (300, 35);
@@ -69,7 +81,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             // Creating a daily arriving flight
             gardemoenFlyplass.AddDailyArrivingFlight(2, SR71, new DateTime(2024, 3, 1, 00, 17, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);
 
-
             // Creating the simulation
             DateTime start = new (2024, 3, 1);
             DateTime end = new (2024, 3, 1, 4, 00, 00);
@@ -89,16 +100,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             superPlane.PrintFullAircraftHistory();     // A130
             sickPlane.PrintFullAircraftHistory();      // C355
             SR71.PrintFullAircraftHistory();           // S137 */
-            try
-            {
-                gate2.AddAircraftAllowedAtGate(AircraftType.Cargo);
-                gate2.AddAircraftAllowedAtGate(AircraftType.Military);
-                gate3.AddAircraftAllowedAtGate(AircraftType.Undefined);
-            }
-            catch (DuplicateOfContentException e)
-            {
-                Console.WriteLine($"Error: {e.Message}");
-            }
+            
 
             //gate2.MakeAllAircraftTypesAllowedForThisGate();
             gate2.PrintGateInformation();
