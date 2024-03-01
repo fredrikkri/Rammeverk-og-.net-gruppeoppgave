@@ -1,5 +1,5 @@
 ﻿using System;
-using brusOgPotetgull.airportLiberary;
+using brusOgPotetgull.airportLiberary.EventHandler;
 using brusOgPotetgull.airportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
 
@@ -13,7 +13,6 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
         // events
         public event EventHandler <AirportEventArgs> FlightArrived;
         public event EventHandler <AirportEventArgs> FlightDeparted;
-        public event EventHandler <> nyEvent;
         
         /// <summary>
         /// Creates an simulation of the choosen airport.
@@ -54,7 +53,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
 
             while (start <= end)
             {
-                //Console.Write($"\n\t\t\t\t\t\tSimulation time: {start}\n");
+                Console.Write($"\n\t\t\t\t\t\tSimulation time: {start}\n");
 
                 // Hvis det finnnes innkommende flygninger
                 if (Airport.GetArrivingFlights().Count > 0)
@@ -147,6 +146,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                             {
                                 currentFlight.DepartureTaxiway.NextFlightLeavesTaxiway(currentFlight, start); // ------------------------------------------ Departuring step 2
                                 currentFlight.DepartureRunway.UseRunway(currentFlight, start);
+                                OnFlightDeparted($"{currentFlight.ActiveAircraft} has departed");
                                 currentFlight.DepartureRunway.SimulateRunwayTime(currentFlight, 0, currentFlight.ActiveAircraft.AccelerationInAirKPH, currentFlight.ActiveAircraft.MaxSpeedInAirKPH);
                                 currentFlight.DepartureRunway.ExitRunway(currentFlight, start); // kunne tatt start + addsecounds for å få til bedre logging, men må ha med tid fra taxiway da
                             }
