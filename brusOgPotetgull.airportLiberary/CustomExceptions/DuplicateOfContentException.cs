@@ -17,7 +17,7 @@ namespace brusOgPotetgull.airportLiberary.CustomExceptions
         /// <summary>
         /// Creates an DuplicateOfCotentException with a specified error message.
         /// </summary>
-        /// <param name="message"This error message is explaining the reason for the exception.></param>
+        /// <param name="message">This error message is explaining the reason for the exception.</param>
         public DuplicateOfContentException(string message)
             : base(message)
         {
