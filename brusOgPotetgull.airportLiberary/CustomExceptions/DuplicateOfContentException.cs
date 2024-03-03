@@ -7,7 +7,7 @@ namespace brusOgPotetgull.airportLiberary.CustomExceptions
 	public class DuplicateOfContentException : Exception
 	{
         /// <summary>
-        /// Creates an DuplicateOfCotentException
+        /// Creates an DuplicateOfCotentException.
         /// </summary>
 		public DuplicateOfContentException()
 			: base()
