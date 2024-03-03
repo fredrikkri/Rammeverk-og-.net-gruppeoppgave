@@ -12,4 +12,3 @@ namespace brusOgPotetgull.airportLiberary.AircraftTypes
 		Military = 6
 	}
 }
-

@@ -26,6 +26,11 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             // Creating airports.
             Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
+
+
+
+
+
             Airport gardemoenFlyplass = new Airport("OSL", "Gardemoen Flyplass", "Oslo");
 
             // Creating gates.
@@ -80,7 +85,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Flight.Arriving flight4 = new (SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, gardemoenFlyplass, gate2, longTaxiway, mediumRunway1);
             
             // Creating a daily arriving flight
-            gardemoenFlyplass.AddDailyArrivingFlight(2, SR71, new DateTime(2024, 3, 1, 00, 17, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);
+            gardemoenFlyplass.AddDailyArrivingFlight(2, SR71, new DateTime(2024, 3, 1, 00, 17, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);            
 
             // Creating the simulation
             DateTime start = new (2024, 3, 1);
