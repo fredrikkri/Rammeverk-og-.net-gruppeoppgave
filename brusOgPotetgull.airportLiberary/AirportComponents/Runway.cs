@@ -16,8 +16,8 @@ namespace BrusOgPotetgull.AirportLiberary
         private string? airportLocation;
 
         // events
-        public event EventHandler<ArrivingEventArgs> FlightArrived;
-        public event EventHandler<DepartingEventArgs> FlightDeparted;
+        public event EventHandler<ArrivingEventArgs>? FlightArrived;
+        public event EventHandler<DepartingEventArgs>? FlightDeparted;
 
         /// <summary>
         /// creates a runway.
