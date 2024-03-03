@@ -5,7 +5,7 @@ using System.Reflection;
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
-    /// The Flight class is defined with the aircraft that is used in the flight, together with all the components on the airports its using. Eksamples is: taxiways, gates and runways.
+    /// The Flight-class is defined with the aircraft that is used in the flight, together with all the components on the airports its using. Eksamples is: taxiways, gates and runways.
     /// </summary>
     public abstract class Flight
     {
@@ -26,7 +26,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// A departing flight.
+        /// The Departuring-class represents a departing flight. The class inherits from the Flight-class.
         /// </summary>
         public class Departing : Flight
         {
@@ -74,7 +74,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// An Arriving Flight
+        /// The Arriving-class represents an arriving flight. The class inherits from the Flight-class.
         /// </summary>
         public class Arriving : Flight
         {
@@ -124,10 +124,10 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// simulates the movement for an flight object for landing and takeoff.
         /// </summary>
-        /// <param name="length">Traveldistance.</param>
-        /// <param name="initialSpeed">The speed at which the aircraft starts with in kph.</param>
-        /// <param name="speedChange">The change in speed (kph).</param>
-        /// <param name="maxSpeed">Maximum speed for this calculation. (kph)</param>
+        /// <param name="length">Traveldistance in KM.</param>
+        /// <param name="initialSpeed">The speed at which the aircraft starts with (Kp/h).</param>
+        /// <param name="speedChange">The change in speed (Kp/h).</param>
+        /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
         /// <returns>The time it takes to do the simulation.</returns>
         public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
         {

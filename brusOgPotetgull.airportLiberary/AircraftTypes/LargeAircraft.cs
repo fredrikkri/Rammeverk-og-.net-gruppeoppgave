@@ -15,20 +15,20 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         /// Creates an large aircraft.
         /// </summary>
         /// <param name="modelName">What the model of the aircraft is called.</param>
-        /// <param name="maxSpeedInAirKPH">Maximum in-air speed (Kp/h).</param>
-        /// <param name="accelerationInAirKPH">The accleration in-air (Kp/h).</param>
-        /// <param name="maxSpeedOnGroundKPH">Maximum on-ground speed (Kp/h).</param>
-        /// <param name="accelerationOnGroundKPH">acceleration on ground (Kp/h).</param>
+        /// <param name="maxSpeedInAir">Maximum in-air speed (Kp/h).</param>
+        /// <param name="accelerationInAir">The accleration in-air (Kp/h).</param>
+        /// <param name="maxSpeedOnGround">Maximum on-ground speed (Kp/h).</param>
+        /// <param name="accelerationOnGround">acceleration on ground (Kp/h).</param>
         public LargeAircraft(string modelName,
-            int maxSpeedInAirKPH,
-            int accelerationInAirKPH,
-            int maxSpeedOnGroundKPH,
-            int accelerationOnGroundKPH) :
+            int maxSpeedInAir,
+            int accelerationInAir,
+            int maxSpeedOnGround,
+            int accelerationOnGround) :
             base(modelName,
-                maxSpeedInAirKPH,
-                accelerationInAirKPH,
-                maxSpeedOnGroundKPH,
-                accelerationOnGroundKPH)
+                maxSpeedInAir,
+                accelerationInAir,
+                maxSpeedOnGround,
+                accelerationOnGround)
         {
             this.AircraftTypeId = aircraftTypeId;
         }
@@ -46,8 +46,8 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
                 $"Type: Large aircraft\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
-                $"Max speed: {MaxSpeedInAirKPH}\n" +
-                $"Acceleration: {AccelerationInAirKPH}\n");
+                $"Max speed: {MaxSpeedInAir}\n" +
+                $"Acceleration: {AccelerationInAir}\n");
         }
     }
 }

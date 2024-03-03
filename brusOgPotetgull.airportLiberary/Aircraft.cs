@@ -5,7 +5,7 @@ using brusOgPotetgull.airportLiberary.CustomExceptions;
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
-    /// Aircraft class is a blueprint for how an aircraft would look like. 
+    /// The Aircraft-class is a blueprint for how an aircraft would look like. 
     /// </summary>
 	public class Aircraft
     {
@@ -21,15 +21,15 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Creates an aircraft.
         /// </summary>
         /// <param name="modelName">What the model of the aircraft is called.</param>
-        /// <param name="maxSpeedInAirKPH">Maximum in-air speed (Kp/h).</param>
-        /// <param name="accelerationInAirKPH">The accleration in-air (Kp/h).</param>
-        /// <param name="maxSpeedOnGroundKPH">Maximum on-ground speed (Kp/h).</param>
-        /// <param name="accelerationOnGroundKPH">acceleration on ground (Kp/h).</param>
+        /// <param name="maxSpeedInAir">Maximum in-air speed (Kp/h).</param>
+        /// <param name="accelerationInAir">The accleration in-air (Kp/h).</param>
+        /// <param name="maxSpeedOnGround">Maximum on-ground speed (Kp/h).</param>
+        /// <param name="accelerationOnGround">acceleration on ground (Kp/h).</param>
         public Aircraft(string modelName,
-            int maxSpeedInAirKPH,
-            int accelerationInAirKPH,
-            int maxSpeedOnGroundKPH,
-            int accelerationOnGroundKPH)
+            int maxSpeedInAir,
+            int accelerationInAir,
+            int maxSpeedOnGround,
+            int accelerationOnGround)
 		{
             // (dosnetCore, 2020) 
             tailNumber = idCounter ++;
@@ -38,20 +38,20 @@ namespace BrusOgPotetgull.AirportLiberary
             this.OutOfService = outOfService;
             this.ModelName = modelName;
             history = new List<KeyValuePair<DateTime, string>>();
-            this.MaxSpeedInAirKPH = maxSpeedInAirKPH;
-            this.AccelerationInAirKPH = accelerationInAirKPH;
-            this.MaxSpeedOnGroundKPH = maxSpeedOnGroundKPH;
-            this.AccelerationOnGroundKPH = accelerationOnGroundKPH;
+            this.MaxSpeedInAir = maxSpeedInAir;
+            this.AccelerationInAir = accelerationInAir;
+            this.MaxSpeedOnGround = maxSpeedOnGround;
+            this.AccelerationOnGround = accelerationOnGround;
         }
 
         public int TailNumber { get; private set; }
         public int AircraftTypeId { get; private set; }
         public bool OutOfService { get; private set; }
         public string ModelName { get; private set; }
-        public int MaxSpeedInAirKPH { get; private set; }
-        public int AccelerationInAirKPH { get; private set; }
-        public int MaxSpeedOnGroundKPH { get; private set; }
-        public int AccelerationOnGroundKPH { get; private set; }
+        public int MaxSpeedInAir { get; private set; }
+        public int AccelerationInAir { get; private set; }
+        public int MaxSpeedOnGround { get; private set; }
+        public int AccelerationOnGround { get; private set; }
 
         /// <summary>
         /// Prints the information about the Aircraft.
@@ -62,8 +62,8 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Model: {ModelName}\n" +
                 $"Type(id): {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
-                $"Max speed: {MaxSpeedInAirKPH}\n" +
-                $"Acceleration: {AccelerationInAirKPH}\n");
+                $"Max speed: {MaxSpeedInAir}\n" +
+                $"Acceleration: {AccelerationInAir}\n");
         }
 
         // TODO: Undersøke hvordan vi kan hente ulike TimeStamp fremfor DateTime, slik at: for hver gang et aircraft endrer lokasjon, registreres det TimeStamp -> og tilhørende location + message
