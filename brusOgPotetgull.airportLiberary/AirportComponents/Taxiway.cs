@@ -53,7 +53,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// eksample: "Gate 1 GAR"
         /// </summary>
         /// <returns>String that contain id and airportcode.</returns>
-        private string GetIdTaxiwayAndAirportCode()
+        private string GetAirportNameAndTaxiwayId()
         {
             string returnString = (string)(airportLocation +", "+ "Taxiway-id: " + Id);
             return returnString;
@@ -68,7 +68,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(flight);
-            flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdTaxiwayAndAirportCode(), ", Arrived at taxiwayqueue");
+            flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Arrived at taxiwayqueue");
         }
 
         /// <summary>
@@ -93,23 +93,22 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 Flight nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdTaxiwayAndAirportCode(), ", Leaves taxiwayqueue");
+                flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Leaves taxiwayqueue");
             }
         }
 
         /// <summary>
         /// Simulates an aircraft using the taxiway
-        /// The parameters: initialSpeed, speedChange, maxSpeed is passed on to the CalculateFlightMovement() method.
         /// </summary>
         /// <param name="flight">The flight thats is using the taxiway.</param>
-        /// <param name="initialSpeed"></param>
-        /// <param name="speedChange"></param>
-        /// <param name="maxSpeed"></param>
+        /// <param name="initialSpeed">The speed at which the aircraft starts with (Kp/h).</param>
+        /// <param name="speedChange">The change in speed (Kp/h).</param>
+        /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
         /// <param name="time">Used to log the history of the plane.</param>
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
         public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
         {
-            flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdTaxiwayAndAirportCode(), ", Enter taxiway");
+            flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Enter taxiway");
             
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }

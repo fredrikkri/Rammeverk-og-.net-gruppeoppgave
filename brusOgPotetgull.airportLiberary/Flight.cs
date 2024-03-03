@@ -125,9 +125,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// simulates the movement for an flight object for landing and takeoff.
         /// </summary>
         /// <param name="length">Traveldistance in KM.</param>
-        /// <param name="initialSpeed">The speed at which the aircraft starts with (KPH).</param>
-        /// <param name="speedChange">The change in speed (KPH).</param>
-        /// <param name="maxSpeed">Maximum speed for this calculation. (KPH)</param>
+        /// <param name="initialSpeed">The speed at which the aircraft starts with (Kp/h).</param>
+        /// <param name="speedChange">The change in speed (Kp/h).</param>
+        /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
         /// <returns>The time it takes to do the simulation.</returns>
         public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
         {
