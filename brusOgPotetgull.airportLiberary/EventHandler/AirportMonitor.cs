@@ -12,13 +12,13 @@ public class AirportMonitor
     }
     public void RaiseFlightArrived(object sender, ArrivingEventArgs e)
     {
-        e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.ArrivalRunway.GetIdRunwayAndAirportCode(), " Enters the runway");
+        e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.ArrivalRunway.GetAirportNameAndRunwayId(), " Enters the runway");
         Console.WriteLine("Arrival: " + e.Message);
     }
 
     public void RaiseFlightDeparted(object sender, DepartingEventArgs e)
     {
-        e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetIdRunwayAndAirportCode(), " Leaves the runway");
+        e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetAirportNameAndRunwayId(), " Leaves the runway");
         Console.WriteLine("Departure: " + e.Message);
     }
-}
+} 
