@@ -1,6 +1,5 @@
 ﻿using System;
 using brusOgPotetgull.airportLiberary.CustomExceptions;
-using brusOgPotetgull.airportLiberary.EventHandler;
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
@@ -14,14 +13,10 @@ namespace BrusOgPotetgull.AirportLiberary
         private Queue<Flight> runwayQueue = new Queue<Flight>();
         private string? airportLocation;
 
-        // events
-        public event EventHandler <ArrivingEventArgs> FlightArrived;
-        public event EventHandler <DepartingEventArgs> FlightDeparted;
-
         /// <summary>
         /// creates a runway.
         /// </summary>
-        /// <param name="length">The length of the runway.</param>
+        /// <param name="length">The length of the runway (meters).</param>
         public Runway(int length)
         {
             // (dosnetCore, 2020) 
@@ -58,14 +53,14 @@ namespace BrusOgPotetgull.AirportLiberary
         /// returns the id and the code (nickname) for the airport that this runway is located at.
         /// </summary>
         /// <returns>String containing id and airportcode.</returns>
-        public string GetIdRunwayAndAirportCode()
+        private string GetAirportNameAndRunwayId()
         {
             string returnString = (string)(airportLocation +", "+ "Runway-id: " + Id);
             return returnString;
         }
 
         /// <summary>
-        /// Removed the flight located first in line in the runwayqueue.
+        /// Remove the flight located first in line in the runwayqueue.
         /// </summary>
         /// <returns>Flight object that is removed from the beginning of the queue.</returns>
         public Flight RemoveFromQueue() => runwayQueue.Dequeue();
@@ -111,15 +106,15 @@ namespace BrusOgPotetgull.AirportLiberary
                 Console.WriteLine("RunwayQueue.Count is a negative number.");
             }
         }
-        
+
 
         /// <summary>
         /// Returns the time in seconds that an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph.
         /// </summary>
         /// <param name="flight">The current flight.</param>
-        /// <param name="initialSpeed">Parameter for CalculateFlightMovement().</param>
-        /// <param name="speedChange">Parameter for CalculateFlightMovement().</param>
-        /// <param name="maxSpeed">Parameter for CalculateFlightMovement().</param>
+        /// <param name="initialSpeed">The speed at which the aircraft starts with (Kp/h).</param>
+        /// <param name="speedChange">The change in speed (Kp/h).</param>
+        /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
         public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) => flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
 
@@ -131,20 +126,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void UseRunway(Flight flight, DateTime time)
         {
             inUse = true;
-            if (flight.IsArrivingFlight == true)
-            {
-                RaiseFlightArrived((Flight.Arriving)flight, time, $"{flight.ActiveAircraft.ModelName} has landed");
-            }
-            else 
-            {
-                flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Enters the runway");
-            }
-        }
-
-        // Triggers
-        protected virtual void RaiseFlightArrived(Flight.Arriving flight, DateTime time, string message)
-        {
-            FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, time, message));
+            flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Enter the runway");
         }
 
         /// <summary>
@@ -155,20 +137,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void ExitRunway(Flight flight, DateTime time)
         {
             inUse = false;
-            if (flight.IsArrivingFlight == false) 
-            {
-                RaiseFlightDeparted((Flight.Departing)flight, time, $"{flight.ActiveAircraft.ModelName} has departed");
-            }
-            else
-            {
-                flight.ActiveAircraft.AddHistoryToAircraft(time, GetIdRunwayAndAirportCode(), ", Leaves the runway");
-            }
-        }
-
-
-        protected virtual void RaiseFlightDeparted(Flight.Departing flight, DateTime time, string message)
-        {
-            FlightDeparted?.Invoke(this, new DepartingEventArgs(flight, time, message));
+            flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Leaves Runway");
         }
     }
 }
