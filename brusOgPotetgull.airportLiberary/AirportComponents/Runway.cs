@@ -14,8 +14,6 @@ namespace BrusOgPotetgull.AirportLiberary
         private bool inUse;
         private Queue<Flight> runwayQueue = new Queue<Flight>();
         private string? airportLocation;
-
-        // events
         public event EventHandler<ArrivingEventArgs>? FlightArrived;
         public event EventHandler<DepartingEventArgs>? FlightDeparted;
 
@@ -146,8 +144,6 @@ namespace BrusOgPotetgull.AirportLiberary
         protected virtual void RaiseFlightArrived(Flight.Arriving flight, DateTime time, string message)
         {
             FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, time, message));
-            flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Enter the runway");
-
         }
 
         /// <summary>
@@ -172,7 +168,6 @@ namespace BrusOgPotetgull.AirportLiberary
         protected virtual void RaiseFlightDeparted(Flight.Departing flight, DateTime time, string message)
         {
             FlightDeparted?.Invoke(this, new DepartingEventArgs(flight, time, message));
-            flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Leaves Runway");
         }
     }
 }

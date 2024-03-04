@@ -5,18 +5,18 @@ namespace brusOgPotetgull.airportLiberary.EventHandler;
 
 public class AirportMonitor
 {
-    public void subcribeRunwayEvents(Runway runway)
+    public void SubcribeToRunwayEvents(Runway runway)
     {
-        runway.FlightArrived += RaiseFlightArrived;
-        runway.FlightDeparted += RaiseFlightDeparted;
+        runway.FlightArrived += OnFlightArrived;
+        runway.FlightDeparted += OnFlightDeparted;
     }
-    public void RaiseFlightArrived(object sender, ArrivingEventArgs e)
+    public void OnFlightArrived(object sender, ArrivingEventArgs e)
     {
         e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.ArrivalRunway.GetAirportNameAndRunwayId(), " Enters the runway");
         Console.WriteLine("Arrival: " + e.Message);
     }
 
-    public void RaiseFlightDeparted(object sender, DepartingEventArgs e)
+    public void OnFlightDeparted(object sender, DepartingEventArgs e)
     {
         e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetAirportNameAndRunwayId(), " Leaves the runway");
         Console.WriteLine("Departure: " + e.Message);
