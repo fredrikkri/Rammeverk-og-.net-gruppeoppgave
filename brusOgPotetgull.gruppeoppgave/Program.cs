@@ -1,9 +1,7 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using brusOgPotetgull.airportLiberary.AircraftTypes;
-using brusOgPotetgull.airportLiberary.CustomExceptions;
+﻿using BrusOgPotetgull.AirportLiberary.AircraftTypes;
+using BrusOgPotetgull.AirportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
-using BrusOgPotetgull.AirportLiberary.AircraftTypes;
+using BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 using BrusOgPotetgull.AirportLiberary.Simulation;
 
 namespace BrusOgPotetgull.Gruppeoppgave
@@ -92,13 +90,13 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Simulation newSim = new (gardemoenFlyplass, start, end);
 
             // Events setup
-            static void OnFlightArrived(object sender, ArrivingEventArgs e)
+            static void OnFlightArrived(object? sender, ArrivingEventArgs e)
             {
                 e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.ArrivalRunway.GetAirportNameAndRunwayId(), " Enters the runway");
                 Console.WriteLine("Arrival: " + e.Message);
             }
 
-            static void OnFlightDeparted(object sender, DepartingEventArgs e)
+            static void OnFlightDeparted(object? sender, DepartingEventArgs e)
             {
                 e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetAirportNameAndRunwayId(), " Leaves the runway");
                 Console.WriteLine("Departure: " + e.Message);
