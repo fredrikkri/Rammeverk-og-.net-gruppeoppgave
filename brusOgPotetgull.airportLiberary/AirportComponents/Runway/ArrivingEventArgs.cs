@@ -1,7 +1,5 @@
-using System;
-using BrusOgPotetgull.AirportLiberary;
-using brusOgPotetgull.airportLiberary;
-namespace brusOgPotetgull.airportLiberary.EventHandler;
+
+namespace BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 
 	public class ArrivingEventArgs : EventArgs
 	{

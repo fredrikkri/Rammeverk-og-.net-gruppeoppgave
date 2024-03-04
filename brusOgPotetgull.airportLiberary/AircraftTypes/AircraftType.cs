@@ -1,5 +1,5 @@
 ﻿using System;
-namespace brusOgPotetgull.airportLiberary.AircraftTypes
+namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
 {
     /// <summary>
     /// Specifies all the possible aircraft types.

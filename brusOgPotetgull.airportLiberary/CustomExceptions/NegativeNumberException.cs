@@ -1,5 +1,5 @@
 ﻿using System;
-namespace brusOgPotetgull.airportLiberary.CustomExceptions
+namespace BrusOgPotetgull.AirportLiberary.CustomExceptions
 {
     /// <summary>
     /// Initializes an exception that is used when a negative number appears.

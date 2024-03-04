@@ -1,8 +1,4 @@
-﻿using System;
-using System.Reflection;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace BrusOgPotetgull.AirportLiberary
+﻿namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
     /// This class defines how a airport is defined.
