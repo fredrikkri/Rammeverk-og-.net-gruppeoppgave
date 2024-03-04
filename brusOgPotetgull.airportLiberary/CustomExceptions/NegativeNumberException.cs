@@ -4,7 +4,7 @@ namespace brusOgPotetgull.airportLiberary.CustomExceptions
     /// <summary>
     /// Initializes an exception that is used when a negative number appears.
     /// </summary>
-    public class NegativeNumberException : Exception
+    public class NegativeNumberException : ArgumentOutOfRangeException
     {
         /// <summary>
         /// Creates an NegativeNumberException

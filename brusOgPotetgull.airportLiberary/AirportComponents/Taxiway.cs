@@ -72,13 +72,9 @@ namespace BrusOgPotetgull.AirportLiberary
                 throw new InvalidOperationException($"Flight with id {flight.FlightId} already exists in queue");
 
             }
-            else
-            {
-                // (Nagel, 2022, s. 203)
-                taxiwayQueue.Enqueue(flight);
-                flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Arrived at taxiwayqueue");
-            }
-
+            // (Nagel, 2022, s. 203)
+            taxiwayQueue.Enqueue(flight);
+            flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Arrived at taxiwayqueue");
         }
 
         /// <summary>

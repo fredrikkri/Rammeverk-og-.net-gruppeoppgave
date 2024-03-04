@@ -93,22 +93,16 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void NextFlightEntersRunway()
         {
-            try
+            if (runwayQueue.Count < 0)
             {
-                if (runwayQueue.Count != 0)
-                {
-                    Flight nextFlight = runwayQueue.Dequeue();
-                    runwayQueue.TrimExcess();
-                }
-                else
-                {
-                    Console.Write($"No flights in runway - {id} queue");
-                }
+                throw new NegativeNumberException("Number of values in runwayQueue is a negative number.");
             }
-            catch (NegativeNumberException)
+            if (runwayQueue.Count == 0)
             {
-                Console.WriteLine("RunwayQueue.Count is a negative number.");
+                throw new InvalidOperationException($"No flights in runway - {id} queue");
             }
+            Flight nextFlight = runwayQueue.Dequeue();
+            runwayQueue.TrimExcess();
         }
 
 
