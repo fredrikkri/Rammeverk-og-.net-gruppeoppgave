@@ -94,8 +94,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             // Events setup
             AirportMonitor airportMonitor = new();
-            airportMonitor.subcribeRunwayEvents(longRunway1);
-            airportMonitor.subcribeRunwayEvents(mediumRunway1);
+            airportMonitor.SubcribeToRunwayEvents(longRunway1);
+            airportMonitor.SubcribeToRunwayEvents(mediumRunway1);
 
             newSim.RunSimulation();
 
