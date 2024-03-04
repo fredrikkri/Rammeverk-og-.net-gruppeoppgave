@@ -81,14 +81,11 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftType">An Enum that represents the id of an aircraftType that you want to enable accsess for the gate.</param>
         public void AddAircraftAllowedAtGate(AircraftType aircraftType)
         {
-            if (!legalAircraftTypesId.Contains((int)aircraftType))
-            {
-                legalAircraftTypesId.Add((int)aircraftType);
-            }
-            else
+            if (legalAircraftTypesId.Contains((int)aircraftType))
             {
                 throw new DuplicateOfContentException($"{aircraftType} already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
             }
+            legalAircraftTypesId.Add((int)aircraftType);
         }
 
         /// <summary>
@@ -99,15 +96,11 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             foreach (int typeId in aircraftTypeIds)
             {
-
-                if (!legalAircraftTypesId.Contains(typeId))
-                {
-                    legalAircraftTypesId.Add(typeId);
-                }
-                else
+                if (legalAircraftTypesId.Contains(typeId))
                 {
                     throw new DuplicateOfContentException($"Aircraft with id '{typeId}' already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
                 }
+                legalAircraftTypesId.Add(typeId);
             }
         }
 
@@ -133,14 +126,11 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftTypeId">The id of an type of aircraft that you want to deny accsess to the gate.</param>
         public void RemoveAircraftAllowedAtGate(AircraftType aircraftTypeId)
         {
-            if (legalAircraftTypesId.Contains((int)aircraftTypeId))
-            {
-                legalAircraftTypesId.Remove((int)aircraftTypeId);
-            }
-            else
+            if (!legalAircraftTypesId.Contains((int)aircraftTypeId))
             {
                 throw new InvalidOperationException($"Aircraft with type {aircraftTypeId} cannot be removed from the list of legal aircrafts for gate with id: '{Id}', because it does not exist in the list.");
             }
+            legalAircraftTypesId.Remove((int)aircraftTypeId);
         }
 
         /// <summary>

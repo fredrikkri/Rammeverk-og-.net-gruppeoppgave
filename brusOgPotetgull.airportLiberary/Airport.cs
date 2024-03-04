@@ -211,15 +211,11 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="flight">The arriving flight that is removed from the list.</param>
         public void RemoveArrivingFlight(Flight.Arriving flight)
         {   
-            if (arrivingFlights.Count > 0)
+            if (arrivingFlights.Count == 0)
             {
-                arrivingFlights.Remove(flight);
+                throw new InvalidOperationException("No arriving flights in list");
             }
-            
-            else
-            {
-                Console.Write("No arriving flights in list");
-            }
+            arrivingFlights.Remove(flight);
         }
 
         /// <summary>
@@ -243,15 +239,12 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="flight">The departuring flight that is removed from the list.</param>
         public void RemoveDepartingFlight(Flight.Departing flight)
         {
-            if (departingFlights.Count > 0)
+            if (departingFlights.Count == 0)
             {
-                departingFlights.Remove(flight);
+                throw new InvalidOperationException("No departing flights in list");
+                
             }
-
-            else
-            {
-                Console.Write("No departing flights in list");
-            }
+            departingFlights.Remove(flight);
         }
 
         /// <summary>
