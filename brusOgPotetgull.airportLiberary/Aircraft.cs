@@ -104,15 +104,12 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         private void SetAircraftOutOfService()
         {
-            if (OutOfService == false)
-            {
-                OutOfService = true;
-            } 
-            
-            else
+            if (OutOfService == true)
             {
                 throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'true'.");
+               
             }
+            OutOfService = true;
         }
 
         /// <summary>

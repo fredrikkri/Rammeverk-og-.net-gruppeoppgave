@@ -117,7 +117,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void PrintListOfDeparturingFlights()
         {
 
-            if (departingFlights.Count == 0)
+            if (!departingFlights.Any())
             {
                 throw new InvalidOperationException($"List of departuring flights is empty for airport: '{Name}'");
             }
@@ -137,18 +137,13 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="runway">The runway that is gonna be added to the list of runways for this airport.</param>
         public void AddRunwayToList(Runway runway)
         {
-            runway.UpdateGateLocation(Name);
-            if (!listRunway.Contains(runway))
-            {
-                listRunway.Add(runway);
-                
-            }
-            else
+            if (listRunway.Contains(runway))
             {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{runway.Id}' allready exists in airport: '{Name}'");
             }
-            
+            runway.UpdateGateLocation(Name);
+            listRunway.Add(runway);
         }
 
         /// <summary>
@@ -157,17 +152,13 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="taxiway">The taxiway that is added to the list of taxiways for this airport.</param>
         public void AddTaxiwayToList(Taxiway taxiway)
         {
-            taxiway.UpdateGateLocation(Name);
-            if (!listTaxiway.Contains(taxiway))
-            {
-                listTaxiway.Add(taxiway);
-            }
-            
-            else
+            if (listTaxiway.Contains(taxiway))
             {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{taxiway.Id}' allready exists in airport: '{Name}'");
             }
+            taxiway.UpdateGateLocation(Name);
+            listTaxiway.Add(taxiway);
         }
 
         /// <summary>
@@ -176,16 +167,13 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="gate">The gate that is added to the list of gates for this airport.</param>
         public void AddGateToList(Gate gate)
         {
-            gate.UpdateGateLocation(Name);
-            if (!listGate.Contains(gate))
-            {
-                listGate.Add(gate);
-            }
-            else 
+            if (listGate.Contains(gate))
             {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{gate.Id}' allready exists in airport: '{Name}'");
             }
+            gate.UpdateGateLocation(Name);
+            listGate.Add(gate);
         }
 
         /// <summary>
