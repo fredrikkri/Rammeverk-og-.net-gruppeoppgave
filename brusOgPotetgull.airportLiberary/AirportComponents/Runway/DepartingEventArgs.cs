@@ -1,5 +1,4 @@
-﻿
-namespace BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
+﻿namespace BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 
 public class DepartingEventArgs : EventArgs
 {

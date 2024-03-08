@@ -1,4 +1,3 @@
-
 namespace BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 
 	public class ArrivingEventArgs : EventArgs

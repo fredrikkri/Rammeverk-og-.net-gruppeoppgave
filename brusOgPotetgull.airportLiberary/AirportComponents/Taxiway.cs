@@ -1,5 +1,4 @@
-﻿
-namespace BrusOgPotetgull.AirportLiberary
+﻿namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
     /// The taxiway class is defining how a taxiway is designed.
