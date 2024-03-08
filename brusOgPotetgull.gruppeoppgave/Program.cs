@@ -11,8 +11,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
     {
         static void Main(string[] args)
         {
-            
-            
+            // Creating aircrafts with category 
+            Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
+            Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
+            Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
+            Aircraft SR71 = new MilitaryAircraft("S137", 700, 45, 30, 3);
+
             // creating the airport
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
@@ -22,35 +26,40 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Terminal terminal4 = new Terminal("terminal4");
             Terminal terminal5 = new Terminal("terminal5");
 
-            // creating runways
-            Runway runway27R_09L = new Runway("27R/09L", 200);
-            Runway runway27L_09R = new Runway("27L/09R", 200);
+            // creating runways and adding them to airport
+            heathrow.AddRunwayToList(new Runway("27R/09L", 200));
+            heathrow.AddRunwayToList(new Runway("27L/09R", 200));
 
-            // creatting taxiways
-            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
-            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20);
-            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
+            // creatting taxiways and adding them to airport
+            heathrow.AddTaxiwayToList(new Taxiway("Alpha (A)", 500, 20));
+            heathrow.AddTaxiwayToList(new Taxiway("Bravo (B)", 400, 20));
+            heathrow.AddTaxiwayToList(new Taxiway("Charlie (C)", 650, 20));
 
-            // creating gates
-            Gate gate21 = new Gate("Gate 21");
-            Gate gate22 = new Gate("Gate 22");
-            Gate gate23 = new Gate("Gate 23");
-            Gate gate24 = new Gate("Gate 24");
+            // creating gates and adding them to terminals
+            terminal2.AddGatesToList(new Gate("Gate 21"));
+            terminal2.AddGatesToList(new Gate("Gate 22"));
+            terminal2.AddGatesToList(new Gate("Gate 23"));
+            terminal2.AddGatesToList(new Gate("Gate 24"));
 
-            Gate gate31 = new Gate("Gate 31");
-            Gate gate32 = new Gate("Gate 32");
-            Gate gate33 = new Gate("Gate 33");
-            Gate gate34 = new Gate("Gate 34");
+            terminal3.AddGatesToList(new Gate("Gate 31"));
+            terminal3.AddGatesToList(new Gate("Gate 32"));
+            terminal3.AddGatesToList(new Gate("Gate 33"));
+            terminal3.AddGatesToList(new Gate("Gate 34"));
 
-            Gate gate41 = new Gate("Gate 41");
-            Gate gate42 = new Gate("Gate 42");
-            Gate gate43 = new Gate("Gate 43");
-            Gate gate44 = new Gate("Gate 44");
+            terminal4.AddGatesToList(new Gate("Gate 41"));
+            terminal4.AddGatesToList(new Gate("Gate 42"));
+            terminal4.AddGatesToList(new Gate("Gate 43"));
+            terminal4.AddGatesToList(new Gate("Gate 44"));
 
-            Gate gate51 = new Gate("Gate 51");
-            Gate gate52 = new Gate("Gate 52");
-            Gate gate53 = new Gate("Gate 53");
-            Gate gate54 = new Gate("Gate 54");
+            terminal5.AddGatesToList(new Gate("Gate 51"));
+            terminal5.AddGatesToList(new Gate("Gate 52"));
+            terminal5.AddGatesToList(new Gate("Gate 53"));
+            terminal5.AddGatesToList(new Gate("Gate 54"));
+
+            // simulation
+            DateTime start = new(2024, 3, 1);
+            DateTime end = new(2024, 3, 1, 4, 00, 00);
+            Simulation heathrowSimulation = new(heathrow, start, end);
 
             /*
             
@@ -172,7 +181,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             gardemoenFlyplass.PrintAirportInformation();
             */
-            
+
             System.Console.ReadLine();
         }
     }
