@@ -12,6 +12,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
         static void Main(string[] args)
         {
             
+            
             // creating the airport
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
@@ -50,8 +51,9 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Gate gate52 = new Gate("Gate 52");
             Gate gate53 = new Gate("Gate 53");
             Gate gate54 = new Gate("Gate 54");
-            
+
             /*
+            
             // Creating aircrafts with category 
             Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
             Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
