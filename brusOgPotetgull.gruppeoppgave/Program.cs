@@ -11,14 +11,15 @@ namespace BrusOgPotetgull.Gruppeoppgave
     {
         static void Main(string[] args)
         {
+            
             // creating the airport
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
             // creating terminals
-            Terminal terminal2 = new Terminal("terminal 2");
-            Terminal terminal3 = new Terminal("terminal 3");
-            Terminal terminal4 = new Terminal("terminal 4");
-            Terminal terminal5 = new Terminal("terminal 5");
+            Terminal terminal2 = new Terminal();
+            Terminal terminal3 = new Terminal();
+            Terminal terminal4 = new Terminal();
+            Terminal terminal5 = new Terminal();
 
             // creating runways
             Runway runway27R_09L = new Runway(200);
@@ -29,6 +30,26 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Taxiway bravo = new Taxiway(400, 20);
             Taxiway charlie = new Taxiway(650, 20);
 
+            // creating gates
+            Gate gate21 = new Gate();
+            Gate gate22 = new Gate();
+            Gate gate23 = new Gate();
+            Gate gate24 = new Gate();
+
+            Gate gate31 = new Gate();
+            Gate gate32 = new Gate();
+            Gate gate33 = new Gate();
+            Gate gate34 = new Gate();
+
+            Gate gate41 = new Gate();
+            Gate gate42 = new Gate();
+            Gate gate43 = new Gate();
+            Gate gate44 = new Gate();
+
+            Gate gate51 = new Gate();
+            Gate gate52 = new Gate();
+            Gate gate53 = new Gate();
+            Gate gate54 = new Gate();
 
             /*
             // Creating aircrafts with category 
@@ -148,8 +169,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
             gardemoenFlyplass.PrintListOfDeparturingFlights();
 
             gardemoenFlyplass.PrintAirportInformation();
+            
             */
-
             System.Console.ReadLine();
         }
     }
