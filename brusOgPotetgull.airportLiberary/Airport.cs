@@ -1,4 +1,6 @@
-﻿namespace BrusOgPotetgull.AirportLiberary
+﻿using System.Linq;
+
+namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
     /// This class defines how a airport is defined.
@@ -7,9 +9,10 @@
     {
         private static int idCounter = 1;
         private int airportId;
-        private List<Runway> listRunway;
-        private List<Taxiway> listTaxiway;
+        private List<Terminal> listTerminal;
         private List<Gate> listGate;
+        private List<Taxiway> listTaxiway;
+        private List<Runway> listRunway;
         private List<Flight> arrivingFlights;
         private List<Flight> departingFlights;
         
@@ -28,9 +31,10 @@
             this.AirportCode = airportCode;
             this.Name = name;
             this.Location = location;
-            listRunway = new List<Runway>();
-            listTaxiway = new List<Taxiway>();
+            listTerminal = new List<Terminal>();
             listGate = new List<Gate>();
+            listTaxiway = new List<Taxiway>();
+            listRunway = new List<Runway>();
             arrivingFlights = new List<Flight>();
             departingFlights = new List<Flight>();
         }
@@ -77,12 +81,6 @@
         private string GetIdAndAirportCode() => (string)(AirportId + " " + AirportCode);
 
         /// <summary>
-        /// Gets the list that contains all runways for this airport.
-        /// </summary>
-        /// <returns>A list of runways for this airport</returns>
-        public List<Runway> GetRunwayList() => listRunway;
-
-        /// <summary>
         /// Gets the list that contains all gates for this airport.
         /// </summary>
         /// <returns>A list of gates for this airport.</returns>
@@ -95,53 +93,39 @@
         public List<Taxiway> GetListTaxiways() => listTaxiway;
 
         /// <summary>
-        /// Prints out information about every flight in the list of departuring flights for this airport.
+        /// Gets the list that contains all runways for this airport.
         /// </summary>
-        public void PrintListOfDeparturingFlights()
-        {
+        /// <returns>A list of runways for this airport</returns>
+        public List<Runway> GetRunwayList() => listRunway;
 
-            if (!departingFlights.Any())
-            {
-                throw new InvalidOperationException($"List of departuring flights is empty for airport: '{Name}'");
-            }
-            else
-            { 
-            Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
-                foreach (Flight flight in departingFlights)
-                {
-                    Console.Write($"Aircraft:{flight.ActiveAircraft.ModelName}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
-                }
-            }
-        } 
-    
         /// <summary>
-        /// Adds a runway to the airport.
+        /// Adds a terminal to the airport.
         /// </summary>
-        /// <param name="runway">The runway that is gonna be added to the list of runways for this airport.</param>
-        public void AddRunwayToList(Runway runway)
+        /// <param name="terminal">The terminal that is added to the list of terminals for this airport.</param>
+        public void AddTerminalToList(Terminal terminal)
         {
-            if (listRunway.Contains(runway))
+            if (listTerminal.Contains(terminal))
             {
                 // (Nagel, 2022, s. 267)
-                throw new InvalidOperationException($"Gate with id: '{runway.Id}' allready exists in airport: '{Name}'");
+                throw new InvalidOperationException($"Terminal with id: '{terminal.Id}' allready exists in airport: '{Name}'");
             }
-            runway.UpdateGateLocation(Name);
-            listRunway.Add(runway);
+            terminal.UpdateLocation(Name);
+            listTerminal.Add(terminal);
         }
 
         /// <summary>
-        /// Adds a taxiway to the airport.
+        /// Removes a terminal from the airport.
         /// </summary>
-        /// <param name="taxiway">The taxiway that is added to the list of taxiways for this airport.</param>
-        public void AddTaxiwayToList(Taxiway taxiway)
+        /// <param name="terminal">The terminal that is removed from the list of terminals for this airport.</param>
+        public void RemoveTerminalFromList(Terminal terminal)
         {
-            if (listTaxiway.Contains(taxiway))
+            if (!listTerminal.Contains(terminal))
             {
                 // (Nagel, 2022, s. 267)
-                throw new InvalidOperationException($"Gate with id: '{taxiway.Id}' allready exists in airport: '{Name}'");
+                throw new InvalidOperationException($"Terminal with id: '{terminal.Id}' does not exists in airport: '{Name}'. It cant be removed.");
             }
-            taxiway.UpdateGateLocation(Name);
-            listTaxiway.Add(taxiway);
+            terminal.UpdateLocation("none");
+            listTerminal.Remove(terminal);
         }
 
         /// <summary>
@@ -155,8 +139,83 @@
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{gate.Id}' allready exists in airport: '{Name}'");
             }
-            gate.UpdateGateLocation(Name);
+            gate.UpdateLocation(Name);
             listGate.Add(gate);
+        }
+
+        /// <summary>
+        /// Removes a gate from the airport.
+        /// </summary>
+        /// <param name="gate">The gate that is removed from the list of gates for this airport.</param>
+        public void RemoveGateFromList(Gate gate)
+        {
+            if (!listGate.Contains(gate))
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with id: '{gate.Id}' does not exists in airport: '{Name}'. It cant be removed.");
+            }
+            gate.UpdateLocation("none");
+            listGate.Remove(gate);
+        }
+
+        /// <summary>
+        /// Adds a taxiway to the airport.
+        /// </summary>
+        /// <param name="taxiway">The taxiway that is added to the list of taxiways for this airport.</param>
+        public void AddTaxiwayToList(Taxiway taxiway)
+        {
+            if (listTaxiway.Contains(taxiway))
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with id: '{taxiway.Id}' allready exists in airport: '{Name}'");
+            }
+            taxiway.UpdateLocation(Name);
+            listTaxiway.Add(taxiway);
+        }
+
+        /// <summary>
+        /// Removes a taxiway from the airport.
+        /// </summary>
+        /// <param name="taxiway">The taxiway that is removed from the list of taxiways for this airport.</param>
+        public void RemoveTaxiwayFromList(Taxiway taxiway)
+        {
+            if (!listTaxiway.Contains(taxiway))
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Taxiway with id: '{taxiway.Id}' does not exists in airport: '{Name}'. It cant be removed.");
+            }
+            taxiway.UpdateLocation("none");
+            listTaxiway.Remove(taxiway);
+        }
+
+        /// <summary>
+        /// Adds a runway to the airport.
+        /// </summary>
+        /// <param name="runway">The runway that is gonna be added to the list of runways for this airport.</param>
+        public void AddRunwayToList(Runway runway)
+        {
+            if (listRunway.Contains(runway))
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with id: '{runway.Id}' allready exists in airport: '{Name}'");
+            }
+            runway.UpdateLocation(Name);
+            listRunway.Add(runway);
+        }
+
+        /// <summary>
+        /// Removes a runway from the airport.
+        /// </summary>
+        /// <param name="runway">The taxiway that is removed from the list of taxiways for this airport.</param>
+        public void RemoveRunwayFromList(Runway runway)
+        {
+            if (!listRunway.Contains(runway))
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Runway with id: '{runway.Id}' does not exists in airport: '{Name}'. It cant be removed.");
+            }
+            runway.UpdateLocation("none");
+            listRunway.Remove(runway);
         }
 
         /// <summary>
@@ -171,10 +230,36 @@
         }
 
         /// <summary>
+        /// Prints out information about every flight in the list of departuring flights for this airport.
+        /// </summary>
+        public void PrintListOfDeparturingFlights()
+        {
+
+            if (!departingFlights.Any())
+            {
+                throw new InvalidOperationException($"List of departuring flights is empty for airport: '{Name}'");
+            }
+            else
+            {
+                Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
+                foreach (Flight flight in departingFlights)
+                {
+                    Console.Write($"Aircraft:{flight.ActiveAircraft.ModelName}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets all arriving flights for this airport.
         /// </summary>
         /// <returns>The list containing all arriving flights for this airport.</returns>
         public List<Flight> GetArrivingFlights() => arrivingFlights;
+
+        /// <summary>
+        /// This method gets all departuring flights for this airport.
+        /// </summary>
+        /// <returns>A list of departuring flights.</returns>
+        public List<Flight> GetDepartingFlights() => departingFlights;
 
         /// <summary>
         /// This method adds an arriving flight to this airport.
@@ -183,6 +268,15 @@
         public void AddArrivingFlight(Flight.Arriving flight)
         {
             arrivingFlights.Add(flight);
+        }
+
+        /// <summary>
+        /// This method adds an departuring flight to this airport.
+        /// </summary>
+        /// <param name="flight">The departuring flight that is added to the list.</param>
+        public void AddDepartingFlight(Flight.Departing flight)
+        {
+            departingFlights.Add(flight);
         }
 
         /// <summary>
@@ -196,21 +290,6 @@
                 throw new InvalidOperationException("No arriving flights in list");
             }
             arrivingFlights.Remove(flight);
-        }
-
-        /// <summary>
-        /// This method gets all departuring flights for this airport.
-        /// </summary>
-        /// <returns>A list of departuring flights.</returns>
-        public List<Flight> GetDepartingFlights() => departingFlights;
-
-        /// <summary>
-        /// This method adds an departuring flight to this airport.
-        /// </summary>
-        /// <param name="flight">The departuring flight that is added to the list.</param>
-        public void AddDepartingFlight(Flight.Departing flight)
-        {
-            departingFlights.Add(flight);
         }
 
         /// <summary>
@@ -256,6 +335,34 @@
         }
 
         /// <summary>
+        /// This method generates daily departuring flights. The first flight starts 24 hours after the value of the datetimeFlight object.
+        /// </summary>
+        /// <param name="numberOfDays">The number of days the flight will do its flights.</param>
+        /// <param name="activeAircraft">The aircraft that is used for this flight.</param>
+        /// <param name="dateTimeFlight">Date of the flight.</param>
+        /// <param name="length">Length of the flight im KM.</param>
+        /// <param name="departureAirport">The airport that the aircraft departure from.</param>
+        /// <param name="departureGate">The gate that the aircraft departure from.</param>
+        /// <param name="departureTaxiway">The taxiway that the aircraft is using to departure from.</param>
+        /// <param name="departureRunway">The runway that the aircraft is departuring from.</param>
+        public void AddDailyDeparturingFlight(int numberOfDays,
+            Aircraft activeAircraft, DateTime dateTimeFlight,
+            int length, Airport departureAirport,
+            Gate departureGate, Taxiway departureTaxiway,
+            Runway departureRunway)
+        {
+            for (int i = 1; i <= numberOfDays; i++)
+            {
+                Flight.Departing daily = new(activeAircraft,
+                    dateTimeFlight.AddDays(i), length,
+                    departureAirport, departureGate,
+                    departureTaxiway, departureRunway);
+
+                departingFlights.Add(daily);
+            }
+        }
+
+        /// <summary>
         /// This method generates weekly arriving flights. The first flight starts 1 week after the value of the datetimeFlight object.
         /// </summary>
         /// <param name="numberOfWeeks">The number of weeks the flight will do its flights.</param>
@@ -280,34 +387,6 @@
                      arrivalTaxiway, arrivalRunway);
 
                 arrivingFlights.Add(weekly);
-            }
-        }
-
-        /// <summary>
-        /// This method generates daily departuring flights. The first flight starts 24 hours after the value of the datetimeFlight object.
-        /// </summary>
-        /// <param name="numberOfDays">The number of days the flight will do its flights.</param>
-        /// <param name="activeAircraft">The aircraft that is used for this flight.</param>
-        /// <param name="dateTimeFlight">Date of the flight.</param>
-        /// <param name="length">Length of the flight im KM.</param>
-        /// <param name="departureAirport">The airport that the aircraft departure from.</param>
-        /// <param name="departureGate">The gate that the aircraft departure from.</param>
-        /// <param name="departureTaxiway">The taxiway that the aircraft is using to departure from.</param>
-        /// <param name="departureRunway">The runway that the aircraft is departuring from.</param>
-        public void AddDailyDeparturingFlight(int numberOfDays,
-            Aircraft activeAircraft, DateTime dateTimeFlight,
-            int length, Airport departureAirport, 
-            Gate departureGate, Taxiway departureTaxiway,
-            Runway departureRunway)
-        {
-            for (int i = 1; i <= numberOfDays; i++)
-            {
-                Flight.Departing daily = new(activeAircraft,
-                    dateTimeFlight.AddDays(i), length,
-                    departureAirport, departureGate,
-                    departureTaxiway, departureRunway);
-
-                departingFlights.Add(daily);
             }
         }
 

@@ -39,7 +39,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Updates the information for which airport the gate is located at.
         /// </summary>
         /// <param name="airportName">Name of the airport that the gate will be located at.</param>
-        public void UpdateGateLocation(string airportName)
+        public void UpdateLocation(string airportName)
         {
             airportLocation = airportName;
         }

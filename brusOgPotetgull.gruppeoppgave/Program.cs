@@ -4,6 +4,7 @@ using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 using BrusOgPotetgull.AirportLiberary.Simulation;
 using BrusOgPotetgull.AirportLiberary.AirportComponents;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BrusOgPotetgull.Gruppeoppgave
 {
@@ -11,141 +12,124 @@ namespace BrusOgPotetgull.Gruppeoppgave
     {
         static void Main(string[] args)
         {
-            
-            
-            // creating the airport
-            Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
-
-            // creating terminals
-            Terminal terminal2 = new Terminal("terminal2");
-            Terminal terminal3 = new Terminal("terminal3");
-            Terminal terminal4 = new Terminal("terminal4");
-            Terminal terminal5 = new Terminal("terminal5");
-
-            // creating runways
-            Runway runway27R_09L = new Runway("27R/09L", 200);
-            Runway runway27L_09R = new Runway("27L/09R", 200);
-
-            // creatting taxiways
-            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
-            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20);
-            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
-
-            // creating gates
-            Gate gate21 = new Gate("Gate 21");
-            Gate gate22 = new Gate("Gate 22");
-            Gate gate23 = new Gate("Gate 23");
-            Gate gate24 = new Gate("Gate 24");
-
-            Gate gate31 = new Gate("Gate 31");
-            Gate gate32 = new Gate("Gate 32");
-            Gate gate33 = new Gate("Gate 33");
-            Gate gate34 = new Gate("Gate 34");
-
-            Gate gate41 = new Gate("Gate 41");
-            Gate gate42 = new Gate("Gate 42");
-            Gate gate43 = new Gate("Gate 43");
-            Gate gate44 = new Gate("Gate 44");
-
-            Gate gate51 = new Gate("Gate 51");
-            Gate gate52 = new Gate("Gate 52");
-            Gate gate53 = new Gate("Gate 53");
-            Gate gate54 = new Gate("Gate 54");
-
-            /*
-            
             // Creating aircrafts with category 
             Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
             Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
             Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
             Aircraft SR71 = new MilitaryAircraft("S137", 700, 45, 30, 3);
 
-            // Creating aircraft without category
-            Aircraft norwegianHeyerdahl = new Aircraft("Boeing-737-900", 943, 60, 50, 100);
+            // creating the airport
+            Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
+            // creating terminals and adding them to airport
+            Terminal terminal2 = new Terminal("terminal2");
+            heathrow.AddTerminalToList(terminal2);
+            Terminal terminal3 = new Terminal("terminal3");
+            heathrow.AddTerminalToList(terminal3);
+            Terminal terminal4 = new Terminal("terminal4");
+            heathrow.AddTerminalToList(terminal4);
+            Terminal terminal5 = new Terminal("terminal5");
+            heathrow.AddTerminalToList(terminal5);
 
-            // Creating airports.
-            Airport ryggeFlyplass = new Airport("RYG", "Rygge Flyplass", "Rygge");
-            Airport gardemoenFlyplass = new Airport("OSL", "Gardemoen Flyplass", "Oslo");
+            // creating runways and adding them to airport
+            Runway runway27R_09L = new Runway("27R/09L", 200);
+            heathrow.AddRunwayToList(runway27R_09L);
+            Runway runway27L_09R = new Runway("27L/09R", 200);
+            heathrow.AddRunwayToList(runway27L_09R);
 
-            // Creating gates.
-            Gate gate1 = new ("Gate G1");
-            //gardemoenFlyplass.AddGateToList(gate1);
-            gardemoenFlyplass.AddGateToList(gate1);
-            Gate gate2 = new ("Gate G2");
-            gardemoenFlyplass.AddGateToList(gate2);
-            Gate gate3 = new ("Gate R3");
-            ryggeFlyplass.AddGateToList(gate3);
-            Gate gate4 = new ("Gate R4");
-            ryggeFlyplass.AddGateToList(gate4);
+            // creatting taxiways and adding them to airport
+            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
+            heathrow.AddTaxiwayToList(alpha);
+            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20);
+            heathrow.AddTaxiwayToList(bravo);
+            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
+            heathrow.AddTaxiwayToList(charlie);
+
+            // creating gates and adding them to terminals and airport
+            Gate gate21 = new Gate("Gate 21");
+            terminal2.AddGatesToList(gate21);
+            heathrow.AddGateToList(gate21);
+            Gate gate22 = new Gate("Gate 22");
+            terminal2.AddGatesToList(gate22);
+            heathrow.AddGateToList(gate22);
+            Gate gate23 = new Gate("Gate 23");
+            terminal2.AddGatesToList(gate23);
+            heathrow.AddGateToList(gate23);
+            Gate gate24 = new Gate("Gate 24");
+            terminal2.AddGatesToList(gate24);
+            heathrow.AddGateToList(gate24);
+
+            Gate gate31 = new Gate("Gate 31");
+            terminal3.AddGatesToList(gate31);
+            heathrow.AddGateToList(gate31);
+            Gate gate32 = new Gate("Gate 32");
+            terminal3.AddGatesToList(gate32);
+            heathrow.AddGateToList(gate32);
+            Gate gate33 = new Gate("Gate 33");
+            terminal3.AddGatesToList(gate33);
+            heathrow.AddGateToList(gate33);
+            Gate gate34 = new Gate("Gate 34");
+            terminal3.AddGatesToList(gate34);
+            heathrow.AddGateToList(gate34);
+
+            Gate gate41 = new Gate("Gate 41");
+            terminal4.AddGatesToList(gate41);
+            heathrow.AddGateToList(gate41);
+            Gate gate42 = new Gate("Gate 42");
+            terminal4.AddGatesToList(gate42);
+            heathrow.AddGateToList(gate42);
+            Gate gate43 = new Gate("Gate 43");
+            terminal4.AddGatesToList(gate43);
+            heathrow.AddGateToList(gate43);
+            Gate gate44 = new Gate("Gate 44");
+            terminal4.AddGatesToList(gate44);
+            heathrow.AddGateToList(gate44);
+
+            Gate gate51 = new Gate("Gate 51");
+            terminal5.AddGatesToList(gate51);
+            heathrow.AddGateToList(gate51);
+            Gate gate52 = new Gate("Gate 52");
+            terminal5.AddGatesToList(gate52);
+            heathrow.AddGateToList(gate52);
+            Gate gate53 = new Gate("Gate 53");
+            terminal5.AddGatesToList(gate53);
+            heathrow.AddGateToList(gate53);
+            Gate gate54 = new Gate("Gate 54");
+            terminal5.AddGatesToList(gate54);
+            heathrow.AddGateToList(gate54);
 
             // Making sure that all aircrafts are allowed for all gates.
-            //ryggeFlyplass.MakeAllGatesAllowAllAircraftTypes();
-            //gardemoenFlyplass.MakeAllGatesAllowAllAircraftTypes();
+            heathrow.MakeAllGatesAllowAllAircraftTypes();
 
-            // Make gates allow aircraft types
-            try
-            {
-                gate1.AddAircraftAllowedAtGate(AircraftType.Cargo);
-                gate2.AddAircraftAllowedAtGate(AircraftType.Light);
-                gate2.AddAircraftAllowedAtGate(AircraftType.Military);
-            }
-            catch (DuplicateOfContentException e)
-            {
-                Console.WriteLine($"Error: {e.Message}");
-            }
-
-            // Creating taxiways.
-            Taxiway shortTaxiway = new ("shortTaxiway", 300, 35);
-            ryggeFlyplass.AddTaxiwayToList(shortTaxiway);
-            Taxiway mediumTaxiway = new ("mediumTaxiway", 750, 20);
-            gardemoenFlyplass.AddTaxiwayToList(mediumTaxiway);
-            Taxiway longTaxiway = new ("longTaxiway", 1000, 35);
-            gardemoenFlyplass.AddTaxiwayToList(longTaxiway);
-
-            // Creating runways.
-            Runway longRunway1 = new ("longRunway1", 1000);
-            gardemoenFlyplass.AddRunwayToList(longRunway1);
-            Runway mediumRunway1 = new ("mediumRunway1", 800);
-            gardemoenFlyplass.AddRunwayToList(mediumRunway1);
-            Runway longRunway2 = new ("longRunway2", 1000);
-            ryggeFlyplass.AddRunwayToList(longRunway2);
-            Runway mediumRunway2 = new ("mediumRunway2", 800);
-            ryggeFlyplass.AddRunwayToList(mediumRunway2);
-            
             // Creating flights.
-            Flight.Departing flight1 = new (cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);
-            Flight.Departing flight2 = new (superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, gardemoenFlyplass, gate2, longTaxiway, longRunway1);
-            Flight.Arriving flight3 = new (sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, gardemoenFlyplass, gate1, mediumTaxiway, mediumRunway1);
-            Flight.Arriving flight4 = new (SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, gardemoenFlyplass, gate2, longTaxiway, mediumRunway1);
-            
-            // Creating a daily arriving flight
-            gardemoenFlyplass.AddDailyArrivingFlight(2, SR71, new DateTime(2024, 3, 1, 00, 17, 00), 5000, gardemoenFlyplass, gate1, longTaxiway, longRunway1);            
-
-            // Creating the simulation
-            DateTime start = new (2024, 3, 1);
-            DateTime end = new (2024, 3, 1, 4, 00, 00);
-            Simulation newSim = new (gardemoenFlyplass, start, end);
+            Flight.Departing flight1 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, gate21, alpha, runway27R_09L);
+            Flight.Departing flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, gate34, bravo, runway27R_09L);
+            Flight.Arriving flight3 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, gate43, alpha, runway27L_09R);
+            Flight.Arriving flight4 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, gate41, alpha, runway27R_09L);
 
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)
             {
-                e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.ArrivalRunway.GetAirportNameAndRunwayId(), " Enters the runway");
+                e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.ArrivalRunway.GetAirportNameAndRunwayId(), ", Enters the runway");
                 Console.WriteLine("Arrival: " + e.Message);
             }
 
             static void OnFlightDeparted(object? sender, DepartingEventArgs e)
             {
-                e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetAirportNameAndRunwayId(), " Leaves the runway");
+                e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetAirportNameAndRunwayId(), ", Leaves the runway");
                 Console.WriteLine("Departure: " + e.Message);
             }
 
-            longRunway1.FlightArrived += OnFlightArrived;
-            mediumRunway1.FlightArrived += OnFlightArrived;
-            longRunway1.FlightDeparted += OnFlightDeparted;
-            mediumRunway1.FlightDeparted += OnFlightDeparted;
+            runway27R_09L.FlightArrived += OnFlightArrived;
+            runway27L_09R.FlightArrived += OnFlightArrived;
+            runway27R_09L.FlightDeparted += OnFlightDeparted;
+            runway27L_09R.FlightDeparted += OnFlightDeparted;
 
-            newSim.RunSimulation();
+            // simulation
+            DateTime start = new(2024, 3, 1);
+            DateTime end = new(2024, 3, 1, 4, 00, 00);
+            Simulation heathrowSimulation = new(heathrow, start, end);
+            heathrowSimulation.RunSimulation();
 
             // Printing history for aircrafts on a given day.
             cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
@@ -153,26 +137,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
-            // Prints whole history for all aircrafts
-
-             Console.Write("\n\t\tHistory for all aircrafts:\n");
-            cargoCraftV12.PrintFullAircraftHistory();  // C420
-            superPlane.PrintFullAircraftHistory();     // A130
-            sickPlane.PrintFullAircraftHistory();      // C355
-            SR71.PrintFullAircraftHistory();           // S137 
-            
-
-            //gate2.MakeAllAircraftTypesAllowedForThisGate();
-            gate2.PrintGateInformation();
-            gate3.PrintGateInformation();
-            longRunway1.PrintRunwayInformation();
-            longTaxiway.PrintTaxiwayInformation();
-
-            gardemoenFlyplass.PrintListOfDeparturingFlights();
-
-            gardemoenFlyplass.PrintAirportInformation();
-            */
-            
             System.Console.ReadLine();
         }
     }
