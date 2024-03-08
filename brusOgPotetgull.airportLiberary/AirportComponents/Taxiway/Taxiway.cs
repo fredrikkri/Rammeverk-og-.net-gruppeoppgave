@@ -13,6 +13,7 @@
         /// <summary>
         /// Creates a taxiway.
         /// </summary>
+        /// <param name="name">The name of the taxiway.</param>
         /// <param name="length">Length of the taxiway.</param>
         /// <param name="maxSpeed">Legal maxspeed for the taxiway</param>
         public Taxiway(string name, int length, int maxSpeed)
@@ -45,6 +46,7 @@
         public void PrintTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\n" +
+                $"Name: {Name}\n" +
                 $"Taxiway lenght: {Length}\n" +
                 $"Airport location: { airportLocation}\n");
         }

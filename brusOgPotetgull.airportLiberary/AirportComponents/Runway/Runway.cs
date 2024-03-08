@@ -19,6 +19,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// creates a runway.
         /// </summary>
+        /// /// <param name="name">The name of the runway (meters).</param>
         /// <param name="length">The length of the runway (meters).</param>
         public Runway(string name, int length)
         {
@@ -51,7 +52,11 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintRunwayInformation()
         {
-            Console.Write($"\nRunway id: {Id}\nLength: {Length}\nIn use: {InUse}\nAirport location: {airportLocation}\n");
+            Console.Write($"\nRunway id: {Id} + " +
+                $"\nName: {Name} + " +
+                $"\nLength: {Length} + " +
+                $"\nIn use: {InUse} + " +
+                $"\nAirport location: {airportLocation}\n");
         }
 
         /// <summary>
