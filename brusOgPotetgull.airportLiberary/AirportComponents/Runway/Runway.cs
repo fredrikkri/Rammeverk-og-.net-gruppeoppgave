@@ -20,17 +20,19 @@ namespace BrusOgPotetgull.AirportLiberary
         /// creates a runway.
         /// </summary>
         /// <param name="length">The length of the runway (meters).</param>
-        public Runway(int length)
+        public Runway(string name, int length)
         {
             // (dosnetCore, 2020) 
             id = idCounter++;
-            Id = id;
+            this.Id = id;
+            this.Name = name;
             this.Length = length;
             this.inUse = false;
             InUse = inUse;
         }
 
         public int Id { get; private set; }
+        public string Name { get; private set; }
         public int Length { get; private set; }
         public bool InUse { get; private set; }
         public Queue<Flight> RunwayQueue { get {  return runwayQueue; } }
@@ -53,10 +55,10 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// returns the id and the code (nickname) for the airport that this runway is located at.
+        /// returns the id and name for the airport that this runway is located at.
         /// </summary>
-        /// <returns>String containing id and airportcode.</returns>
-        public string GetAirportNameAndRunwayId() => (string)(airportLocation + ", " + "Runway-id: " + Id);
+        /// <returns>String that contain information about the runway.</returns>
+        public string GetAirportNameAndRunwayId() => (string)(airportLocation + ", " + "Runway-id: " + Id + ", Name: " + Name);
 
         /// <summary>
         /// Remove the flight located first in line in the runwayqueue.

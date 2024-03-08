@@ -16,41 +16,41 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
             // creating terminals
-            Terminal terminal2 = new Terminal();
-            Terminal terminal3 = new Terminal();
-            Terminal terminal4 = new Terminal();
-            Terminal terminal5 = new Terminal();
+            Terminal terminal2 = new Terminal("terminal2");
+            Terminal terminal3 = new Terminal("terminal3");
+            Terminal terminal4 = new Terminal("terminal4");
+            Terminal terminal5 = new Terminal("terminal5");
 
             // creating runways
-            Runway runway27R_09L = new Runway(200);
-            Runway runway27L_09R = new Runway(200);
+            Runway runway27R_09L = new Runway("27R/09L", 200);
+            Runway runway27L_09R = new Runway("27L/09R", 200);
 
             // creatting taxiways
-            Taxiway alpha = new Taxiway(500, 20);
-            Taxiway bravo = new Taxiway(400, 20);
-            Taxiway charlie = new Taxiway(650, 20);
+            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
+            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20);
+            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
 
             // creating gates
-            Gate gate21 = new Gate();
-            Gate gate22 = new Gate();
-            Gate gate23 = new Gate();
-            Gate gate24 = new Gate();
+            Gate gate21 = new Gate("Gate 21");
+            Gate gate22 = new Gate("Gate 22");
+            Gate gate23 = new Gate("Gate 23");
+            Gate gate24 = new Gate("Gate 24");
 
-            Gate gate31 = new Gate();
-            Gate gate32 = new Gate();
-            Gate gate33 = new Gate();
-            Gate gate34 = new Gate();
+            Gate gate31 = new Gate("Gate 31");
+            Gate gate32 = new Gate("Gate 32");
+            Gate gate33 = new Gate("Gate 33");
+            Gate gate34 = new Gate("Gate 34");
 
-            Gate gate41 = new Gate();
-            Gate gate42 = new Gate();
-            Gate gate43 = new Gate();
-            Gate gate44 = new Gate();
+            Gate gate41 = new Gate("Gate 41");
+            Gate gate42 = new Gate("Gate 42");
+            Gate gate43 = new Gate("Gate 43");
+            Gate gate44 = new Gate("Gate 44");
 
-            Gate gate51 = new Gate();
-            Gate gate52 = new Gate();
-            Gate gate53 = new Gate();
-            Gate gate54 = new Gate();
-
+            Gate gate51 = new Gate("Gate 51");
+            Gate gate52 = new Gate("Gate 52");
+            Gate gate53 = new Gate("Gate 53");
+            Gate gate54 = new Gate("Gate 54");
+            
             /*
             // Creating aircrafts with category 
             Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
@@ -94,21 +94,21 @@ namespace BrusOgPotetgull.Gruppeoppgave
             }
 
             // Creating taxiways.
-            Taxiway shortTaxiway = new (300, 35);
+            Taxiway shortTaxiway = new ("shortTaxiway", 300, 35);
             ryggeFlyplass.AddTaxiwayToList(shortTaxiway);
-            Taxiway mediumTaxiway = new (750, 20);
+            Taxiway mediumTaxiway = new ("mediumTaxiway", 750, 20);
             gardemoenFlyplass.AddTaxiwayToList(mediumTaxiway);
-            Taxiway longTaxiway = new (1000, 35);
+            Taxiway longTaxiway = new ("longTaxiway", 1000, 35);
             gardemoenFlyplass.AddTaxiwayToList(longTaxiway);
 
             // Creating runways.
-            Runway longRunway1 = new (1000);
+            Runway longRunway1 = new ("longRunway1", 1000);
             gardemoenFlyplass.AddRunwayToList(longRunway1);
-            Runway mediumRunway1 = new (800);
+            Runway mediumRunway1 = new ("mediumRunway1", 800);
             gardemoenFlyplass.AddRunwayToList(mediumRunway1);
-            Runway longRunway2 = new (1000);
+            Runway longRunway2 = new ("longRunway2", 1000);
             ryggeFlyplass.AddRunwayToList(longRunway2);
-            Runway mediumRunway2 = new (800);
+            Runway mediumRunway2 = new ("mediumRunway2", 800);
             ryggeFlyplass.AddRunwayToList(mediumRunway2);
             
             // Creating flights.
@@ -169,8 +169,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
             gardemoenFlyplass.PrintListOfDeparturingFlights();
 
             gardemoenFlyplass.PrintAirportInformation();
-            
             */
+            
             System.Console.ReadLine();
         }
     }
