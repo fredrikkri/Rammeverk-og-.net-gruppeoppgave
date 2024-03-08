@@ -3,6 +3,7 @@ using BrusOgPotetgull.AirportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 using BrusOgPotetgull.AirportLiberary.Simulation;
+using BrusOgPotetgull.AirportLiberary.AirportComponents;
 
 namespace BrusOgPotetgull.Gruppeoppgave
 {
@@ -10,8 +11,23 @@ namespace BrusOgPotetgull.Gruppeoppgave
     {
         static void Main(string[] args)
         {
+            // creating the airport
+            Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
+            // creating terminals
+            Terminal terminal2 = new Terminal("terminal 2");
+            Terminal terminal3 = new Terminal("terminal 3");
+            Terminal terminal4 = new Terminal("terminal 4");
+            Terminal terminal5 = new Terminal("terminal 5");
 
+            // creating runways
+            Runway runway27R_09L = new Runway(200);
+            Runway runway27L_09R = new Runway(200);
+
+            // creatting taxiways
+            Taxiway alpha = new Taxiway(500, 20);
+            Taxiway bravo = new Taxiway(400, 20);
+            Taxiway charlie = new Taxiway(650, 20);
 
 
             /*
