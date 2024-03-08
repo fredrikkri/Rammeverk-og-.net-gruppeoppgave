@@ -23,6 +23,18 @@ namespace BrusOgPotetgull.AirportLiberary.AirportComponents
         public int Id { get; private set; }
         public string Name { get; private set; }
 
+        public void PrintTaxiwayInformation()
+        {
+            Console.Write($"\nTaxiwayId: {Id}\n" +
+                $"Taxiway lenght: {Name}\n" +
+                $"Airport location: {airportLocation}\n");
+            Console.WriteLine($"List of gates: ");
+            foreach (Gate gate in gatesInTerminal)
+            {
+                Console.WriteLine($"{gate.Name + ", id: " + Id} ");
+            }
+        }
+
         /// <summary>
         /// returns the id and name for the airport that this terminal is located at.
         /// </summary>
