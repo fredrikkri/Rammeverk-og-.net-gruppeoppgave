@@ -1,6 +1,6 @@
 ﻿using System;
 using BrusOgPotetgull.AirportLiberary;
-namespace brusOgPotetgull.airportLiberary.AirportComponents
+namespace BrusOgPotetgull.AirportLiberary.AirportComponents
 {
     /// <summary>
     /// The terminal class is an area in a airport that contains a number of gates.
