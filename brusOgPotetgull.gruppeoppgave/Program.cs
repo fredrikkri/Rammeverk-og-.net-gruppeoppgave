@@ -31,6 +31,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
 
             /*
+            
+            //funny stuff for jacob
+            //dotnet clean
+            //dotnet build
+
+
             // Creating aircrafts with category 
             Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
             Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
