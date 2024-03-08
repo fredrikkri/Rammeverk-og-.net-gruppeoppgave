@@ -33,6 +33,15 @@ namespace BrusOgPotetgull.AirportLiberary.AirportComponents
         }
 
         /// <summary>
+        /// Adds a Gate object to a list of Gates that belongs to this terminal
+        /// </summary>
+        /// <param name="gate">Name of the Gate to be added to the terminal</param>
+        public void AddGateToTerminal(Gate gate)
+        {
+            gatesInTerminal.Add(gate);
+        }
+
+        /// <summary>
         /// Gets the list that contains all gates for this Terminal.
         /// </summary>
         /// <returns>A list of gates for this terminal.</returns>
