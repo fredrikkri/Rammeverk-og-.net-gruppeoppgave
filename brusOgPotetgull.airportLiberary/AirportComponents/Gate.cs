@@ -19,11 +19,12 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates a gate.
         /// </summary>
-		public Gate()
+		public Gate(string name)
         {
             // (dosnetCore, 2020) 
             id = idCounter++;
             this.Id = id;
+            this.Name = name;
             this.isOpen = true;
             this.isAvailable = true;
             this.legalAircraftTypesId = new List<int>();
@@ -31,6 +32,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         public int Id { get; private set; }
+        public string Name { get; private set; }
         public bool IsAvailable { get; private set; }
 
         /// <summary>
@@ -59,10 +61,10 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Gets the id and the nickname for the airport that this gate is located at.
+        /// Returns the id and name for the airport that this gate is located at.
         /// </summary>
-        /// <returns>The id and the nickname combined as string.</returns>
-        private string GetAirportNameAndGateName() => (string)(airportLocation + ", Gate-id: " + Id);
+        /// <returns>String that contain information about the gate.</returns>
+        private string GetAirportNameAndGateName() => (string)(airportLocation + ", Gate-id: " + Id + ", Name: " + Name);
 
         /// <summary>
         /// Adds an aircraft that will be able to use the gate.

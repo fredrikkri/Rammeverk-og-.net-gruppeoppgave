@@ -12,14 +12,22 @@ namespace BrusOgPotetgull.AirportLiberary.AirportComponents
         private List<Gate> gatesInTerminal;
         private string? airportLocation;
 
-        public Terminal()
+        public Terminal(string name)
         {
             id = idCounter++;
             this.Id = id;
+            this.Name = name;
             this.gatesInTerminal = new List<Gate>();
         }
 
         public int Id { get; private set; }
+        public string Name { get; private set; }
+
+        /// <summary>
+        /// returns the id and name for the airport that this terminal is located at.
+        /// </summary>
+        /// <returns>String that contain information about the terminal.</returns>
+        private string GetAirportNameAndTaxiwayId() => (string)(airportLocation + ", " + "Taxiway-id: " + Id + ", Name: " + Name);
 
         /// <summary>
         /// Updates the information for which airport the terminal is located at.
