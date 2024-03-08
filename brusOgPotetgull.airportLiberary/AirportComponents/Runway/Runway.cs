@@ -56,11 +56,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// returns the id and the code (nickname) for the airport that this runway is located at.
         /// </summary>
         /// <returns>String containing id and airportcode.</returns>
-        public string GetAirportNameAndRunwayId()
-        {
-            string returnString = (string)(airportLocation +", "+ "Runway-id: " + Id);
-            return returnString;
-        }
+        public string GetAirportNameAndRunwayId() => (string)(airportLocation + ", " + "Runway-id: " + Id);
 
         /// <summary>
         /// Remove the flight located first in line in the runwayqueue.
@@ -87,11 +83,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Checks which flight that is located first in line in runwayqueue.
         /// </summary>
         /// <returns>Flight object that is first in line at queue.</returns>
-        public Flight CheckNextFlightInQueue()
-        {
-            Flight nextFlight = runwayQueue.Peek();
-            return nextFlight;
-        }
+        public Flight CheckNextFlightInQueue() => runwayQueue.Peek();
 
         /// <summary>
         /// This method lets the next flight in queue enter the runway.
@@ -162,7 +154,6 @@ namespace BrusOgPotetgull.AirportLiberary
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Leaves the runway");
             }
         }
-
 
         protected virtual void RaiseFlightDeparted(Flight.Departing flight, DateTime time, string message)
         {

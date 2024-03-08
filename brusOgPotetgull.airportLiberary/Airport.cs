@@ -74,38 +74,25 @@
         /// Gets Id and airport-code for the current airport.
         /// </summary>
         /// <returns>AirportId and AirportCode combined into a string</returns>
-        private string GetIdAndAirportCode()
-        {
-            string returnString = (string)(AirportId + " " + AirportCode);
-            return returnString;
-        }
+        private string GetIdAndAirportCode() => (string)(AirportId + " " + AirportCode);
 
         /// <summary>
         /// Gets the list that contains all runways for this airport.
         /// </summary>
         /// <returns>A list of runways for this airport</returns>
-        public List<Runway> GetRunwayList()
-        {
-            return listRunway;
-        }
+        public List<Runway> GetRunwayList() => listRunway;
 
         /// <summary>
         /// Gets the list that contains all gates for this airport.
         /// </summary>
         /// <returns>A list of gates for this airport.</returns>
-        public List<Gate> GetListGates()
-        {
-            return listGate;
-        }
+        public List<Gate> GetListGates() => listGate;
 
         /// <summary>
         /// Gets the list that contains all taxiways for this airport.
         /// </summary>
         /// <returns>Returns a list that contains all taxiways for this airport.</returns>
-        public List<Taxiway> GetListTaxiways()
-        {
-            return listTaxiway;
-        }
+        public List<Taxiway> GetListTaxiways() => listTaxiway;
 
         /// <summary>
         /// Prints out information about every flight in the list of departuring flights for this airport.
@@ -187,10 +174,7 @@
         /// Gets all arriving flights for this airport.
         /// </summary>
         /// <returns>The list containing all arriving flights for this airport.</returns>
-        public List<Flight> GetArrivingFlights()
-        {
-            return arrivingFlights;
-        }
+        public List<Flight> GetArrivingFlights() => arrivingFlights;
 
         /// <summary>
         /// This method adds an arriving flight to this airport.
