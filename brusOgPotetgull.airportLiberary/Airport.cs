@@ -43,7 +43,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public string AirportCode { get; private set; }
         public string Name { get; private set; }
         public string Location { get; private set; }
-        
+
 
         /// <summary>
         /// Prints out the information about the airport.
@@ -156,6 +156,17 @@ namespace BrusOgPotetgull.AirportLiberary
             }
             gate.UpdateLocation("none");
             listGate.Remove(gate);
+        }
+
+        public Gate GetGateBasedOnGateName(string gateName)
+        {
+            if (GetListGates().Find(currentGate => currentGate.Name == gateName) == null)
+            {
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Gate with name: '{gateName}' does not exsist. It cannot be added to the terminal.");
+            }
+            Gate desiredGate = GetListGates().Find(currentGate => currentGate.Name == gateName);
+            return desiredGate;
         }
 
         /// <summary>
