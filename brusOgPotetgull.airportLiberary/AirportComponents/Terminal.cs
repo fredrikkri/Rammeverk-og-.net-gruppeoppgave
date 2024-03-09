@@ -68,7 +68,7 @@ public class Terminal
     /// Adds a gate to the list of gates for this terminal.
     /// </summary>
     /// <param name="gate">The gate that will be added to the list.</param>
-    public void AddGatesToList(Gate gate)
+    public void AddGateToList(Gate gate)
     {
         gatesInTerminal.Add(gate);
     }
@@ -86,9 +86,17 @@ public class Terminal
         for (int i = currentIndex; i <= numberOfGates; i++)
         {
             string gateName = ((string)gateLetter + i);
-            Gate gateNameObject = new Gate(gateName);
-            AddGatesToList(gateNameObject);
-            airport.AddGateToList(gateNameObject);
+            if (airport.GetListGates().Find(currentGate => currentGate.Name == gateName) != null)
+            {
+                AddGateToList(airport.GetListGates().Find(currentGate => currentGate.Name == gateName));
+            }
+            else
+            {
+                Gate gateNameObject = new Gate(gateName);
+                airport.AddGateToList(gateNameObject);
+                AddGateToList(gateNameObject);
+                
+            }
         }
     }
 }

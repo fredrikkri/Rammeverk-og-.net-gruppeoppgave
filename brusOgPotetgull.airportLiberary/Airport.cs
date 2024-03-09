@@ -68,7 +68,7 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.Write($"\nList of gates: ");
             foreach (Gate gate in listGate)
             {
-                Console.Write($"{gate.Id} ");
+                Console.Write($"{gate.Name} ");
             }
 
             Console.Write("\n");
