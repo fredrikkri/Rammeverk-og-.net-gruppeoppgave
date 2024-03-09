@@ -1,10 +1,8 @@
 ﻿using BrusOgPotetgull.AirportLiberary.AircraftTypes;
-using BrusOgPotetgull.AirportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 using BrusOgPotetgull.AirportLiberary.Simulation;
-using BrusOgPotetgull.AirportLiberary.AirportComponents;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System;
 
 namespace BrusOgPotetgull.Gruppeoppgave
 {
@@ -17,6 +15,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
             Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
             Aircraft SR71 = new MilitaryAircraft("S137", 700, 45, 30, 3);
+            Aircraft boeing737 = new ShortMediumAircraft("Boeing 737", 775, 36, 24, 4);
+            Aircraft boeing747 = new ShortMediumAircraft("Boeing 747", 750, 30, 18, 5);
+            Aircraft boeing767 = new LargeAircraft("Boeing 767", 850, 35, 20, 3);
+            Aircraft airbusA380 = new LargeAircraft("Airbus A380", 900, 30, 20, 2);
+            Aircraft airbusA340 = new LongMediumAircraft("Airbus A340", 800, 28, 22, 5);
+            Aircraft airbusA320 = new ShortMediumAircraft("Airbus A320", 700, 26, 24, 5);
 
             // creating the airport
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
@@ -46,66 +50,21 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayToList(charlie);
 
             // creating gates and adding them to terminals and airport
-            Gate gate21 = new Gate("Gate 21");
-            terminal2.AddGatesToList(gate21);
-            heathrow.AddGateToList(gate21);
-            Gate gate22 = new Gate("Gate 22");
-            terminal2.AddGatesToList(gate22);
-            heathrow.AddGateToList(gate22);
-            Gate gate23 = new Gate("Gate 23");
-            terminal2.AddGatesToList(gate23);
-            heathrow.AddGateToList(gate23);
-            Gate gate24 = new Gate("Gate 24");
-            terminal2.AddGatesToList(gate24);
-            heathrow.AddGateToList(gate24);
-
-            Gate gate31 = new Gate("Gate 31");
-            terminal3.AddGatesToList(gate31);
-            heathrow.AddGateToList(gate31);
-            Gate gate32 = new Gate("Gate 32");
-            terminal3.AddGatesToList(gate32);
-            heathrow.AddGateToList(gate32);
-            Gate gate33 = new Gate("Gate 33");
-            terminal3.AddGatesToList(gate33);
-            heathrow.AddGateToList(gate33);
-            Gate gate34 = new Gate("Gate 34");
-            terminal3.AddGatesToList(gate34);
-            heathrow.AddGateToList(gate34);
-
-            Gate gate41 = new Gate("Gate 41");
-            terminal4.AddGatesToList(gate41);
-            heathrow.AddGateToList(gate41);
-            Gate gate42 = new Gate("Gate 42");
-            terminal4.AddGatesToList(gate42);
-            heathrow.AddGateToList(gate42);
-            Gate gate43 = new Gate("Gate 43");
-            terminal4.AddGatesToList(gate43);
-            heathrow.AddGateToList(gate43);
-            Gate gate44 = new Gate("Gate 44");
-            terminal4.AddGatesToList(gate44);
-            heathrow.AddGateToList(gate44);
-
-            Gate gate51 = new Gate("Gate 51");
-            terminal5.AddGatesToList(gate51);
-            heathrow.AddGateToList(gate51);
-            Gate gate52 = new Gate("Gate 52");
-            terminal5.AddGatesToList(gate52);
-            heathrow.AddGateToList(gate52);
-            Gate gate53 = new Gate("Gate 53");
-            terminal5.AddGatesToList(gate53);
-            heathrow.AddGateToList(gate53);
-            Gate gate54 = new Gate("Gate 54");
-            terminal5.AddGatesToList(gate54);
-            heathrow.AddGateToList(gate54);
+            terminal2.CreateMultipleGatesToTerminal("A", 1, 26, heathrow);
+            terminal3.CreateMultipleGatesToTerminal("B", 22, 42, heathrow);
+            terminal4.CreateMultipleGatesToTerminal("C", 50, 66, heathrow);
+            terminal5.CreateMultipleGatesToTerminal("A", 1, 23, heathrow);
+            terminal5.CreateMultipleGatesToTerminal("B", 32, 48, heathrow);
+            terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
 
             // Making sure that all aircrafts are allowed for all gates.
             heathrow.MakeAllGatesAllowAllAircraftTypes();
 
             // Creating flights.
-            Flight.Departing flight1 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, gate21, alpha, runway27R_09L);
-            Flight.Departing flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, gate34, bravo, runway27R_09L);
-            Flight.Arriving flight3 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, gate43, alpha, runway27L_09R);
-            Flight.Arriving flight4 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, gate41, alpha, runway27R_09L);
+            Flight.Departing flight1 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A1"), alpha, runway27R_09L);
+            Flight.Departing flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("B25"), bravo, runway27R_09L);
+            Flight.Arriving flight3 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), alpha, runway27L_09R);
+            Flight.Arriving flight4 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
 
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)

@@ -64,9 +64,32 @@ public class Terminal
     /// <returns>A list of gates for this terminal.</returns>
     public List<Gate> GetgatesInTerminal() => gatesInTerminal;
 
+    /// <summary>
+    /// Adds a gate to the list of gates for this terminal.
+    /// </summary>
+    /// <param name="gate">The gate that will be added to the list.</param>
     public void AddGatesToList(Gate gate)
     {
         gatesInTerminal.Add(gate);
+    }
+
+    /// <summary>
+    /// Creating multiple gates and adding them to a terminal.
+    /// </summary>
+    /// <param name="gateLetter">The letter thats a part of the gatename.</param>
+    /// <param name="startNumber">The start-number for generating all the gates. This is gonna be the first generated gate.</param>
+    /// <param name="numberOfGates">The number of gates thats gonna be created.</param>
+    /// <param name="airport">The airport that these gates will be added to.</param>
+    public void CreateMultipleGatesToTerminal(string gateLetter, int startNumber, int numberOfGates, Airport airport)
+    {
+        int currentIndex = startNumber;
+        for (int i = currentIndex; i <= numberOfGates; i++)
+        {
+            string gateName = ((string)gateLetter + i);
+            Gate gateNameObject = new Gate(gateName);
+            AddGatesToList(gateNameObject);
+            airport.AddGateToList(gateNameObject);
+        }
     }
 }
 
