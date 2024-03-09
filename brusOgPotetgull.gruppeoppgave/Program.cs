@@ -10,10 +10,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
         static void Main(string[] args)
         {
             // Creating aircrafts with category 
-            Aircraft cargoCraftV12 = new CargoAircraft("C420", 890, 50, 35, 3);
-            Aircraft superPlane = new LightAircraft("A130", 800, 70, 40, 5);
-            Aircraft sickPlane = new CargoAircraft("C355", 800, 50, 30, 4);
-            Aircraft SR71 = new MilitaryAircraft("S137", 700, 45, 30, 3);
+            Aircraft cargoCraftV12 = new LongMediumAircraft("C420", 890, 50, 35, 3);
+            Aircraft superPlane = new ShortMediumAircraft("A130", 800, 70, 40, 5);
+            Aircraft sickPlane = new LongMediumAircraft("C355", 800, 50, 30, 4);
+            Aircraft SR71 = new LongMediumAircraft("S137", 700, 45, 30, 3);
             Aircraft boeing737 = new ShortMediumAircraft("Boeing 737", 775, 36, 24, 4);
             Aircraft boeing747 = new ShortMediumAircraft("Boeing 747", 750, 30, 18, 5);
             Aircraft boeing767 = new LargeAircraft("Boeing 767", 850, 35, 20, 3);
@@ -56,8 +56,21 @@ namespace BrusOgPotetgull.Gruppeoppgave
             terminal5.CreateMultipleGatesToTerminal("B", 32, 48, heathrow);
             terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
 
-            // Making sure that all aircrafts are allowed for all gates.
-            heathrow.MakeAllGatesAllowAllAircraftTypes();
+            // Making sure that aircrafts are allowed at gates.
+            terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
+            terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
+            terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
+
+            terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
+            terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
+
+            terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
+            terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
+
+            terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
+            terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
+            terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
+            terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Cargo);
 
             // Creating flights.
             Flight.Departing flight1 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A1"), alpha, runway27R_09L);

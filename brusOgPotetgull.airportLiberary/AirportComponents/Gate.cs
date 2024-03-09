@@ -73,11 +73,11 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftType">An Enum that represents the id of an aircraftType that you want to enable accsess for the gate.</param>
         public void AddAircraftAllowedAtGate(AircraftType aircraftType)
         {
-            if (legalAircraftTypesId.Contains((int)aircraftType))
+            if (!legalAircraftTypesId.Contains((int)aircraftType))
             {
-                throw new DuplicateOfContentException($"{aircraftType} already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
+                legalAircraftTypesId.Add((int)aircraftType);
+                //throw new DuplicateOfContentException($"{aircraftType} already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
             }
-            legalAircraftTypesId.Add((int)aircraftType);
         }
 
         /// <summary>

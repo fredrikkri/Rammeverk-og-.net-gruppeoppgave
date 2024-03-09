@@ -1,4 +1,7 @@
 ﻿using System;
+using BrusOgPotetgull.AirportLiberary.AircraftTypes;
+using BrusOgPotetgull.AirportLiberary.CustomExceptions;
+
 namespace BrusOgPotetgull.AirportLiberary;
 
 /// <summary>
@@ -31,6 +34,18 @@ public class Terminal
         foreach (Gate gate in gatesInTerminal)
         {
             Console.WriteLine($"{gate.Name + ", id: " + Id} ");
+        }
+    }
+
+    /// <summary>
+    /// Adds an aircraft that will be able to use all of the gates in this terminal.
+    /// </summary>
+    /// <param name="aircraftType">An Enum that represents the id of an aircraftType that you want to enable accsess for the gate.</param>
+    public void AddAircraftAllowedAtGatesAtTerminal(AircraftType aircraftType)
+    {
+        foreach (Gate gate in gatesInTerminal)
+        {
+            gate.AddAircraftAllowedAtGate(aircraftType);
         }
     }
 
