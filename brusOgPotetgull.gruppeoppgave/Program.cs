@@ -2,7 +2,6 @@
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 using BrusOgPotetgull.AirportLiberary.Simulation;
-using System;
 
 namespace BrusOgPotetgull.Gruppeoppgave
 {
@@ -95,6 +94,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
+
+            heathrow.PrintAirportInformation();
 
             System.Console.ReadLine();
         }
