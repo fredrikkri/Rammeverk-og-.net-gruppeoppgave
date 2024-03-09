@@ -56,13 +56,13 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.Write($"List of runways: ");
             foreach (Runway runway in listRunway)
             {
-                Console.Write($"{runway.Id} ");
+                Console.Write($"{runway.Name} ");
             }
 
             Console.Write($"\nList of taxiways: ");
             foreach (Taxiway taxiway in listTaxiway)
             {
-                Console.Write($"{taxiway.Id} ");
+                Console.Write($"{taxiway.Name} ");
             }
 
             Console.Write($"\nList of gates: ");
