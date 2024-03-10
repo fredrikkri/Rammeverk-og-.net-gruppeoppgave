@@ -1,5 +1,4 @@
 ﻿using BrusOgPotetgull.AirportLiberary.CustomExceptions;
-using BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
