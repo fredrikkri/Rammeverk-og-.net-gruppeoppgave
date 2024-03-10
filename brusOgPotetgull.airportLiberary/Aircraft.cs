@@ -12,8 +12,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private int aircraftTypeId = 0;
         private bool outOfService = false;
         // (Trupja, 2023)
-        
-        List<KeyValuePair<DateTime, string>> history;
+        private List<KeyValuePair<DateTime, string>> history;
 
         /// <summary>
         /// Creates an aircraft.
@@ -80,8 +79,7 @@ namespace BrusOgPotetgull.AirportLiberary
                     throw new DuplicateOfContentException($"{time}, {location} {message} could not be added to history for plane with talenumber: '{TailNumber}'. The excact same line of history already exists for this plane.");
                 }
             }
-            history.Add(new KeyValuePair<DateTime, string>(time, (location + message)));
-            
+            history.Add(new KeyValuePair<DateTime, string>(time, (location + message))); 
         }
 
         /// <summary>

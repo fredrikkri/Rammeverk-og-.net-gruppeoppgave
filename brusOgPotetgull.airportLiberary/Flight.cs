@@ -1,4 +1,6 @@
-﻿namespace BrusOgPotetgull.AirportLiberary
+﻿using BrusOgPotetgull.AirportLiberary;
+
+namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
     /// The Flight-class is defined with the aircraft that is used in the flight, together with all the components on the airports its using. Eksamples is: taxiways, gates and runways.

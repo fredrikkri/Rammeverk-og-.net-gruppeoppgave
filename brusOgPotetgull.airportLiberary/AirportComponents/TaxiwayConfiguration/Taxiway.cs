@@ -1,4 +1,7 @@
-﻿namespace BrusOgPotetgull.AirportLiberary
+﻿using System.Numerics;
+using BrusOgPotetgull.AirportLiberary.CustomExceptions;
+
+namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
     /// The taxiway class is defining how a taxiway is designed.
@@ -9,6 +12,7 @@
         private int id;
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
         private string? airportLocation;
+        private List<KeyValuePair<int, Taxiway>> connections;
 
         /// <summary>
         /// Creates a taxiway.
@@ -24,6 +28,7 @@
             this.Name = name;
             this.Length = length;
             this.MaxSpeed = maxSpeed;
+            connections = new List<KeyValuePair<int, Taxiway>>();
         }
 
         public int Length { get; private set; }
@@ -49,6 +54,12 @@
                 $"Name: {Name}\n" +
                 $"Taxiway lenght: {Length}\n" +
                 $"Airport location: { airportLocation}\n");
+            Console.Write($"\n\n\tConnected taxiways:\n");
+            // (Nagel, 2022, s. 216)
+            foreach (var line in connections)
+            {
+                Console.WriteLine($"{line.Key}, {line.Value}");
+            }
         }
 
         /// <summary>
@@ -56,6 +67,23 @@
         /// </summary>
         /// <returns>String that contain information about the taxiway.</returns>
         private string GetAirportNameAndTaxiwayId() => (string)(airportLocation + ", " + "Taxiway-id: " + Id + ", Name: " + Name);
+
+        /// <summary>
+        /// Adds an connected taxiway to an taxiway.
+        /// </summary>
+        /// <param name="locationAtTaxiway">The location at the taxiway.</param>
+        /// <param name="taxiway">The taxiway-object.</param>
+        public void AddConnectedTaxiway(int locationAtTaxiway, Taxiway taxiway)
+        {
+            foreach (KeyValuePair<int, Taxiway> pair in connections)
+            {
+                if (pair.Value == taxiway)
+                {
+                    throw new DuplicateOfContentException($"{taxiway} could not be added as a connection for this taxiway at location: '{locationAtTaxiway}'. It is already connected to this taxiway.");
+                }
+            }
+            connections.Add(new KeyValuePair<int, Taxiway>(locationAtTaxiway, taxiway));
+        }
 
         /// <summary>
         /// Adds an flight to the queue for the taxiway.

@@ -1,6 +1,5 @@
 ﻿using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary;
-using BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 using BrusOgPotetgull.AirportLiberary.Simulation;
 
 namespace BrusOgPotetgull.Gruppeoppgave
@@ -55,6 +54,9 @@ namespace BrusOgPotetgull.Gruppeoppgave
             terminal5.CreateMultipleGatesToTerminal("A", 1, 23, heathrow);
             terminal5.CreateMultipleGatesToTerminal("B", 32, 48, heathrow);
             terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
+
+            // Adding connectoions between components
+
 
             // Making sure that aircrafts are allowed at gates.
             terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
