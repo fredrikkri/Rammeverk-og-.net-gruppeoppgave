@@ -39,7 +39,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Runway runway27L_09R = new Runway("27L/09R", 200);
             heathrow.AddRunwayToList(runway27L_09R);
 
-            // creatting taxiways and adding them to airport
+            // creating taxiways and adding them to airport
             Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
             heathrow.AddTaxiwayToList(alpha);
             Taxiway bravo = new Taxiway("Bravo (B)", 400, 20);
@@ -111,6 +111,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
+            heathrow.CreateAndAddConnectionToTaxiwaySystem(terminal2, 0, alpha, 22);
+            heathrow.CreateAndAddConnectionToTaxiwaySystem(alpha, 35, runway27R_09L, 0);
+
+            heathrow.PrintTaxiwaySystem();
 
             System.Console.ReadLine();
         }
