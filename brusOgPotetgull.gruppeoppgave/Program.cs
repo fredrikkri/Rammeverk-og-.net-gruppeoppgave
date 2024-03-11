@@ -24,13 +24,13 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
             // creating terminals and adding them to airport
-            Terminal terminal2 = new Terminal("terminal2");
+            Terminal terminal2 = new Terminal("Terminal 2");
             heathrow.AddTerminalToList(terminal2);
-            Terminal terminal3 = new Terminal("terminal3");
+            Terminal terminal3 = new Terminal("Terminal 3");
             heathrow.AddTerminalToList(terminal3);
-            Terminal terminal4 = new Terminal("terminal4");
+            Terminal terminal4 = new Terminal("Terminal 4");
             heathrow.AddTerminalToList(terminal4);
-            Terminal terminal5 = new Terminal("terminal5");
+            Terminal terminal5 = new Terminal("Terminal 5");
             heathrow.AddTerminalToList(terminal5);
 
             // creating runways and adding them to airport
