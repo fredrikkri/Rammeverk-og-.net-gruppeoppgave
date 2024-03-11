@@ -16,6 +16,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private List<Runway> listRunway;
         private List<Flight> arrivingFlights;
         private List<Flight> departingFlights;
+        private List<Connection> taxiwaySystem;
         
 
         /// <summary>
@@ -38,13 +39,13 @@ namespace BrusOgPotetgull.AirportLiberary
             listRunway = new List<Runway>();
             arrivingFlights = new List<Flight>();
             departingFlights = new List<Flight>();
+            taxiwaySystem = new List<Connection>();
         }
 
         public int AirportId { get; private set; }
         public string AirportCode { get; private set; }
         public string Name { get; private set; }
         public string Location { get; private set; }
-
 
         /// <summary>
         /// Prints out the information about the airport.
@@ -98,6 +99,34 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         /// <returns>A list of runways for this airport</returns>
         public List<Runway> GetRunwayList() => listRunway;
+
+        /// <summary>
+        /// Gets the taxiway system for this airport.
+        /// </summary>
+        /// <returns>A List of connections.</returns>
+        private List<Connection> GetTaxiwaySystem() => taxiwaySystem;
+
+        /// <summary>
+        /// Prints out the information about the taxiwaysystem (All the connected components).
+        /// </summary>
+        public void PrintTaxiwaySystem()
+        {
+            Console.WriteLine($"\n\tInformation about taxiway system for airport: {Name}");
+            foreach (Connection connection in GetTaxiwaySystem())
+            {
+                Console.WriteLine($"{connection.Object1}, {connection.LocationObject1} - {connection.Object2}, {connection.LocationObject2}");
+            }
+        }
+
+        /// <summary>
+        /// Creates and adds a connection to the taxiway system for this airport.
+        /// </summary>
+        /// <param name="locationObject1">The location for where the connection happens on object1.</param>
+        /// <param name="object1">The object that is connected to object2.</param>
+        /// <param name="locationObject2">The location for where the connection happens on object2.</param>
+        /// <param name="object2">The object that is connected to object1.</param>
+        public void CreateAndAddConnectionToTaxiwaySystem( object object1, int locationObject1,  object object2, int locationObject2) => taxiwaySystem.Add(new Connection(object1, locationObject1, object2, locationObject2));
+
 
         /// <summary>
         /// Adds a terminal to the airport.
