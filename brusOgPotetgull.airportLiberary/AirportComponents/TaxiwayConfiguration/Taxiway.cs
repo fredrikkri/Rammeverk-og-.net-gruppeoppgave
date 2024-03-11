@@ -119,6 +119,10 @@ namespace BrusOgPotetgull.AirportLiberary
             return flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
         }
 
+        /// <summary>
+        /// Gets the number og aircrafts in queue.
+        /// </summary>
+        /// <returns>An int value</returns>
         public int GetNumberOfAircraftsInQueue()
         {
             return taxiwayQueue.Count();

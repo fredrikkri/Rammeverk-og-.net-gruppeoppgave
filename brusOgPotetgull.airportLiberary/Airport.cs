@@ -195,8 +195,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with name: '{gateName}' does not exsist. It cannot be added to the terminal.");
             }
-            Gate desiredGate = GetListGates().Find(currentGate => currentGate.Name == gateName);
-            return desiredGate;
+            return GetListGates().Find(currentGate => currentGate.Name == gateName);
         }
 
         /// <summary>
