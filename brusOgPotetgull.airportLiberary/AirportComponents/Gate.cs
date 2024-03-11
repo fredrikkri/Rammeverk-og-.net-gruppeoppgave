@@ -19,13 +19,12 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates a gate.
         /// </summary>
-        /// <param name="gateName">The name of the gate.</param>
-		public Gate(string gateName)
+		public Gate(string name)
         {
             // (dosnetCore, 2020) 
             id = idCounter++;
             this.Id = id;
-            this.GateName = gateName;
+            this.Name = name;
             this.isOpen = true;
             this.isAvailable = true;
             this.legalAircraftTypesId = new List<int>();
@@ -33,14 +32,14 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         public int Id { get; private set; }
-        public string GateName { get; private set; }
+        public string Name { get; private set; }
         public bool IsAvailable { get; private set; }
 
         /// <summary>
         /// Updates the information for which airport the gate is located at.
         /// </summary>
         /// <param name="airportName">Name of the airport that the gate will be located at.</param>
-        public void UpdateGateLocation(string airportName)
+        public void UpdateLocation(string airportName)
         {
             airportLocation = airportName;
         }
@@ -51,7 +50,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void PrintGateInformation()
         {
             Console.Write($"\nGateNr: {Id}\n" +
-                $"Name: {GateName}\n" +
+                $"Name: {Name}\n" +
                 $"IsOpen: {isOpen}\n" +
                 $"Airport location: {airportLocation}\n");
             Console.Write("Legal aircraftstypes: ");
@@ -63,14 +62,10 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Gets the id and the nickname for the airport that this gate is located at.
+        /// Returns the id and name for the airport that this gate is located at.
         /// </summary>
-        /// <returns>The id and the nickname combined as string.</returns>
-        private string GetAirportNameAndGateName()
-        {
-            string returnString = (string)(airportLocation + ", " + GateName + ", Id: " + Id);
-            return returnString;
-        }
+        /// <returns>String that contain information about the gate.</returns>
+        private string GetAirportNameAndGateName() => (string)(airportLocation + ", Gate-id: " + Id + ", Name: " + Name);
 
         /// <summary>
         /// Adds an aircraft that will be able to use the gate.
@@ -78,11 +73,11 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftType">An Enum that represents the id of an aircraftType that you want to enable accsess for the gate.</param>
         public void AddAircraftAllowedAtGate(AircraftType aircraftType)
         {
-            if (legalAircraftTypesId.Contains((int)aircraftType))
+            if (!legalAircraftTypesId.Contains((int)aircraftType))
             {
-                throw new DuplicateOfContentException($"{aircraftType} already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
+                legalAircraftTypesId.Add((int)aircraftType);
+                //throw new DuplicateOfContentException($"{aircraftType} already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
             }
-            legalAircraftTypesId.Add((int)aircraftType);
         }
 
         /// <summary>

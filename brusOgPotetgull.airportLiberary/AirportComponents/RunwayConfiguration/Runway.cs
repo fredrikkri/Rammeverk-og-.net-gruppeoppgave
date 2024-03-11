@@ -1,5 +1,4 @@
 ﻿using BrusOgPotetgull.AirportLiberary.CustomExceptions;
-using BrusOgPotetgull.AirportLiberary.AirportComponents.Runway;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
@@ -19,18 +18,21 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// creates a runway.
         /// </summary>
+        /// /// <param name="name">The name of the runway (meters).</param>
         /// <param name="length">The length of the runway (meters).</param>
-        public Runway(int length)
+        public Runway(string name, int length)
         {
             // (dosnetCore, 2020) 
             id = idCounter++;
-            Id = id;
+            this.Id = id;
+            this.Name = name;
             this.Length = length;
             this.inUse = false;
             InUse = inUse;
         }
 
         public int Id { get; private set; }
+        public string Name { get; private set; }
         public int Length { get; private set; }
         public bool InUse { get; private set; }
         public Queue<Flight> RunwayQueue { get {  return runwayQueue; } }
@@ -39,7 +41,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Updates the information for which airport the Runway is located at.
         /// </summary>
         /// <param name="airportName">Name of the airport that the Runway is located at now.</param>
-        public void UpdateGateLocation(string airportName)
+        public void UpdateLocation(string airportName)
         {
             airportLocation = airportName;
         }
@@ -49,18 +51,18 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintRunwayInformation()
         {
-            Console.Write($"\nRunway id: {Id}\nLength: {Length}\nIn use: {InUse}\nAirport location: {airportLocation}\n");
+            Console.Write($"\nRunway id: {Id} + " +
+                $"\nName: {Name} + " +
+                $"\nLength: {Length} + " +
+                $"\nIn use: {InUse} + " +
+                $"\nAirport location: {airportLocation}\n");
         }
 
         /// <summary>
-        /// returns the id and the code (nickname) for the airport that this runway is located at.
+        /// returns the id and name for the airport that this runway is located at.
         /// </summary>
-        /// <returns>String containing id and airportcode.</returns>
-        public string GetAirportNameAndRunwayId()
-        {
-            string returnString = (string)(airportLocation +", "+ "Runway-id: " + Id);
-            return returnString;
-        }
+        /// <returns>String that contain information about the runway.</returns>
+        public string GetAirportNameAndRunwayId() => (string)(airportLocation + ", " + "Runway-id: " + Id + ", Name: " + Name);
 
         /// <summary>
         /// Remove the flight located first in line in the runwayqueue.
@@ -87,11 +89,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Checks which flight that is located first in line in runwayqueue.
         /// </summary>
         /// <returns>Flight object that is first in line at queue.</returns>
-        public Flight CheckNextFlightInQueue()
-        {
-            Flight nextFlight = runwayQueue.Peek();
-            return nextFlight;
-        }
+        public Flight CheckNextFlightInQueue() => runwayQueue.Peek();
 
         /// <summary>
         /// This method lets the next flight in queue enter the runway.
@@ -162,7 +160,6 @@ namespace BrusOgPotetgull.AirportLiberary
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Leaves the runway");
             }
         }
-
 
         protected virtual void RaiseFlightDeparted(Flight.Departing flight, DateTime time, string message)
         {

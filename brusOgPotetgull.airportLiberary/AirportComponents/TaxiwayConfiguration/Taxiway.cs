@@ -1,4 +1,6 @@
-﻿namespace BrusOgPotetgull.AirportLiberary
+﻿using BrusOgPotetgull.AirportLiberary.CustomExceptions;
+
+namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
     /// The taxiway class is defining how a taxiway is designed.
@@ -13,26 +15,29 @@
         /// <summary>
         /// Creates a taxiway.
         /// </summary>
+        /// <param name="name">The name of the taxiway.</param>
         /// <param name="length">Length of the taxiway.</param>
         /// <param name="maxSpeed">Legal maxspeed for the taxiway</param>
-        public Taxiway(int length, int maxSpeed)
+        public Taxiway(string name, int length, int maxSpeed)
         {
             // (dosnetCore, 2020)
             id = idCounter++;
             this.Id = id;
+            this.Name = name;
             this.Length = length;
             this.MaxSpeed = maxSpeed;
         }
 
         public int Length { get; private set; }
         public int Id { get; private set; }
+        public string Name { get; private set; }
         public int MaxSpeed { get; private set; }
 
         /// <summary>
         /// Updates the information for which airport the taxiway is located at.
         /// </summary>
         /// <param name="airportName">Name of the airport that the taxiway is located at now.</param>
-        public void UpdateGateLocation(string airportName)
+        public void UpdateLocation(string airportName)
         {
             airportLocation = airportName;
         }
@@ -43,20 +48,16 @@
         public void PrintTaxiwayInformation()
 		{
             Console.Write($"\nTaxiwayId: {Id}\n" +
+                $"Name: {Name}\n" +
                 $"Taxiway lenght: {Length}\n" +
                 $"Airport location: { airportLocation}\n");
         }
 
         /// <summary>
-        /// returns the id and the code (nickname) for the airport that this taxiway is located at.
-        /// eksample: "Gate 1 GAR"
+        /// returns the id and name for the airport that this taxiway is located at.
         /// </summary>
-        /// <returns>String that contain id and airportcode.</returns>
-        private string GetAirportNameAndTaxiwayId()
-        {
-            string returnString = (string)(airportLocation +", "+ "Taxiway-id: " + Id);
-            return returnString;
-        }
+        /// <returns>String that contain information about the taxiway.</returns>
+        private string GetAirportNameAndTaxiwayId() => (string)(airportLocation + ", " + "Taxiway-id: " + Id + ", Name: " + Name);
 
         /// <summary>
         /// Adds an flight to the queue for the taxiway.
