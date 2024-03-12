@@ -79,6 +79,7 @@ namespace BrusOgPotetgull.AirportLiberary
                     throw new DuplicateOfContentException($"{time}, {location} {message} could not be added to history for plane with talenumber: '{TailNumber}'. The excact same line of history already exists for this plane.");
                 }
             }
+
             history.Add(new KeyValuePair<DateTime, string>(time, (location + message))); 
         }
 
@@ -105,6 +106,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'true'.");
                
             }
+
             OutOfService = true;
         }
 
@@ -117,6 +119,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'false'.");
             }
+
             OutOfService = false;
         }
 

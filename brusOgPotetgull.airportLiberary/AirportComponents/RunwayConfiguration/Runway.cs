@@ -76,6 +76,7 @@ namespace BrusOgPotetgull.AirportLiberary
             }
             return runwayQueue.Dequeue();
         }
+
         /// <summary>
         /// Adds flight to runway-queue.
         /// </summary>
@@ -107,7 +108,6 @@ namespace BrusOgPotetgull.AirportLiberary
             Flight nextFlight = runwayQueue.Dequeue();
             runwayQueue.TrimExcess();
         }
-
 
         /// <summary>
         /// Returns the time in seconds that an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph.
