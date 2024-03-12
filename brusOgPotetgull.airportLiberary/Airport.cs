@@ -114,19 +114,18 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.WriteLine($"\n\tInformation about taxiway system for airport: {Name}");
             foreach (Connection connection in GetTaxiwaySystem())
             {
-                Console.WriteLine($"{connection.Object1}, {connection.LocationObject1} - {connection.Object2}, {connection.LocationObject2}");
+                Console.WriteLine($"{connection} - {connection}");
             }
         }
 
         /// <summary>
-        /// Creates and adds a connection to the taxiway system for this airport.
+        /// Adds a connection to the taxiway system for this airport.
         /// </summary>
-        /// <param name="locationObject1">The location for where the connection happens on object1.</param>
-        /// <param name="object1">The object that is connected to object2.</param>
-        /// <param name="locationObject2">The location for where the connection happens on object2.</param>
-        /// <param name="object2">The object that is connected to object1.</param>
-        public void CreateAndAddConnectionToTaxiwaySystem( object object1, int locationObject1,  object object2, int locationObject2) => taxiwaySystem.Add(new Connection(object1, locationObject1, object2, locationObject2));
-
+        /// <param name="connection">The connection that is added.</param>
+        public void AddConnectionToTaxiwaySystem(Connection connection)
+        {
+            taxiwaySystem.Add(connection);
+        }
 
         /// <summary>
         /// Adds a terminal to the airport.

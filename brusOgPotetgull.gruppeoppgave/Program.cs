@@ -110,13 +110,13 @@ namespace BrusOgPotetgull.Gruppeoppgave
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
-            heathrow.PrintAirportInformation();
-            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("A2"));
-            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("A3"));
-            charlie.AddConnectedTaxiway(alpha);
 
-            charlie.PrintTaxiwayInformation();
-            alpha.PrintTaxiwayInformation();
+            heathrow.AddConnectionToTaxiwaySystem(new ConnectionTaxiwayRunway(alpha, runway27L_09R));
+            heathrow.AddConnectionToTaxiwaySystem(new ConnectionTaxiwayTaxiway(alpha, charlie));
+            heathrow.AddConnectionToTaxiwaySystem(new ConnectionTaxiwayGate(charlie, heathrow.GetGateBasedOnGateName("A3")));
+
+            heathrow.PrintAirportInformation();
+            heathrow.PrintTaxiwaySystem();
 
             System.Console.ReadLine();
         }
