@@ -111,10 +111,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
-            heathrow.CreateAndAddConnectionToTaxiwaySystem(terminal2, 0, alpha, 22);
-            heathrow.CreateAndAddConnectionToTaxiwaySystem(alpha, 35, runway27R_09L, 0);
+            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("A2"));
+            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("A3"));
+            charlie.AddConnectedTaxiway(alpha);
 
-            heathrow.PrintTaxiwaySystem();
+            charlie.PrintTaxiwayInformation();
+            alpha.PrintTaxiwayInformation();
 
             System.Console.ReadLine();
         }
