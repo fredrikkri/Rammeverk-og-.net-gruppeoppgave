@@ -139,6 +139,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Terminal with id: '{terminal.Id}' allready exists in airport: '{Name}'");
             }
+
             terminal.UpdateLocation(Name);
             listTerminal.Add(terminal);
         }
@@ -154,6 +155,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Terminal with id: '{terminal.Id}' does not exists in airport: '{Name}'. It cant be removed.");
             }
+
             terminal.UpdateLocation("none");
             listTerminal.Remove(terminal);
         }
@@ -169,6 +171,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{gate.Id}' allready exists in airport: '{Name}'");
             }
+
             gate.UpdateLocation(Name);
             listGate.Add(gate);
         }
@@ -184,6 +187,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{gate.Id}' does not exists in airport: '{Name}'. It cant be removed.");
             }
+
             gate.UpdateLocation("none");
             listGate.Remove(gate);
         }
@@ -195,6 +199,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with name: '{gateName}' does not exsist. It cannot be added to the terminal.");
             }
+
             return GetListGates().Find(currentGate => currentGate.Name == gateName);
         }
 
@@ -209,6 +214,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{taxiway.Id}' allready exists in airport: '{Name}'");
             }
+
             taxiway.UpdateLocation(Name);
             listTaxiway.Add(taxiway);
         }
@@ -224,6 +230,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Taxiway with id: '{taxiway.Id}' does not exists in airport: '{Name}'. It cant be removed.");
             }
+
             taxiway.UpdateLocation("none");
             listTaxiway.Remove(taxiway);
         }
@@ -239,6 +246,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{runway.Id}' allready exists in airport: '{Name}'");
             }
+
             runway.UpdateLocation(Name);
             listRunway.Add(runway);
         }
@@ -254,6 +262,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Runway with id: '{runway.Id}' does not exists in airport: '{Name}'. It cant be removed.");
             }
+
             runway.UpdateLocation("none");
             listRunway.Remove(runway);
         }
@@ -329,6 +338,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 throw new InvalidOperationException("No arriving flights in list");
             }
+
             arrivingFlights.Remove(flight);
         }
 
@@ -343,6 +353,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 throw new InvalidOperationException("No departing flights in list");
                 
             }
+
             departingFlights.Remove(flight);
         }
 
