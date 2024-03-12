@@ -8,7 +8,6 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
     /// </summary>
 	public class Simulation
 	{
-        
         /// <summary>
         /// Creates an simulation of the choosen airport.
         /// </summary>
@@ -31,14 +30,11 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
         /// </summary>
         public void RunSimulation()
         {
-
             DateTime start = StartTime;
             DateTime end = EndTime;
 
             while (start <= end)
             {
-                //Console.Write($"\n\t\t\t\t\t\tSimulation time: {start}\n");
-
                 // Hvis det finnnes innkommende flygninger
                 if (Airport.GetArrivingFlights().Count > 0)
                 {
