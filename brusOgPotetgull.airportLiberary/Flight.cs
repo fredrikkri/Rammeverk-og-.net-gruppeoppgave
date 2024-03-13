@@ -13,6 +13,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public DateTime DateTimeFlight { get; private set; }
         public bool IsArrivingFlight { get; private set; }
         public int Length { get; private set; }
+        public List<Taxiway> calculatedRoute;
 
         protected Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length)
         {
@@ -21,6 +22,7 @@ namespace BrusOgPotetgull.AirportLiberary
             DateTimeFlight = dateTimeFlight;
             IsArrivingFlight = isArrivingFlight;
             Length = length;
+            calculatedRoute = new List<Taxiway>();
         }
 
         /// <summary>

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using BrusOgPotetgull.AirportLiberary;
+﻿using BrusOgPotetgull.AirportLiberary;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
@@ -121,11 +120,11 @@ namespace BrusOgPotetgull.AirportLiberary
                 {
                     if (taxiway.ConnectedGate != null)
                     {
-                        Console.WriteLine($"{taxiway.Name} GateConnection: {taxiway.ConnectedGate.Name}");
+                        Console.WriteLine($"\t{taxiway.Name}, GateConnection: {taxiway.ConnectedGate.Name}");
                     }
                     else
                     {
-                        Console.WriteLine($"{taxiway.Name}");
+                        Console.WriteLine($"\t{taxiway.Name}");
                     }
                 }
             }
@@ -154,12 +153,54 @@ namespace BrusOgPotetgull.AirportLiberary
         */
         public void AddTaxiwayConnection(Taxiway taxiway, ConnectionPoint to, ConnectionPoint from, Gate? gateConnection = null, Runway? runwayConnection = null)
         {
-            taxiway.To = to;
-            taxiway.From = from;
+            taxiway.B = to;
+            taxiway.A = from;
             from.taxiways.Add (taxiway);
             to.taxiways.Add(taxiway);
             taxiway.ConnectedGate = gateConnection;
             taxiway.ConnectedRunway = runwayConnection;
+        }
+
+        public List<Taxiway> FindPath(Taxiway start, Taxiway end, List<Taxiway> calculatedRoute)
+        {
+            Taxiway currentTaxiway = start;
+
+            if (currentTaxiway == end)
+            {
+                calculatedRoute.Add(end);
+                foreach (Taxiway t in calculatedRoute)
+                {
+                    Console.WriteLine($"{t.Name}");
+                }
+                //return calculatedRoute;
+            }
+            else
+            {
+                if (!calculatedRoute.Contains(currentTaxiway))
+                {
+                    calculatedRoute.Add(currentTaxiway);
+                    foreach (Taxiway nextTaxiway in currentTaxiway.B.taxiways)
+                    {
+                        if (!calculatedRoute.Contains(nextTaxiway))
+                        {
+                            FindPath(nextTaxiway, end, calculatedRoute);
+                        }
+                    }
+                    foreach (Taxiway nextTaxiway in currentTaxiway.A.taxiways)
+                    {
+                        if (!calculatedRoute.Contains(nextTaxiway))
+                        {
+                            FindPath(nextTaxiway, end, calculatedRoute);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.Write("No route was found..");
+                    return new List<Taxiway>();
+                }
+            }
+            return calculatedRoute;
         }
 
         /// <summary>

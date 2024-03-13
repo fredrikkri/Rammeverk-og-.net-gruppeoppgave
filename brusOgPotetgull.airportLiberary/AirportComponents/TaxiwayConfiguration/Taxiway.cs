@@ -39,8 +39,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public int Id { get; private set; }
         public string Name { get; private set; }
         public int MaxSpeed { get; private set; }
-        public ConnectionPoint From {  get; set; }
-        public ConnectionPoint To { get; set; }
+        public ConnectionPoint A {  get; set; }
+        public ConnectionPoint B { get; set; }
         public Runway? ConnectedRunway { get; set; }
         public Gate? ConnectedGate { get; set; }
 
@@ -97,6 +97,8 @@ namespace BrusOgPotetgull.AirportLiberary
             }
             connectedTaxiways.Remove(taxiway);
         }
+
+        public List<Taxiway> GetConnectedTaxiways() => connectedTaxiways;
 
         /// <summary>
         /// Adds a runway to the list of connected runways for this taxiway.
