@@ -16,7 +16,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private List<Runway> listRunway;
         private List<Flight> arrivingFlights;
         private List<Flight> departingFlights;
-        private List<Connection> taxiwaySystem;
+        private List<ConnectionPoint> taxiwaySystem;
         
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace BrusOgPotetgull.AirportLiberary
             listRunway = new List<Runway>();
             arrivingFlights = new List<Flight>();
             departingFlights = new List<Flight>();
-            taxiwaySystem = new List<Connection>();
+            taxiwaySystem = new List<ConnectionPoint>();
         }
 
         public int AirportId { get; private set; }
@@ -104,29 +104,63 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Gets the taxiway system for this airport.
         /// </summary>
         /// <returns>A List of connections.</returns>
-        private List<Connection> GetTaxiwaySystem() => taxiwaySystem;
+        private List<ConnectionPoint> GetTaxiwaySystem() => taxiwaySystem;
 
         /// <summary>
         /// Prints out the information about the taxiwaysystem (All the connected components).
         /// </summary>
         public void PrintTaxiwaySystem()
         {
+            int i = 0;
             Console.WriteLine($"\n\tInformation about taxiway system for airport: {Name}");
-            foreach (Connection connection in GetTaxiwaySystem())
+            foreach (ConnectionPoint connection in GetTaxiwaySystem())
             {
-                Console.WriteLine($"{connection.Object1}, {connection.LocationObject1} - {connection.Object2}, {connection.LocationObject2}");
+                i++;
+                Console.WriteLine($"{i}: {connection.Name}");                
+                foreach (var taxiway in connection.taxiways)
+                {
+                    if (taxiway.ConnectedGate != null)
+                    {
+                        Console.WriteLine($"{taxiway.Name} GateConnection: {taxiway.ConnectedGate.Name}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{taxiway.Name}");
+                    }
+                }
             }
         }
 
         /// <summary>
-        /// Creates and adds a connection to the taxiway system for this airport.
+        /// Adds a connection point to the taxiwaysystem
         /// </summary>
-        /// <param name="locationObject1">The location for where the connection happens on object1.</param>
-        /// <param name="object1">The object that is connected to object2.</param>
-        /// <param name="locationObject2">The location for where the connection happens on object2.</param>
-        /// <param name="object2">The object that is connected to object1.</param>
-        public void CreateAndAddConnectionToTaxiwaySystem( object object1, int locationObject1,  object object2, int locationObject2) => taxiwaySystem.Add(new Connection(object1, locationObject1, object2, locationObject2));
+        /// <param name="connection">ConnectionPoint point to connect two or more taxiways</param>
+        public void AddConnectionPoint(ConnectionPoint connection) => taxiwaySystem.Add(connection);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name">Name of the taxiway</param>
+        /// <param name="length">Length of the taxiway in meters</param>
+        /// <param name="maxspeed">Maximum travelspeed on the taxiway in KPH</param>
+        /// <param name="from">Starting connection point of the taxiway</param>
+        /// <param name="to">Ending connection point of the taxiway</param>
+        /*public void AddTaxiway(string name, int length, int maxspeed, ConnectionPoint from, ConnectionPoint to) 
+        {
+            Taxiway taxiway = new Taxiway(name, length, maxspeed) { From = from, To = to };
+            from.taxiways.Add(taxiway);
+            to.taxiways.Add(taxiway);
+        }
+        */
+        public void AddTaxiwayConnection(Taxiway taxiway, ConnectionPoint to, ConnectionPoint from, Gate? gateConnection = null, Runway? runwayConnection = null)
+        {
+            taxiway.To = to;
+            taxiway.From = from;
+            from.taxiways.Add (taxiway);
+            to.taxiways.Add(taxiway);
+            taxiway.ConnectedGate = gateConnection;
+            taxiway.ConnectedRunway = runwayConnection;
+        }
 
         /// <summary>
         /// Adds a terminal to the airport.
