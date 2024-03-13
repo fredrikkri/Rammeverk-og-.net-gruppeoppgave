@@ -39,6 +39,10 @@ namespace BrusOgPotetgull.AirportLiberary
         public int Id { get; private set; }
         public string Name { get; private set; }
         public int MaxSpeed { get; private set; }
+        public ConnectionPoint From {  get; set; }
+        public ConnectionPoint To { get; set; }
+        public Runway? ConnectedRunway { get; set; }
+        public Gate? ConnectedGate { get; set; }
 
         /// <summary>
         /// Adds a gate to the list of connected gates for this taxiway.

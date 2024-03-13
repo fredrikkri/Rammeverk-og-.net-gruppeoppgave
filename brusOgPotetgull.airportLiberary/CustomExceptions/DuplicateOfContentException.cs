@@ -14,6 +14,7 @@ namespace BrusOgPotetgull.AirportLiberary.CustomExceptions
 		{
 
 		}
+
         /// <summary>
         /// Creates an DuplicateOfCotentException with a specified error message.
         /// </summary>
@@ -23,6 +24,7 @@ namespace BrusOgPotetgull.AirportLiberary.CustomExceptions
         {
 
         }
+
         /// <summary>
         /// Creates an DuplicateOfCotentException with a specified error message.
         /// It has also a reference to the inner exception that is the cause of this exception.
