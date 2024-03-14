@@ -82,7 +82,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayConnection(alpha, B1, A1);
             heathrow.AddTaxiwayConnection(bravo, C1, B1);
             heathrow.AddTaxiwayConnection(charlie, D1, C1, heathrow.GetGateBasedOnGateName("A1"));
-            heathrow.AddTaxiwayConnection(kapteinSabeltannIs, E1, D1);
+            heathrow.AddTaxiwayConnection(kapteinSabeltannIs, D1, E1);
             heathrow.AddTaxiwayConnection(gresskar, F1, D1);
             heathrow.AddTaxiwayConnection(middag, G1, F1);
 

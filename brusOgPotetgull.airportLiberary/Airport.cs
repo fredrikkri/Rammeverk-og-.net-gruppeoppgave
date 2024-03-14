@@ -167,6 +167,18 @@ namespace BrusOgPotetgull.AirportLiberary
 
             if (currentTaxiway == end)
             {
+                for (int i = 1; i < calculatedRoute.Count - 1; i++ )
+                {
+                    Taxiway past = calculatedRoute[i - 1];
+                    Taxiway current = calculatedRoute[i];
+                    Taxiway next = calculatedRoute[i + 1];
+                    if (!current.A.taxiways.Contains(past) || !current.B.taxiways.Contains(past) &&
+                        !current.A.taxiways.Contains(next) || !current.B.taxiways.Contains(next))
+                    {
+                        calculatedRoute.Remove(current);
+                    }
+                }
+
                 calculatedRoute.Add(end);
                 foreach (Taxiway t in calculatedRoute)
                 {
@@ -200,7 +212,6 @@ namespace BrusOgPotetgull.AirportLiberary
                     return new List<Taxiway>();
                 }
             }
-            Console.WriteLine("No route was found....");
             return calculatedRoute;
         }
 
