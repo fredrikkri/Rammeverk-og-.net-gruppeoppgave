@@ -39,6 +39,22 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Runway runway27L_09R = new Runway("27L/09R", 200);
             heathrow.AddRunwayToList(runway27L_09R);
 
+            ConnectionPoint A1 = new ConnectionPoint("A1");
+            ConnectionPoint B1 = new ConnectionPoint("B1");
+            ConnectionPoint C1 = new ConnectionPoint("C1");
+            ConnectionPoint D1 = new ConnectionPoint("D1");
+            ConnectionPoint E1 = new ConnectionPoint("E1");
+            ConnectionPoint F1 = new ConnectionPoint("F1");
+            ConnectionPoint G1 = new ConnectionPoint("G1");
+
+            heathrow.AddConnectionPoint(A1);
+            heathrow.AddConnectionPoint(B1);
+            heathrow.AddConnectionPoint(C1);
+            heathrow.AddConnectionPoint(D1);
+            heathrow.AddConnectionPoint(E1);
+            heathrow.AddConnectionPoint(F1);
+            heathrow.AddConnectionPoint(G1);
+
             // creating taxiways and adding them to airport
             Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
             heathrow.AddTaxiwayToList(alpha);
@@ -46,6 +62,14 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayToList(bravo);
             Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
             heathrow.AddTaxiwayToList(charlie);
+            Taxiway kapteinSabeltannIs = new Taxiway("kapteinsabeltann is (KAP)", 650, 20);
+            heathrow.AddTaxiwayToList(kapteinSabeltannIs);
+            Taxiway gresskar = new Taxiway("gresskar (G)", 650, 20);
+            heathrow.AddTaxiwayToList(gresskar);
+            Taxiway middag = new Taxiway("Middag (M)", 650, 20);
+            heathrow.AddTaxiwayToList(middag);
+            Taxiway vaksemiddel = new Taxiway("vaksemiddel (V)", 650, 20);
+            heathrow.AddTaxiwayToList(vaksemiddel);
 
             // creating gates and adding them to terminals and airport
             terminal2.CreateMultipleGatesToTerminal("A", 1, 26, heathrow);
@@ -55,25 +79,37 @@ namespace BrusOgPotetgull.Gruppeoppgave
             terminal5.CreateMultipleGatesToTerminal("B", 32, 48, heathrow);
             terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
 
-            // Adding connectoions between components
+            heathrow.AddTaxiwayConnection(alpha, B1, A1);
+            heathrow.AddTaxiwayConnection(bravo, C1, B1);
+            heathrow.AddTaxiwayConnection(charlie, D1, C1, heathrow.GetGateBasedOnGateName("A1"));
+            heathrow.AddTaxiwayConnection(kapteinSabeltannIs, D1, E1);
+            heathrow.AddTaxiwayConnection(gresskar, F1, D1);
+            heathrow.AddTaxiwayConnection(middag, G1, F1);
+
+            List<Taxiway> route = heathrow.FindPath(alpha, middag, new List<Taxiway>());
+
+            //heathrow.PrintTaxiwaySystem();
+            Console.WriteLine($"antall taksebanser i rute: {route.Count()}");
+            /*
+                        // Adding connectoions between components
 
 
-            // Making sure that aircrafts are allowed at gates.
-            terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-            terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-            terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
+                        // Making sure that aircrafts are allowed at gates.
+                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
+                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
+                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
 
-            terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-            terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
+                        terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
+                        terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
 
-            terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-            terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
+                        terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
+                        terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
 
-            terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-            terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-            terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-            terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Cargo);
-
+                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
+                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
+                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
+                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Cargo);
+            */
             // Creating flights.
             Flight.Departing flight1 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A1"), alpha, runway27R_09L);
             Flight.Departing flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("B25"), bravo, runway27R_09L);
@@ -98,6 +134,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             runway27R_09L.FlightDeparted += OnFlightDeparted;
             runway27L_09R.FlightDeparted += OnFlightDeparted;
 
+            /*
             // simulation
             DateTime start = new(2024, 3, 1);
             DateTime end = new(2024, 3, 1, 4, 00, 00);
@@ -111,11 +148,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
-            heathrow.CreateAndAddConnectionToTaxiwaySystem(terminal2, 0, alpha, 22);
-            heathrow.CreateAndAddConnectionToTaxiwaySystem(alpha, 35, runway27R_09L, 0);
+            */
 
-            heathrow.PrintTaxiwaySystem();
 
+            //heathrow.PrintTaxiwaySystem();
             System.Console.ReadLine();
         }
     }
