@@ -62,8 +62,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayToList(bravo);
             Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
             heathrow.AddTaxiwayToList(charlie);
-            Taxiway apeNisse = new Taxiway("apeNisse (APENisse)", 650, 20);
-            heathrow.AddTaxiwayToList(apeNisse);
+            Taxiway kapteinSabeltannIs = new Taxiway("kapteinsabeltann is (KAP)", 650, 20);
+            heathrow.AddTaxiwayToList(kapteinSabeltannIs);
             Taxiway gresskar = new Taxiway("gresskar (G)", 650, 20);
             heathrow.AddTaxiwayToList(gresskar);
             Taxiway middag = new Taxiway("Middag (M)", 650, 20);
@@ -82,7 +82,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayConnection(alpha, B1, A1);
             heathrow.AddTaxiwayConnection(bravo, C1, B1);
             heathrow.AddTaxiwayConnection(charlie, D1, C1, heathrow.GetGateBasedOnGateName("A1"));
-            heathrow.AddTaxiwayConnection(apeNisse, E1, D1);
+            heathrow.AddTaxiwayConnection(kapteinSabeltannIs, E1, D1);
             heathrow.AddTaxiwayConnection(gresskar, F1, D1);
             heathrow.AddTaxiwayConnection(middag, G1, F1);
 

@@ -172,7 +172,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 {
                     Console.WriteLine($"{t.Name}");
                 }
-                //return calculatedRoute;
+                return calculatedRoute;
             }
             else
             {
@@ -196,10 +196,11 @@ namespace BrusOgPotetgull.AirportLiberary
                 }
                 else
                 {
-                    Console.Write("No route was found..");
+                    Console.WriteLine($"calculateRoute already contains {currentTaxiway.Name}");
                     return new List<Taxiway>();
                 }
             }
+            Console.WriteLine("No route was found....");
             return calculatedRoute;
         }
 
