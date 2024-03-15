@@ -66,10 +66,11 @@ namespace BrusOgPotetgull.Gruppeoppgave
             terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
 
             // Creating flights.
-            Flight.Departing flight1 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), middag, runway27R_09L);
-            Flight.Departing flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), bravo, runway27R_09L);
-            Flight.Arriving flight3 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), gresskar, runway27L_09R);
-            Flight.Arriving flight4 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
+            
+            Flight.Arriving flight1 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), gresskar, runway27L_09R);
+            Flight.Arriving flight2 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
+            Flight.Departing flight3 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), middag, runway27R_09L);
+            Flight.Departing flight4 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), bravo, runway27R_09L);
 
             // setup taxiway system
             ConnectionPoint A1 = new ConnectionPoint("A1");
@@ -103,15 +104,15 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             heathrow.PrintTaxiwaySystem();
 
-            List<Taxiway> route2 = heathrow.GenerateArrivingFlightTaxiwayPath(flight3);
-            List<Taxiway> route3 = heathrow.GenerateArrivingFlightTaxiwayPath(flight4);
-            List<Taxiway> route4 = heathrow.GenerateDeparturingFlightTaxiwayPath(flight1);
-            List<Taxiway> route5 = heathrow.GenerateDeparturingFlightTaxiwayPath(flight2);
+            List<Taxiway> route1 = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
+            List<Taxiway> route2 = heathrow.GenerateArrivingFlightTaxiwayPath(flight2);
+            List<Taxiway> route3 = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
+            List<Taxiway> route4 = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
 
+            heathrow.PrintTaxiwayRoute(route1);
             heathrow.PrintTaxiwayRoute(route2);
             heathrow.PrintTaxiwayRoute(route3);
             heathrow.PrintTaxiwayRoute(route4);
-            heathrow.PrintTaxiwayRoute(route5);
 
 
             /*
