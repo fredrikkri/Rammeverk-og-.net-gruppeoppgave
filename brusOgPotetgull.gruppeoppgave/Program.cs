@@ -46,6 +46,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             ConnectionPoint E1 = new ConnectionPoint("E1");
             ConnectionPoint F1 = new ConnectionPoint("F1");
             ConnectionPoint G1 = new ConnectionPoint("G1");
+            ConnectionPoint H1 = new ConnectionPoint("H1");
 
             heathrow.AddConnectionPoint(A1);
             heathrow.AddConnectionPoint(B1);
@@ -54,6 +55,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddConnectionPoint(E1);
             heathrow.AddConnectionPoint(F1);
             heathrow.AddConnectionPoint(G1);
+            heathrow.AddConnectionPoint(H1);
 
             // creating taxiways and adding them to airport
             Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
@@ -80,15 +82,20 @@ namespace BrusOgPotetgull.Gruppeoppgave
             terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
 
             heathrow.AddTaxiwayConnection(alpha, B1, A1);
-            heathrow.AddTaxiwayConnection(bravo, C1, B1);
-            heathrow.AddTaxiwayConnection(charlie, D1, C1, heathrow.GetGateBasedOnGateName("A1"));
-            heathrow.AddTaxiwayConnection(kapteinSabeltannIs, D1, E1);
-            heathrow.AddTaxiwayConnection(gresskar, F1, D1);
+            heathrow.AddTaxiwayConnection(bravo, B1, C1);
+            heathrow.AddTaxiwayConnection(charlie, D1, B1, heathrow.GetGateBasedOnGateName("A1"));
+            heathrow.AddTaxiwayConnection(kapteinSabeltannIs, E1, D1);
+            heathrow.AddTaxiwayConnection(gresskar, F1, E1);
             heathrow.AddTaxiwayConnection(middag, G1, F1);
+            heathrow.AddTaxiwayConnection(vaksemiddel, E1, H1);
 
-            List<Taxiway> route = heathrow.FindPath(alpha, middag, new List<Taxiway>());
 
-            //heathrow.PrintTaxiwaySystem();
+            List<Taxiway> route = heathrow.FindPath(middag, alpha, new List<Taxiway>());
+
+            foreach (Taxiway t in route)
+            {
+                Console.WriteLine($"{t.Name}");
+            }
             Console.WriteLine($"antall taksebanser i rute: {route.Count()}");
             /*
                         // Adding connectoions between components
