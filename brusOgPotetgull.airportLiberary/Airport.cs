@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using BrusOgPotetgull.AirportLiberary;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
@@ -162,11 +164,35 @@ namespace BrusOgPotetgull.AirportLiberary
             taxiway.ConnectedRunway = runwayConnection;
         }
 
-        /// <summary>
-        /// Adds a terminal to the airport.
-        /// </summary>
-        /// <param name="terminal">The terminal that is added to the list of terminals for this airport.</param>
-        public void AddTerminalToList(Terminal terminal)
+
+        // sudokode - kalkulere en TaxiWayPath
+
+        public void CalculateTaxiWayPathFromGateToRunway(Gate gate, Runway runway)
+        {
+            var startPath = gate;
+            var endPath = runway;
+
+            //Iterere gjennom liste av knutepunkter, finne det knutepunktet som == current.gate
+
+            //Lagre det konkrete ConnectionPoint = startConnectionPoint 
+
+            foreach (ConnectionPoint(ConnectionTaxiwayGate))
+
+            //Fra startConnectionPoint, liste ut alle taxebaner
+
+                // foreach taxebane { liste ut alle ConnectionPoint}
+                    // foreach ConnectionPoint { liste ut alle taksebaner} 
+         
+        };
+            
+	
+
+
+/// <summary>
+/// Adds a terminal to the airport.
+/// </summary>
+/// <param name="terminal">The terminal that is added to the list of terminals for this airport.</param>
+public void AddTerminalToList(Terminal terminal)
         {
             if (listTerminal.Contains(terminal))
             {
