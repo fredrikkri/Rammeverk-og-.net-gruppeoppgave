@@ -167,6 +167,30 @@ namespace BrusOgPotetgull.AirportLiberary
             // Sjekk om vi har nådd sluttpunktet
             if (start == end)
             {
+                for (int i = 1; i < calculatedRoute.Count - 1; i++)
+                {
+                    Taxiway past = calculatedRoute[i - 1];
+                    Taxiway current = calculatedRoute[i];
+                    Taxiway next = calculatedRoute[i + 1];
+                    if (current.A.taxiways.Contains(past)) {
+                        if (!current.B.taxiways.Contains(next))
+                        {
+                            calculatedRoute.Remove(current);
+                        }
+                    }
+                    if (current.B.taxiways.Contains(past))
+                    {
+                        if (!current.A.taxiways.Contains(next))
+                        {
+                            calculatedRoute.Remove(current);
+                        }
+                    }
+                    {
+                        //calculatedRoute.Remove(current);
+                        calculatedRoute.Add(end);
+                        return calculatedRoute;
+                    }
+                }
                 calculatedRoute.Add(end); // Legg til sluttpunktet
                 return calculatedRoute;   // Returner den beregnede ruten
             }
