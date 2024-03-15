@@ -16,7 +16,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private List<Flight> arrivingFlights;
         private List<Flight> departingFlights;
         private List<ConnectionPoint> taxiwaySystem;
-        
+
 
         /// <summary>
         /// Creates an airport.
@@ -25,7 +25,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="name">The name of the airport.</param>
         /// <param name="location">Where the airport is located at.</param>
         public Airport(string airportCode, string name, string location)
-		{
+        {
             // (dosnetCore, 2020) 
             airportId = idCounter++;
             this.AirportId = airportId;
@@ -115,7 +115,7 @@ namespace BrusOgPotetgull.AirportLiberary
             foreach (ConnectionPoint connection in GetTaxiwaySystem())
             {
                 i++;
-                Console.WriteLine($"{i}: {connection.Name}");                
+                Console.WriteLine($"{i}: {connection.Name}");
                 foreach (var taxiway in connection.taxiways)
                 {
                     if (taxiway.ConnectedGate != null)
@@ -155,7 +155,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             taxiway.B = to;
             taxiway.A = from;
-            from.taxiways.Add (taxiway);
+            from.taxiways.Add(taxiway);
             to.taxiways.Add(taxiway);
             taxiway.ConnectedGate = gateConnection;
             taxiway.ConnectedRunway = runwayConnection;
@@ -163,11 +163,74 @@ namespace BrusOgPotetgull.AirportLiberary
 
         public List<Taxiway> FindPath(Taxiway start, Taxiway end, List<Taxiway> calculatedRoute)
         {
+            // Sjekk om vi har nådd sluttpunktet
+            if (start == end)
+            {
+                for (int i = 1; i < calculatedRoute.Count - 1; i++)
+                {
+                    Taxiway past = calculatedRoute[i - 1];
+                    Taxiway current = calculatedRoute[i];
+                    Taxiway next = calculatedRoute[i + 1];
+                    if (current.A.taxiways.Contains(past)) {
+                        if (!current.B.taxiways.Contains(next))
+                        {
+                            calculatedRoute.Remove(current);
+                        }
+                    }
+                    if (current.B.taxiways.Contains(past))
+                    {
+                        if (!current.A.taxiways.Contains(next))
+                        {
+                            calculatedRoute.Remove(current);
+                        }
+                    }
+                    {
+                        //calculatedRoute.Remove(current);
+                        calculatedRoute.Add(end);
+                        return calculatedRoute;
+                    }
+                }
+                calculatedRoute.Add(end); // Legg til sluttpunktet
+                return calculatedRoute;   // Returner den beregnede ruten
+            }
+
+            // Legg til startpunktet i den beregnede ruten
+            calculatedRoute.Add(start);
+
+            // Utforsk alle tilgjengelige veier fra dette punktet
+            foreach (Taxiway nextTaxiway in start.B.taxiways)
+            {
+                if (!calculatedRoute.Contains(nextTaxiway))
+                {
+                    // Utforsk videre fra neste taksebane
+                    List<Taxiway> result = FindPath(nextTaxiway, end, calculatedRoute.ToList());
+                    if (result != null)
+                        return result; // Hvis rute er funnet, returner den
+                }
+            }
+
+            // Hvis ingen rute ble funnet fra B, utforsk fra A
+            foreach (Taxiway nextTaxiway in start.A.taxiways)
+            {
+                if (!calculatedRoute.Contains(nextTaxiway))
+                {
+                    // Utforsk videre fra neste taksebane
+                    List<Taxiway> result = FindPath(nextTaxiway, end, calculatedRoute.ToList());
+                    if (result != null)
+                        return result; // Hvis rute er funnet, returner den
+                }
+            }
+
+            // Ingen rute funnet fra dette punktet
+            return null;
+        }
+
+        /*{
             Taxiway currentTaxiway = start;
 
             if (currentTaxiway == end)
             {
-                for (int i = 1; i < calculatedRoute.Count - 1; i++ )
+                for (int i = 1; i < calculatedRoute.Count - 1; i++)
                 {
                     Taxiway past = calculatedRoute[i - 1];
                     Taxiway current = calculatedRoute[i];
@@ -176,44 +239,35 @@ namespace BrusOgPotetgull.AirportLiberary
                         !current.A.taxiways.Contains(next) || !current.B.taxiways.Contains(next))
                     {
                         calculatedRoute.Remove(current);
+                        calculatedRoute.Add(end);
+                        return calculatedRoute;
                     }
+                    
+                    calculatedRoute.Add(end);
+                    return calculatedRoute;
                 }
-
                 calculatedRoute.Add(end);
-                foreach (Taxiway t in calculatedRoute)
-                {
-                    Console.WriteLine($"{t.Name}");
-                }
                 return calculatedRoute;
             }
-            else
+            calculatedRoute.Add(currentTaxiway);
+
+            
+            foreach (Taxiway nextTaxiway in currentTaxiway.B.taxiways )
             {
-                if (!calculatedRoute.Contains(currentTaxiway))
+                if (!calculatedRoute.Contains(nextTaxiway))
                 {
-                    calculatedRoute.Add(currentTaxiway);
-                    foreach (Taxiway nextTaxiway in currentTaxiway.B.taxiways)
-                    {
-                        if (!calculatedRoute.Contains(nextTaxiway))
-                        {
-                            FindPath(nextTaxiway, end, calculatedRoute);
-                        }
-                    }
-                    foreach (Taxiway nextTaxiway in currentTaxiway.A.taxiways)
-                    {
-                        if (!calculatedRoute.Contains(nextTaxiway))
-                        {
-                            FindPath(nextTaxiway, end, calculatedRoute);
-                        }
-                    }
+                    return FindPath(nextTaxiway, end, calculatedRoute);
                 }
-                else
+            }
+            foreach (Taxiway nextTaxiway in currentTaxiway.A.taxiways)
+            {
+                if (!calculatedRoute.Contains(nextTaxiway))
                 {
-                    Console.WriteLine($"calculateRoute already contains {currentTaxiway.Name}");
-                    return new List<Taxiway>();
+                    return FindPath(nextTaxiway, end, calculatedRoute);
                 }
             }
             return calculatedRoute;
-        }
+        }*/
 
         /// <summary>
         /// Adds a terminal to the airport.
