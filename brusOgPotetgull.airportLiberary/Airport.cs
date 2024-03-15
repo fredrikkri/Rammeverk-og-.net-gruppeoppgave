@@ -1,5 +1,3 @@
-﻿using System.Collections.Generic;
-using System.Linq;
 using BrusOgPotetgull.AirportLiberary;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -19,7 +17,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private List<Flight> arrivingFlights;
         private List<Flight> departingFlights;
         private List<ConnectionPoint> taxiwaySystem;
-        
+
 
         /// <summary>
         /// Creates an airport.
@@ -28,7 +26,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="name">The name of the airport.</param>
         /// <param name="location">Where the airport is located at.</param>
         public Airport(string airportCode, string name, string location)
-		{
+        {
             // (dosnetCore, 2020) 
             airportId = idCounter++;
             this.AirportId = airportId;
@@ -118,16 +116,16 @@ namespace BrusOgPotetgull.AirportLiberary
             foreach (ConnectionPoint connection in GetTaxiwaySystem())
             {
                 i++;
-                Console.WriteLine($"{i}: {connection.Name}");                
+                Console.WriteLine($"{i}: {connection.Name}");
                 foreach (var taxiway in connection.taxiways)
                 {
                     if (taxiway.ConnectedGate != null)
                     {
-                        Console.WriteLine($"{taxiway.Name} GateConnection: {taxiway.ConnectedGate.Name}");
+                        Console.WriteLine($"\t{taxiway.Name}, GateConnection: {taxiway.ConnectedGate.Name}");
                     }
                     else
                     {
-                        Console.WriteLine($"{taxiway.Name}");
+                        Console.WriteLine($"\t{taxiway.Name}");
                     }
                 }
             }
@@ -156,13 +154,97 @@ namespace BrusOgPotetgull.AirportLiberary
         */
         public void AddTaxiwayConnection(Taxiway taxiway, ConnectionPoint to, ConnectionPoint from, Gate? gateConnection = null, Runway? runwayConnection = null)
         {
-            taxiway.To = to;
-            taxiway.From = from;
-            from.taxiways.Add (taxiway);
+            taxiway.B = to;
+            taxiway.A = from;
+            from.taxiways.Add(taxiway);
             to.taxiways.Add(taxiway);
             taxiway.ConnectedGate = gateConnection;
             taxiway.ConnectedRunway = runwayConnection;
         }
+
+        public List<Taxiway> FindPath(Taxiway start, Taxiway end, List<Taxiway> calculatedRoute)
+        {
+            // Sjekk om vi har nådd sluttpunktet
+            if (start == end)
+            {
+                calculatedRoute.Add(end); // Legg til sluttpunktet
+                return calculatedRoute;   // Returner den beregnede ruten
+            }
+
+            // Legg til startpunktet i den beregnede ruten
+            calculatedRoute.Add(start);
+
+            // Utforsk alle tilgjengelige veier fra dette punktet
+            foreach (Taxiway nextTaxiway in start.B.taxiways)
+            {
+                if (!calculatedRoute.Contains(nextTaxiway))
+                {
+                    // Utforsk videre fra neste taksebane
+                    List<Taxiway> result = FindPath(nextTaxiway, end, calculatedRoute.ToList());
+                    if (result != null)
+                        return result; // Hvis rute er funnet, returner den
+                }
+            }
+
+            // Hvis ingen rute ble funnet fra B, utforsk fra A
+            foreach (Taxiway nextTaxiway in start.A.taxiways)
+            {
+                if (!calculatedRoute.Contains(nextTaxiway))
+                {
+                    // Utforsk videre fra neste taksebane
+                    List<Taxiway> result = FindPath(nextTaxiway, end, calculatedRoute.ToList());
+                    if (result != null)
+                        return result; // Hvis rute er funnet, returner den
+                }
+            }
+
+            // Ingen rute funnet fra dette punktet
+            return null;
+        }
+
+        /*{
+            Taxiway currentTaxiway = start;
+
+            if (currentTaxiway == end)
+            {
+                for (int i = 1; i < calculatedRoute.Count - 1; i++)
+                {
+                    Taxiway past = calculatedRoute[i - 1];
+                    Taxiway current = calculatedRoute[i];
+                    Taxiway next = calculatedRoute[i + 1];
+                    if (!current.A.taxiways.Contains(past) || !current.B.taxiways.Contains(past) &&
+                        !current.A.taxiways.Contains(next) || !current.B.taxiways.Contains(next))
+                    {
+                        calculatedRoute.Remove(current);
+                        calculatedRoute.Add(end);
+                        return calculatedRoute;
+                    }
+                    
+                    calculatedRoute.Add(end);
+                    return calculatedRoute;
+                }
+                calculatedRoute.Add(end);
+                return calculatedRoute;
+            }
+            calculatedRoute.Add(currentTaxiway);
+
+            
+            foreach (Taxiway nextTaxiway in currentTaxiway.B.taxiways )
+            {
+                if (!calculatedRoute.Contains(nextTaxiway))
+                {
+                    return FindPath(nextTaxiway, end, calculatedRoute);
+                }
+            }
+            foreach (Taxiway nextTaxiway in currentTaxiway.A.taxiways)
+            {
+                if (!calculatedRoute.Contains(nextTaxiway))
+                {
+                    return FindPath(nextTaxiway, end, calculatedRoute);
+                }
+            }
+            return calculatedRoute;
+        }*/
 
 
         // sudokode - kalkulere en TaxiWayPath
