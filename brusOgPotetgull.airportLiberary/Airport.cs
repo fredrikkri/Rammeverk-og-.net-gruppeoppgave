@@ -46,6 +46,47 @@ namespace BrusOgPotetgull.AirportLiberary
         public string Name { get; private set; }
         public string Location { get; private set; }
 
+        public List<Taxiway> GenerateArrivingFlightTaxiwayPath(Flight.Arriving flight)
+        {
+                foreach (ConnectionPoint connectionPoint in taxiwaySystem)
+                {
+                    foreach (Taxiway taxiway in connectionPoint.taxiways)
+                    {
+                        if (taxiway.ConnectedGate == flight.ArrivalGate)
+                        {
+                            List<Taxiway> path = FindPath(flight.ArrivalTaxiway, taxiway, new List<Taxiway>());
+                            return path;
+                        }
+                    }
+                }
+            return null;
+        }
+
+        public List<Taxiway> GenerateDeparturingFlightTaxiwayPath(Flight.Departing flight)
+        {
+            foreach (ConnectionPoint connectionPoint in taxiwaySystem)
+            {
+                foreach (Taxiway taxiway in connectionPoint.taxiways)
+                {
+                    if (taxiway.ConnectedGate == flight.DepartureGate)
+                    {
+                        List<Taxiway> path = FindPath(taxiway, flight.DepartureTaxiway, new List<Taxiway>());
+                        return path;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public void PrintTaxiwayRoute(List<Taxiway> route)
+        {
+            foreach (Taxiway t in route)
+            {
+                Console.WriteLine($"{t.Name}");
+            }
+            Console.WriteLine($"antall taksebanser i rute: {route.Count()}");
+        }
+
         /// <summary>
         /// Prints out the information about the airport.
         /// </summary>
