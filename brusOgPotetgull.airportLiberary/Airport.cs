@@ -273,23 +273,23 @@ namespace BrusOgPotetgull.AirportLiberary
 
         // sudokode - kalkulere en TaxiWayPath
 
-        public void CalculateTaxiWayPathFromGateToRunway(Gate gate, Runway runway)
-        {
-            var startPath = gate;
-            var endPath = runway;
+        //public void CalculateTaxiWayPathFromGateToRunway(Gate gate, Runway runway)
+        //{
+        //    var startPath = gate;
+        //    var endPath = runway;
 
-            //Iterere gjennom liste av knutepunkter, finne det knutepunktet som == current.gate
+        //    //Iterere gjennom liste av knutepunkter, finne det knutepunktet som == current.gate
 
-            //Lagre det konkrete ConnectionPoint = startConnectionPoint 
+        //    //Lagre det konkrete ConnectionPoint = startConnectionPoint 
 
-            foreach (ConnectionPoint(ConnectionTaxiwayGate))
+        //    foreach (ConnectionPoint(ConnectionTaxiwayGate))
 
-            //Fra startConnectionPoint, liste ut alle taxebaner
+        //    //Fra startConnectionPoint, liste ut alle taxebaner
 
-                // foreach taxebane { liste ut alle ConnectionPoint}
-                    // foreach ConnectionPoint { liste ut alle taksebaner} 
+        //        // foreach taxebane { liste ut alle ConnectionPoint}
+        //            // foreach ConnectionPoint { liste ut alle taksebaner} 
          
-        };
+        //};
             
 	
 
