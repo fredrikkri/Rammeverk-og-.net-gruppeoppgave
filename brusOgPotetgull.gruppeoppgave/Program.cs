@@ -104,15 +104,20 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             heathrow.PrintTaxiwaySystem();
 
-            List<Taxiway> route1 = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
-            List<Taxiway> route2 = heathrow.GenerateArrivingFlightTaxiwayPath(flight2);
-            List<Taxiway> route3 = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
-            List<Taxiway> route4 = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
+            // generate taxiwaypaths for flights
+            flight1.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
+            flight2.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight2);
+            flight3.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
+            flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
 
-            heathrow.PrintTaxiwayRoute(route1);
-            heathrow.PrintTaxiwayRoute(route2);
-            heathrow.PrintTaxiwayRoute(route3);
-            heathrow.PrintTaxiwayRoute(route4);
+            heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
+
+            int time = flight2.CalculateTaxiwayPathTime();
+
+            Console.WriteLine($"\ntime for path for flight2: {time}");
 
 
             /*

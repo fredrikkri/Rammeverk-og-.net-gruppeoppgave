@@ -266,50 +266,6 @@ namespace BrusOgPotetgull.AirportLiberary
             return null;
         }
 
-        /*{
-            Taxiway currentTaxiway = start;
-
-            if (currentTaxiway == end)
-            {
-                for (int i = 1; i < calculatedRoute.Count - 1; i++)
-                {
-                    Taxiway past = calculatedRoute[i - 1];
-                    Taxiway current = calculatedRoute[i];
-                    Taxiway next = calculatedRoute[i + 1];
-                    if (!current.A.taxiways.Contains(past) || !current.B.taxiways.Contains(past) &&
-                        !current.A.taxiways.Contains(next) || !current.B.taxiways.Contains(next))
-                    {
-                        calculatedRoute.Remove(current);
-                        calculatedRoute.Add(end);
-                        return calculatedRoute;
-                    }
-                    
-                    calculatedRoute.Add(end);
-                    return calculatedRoute;
-                }
-                calculatedRoute.Add(end);
-                return calculatedRoute;
-            }
-            calculatedRoute.Add(currentTaxiway);
-
-            
-            foreach (Taxiway nextTaxiway in currentTaxiway.B.taxiways )
-            {
-                if (!calculatedRoute.Contains(nextTaxiway))
-                {
-                    return FindPath(nextTaxiway, end, calculatedRoute);
-                }
-            }
-            foreach (Taxiway nextTaxiway in currentTaxiway.A.taxiways)
-            {
-                if (!calculatedRoute.Contains(nextTaxiway))
-                {
-                    return FindPath(nextTaxiway, end, calculatedRoute);
-                }
-            }
-            return calculatedRoute;
-        }*/
-
         /// <summary>
         /// Adds a terminal to the airport.
         /// </summary>
