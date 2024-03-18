@@ -154,14 +154,15 @@ namespace BrusOgPotetgull.AirportLiberary
             return time;
         }
 
-        public int CalculateTaxiwayPathTime()
+        public double CalculateTaxiwayPathTime()
         {
             int lengthPath = GetLengthOfTaxiwayPath();
-            int time = 0;
+            double time = 0;
 
             foreach (Taxiway taxiway in taxiwayPath)
             {
-                time += ((lengthPath / taxiway.MaxSpeed) / 60);
+
+                time += ((lengthPath / (taxiway.MaxSpeed / 3.6)));
             }
             return time;
         }
