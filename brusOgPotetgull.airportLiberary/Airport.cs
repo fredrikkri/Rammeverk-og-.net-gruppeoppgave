@@ -80,6 +80,7 @@ namespace BrusOgPotetgull.AirportLiberary
 
         public void PrintTaxiwayRoute(List<Taxiway> route)
         {
+            Console.WriteLine();
             foreach (Taxiway t in route)
             {
                 Console.WriteLine($"{t.Name}");
