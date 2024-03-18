@@ -14,6 +14,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public bool IsArrivingFlight { get; private set; }
         public int Length { get; private set; }
         public List<Taxiway> taxiwayPath;
+        public Taxiway? currentLocationTaxiway;
 
         protected Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length)
         {
