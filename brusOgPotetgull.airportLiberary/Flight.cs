@@ -13,7 +13,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public DateTime DateTimeFlight { get; private set; }
         public bool IsArrivingFlight { get; private set; }
         public int Length { get; private set; }
-        public List<Taxiway> calculatedRoute;
+        public List<Taxiway> taxiwayPath;
 
         protected Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length)
         {
@@ -22,7 +22,7 @@ namespace BrusOgPotetgull.AirportLiberary
             DateTimeFlight = dateTimeFlight;
             IsArrivingFlight = isArrivingFlight;
             Length = length;
-            calculatedRoute = new List<Taxiway>();
+            taxiwayPath = new List<Taxiway>();
         }
 
         /// <summary>
@@ -152,6 +152,28 @@ namespace BrusOgPotetgull.AirportLiberary
             }
 
             return time;
+        }
+
+        public int CalculateTaxiwayPathTime()
+        {
+            int lengthPath = GetLengthOfTaxiwayPath();
+            int time = 0;
+
+            foreach (Taxiway taxiway in taxiwayPath)
+            {
+                time += ((lengthPath / taxiway.MaxSpeed) / 60);
+            }
+            return time;
+        }
+
+        private int GetLengthOfTaxiwayPath()
+        {
+            int result = 0;
+            foreach (Taxiway taxiway in taxiwayPath)
+            {
+                result += taxiway.Length;
+            }
+            return result;
         }
     }
 }

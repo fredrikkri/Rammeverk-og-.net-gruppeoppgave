@@ -66,10 +66,11 @@ namespace BrusOgPotetgull.Gruppeoppgave
             terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
 
             // Creating flights.
-            Flight.Departing flight1 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A1"), alpha, runway27R_09L);
-            Flight.Departing flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("B25"), bravo, runway27R_09L);
-            Flight.Arriving flight3 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), alpha, runway27L_09R);
-            Flight.Arriving flight4 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
+            
+            Flight.Arriving flight1 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), gresskar, runway27L_09R);
+            Flight.Arriving flight2 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
+            Flight.Departing flight3 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), middag, runway27R_09L);
+            Flight.Departing flight4 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), bravo, runway27R_09L);
 
             // setup taxiway system
             ConnectionPoint A1 = new ConnectionPoint("A1");
@@ -94,25 +95,31 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             heathrow.AddTaxiwayConnection(alpha, B1, A1);
             heathrow.AddTaxiwayConnection(bravo, B1, C1);
-            heathrow.AddTaxiwayConnection(charlie, D1, B1, heathrow.GetGateBasedOnGateName("A1"));
+            heathrow.AddTaxiwayConnection(charlie, D1, B1);
             heathrow.AddTaxiwayConnection(kapteinSabeltannIs, E1, D1);
             heathrow.AddTaxiwayConnection(gresskar, F1, E1);
-            heathrow.AddTaxiwayConnection(middag, G1, F1);
+            heathrow.AddTaxiwayConnection(middag, G1, F1, heathrow.GetGateBasedOnGateName("C53"));
             heathrow.AddTaxiwayConnection(vaksemiddel, H1, G1);
-            heathrow.AddTaxiwayConnection(brus, H1, G1);
-
-            
+            heathrow.AddTaxiwayConnection(brus, H1, G1, heathrow.GetGateBasedOnGateName("A3"));
 
             heathrow.PrintTaxiwaySystem();
 
+            // generate taxiwaypaths for flights
+            flight1.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
+            flight2.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight2);
+            flight3.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
+            flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
 
-            List<Taxiway> route = heathrow.FindPath(kapteinSabeltannIs, brus, new List<Taxiway>());
+            heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
 
-            foreach (Taxiway t in route)
-            {
-                Console.WriteLine($"{t.Name}");
-            }
-            Console.WriteLine($"antall taksebanser i rute: {route.Count()}");
+            int time = flight2.CalculateTaxiwayPathTime();
+
+            Console.WriteLine($"\ntime for path for flight2: {time}");
+
+
             /*
                         // Adding connectoions between components
 
@@ -133,7 +140,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
                         terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
                         terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Cargo);
             */
-            
+
 
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)
