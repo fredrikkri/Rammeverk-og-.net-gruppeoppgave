@@ -46,6 +46,47 @@ namespace BrusOgPotetgull.AirportLiberary
         public string Name { get; private set; }
         public string Location { get; private set; }
 
+        public List<Taxiway> GenerateArrivingFlightTaxiwayPath(Flight.Arriving flight)
+        {
+                foreach (ConnectionPoint connectionPoint in taxiwaySystem)
+                {
+                    foreach (Taxiway taxiway in connectionPoint.taxiways)
+                    {
+                        if (taxiway.ConnectedGate == flight.ArrivalGate)
+                        {
+                            List<Taxiway> path = FindPath(flight.ArrivalTaxiway, taxiway, new List<Taxiway>());
+                            return path;
+                        }
+                    }
+                }
+            return null;
+        }
+
+        public List<Taxiway> GenerateDeparturingFlightTaxiwayPath(Flight.Departing flight)
+        {
+            foreach (ConnectionPoint connectionPoint in taxiwaySystem)
+            {
+                foreach (Taxiway taxiway in connectionPoint.taxiways)
+                {
+                    if (taxiway.ConnectedGate == flight.DepartureGate)
+                    {
+                        List<Taxiway> path = FindPath(taxiway, flight.DepartureTaxiway, new List<Taxiway>());
+                        return path;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public void PrintTaxiwayRoute(List<Taxiway> route)
+        {
+            foreach (Taxiway t in route)
+            {
+                Console.WriteLine($"{t.Name}");
+            }
+            Console.WriteLine($"antall taksebanser i rute: {route.Count()}");
+        }
+
         /// <summary>
         /// Prints out the information about the airport.
         /// </summary>
@@ -224,50 +265,6 @@ namespace BrusOgPotetgull.AirportLiberary
             // Ingen rute funnet fra dette punktet
             return null;
         }
-
-        /*{
-            Taxiway currentTaxiway = start;
-
-            if (currentTaxiway == end)
-            {
-                for (int i = 1; i < calculatedRoute.Count - 1; i++)
-                {
-                    Taxiway past = calculatedRoute[i - 1];
-                    Taxiway current = calculatedRoute[i];
-                    Taxiway next = calculatedRoute[i + 1];
-                    if (!current.A.taxiways.Contains(past) || !current.B.taxiways.Contains(past) &&
-                        !current.A.taxiways.Contains(next) || !current.B.taxiways.Contains(next))
-                    {
-                        calculatedRoute.Remove(current);
-                        calculatedRoute.Add(end);
-                        return calculatedRoute;
-                    }
-                    
-                    calculatedRoute.Add(end);
-                    return calculatedRoute;
-                }
-                calculatedRoute.Add(end);
-                return calculatedRoute;
-            }
-            calculatedRoute.Add(currentTaxiway);
-
-            
-            foreach (Taxiway nextTaxiway in currentTaxiway.B.taxiways )
-            {
-                if (!calculatedRoute.Contains(nextTaxiway))
-                {
-                    return FindPath(nextTaxiway, end, calculatedRoute);
-                }
-            }
-            foreach (Taxiway nextTaxiway in currentTaxiway.A.taxiways)
-            {
-                if (!calculatedRoute.Contains(nextTaxiway))
-                {
-                    return FindPath(nextTaxiway, end, calculatedRoute);
-                }
-            }
-            return calculatedRoute;
-        }*/
 
         /// <summary>
         /// Adds a terminal to the airport.
