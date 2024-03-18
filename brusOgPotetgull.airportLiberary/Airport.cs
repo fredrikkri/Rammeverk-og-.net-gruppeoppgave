@@ -48,31 +48,25 @@ namespace BrusOgPotetgull.AirportLiberary
 
         public List<Taxiway> GenerateArrivingFlightTaxiwayPath(Flight.Arriving flight)
         {
-                foreach (ConnectionPoint connectionPoint in taxiwaySystem)
+            foreach (Taxiway taxiway in GetListTaxiways())
+            {
+                if (taxiway.ConnectedGate == flight.ArrivalGate)
                 {
-                    foreach (Taxiway taxiway in connectionPoint.taxiways)
-                    {
-                        if (taxiway.ConnectedGate == flight.ArrivalGate)
-                        {
-                            List<Taxiway> path = FindPath(flight.ArrivalTaxiway, taxiway, new List<Taxiway>());
-                            return path;
-                        }
-                    }
+                    List<Taxiway> path = FindPath(flight.ArrivalTaxiway, taxiway, new List<Taxiway>());
+                    return path;
                 }
+            }
             return null;
         }
 
         public List<Taxiway> GenerateDeparturingFlightTaxiwayPath(Flight.Departing flight)
         {
-            foreach (ConnectionPoint connectionPoint in taxiwaySystem)
+            foreach (Taxiway taxiway in GetListTaxiways())
             {
-                foreach (Taxiway taxiway in connectionPoint.taxiways)
+                if (taxiway.ConnectedGate == flight.DepartureGate)
                 {
-                    if (taxiway.ConnectedGate == flight.DepartureGate)
-                    {
-                        List<Taxiway> path = FindPath(taxiway, flight.DepartureTaxiway, new List<Taxiway>());
-                        return path;
-                    }
+                    List<Taxiway> path = FindPath(taxiway, flight.DepartureTaxiway, new List<Taxiway>());
+                    return path;
                 }
             }
             return null;
