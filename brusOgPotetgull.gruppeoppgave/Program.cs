@@ -69,7 +69,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             
             Flight.Arriving flight1 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), gresskar, runway27L_09R);
             Flight.Arriving flight2 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
-            Flight.Departing flight3 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), middag, runway27R_09L);
+            Flight.Departing flight3 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), middag, runway27R_09L);
             Flight.Departing flight4 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), bravo, runway27R_09L);
 
             // setup taxiway system
