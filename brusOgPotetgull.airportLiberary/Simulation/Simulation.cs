@@ -48,52 +48,10 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
 
                             //starter handlinger for flygning  ( når tiden for flygningen er inne )
                             flight.ArrivalRunway.AddFlightToQueue(flight); //  ----------------------------------------------------------------------------  step 1 arriving
-                            // trenger ikke køsystem på loggede flygninger, kun tidspunkt. Har allerede køsystem i runway og taxiway.
                         }
                     }
                 }
-
-                // Sjekker alle runways
-                foreach (Runway currentRunway in Airport.GetRunwayList())
-                {
-                    //Hvis det er fly i runway køen, og runway er ledig
-                    if (currentRunway.RunwayQueue.Count > 0 && currentRunway.InUse == false)
-                    {
-                        //utfør landing
-                        Flight.Arriving nextFlight = (Flight.Arriving) currentRunway.CheckNextFlightInQueue(); //  -------------------------------------------------------------------- step 2 arrving
-                        currentRunway.NextFlightEntersRunway();
-                        currentRunway.UseRunway(nextFlight, start);
-                        currentRunway.ExitRunway(nextFlight, start);
-
-                        // simulerer tid og legge fly i taxiway kø
-                        nextFlight.ArrivalTaxiway.SimulateTaxiwayTime(nextFlight, 20, nextFlight.ActiveAircraft.AccelerationOnGround, nextFlight.ActiveAircraft.MaxSpeedOnGround, start);
-                        nextFlight.ArrivalTaxiway.AddFlightToQueue(nextFlight, start);
-                    }
-                }
-
-                // For hver taxiway på flyplassen
-                foreach (Taxiway taxiway in Airport.GetListTaxiways())
-                {
-                    // Neste fly i taxiway køen
-                    if (taxiway.GetNumberOfAircraftsInQueue() > 0)
-                    {
-                        Flight.Arriving flight = (Flight.Arriving) taxiway.CheckNextFlightInQueue(); 
-
-                        // Dersom flygning er arriving flight
-                        if (flight.IsArrivingFlight == true)
-                        {
-                            flight.ArrivalTaxiway.NextFlightLeavesTaxiway(flight, start);  // ------------------------------------------------------------------ step 3 arrving
-                            flight.ArrivalGate.BookGate(flight.ActiveAircraft, start);
-                                if (!Airport.GetArrivingFlights().Contains(flight))
-                                {
-                                    throw new DuplicateOfContentException($"{flight} could not be removed from 'arrivingFlights-list'. It does not exist in the list.");
-                                }
-                                Airport.RemoveArrivingFlight(flight);
-                        }
-                    }
-                }
-
-                // Eller Hvis det finnes utgående flygninger
+                // Hvis det finnes utgående flygninger
                 if (Airport.GetDepartingFlights().Count > 0)
                 {
                     // Går igjennom lista med utgående flygninger
@@ -105,32 +63,96 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                             // Genererer en taxiway-rute for current departuring flight
                             flight.taxiwayPath = Airport.GenerateDeparturingFlightTaxiwayPath(flight);
 
+                            //starter handlinger for flygning  ( når tiden for flygningen er inne )
                             flight.DepartureGate.LeaveGate(flight.ActiveAircraft, start); // ----------------------------------------------------------- step 1 Departing
-                            flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround, start);
-                            flight.DepartureTaxiway.AddFlightToQueue(flight, start);
                         }
                     }
                 }
 
-                //For hver taxiway på flyplassen
-                foreach (Taxiway taxiway in Airport.GetListTaxiways())
+                // Sjekker alle runways
+                foreach (Runway currentRunway in Airport.GetRunwayList())
                 {
-                    if (taxiway.GetNumberOfAircraftsInQueue() > 0)
+                    //Hvis det er fly i runway køen, og runway er ledig
+                    if (currentRunway.RunwayQueue.Count > 0 && currentRunway.InUse == false)
                     {
-                        Flight.Departing currentFlight = (Flight.Departing) taxiway.CheckNextFlightInQueue();
-                        if (currentFlight.IsArrivingFlight == false) 
+                        if (currentRunway.CheckNextFlightInQueue().IsArrivingFlight == true)
                         {
-                            if (currentFlight != null && currentFlight.DepartureRunway.InUse == false)
+                            //utfør landing
+                            Flight.Arriving nextFlight = (Flight.Arriving)currentRunway.CheckNextFlightInQueue(); //  -------------------------------------------------------------------- step 2 arrving
+                            currentRunway.NextFlightEntersRunway();
+                            currentRunway.UseRunway(nextFlight, start);
+                            currentRunway.ExitRunway(nextFlight, start);
+                        }
+                        else
+                        {
+                            //utfør take off
+                            Flight.Departing nextFlight = (Flight.Departing)currentRunway.CheckNextFlightInQueue(); //  -------------------------------------------------------------------- step 2 arrving
+                            currentRunway.NextFlightEntersRunway();
+                            currentRunway.UseRunway(nextFlight, start);
+                            currentRunway.ExitRunway(nextFlight, start);
+                        }
+                    }
+                }
+                // Hver taksebane blir brukt av et fly
+                foreach (Taxiway currentTaxiway in Airport.GetListTaxiways())
+                {
+                    if (currentTaxiway.GetNumberOfAircraftsInQueue() > 0)
+                    {
+                        if (currentTaxiway.CheckAndReturnNextFlightInQueue().IsArrivingFlight == true)
+                        {
+                            Flight.Arriving arrivingFlight = (Flight.Arriving)currentTaxiway.CheckAndReturnNextFlightInQueue();
+                            currentTaxiway.SimulateTaxiwayTime(arrivingFlight, 0, arrivingFlight.ActiveAircraft.AccelerationOnGround, arrivingFlight.ActiveAircraft.MaxSpeedOnGround, DateTime.Now);
+                            currentTaxiway.NextFlightLeavesTaxiway(arrivingFlight, DateTime.Now);
+
+                            // sjekker om det finnes et neste taxiway-objekt i taxiwaypath 
+                            for (int i = 0; i < arrivingFlight.taxiwayPath.Count(); i++)
                             {
-                                currentFlight.DepartureTaxiway.NextFlightLeavesTaxiway(currentFlight, start); // ------------------------------------------ Departuring step 2
-                                currentFlight.DepartureRunway.UseRunway(currentFlight, start);
-                                currentFlight.DepartureRunway.SimulateRunwayTime(currentFlight, 0, currentFlight.ActiveAircraft.AccelerationInAir, currentFlight.ActiveAircraft.MaxSpeedInAir);
-                                currentFlight.DepartureRunway.ExitRunway(currentFlight, start); // kunne tatt start + addsecounds for å få til bedre logging, men må ha med tid fra taxiway da
+                                if (arrivingFlight.taxiwayPath[i] == arrivingFlight.currentLocationTaxiway)
+                                {
+                                    // setter den neste taksebanen i lista til å være nåverende lokasjon
+                                    arrivingFlight.currentLocationTaxiway = arrivingFlight.taxiwayPath[i + 1];
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Flight.Departing departuringFlight = (Flight.Departing)currentTaxiway.CheckAndReturnNextFlightInQueue();
+                            currentTaxiway.SimulateTaxiwayTime(departuringFlight, 0, departuringFlight.ActiveAircraft.AccelerationOnGround, departuringFlight.ActiveAircraft.MaxSpeedOnGround, DateTime.Now);
+                            currentTaxiway.NextFlightLeavesTaxiway(departuringFlight, DateTime.Now);
+
+                            // sjekker om det finnes et neste taxiway-objekt i taxiwaypath 
+                            for (int i = 0; i < departuringFlight.taxiwayPath.Count(); i++)
+                            {
+                                if (departuringFlight.taxiwayPath[i] == departuringFlight.currentLocationTaxiway)
+                                {
+                                    // setter den neste taksebanen i lista til å være nåverende lokasjon
+                                    departuringFlight.currentLocationTaxiway = departuringFlight.taxiwayPath[i + 1];
+                                }
                             }
                         }
                     }
-                }         
-                
+                }
+                // Legger til fly i kø på taksebaner
+                foreach (Taxiway taxiway in Airport.GetListTaxiways())
+                {
+                    foreach (Flight arrivingFlight in Airport.GetArrivingFlights())
+                    {
+                        // Må ha taxiwaylogikk her!!!
+                        if (arrivingFlight.taxiwayPath.Count > 0)
+                        {
+                            arrivingFlight.currentLocationTaxiway.AddFlightToQueue(arrivingFlight, DateTime.Now);
+                        }
+
+                    }
+                    foreach (Flight departuringFlight in Airport.GetDepartingFlights())
+                    {
+                        // Må ha taxiwaylogikk her!!!
+                        if (departuringFlight.taxiwayPath.Count > 0)
+                        {
+                            departuringFlight.currentLocationTaxiway.AddFlightToQueue(departuringFlight, DateTime.Now);
+                        }
+                    }
+                }
                 Thread.Sleep(1);
                 start = start.AddMinutes(1);
             }

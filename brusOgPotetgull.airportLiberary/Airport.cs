@@ -53,6 +53,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 if (taxiway.ConnectedGate == flight.ArrivalGate)
                 {
                     List<Taxiway> path = FindPath(flight.ArrivalTaxiway, taxiway, new List<Taxiway>());
+                    flight.currentLocationTaxiway = flight.ArrivalTaxiway;
                     return path;
                 }
             }
@@ -66,6 +67,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 if (taxiway.ConnectedGate == flight.DepartureGate)
                 {
                     List<Taxiway> path = FindPath(taxiway, flight.DepartureTaxiway, new List<Taxiway>());
+                    flight.currentLocationTaxiway = taxiway;
                     return path;
                 }
             }

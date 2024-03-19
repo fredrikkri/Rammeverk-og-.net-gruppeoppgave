@@ -187,10 +187,26 @@ namespace BrusOgPotetgull.AirportLiberary
         /// This method checks which flight is next in line for this taxiway.
         /// </summary>
         /// <returns>A flight object.</returns>
-        public Flight CheckNextFlightInQueue()
+        public Flight CheckAndReturnNextFlightInQueue()
         {
+            if (taxiwayQueue.Count() < 0)
+            {
+                throw new InvalidOperationException("The queue is empty.");
+            }
                 Flight nextFlight = taxiwayQueue.Peek();
                 return nextFlight;
+        }
+
+        public bool IfElementsInTaxiwayQueue()
+        {
+            if (taxiwayQueue.Count() <= 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         /// <summary>

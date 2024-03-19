@@ -102,7 +102,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayConnection(vaksemiddel, H1, G1);
             heathrow.AddTaxiwayConnection(brus, H1, G1, heathrow.GetGateBasedOnGateName("A3"));
 
-            heathrow.PrintTaxiwaySystem();
+            //heathrow.PrintTaxiwaySystem();
 
             // generate taxiwaypaths for flights
             flight1.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
@@ -110,16 +110,16 @@ namespace BrusOgPotetgull.Gruppeoppgave
             flight3.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
             flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
 
-            heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
+            //heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
+            //heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
+            //heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
+            //heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
 
             double time = flight2.CalculateTaxiwayPathTime();
             double min = Math.Round(time / 60);
             double sec = Math.Round(time % 60);
 
-            Console.WriteLine($"\ntime for path for flight2: {min}min and {sec}sec");
+            //Console.WriteLine($"\ntime for path for flight2: {min}min and {sec}sec");
 
 
             /*
@@ -162,21 +162,21 @@ namespace BrusOgPotetgull.Gruppeoppgave
             runway27R_09L.FlightDeparted += OnFlightDeparted;
             runway27L_09R.FlightDeparted += OnFlightDeparted;
 
-            /*
+            
             // simulation
             DateTime start = new(2024, 3, 1);
             DateTime end = new(2024, 3, 1, 4, 00, 00);
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
-
+            
             // Printing history for aircrafts on a given day.
             cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
-            heathrow.PrintAirportInformation();
-            */
+            //heathrow.PrintAirportInformation();
+            
 
 
             //heathrow.PrintTaxiwaySystem();
