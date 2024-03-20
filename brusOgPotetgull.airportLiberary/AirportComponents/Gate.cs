@@ -8,7 +8,7 @@ namespace BrusOgPotetgull.AirportLiberary
     /// </summary>
 	public class Gate
     {
-        private static int idCounter = 1;
+        private static int idCounter = 1;   
         private int id;
         private bool isOpen;
         private bool isAvailable;
