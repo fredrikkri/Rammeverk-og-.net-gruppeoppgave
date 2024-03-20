@@ -73,12 +73,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
             foreach (KeyValuePair<DateTime, string> pair in history)
-            {
                 if (pair.Key == time && pair.Value == (location + message))
-                {
                     throw new DuplicateOfContentException($"{time}, {location} {message} could not be added to history for plane with talenumber: '{TailNumber}'. The excact same line of history already exists for this plane.");
-                }
-            }
 
             history.Add(new KeyValuePair<DateTime, string>(time, (location + message))); 
         }
@@ -91,9 +87,7 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.Write($"\n\n\tHistory for aircraft whith id: '{this.TailNumber}' and model: '{this.ModelName}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
-            {
                 Console.WriteLine($"{line.Key}, {line.Value}");
-            }
         }
 
         /// <summary>
@@ -102,10 +96,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private void SetAircraftOutOfService()
         {
             if (OutOfService == true)
-            {
                 throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'true'.");
-               
-            }
 
             OutOfService = true;
         }
@@ -116,9 +107,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private void SetAircraftInOperation()
         {
             if (OutOfService == false)
-            {
                 throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'false'.");
-            }
 
             OutOfService = false;
         }
@@ -135,12 +124,8 @@ namespace BrusOgPotetgull.AirportLiberary
             DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
             Console.Write($"\n\n\tHistory for aircraft: '{ModelName}' and id: '{TailNumber}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
             foreach (KeyValuePair<DateTime, string> line in history)
-            {
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
-                {
                     Console.WriteLine($"Time: {line.Key}, {line.Value}");                  
-                }
-            }
         }
     }
 }
