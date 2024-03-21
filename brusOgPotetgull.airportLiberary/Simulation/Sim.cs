@@ -32,7 +32,7 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
         {
             DateTime start = StartTime;
             DateTime end = EndTime;
-
+            
             while (start <= end)
             {
                 Console.WriteLine(start);
@@ -44,14 +44,16 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
                     {
                         if (flight.DateTimeFlight == start)
                         {
+                            flight.Clock = start;
                             flight.taxiwayPath = Airport.GenerateArrivingFlightTaxiwayPath(flight);
                             flight.ArrivalRunway.AddFlightToQueue(flight);
                             flight.ArrivalRunway.UseRunway(flight, start);
-                            flight.ArrivalRunway.ExitRunway(flight, start);
+                            flight.Clock = flight.Clock.AddSeconds(flight.ArrivalRunway.SimulateRunwayTime(flight, 10, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround));
+                            flight.ArrivalRunway.ExitRunway(flight, flight.Clock);
                             Taxiway startTaxiway = flight.taxiwayPath[0];
                             if (startTaxiway != null) 
                             {
-                                startTaxiway.AddFlightToQueue(flight, start);
+                                startTaxiway.AddFlightToQueue(flight, flight.Clock);
                                 flight.taxiwayPath.Remove(startTaxiway);
                             }
                         }
@@ -65,12 +67,13 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
                         if (flight.DateTimeFlight == start)
                         {
                             flight.taxiwayPath = Airport.GenerateDeparturingFlightTaxiwayPath(flight);
-                            flight.DepartureGate.LeaveGate(flight.ActiveAircraft, start);                            
+                            flight.DepartureGate.LeaveGate(flight.ActiveAircraft, start);
+                            flight.Clock = start;
                             Taxiway startTaxiway = flight.taxiwayPath[0];
                             if (startTaxiway != null) 
                             {
-                                startTaxiway.AddFlightToQueue(flight, start);
-                                flight.taxiwayPath.Remove(startTaxiway);
+                                startTaxiway.AddFlightToQueue(flight, flight.Clock);                               
+                                flight.taxiwayPath.Remove(startTaxiway);                                
                             }
                         }
                     }
@@ -85,8 +88,10 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
                         // neste fly i kø
                         Flight currentFlight = taxiway.CheckNextFlightInQueue();
 
+                        double taxitime = taxiway.SimulateTaxiwayTime(currentFlight, 10, currentFlight.ActiveAircraft.AccelerationOnGround, currentFlight.ActiveAircraft.MaxSpeedOnGround, currentFlight.Clock);
+                        currentFlight.Clock = currentFlight.Clock.AddSeconds(taxitime);
                         // neste fly forlater taksebane
-                        taxiway.NextFlightLeavesTaxiway(currentFlight, start);
+                        taxiway.NextFlightLeavesTaxiway(currentFlight, currentFlight.Clock);
 
                         if (currentFlight.taxiwayPath.Count > 0 && currentFlight.taxiwayPath[0] != null)
                         {
@@ -94,7 +99,7 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
                             Taxiway nextLocation = currentFlight.taxiwayPath[0];
 
                             //Legger fly i kø på neste taksebane
-                            nextLocation.AddFlightToQueue(currentFlight, start);
+                            nextLocation.AddFlightToQueue(currentFlight, currentFlight.Clock);
 
                             //Fjerner taksebane fra path
                             currentFlight.taxiwayPath.Remove(nextLocation);
@@ -105,14 +110,15 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
                             {
                                 Flight.Departing currentDeparting = (Flight.Departing)currentFlight;
                                 currentDeparting.DepartureRunway.AddFlightToQueue(currentDeparting);
-                                currentDeparting.DepartureRunway.UseRunway(currentDeparting, start);
-                                currentDeparting.DepartureRunway.ExitRunway(currentDeparting, start);
+                                currentDeparting.DepartureRunway.UseRunway(currentDeparting, currentDeparting.Clock);
+                                currentDeparting.Clock = currentDeparting.Clock.AddSeconds(currentDeparting.DepartureRunway.SimulateRunwayTime(currentDeparting, 10, currentDeparting.ActiveAircraft.AccelerationOnGround, currentDeparting.ActiveAircraft.MaxSpeedOnGround));
+                                currentDeparting.DepartureRunway.ExitRunway(currentDeparting, currentDeparting.Clock);
                                 Airport.RemoveDepartingFlight(currentDeparting);
                             }
                             else
                             {
                                 Flight.Arriving currentArriving = (Flight.Arriving)currentFlight;
-                                currentArriving.ArrivalGate.BookGate(currentArriving.ActiveAircraft, start);
+                                currentArriving.ArrivalGate.BookGate(currentArriving.ActiveAircraft, currentFlight.Clock);
                                 Airport.RemoveArrivingFlight(currentArriving);
                             }
                         }
