@@ -1,6 +1,7 @@
 ﻿using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.Simulation;
+using BrusOgPotetgull.AirportLiberary.Sim;
 
 namespace BrusOgPotetgull.Gruppeoppgave
 {
@@ -105,10 +106,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.PrintTaxiwaySystem();
 
             // generate taxiwaypaths for flights
-            flight1.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
+            /*flight1.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
             flight2.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight2);
             flight3.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
-            flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
+            flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);*/
 
             heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
             heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
@@ -120,29 +121,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             double sec = Math.Round(time % 60);
 
             Console.WriteLine($"\ntime for path for flight2: {min}min and {sec}sec");
-
-
-            /*
-                        // Adding connectoions between components
-
-
-                        // Making sure that aircrafts are allowed at gates.
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-
-                        terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-
-                        terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Cargo);
-            */
-
 
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)
@@ -162,13 +140,16 @@ namespace BrusOgPotetgull.Gruppeoppgave
             runway27R_09L.FlightDeparted += OnFlightDeparted;
             runway27L_09R.FlightDeparted += OnFlightDeparted;
 
-            /*
+            
             // simulation
             DateTime start = new(2024, 3, 1);
             DateTime end = new(2024, 3, 1, 4, 00, 00);
+            Sim heathrowSimulation = new(heathrow, start, end);
+            heathrowSimulation.RunSimulation();
+            /*
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
-
+            */
             // Printing history for aircrafts on a given day.
             cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
@@ -176,7 +157,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
-            */
+            
 
 
             //heathrow.PrintTaxiwaySystem();
