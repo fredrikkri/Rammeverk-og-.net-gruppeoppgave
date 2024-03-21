@@ -49,28 +49,25 @@ namespace BrusOgPotetgull.AirportLiberary
         public List<Taxiway> GenerateArrivingFlightTaxiwayPath(Flight.Arriving flight)
         {
             foreach (Taxiway taxiway in GetListTaxiways())
-            {
                 if (taxiway.ConnectedGate == flight.ArrivalGate)
                 {
                     List<Taxiway> path = FindPath(flight.ArrivalTaxiway, taxiway, new List<Taxiway>());
                     flight.currentLocationTaxiway = flight.ArrivalTaxiway;
                     return path;
                 }
-            }
             return null;
         }
 
         public List<Taxiway> GenerateDeparturingFlightTaxiwayPath(Flight.Departing flight)
         {
             foreach (Taxiway taxiway in GetListTaxiways())
-            {
                 if (taxiway.ConnectedGate == flight.DepartureGate)
                 {
                     List<Taxiway> path = FindPath(taxiway, flight.DepartureTaxiway, new List<Taxiway>());
                     flight.currentLocationTaxiway = taxiway;
                     return path;
                 }
-            }
+
             return null;
         }
 
@@ -78,9 +75,8 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             Console.WriteLine();
             foreach (Taxiway t in route)
-            {
                 Console.WriteLine($"{t.Name}");
-            }
+
             Console.WriteLine($"antall taksebanser i rute: {route.Count()}");
         }
 
@@ -94,21 +90,15 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Name: {Name}\nLocation: {Location}\n");
             Console.Write($"List of runways: ");
             foreach (Runway runway in listRunway)
-            {
                 Console.Write($"{runway.Name} ");
-            }
 
             Console.Write($"\nList of taxiways: ");
             foreach (Taxiway taxiway in listTaxiway)
-            {
                 Console.Write($"{taxiway.Name} ");
-            }
 
             Console.Write($"\nList of gates: ");
             foreach (Gate gate in listGate)
-            {
                 Console.Write($"{gate.Name} ");
-            }
 
             Console.Write("\n");
         }
@@ -157,13 +147,9 @@ namespace BrusOgPotetgull.AirportLiberary
                 foreach (var taxiway in connection.taxiways)
                 {
                     if (taxiway.ConnectedGate != null)
-                    {
                         Console.WriteLine($"\t{taxiway.Name}, GateConnection: {taxiway.ConnectedGate.Name}");
-                    }
                     else
-                    {
                         Console.WriteLine($"\t{taxiway.Name}");
-                    }
                 }
             }
         }
@@ -209,25 +195,19 @@ namespace BrusOgPotetgull.AirportLiberary
                     Taxiway past = calculatedRoute[i - 1];
                     Taxiway current = calculatedRoute[i];
                     Taxiway next = calculatedRoute[i + 1];
-                    if (current.A.taxiways.Contains(past)) {
+                    if (current.A.taxiways.Contains(past))
                         if (!current.B.taxiways.Contains(next))
-                        {
                             calculatedRoute.Remove(current);
-                        }
-                    }
+
                     if (current.B.taxiways.Contains(past))
-                    {
                         if (!current.A.taxiways.Contains(next))
-                        {
                             calculatedRoute.Remove(current);
-                        }
-                    }
-                    {
-                        //calculatedRoute.Remove(current);
-                        calculatedRoute.Add(end);
-                        return calculatedRoute;
-                    }
+
+                    //calculatedRoute.Remove(current);
+                    calculatedRoute.Add(end);
+                    return calculatedRoute;
                 }
+
                 calculatedRoute.Add(end); // Legg til sluttpunktet
                 return calculatedRoute;   // Returner den beregnede ruten
             }
@@ -237,7 +217,6 @@ namespace BrusOgPotetgull.AirportLiberary
 
             // Utforsk alle tilgjengelige veier fra dette punktet
             foreach (Taxiway nextTaxiway in start.B.taxiways)
-            {
                 if (!calculatedRoute.Contains(nextTaxiway))
                 {
                     // Utforsk videre fra neste taksebane
@@ -245,11 +224,9 @@ namespace BrusOgPotetgull.AirportLiberary
                     if (result != null)
                         return result; // Hvis rute er funnet, returner den
                 }
-            }
 
             // Hvis ingen rute ble funnet fra B, utforsk fra A
             foreach (Taxiway nextTaxiway in start.A.taxiways)
-            {
                 if (!calculatedRoute.Contains(nextTaxiway))
                 {
                     // Utforsk videre fra neste taksebane
@@ -257,7 +234,6 @@ namespace BrusOgPotetgull.AirportLiberary
                     if (result != null)
                         return result; // Hvis rute er funnet, returner den
                 }
-            }
 
             // Ingen rute funnet fra dette punktet
             return null;
@@ -270,10 +246,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddTerminalToList(Terminal terminal)
         {
             if (listTerminal.Contains(terminal))
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Terminal with id: '{terminal.Id}' allready exists in airport: '{Name}'");
-            }
 
             terminal.UpdateLocation(Name);
             listTerminal.Add(terminal);
@@ -286,10 +260,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveTerminalFromList(Terminal terminal)
         {
             if (!listTerminal.Contains(terminal))
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Terminal with id: '{terminal.Id}' does not exists in airport: '{Name}'. It cant be removed.");
-            }
 
             terminal.UpdateLocation("none");
             listTerminal.Remove(terminal);
@@ -302,10 +274,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddGateToList(Gate gate)
         {
             if (listGate.Contains(gate))
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{gate.Id}' allready exists in airport: '{Name}'");
-            }
 
             gate.UpdateLocation(Name);
             listGate.Add(gate);
@@ -318,10 +288,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveGateFromList(Gate gate)
         {
             if (!listGate.Contains(gate))
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{gate.Id}' does not exists in airport: '{Name}'. It cant be removed.");
-            }
 
             gate.UpdateLocation("none");
             listGate.Remove(gate);
@@ -330,10 +298,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public Gate GetGateBasedOnGateName(string gateName)
         {
             if (GetListGates().Find(currentGate => currentGate.Name == gateName) == null)
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with name: '{gateName}' does not exsist. It cannot be added to the terminal.");
-            }
 
             return GetListGates().Find(currentGate => currentGate.Name == gateName);
         }
@@ -345,10 +311,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddTaxiwayToList(Taxiway taxiway)
         {
             if (listTaxiway.Contains(taxiway))
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{taxiway.Id}' allready exists in airport: '{Name}'");
-            }
 
             taxiway.UpdateLocation(Name);
             listTaxiway.Add(taxiway);
@@ -361,10 +325,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveTaxiwayFromList(Taxiway taxiway)
         {
             if (!listTaxiway.Contains(taxiway))
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Taxiway with id: '{taxiway.Id}' does not exists in airport: '{Name}'. It cant be removed.");
-            }
 
             taxiway.UpdateLocation("none");
             listTaxiway.Remove(taxiway);
@@ -377,10 +339,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddRunwayToList(Runway runway)
         {
             if (listRunway.Contains(runway))
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Gate with id: '{runway.Id}' allready exists in airport: '{Name}'");
-            }
 
             runway.UpdateLocation(Name);
             listRunway.Add(runway);
@@ -393,10 +353,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveRunwayFromList(Runway runway)
         {
             if (!listRunway.Contains(runway))
-            {
                 // (Nagel, 2022, s. 267)
                 throw new InvalidOperationException($"Runway with id: '{runway.Id}' does not exists in airport: '{Name}'. It cant be removed.");
-            }
 
             runway.UpdateLocation("none");
             listRunway.Remove(runway);
@@ -408,9 +366,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void MakeAllGatesAllowAllAircraftTypes()
         {
             foreach (Gate gate in GetListGates())
-            {
                 gate.MakeAllAircraftTypesAllowedForThisGate();
-            }
         }
 
         /// <summary>
@@ -420,16 +376,12 @@ namespace BrusOgPotetgull.AirportLiberary
         {
 
             if (!departingFlights.Any())
-            {
                 throw new InvalidOperationException($"List of departuring flights is empty for airport: '{Name}'");
-            }
             else
             {
                 Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
                 foreach (Flight flight in departingFlights)
-                {
                     Console.Write($"Aircraft:{flight.ActiveAircraft.ModelName}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
-                }
             }
         }
 
@@ -470,9 +422,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveArrivingFlight(Flight.Arriving flight)
         {   
             if (arrivingFlights.Count == 0)
-            {
                 throw new InvalidOperationException("No arriving flights in list");
-            }
 
             arrivingFlights.Remove(flight);
         }
@@ -484,10 +434,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveDepartingFlight(Flight.Departing flight)
         {
             if (departingFlights.Count == 0)
-            {
                 throw new InvalidOperationException("No departing flights in list");
-                
-            }
 
             departingFlights.Remove(flight);
         }

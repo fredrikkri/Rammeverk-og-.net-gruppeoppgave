@@ -51,9 +51,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddConnectedGate(Gate gate)
         {
             if (connectedGates.Contains(gate))
-            {
                 throw new InvalidOperationException($"Gate: '{gate.Name}' is already connected to taxiway: '{Name}'");
-            }
             connectedGates.Add(gate);
         }
 
@@ -64,9 +62,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveConnectedGate(Gate gate)
         {
             if (!connectedGates.Contains(gate))
-            {
                 throw new InvalidOperationException($"Gate: '{gate.Name}' cannot be removed as an connection for taxiway: '{Name}'. It does not exist as an connection to this taxiway.");
-            }
             connectedGates.Remove(gate);
         }
 
@@ -92,9 +88,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveConnectedTaxiway(Taxiway taxiway)
         {
             if (!connectedTaxiways.Contains(taxiway))
-            {
                 throw new InvalidOperationException($"Taxiway: '{taxiway.Name}' cannot be removed as an connection for taxiway: '{Name}'. It does not exist as an connection to this taxiway.");
-            }
             connectedTaxiways.Remove(taxiway);
         }
 
@@ -107,9 +101,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddConnectedRunway(Runway runway)
         {
             if (connectedRunways.Contains(runway))
-            {
                 throw new InvalidOperationException($"Runway: '{runway.Name}' is already connected to taxiway: '{Name}'");
-            }
             connectedRunways.Add(runway);
         }
 
@@ -120,9 +112,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveConnectedRunway(Runway runway)
         {
             if (!connectedRunways.Contains(runway))
-            {
                 throw new InvalidOperationException($"Runway: '{runway.Name}' cannot be removed as an connection for taxiway: '{Name}'. It does not exist as an connection to this taxiway.");
-            }
             connectedRunways.Remove(runway);
         }
 
@@ -146,17 +136,11 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Airport location: { airportLocation}\n");
             Console.WriteLine("Connections:");
             foreach (Gate gate in connectedGates)
-            {
                 Console.Write($"Gate: {gate.Name} ");
-            }
             foreach (Taxiway taxiway in connectedTaxiways)
-            {
                 Console.Write($"Taxiway: {taxiway.Name} ");
-            }
             foreach (Runway runway in connectedRunways)
-            {
                 Console.Write($"Runway: {runway.Name} ");
-            }
         }
 
         /// <summary>
@@ -174,10 +158,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             // Sjekk om flight allerede finnes i køen
             if (taxiwayQueue.Contains(flight))
-            {
                 throw new InvalidOperationException($"Flight with id {flight.FlightId} already exists in queue");
-
-            }
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(flight);
             flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Arrived at taxiwayqueue");
@@ -187,25 +168,16 @@ namespace BrusOgPotetgull.AirportLiberary
         /// This method checks which flight is next in line for this taxiway.
         /// </summary>
         /// <returns>A flight object.</returns>
-        public Flight CheckAndReturnNextFlightInQueue()
+        public Flight CheckNextFlightInQueue()
         {
-            if (taxiwayQueue.Count() < 0)
+            if (taxiwayQueue.Count > 0)
             {
-                throw new InvalidOperationException("The queue is empty.");
-            }
                 Flight nextFlight = taxiwayQueue.Peek();
                 return nextFlight;
-        }
-
-        public bool IfElementsInTaxiwayQueue()
-        {
-            if (taxiwayQueue.Count() <= 0)
-            {
-                return false;
             }
             else
             {
-                return true;
+                throw new InvalidOperationException("taxiway kø er tom");
             }
         }
 

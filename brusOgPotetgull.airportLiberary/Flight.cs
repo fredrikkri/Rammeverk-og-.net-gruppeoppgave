@@ -140,14 +140,10 @@ namespace BrusOgPotetgull.AirportLiberary
                 // trekker farten i meter per sekund fra Length
                 Length = Math.Max(Length - (initialSpeed * 5 / 18), 0);
                 if (initialSpeed < maxSpeed)
-                {
                     initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
-                }
 
                 else if (initialSpeed > maxSpeed)
-                {
                     initialSpeed = Math.Max(initialSpeed - speedChange, maxSpeed);
-                }
 
                 time++;
             }
@@ -161,10 +157,7 @@ namespace BrusOgPotetgull.AirportLiberary
             double time = 0;
 
             foreach (Taxiway taxiway in taxiwayPath)
-            {
-
                 time += ((lengthPath / (taxiway.MaxSpeed / 3.6)));
-            }
             return time;
         }
 
@@ -172,9 +165,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             int result = 0;
             foreach (Taxiway taxiway in taxiwayPath)
-            {
                 result += taxiway.Length;
-            }
             return result;
         }
     }
