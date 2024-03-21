@@ -117,7 +117,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="speedChange">The change in speed (Kp/h).</param>
         /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
-        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) => flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
+        public double SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) => flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
 
         /// <summary>
         /// Sets the runwaystatus to 'inUse = true'

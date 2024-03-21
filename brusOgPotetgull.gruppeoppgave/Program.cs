@@ -157,9 +157,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
-            
-
-
             //heathrow.PrintTaxiwaySystem();
             System.Console.ReadLine();
         }

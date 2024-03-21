@@ -212,7 +212,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 Flight nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Leaves taxiwayqueue");
+                flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Leaves taxiway");
             }
         }
 
@@ -225,7 +225,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
         /// <param name="time">Used to log the history of the plane.</param>
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
-        public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
+        public double SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
         {
             flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Enter taxiway");
             
