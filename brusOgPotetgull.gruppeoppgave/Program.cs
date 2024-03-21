@@ -73,12 +73,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Flight.Departing flight3 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), middag, runway27R_09L);
             Flight.Departing flight4 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), bravo, runway27R_09L);
 
-            // Adding flights to Airport
-            /*heathrow.AddArrivingFlight(flight1);
-            heathrow.AddArrivingFlight(flight2);
-            heathrow.AddDepartingFlight(flight3);
-            heathrow.AddDepartingFlight(flight4);*/
-
             // setup taxiway system
             ConnectionPoint A1 = new ConnectionPoint("A1");
             ConnectionPoint B1 = new ConnectionPoint("B1");
@@ -127,29 +121,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             double sec = Math.Round(time % 60);
 
             Console.WriteLine($"\ntime for path for flight2: {min}min and {sec}sec");
-
-
-            /*
-                        // Adding connectoions between components
-
-
-                        // Making sure that aircrafts are allowed at gates.
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-
-                        terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-
-                        terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Cargo);
-            */
-
 
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)

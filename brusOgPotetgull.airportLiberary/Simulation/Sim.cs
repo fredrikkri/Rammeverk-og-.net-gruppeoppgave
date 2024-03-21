@@ -76,6 +76,8 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
                     }
                 }
 
+
+
                 foreach (var taxiway in Airport.GetListTaxiways())
                 {
                     if (taxiway.GetNumberOfAircraftsInQueue() > 0)
