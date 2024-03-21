@@ -9,17 +9,30 @@ namespace BrusOgPotetgull.Gruppeoppgave
     {
         static void Main(string[] args)
         {
+            // Creating Aircraft types
+            AircraftType boeing737 = new AircraftType("Boeing 737");
+            AircraftType boeing747 = new AircraftType("Boeing 747");
+            AircraftType boeing767 = new AircraftType("Boeing 767");
+            AircraftType boeing777 = new AircraftType("Boeing 777");
+            AircraftType boeing787 = new AircraftType("Boeing 787");
+
+            AircraftType airbusA320 = new AircraftType("Airbus A320");
+            AircraftType airbusA330 = new AircraftType("Airbus A330");
+            AircraftType airbusA340 = new AircraftType("Airbus A340");
+            AircraftType airbusA380 = new AircraftType("Airbus A380");
+
+
             // Creating aircrafts with category 
-            Aircraft cargoCraftV12 = new LongMediumAircraft("C420", 890, 50, 35, 3);
-            Aircraft superPlane = new ShortMediumAircraft("A130", 800, 70, 40, 5);
-            Aircraft sickPlane = new LongMediumAircraft("C355", 800, 50, 30, 4);
-            Aircraft SR71 = new LongMediumAircraft("S137", 700, 45, 30, 3);
-            Aircraft boeing737 = new ShortMediumAircraft("Boeing 737", 775, 36, 24, 4);
-            Aircraft boeing747 = new ShortMediumAircraft("Boeing 747", 750, 30, 18, 5);
-            Aircraft boeing767 = new LargeAircraft("Boeing 767", 850, 35, 20, 3);
-            Aircraft airbusA380 = new LargeAircraft("Airbus A380", 900, 30, 20, 2);
-            Aircraft airbusA340 = new LongMediumAircraft("Airbus A340", 800, 28, 22, 5);
-            Aircraft airbusA320 = new ShortMediumAircraft("Airbus A320", 700, 26, 24, 5);
+            Aircraft cargoCraftV12 = new Aircraft("C420",boeing737 ,890, 50, 35, 3);
+            Aircraft superPlane = new Aircraft("A130", boeing737, 800, 70, 40, 5);
+            Aircraft sickPlane = new Aircraft("C355", boeing737, 800, 50, 30, 4);
+            Aircraft SR71 = new Aircraft("S137", boeing737, 700, 45, 30, 3);
+            Aircraft coolplane = new Aircraft("Boeing 737", boeing737, 775, 36, 24, 4);
+            Aircraft yoyoPlane = new Aircraft("Boeing 747", boeing737, 750, 30, 18, 5);
+            Aircraft RonaldosPlane = new Aircraft("Boeing 767", boeing737, 850, 35, 20, 3);
+            Aircraft KakaPlane = new Aircraft("Airbus A380", boeing737, 900, 30, 20, 2);
+            Aircraft RonaldinhoPlane = new Aircraft("Airbus A340", boeing737, 800, 28, 22, 5);
+            Aircraft mbappePlane = new Aircraft("Airbus A320", boeing737, 700, 26, 24, 5);
 
             // creating the airport
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
@@ -157,8 +170,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
-            
 
+            superPlane.PrintAircraftInformation();
 
             //heathrow.PrintTaxiwaySystem();
             System.Console.ReadLine();

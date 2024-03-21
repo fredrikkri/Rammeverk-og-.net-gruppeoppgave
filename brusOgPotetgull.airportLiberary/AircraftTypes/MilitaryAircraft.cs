@@ -1,54 +1,54 @@
-﻿using System;
-using System.Reflection;
+﻿//using System;
+//using System.Reflection;
 
-namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
-{
-    /// <summary>
-    /// Military aircraft is an aircraft equiped with weapons and is designed to be used in warfare.
-    /// </summary>
-	public class MilitaryAircraft : Aircraft
-	{
-        private int aircraftTypeId = 6;
-        // (GeeksforGeeks, 2023)
+//namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
+//{
+//    /// <summary>
+//    /// Military aircraft is an aircraft equiped with weapons and is designed to be used in warfare.
+//    /// </summary>
+//	public class MilitaryAircraft : Aircraft
+//	{
+//        private int aircraftTypeId = 6;
+//        // (GeeksforGeeks, 2023)
 
-        /// <summary>
-        /// Creates an military aircraft.
-        /// </summary>
-        /// <param name="modelName">Name of the model for this aircraft</param>
-        /// <param name="maxSpeedInAir">Maximum speed in air for this aircraft (Kp/h)</param>
-        /// <param name="accelerationInAir">Maximum acceleration in air for this aircraft (Kp/h)</param>
-        /// <param name="maxSpeedOnGround">Maximum speed on ground for this aircraft (Kp/h)</param>
-        /// <param name="accelerationOnGround">Maximum acceleration on ground for this aircraft (Kp/h)</param>
-        public MilitaryAircraft(string modelName,
-            int maxSpeedInAir,
-            int accelerationInAir,
-            int maxSpeedOnGround,
-            int accelerationOnGround) :
-            base(modelName,
-                maxSpeedInAir,
-                accelerationInAir,
-                maxSpeedOnGround,
-                accelerationOnGround)
-        {
-            this.AircraftTypeId = aircraftTypeId;
-        }
+//        /// <summary>
+//        /// Creates an military aircraft.
+//        /// </summary>
+//        /// <param name="modelName">Name of the model for this aircraft</param>
+//        /// <param name="maxSpeedInAir">Maximum speed in air for this aircraft (Kp/h)</param>
+//        /// <param name="accelerationInAir">Maximum acceleration in air for this aircraft (Kp/h)</param>
+//        /// <param name="maxSpeedOnGround">Maximum speed on ground for this aircraft (Kp/h)</param>
+//        /// <param name="accelerationOnGround">Maximum acceleration on ground for this aircraft (Kp/h)</param>
+//        public MilitaryAircraft(string modelName,
+//            int maxSpeedInAir,
+//            int accelerationInAir,
+//            int maxSpeedOnGround,
+//            int accelerationOnGround) :
+//            base(modelName,
+//                maxSpeedInAir,
+//                accelerationInAir,
+//                maxSpeedOnGround,
+//                accelerationOnGround)
+//        {
+//            this.AircraftTypeId = aircraftTypeId;
+//        }
 
-        public new int AircraftTypeId { get; private set; }
-        // (Microsoft , 2021)
+//        public new int AircraftTypeId { get; private set; }
+//        // (Microsoft , 2021)
 
-        /// <summary>
-        /// Prints the information about the aircraft.
-        /// </summary>
-        override public void PrintAircraftInformation()
-        {
-            Console.Write($"\nId: {TailNumber}\n" +
-                $"Model: {ModelName}\n" +
-                $"Type: Military aircraft\n" +
-                $"Type(id): {AircraftTypeId}\n" +
-                $"Out of service: {OutOfService}\n" +
-                $"Max speed: {MaxSpeedInAir}\n" +
-                $"Acceleration: {AccelerationInAir}\n");
-        }
-    }
-}
+//        /// <summary>
+//        /// Prints the information about the aircraft.
+//        /// </summary>
+//        override public void PrintAircraftInformation()
+//        {
+//            Console.Write($"\nId: {TailNumber}\n" +
+//                $"Model: {ModelName}\n" +
+//                $"Type: Military aircraft\n" +
+//                $"Type(id): {AircraftTypeId}\n" +
+//                $"Out of service: {OutOfService}\n" +
+//                $"Max speed: {MaxSpeedInAir}\n" +
+//                $"Acceleration: {AccelerationInAir}\n");
+//        }
+//    }
+//}
 

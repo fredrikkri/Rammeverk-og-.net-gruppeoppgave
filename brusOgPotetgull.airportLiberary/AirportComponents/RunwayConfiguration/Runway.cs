@@ -122,7 +122,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             inUse = true;
             if (flight.IsArrivingFlight == true)
-                RaiseFlightArrived((Flight.Arriving)flight, time, $"{flight.ActiveAircraft.ModelName} has landed");
+                RaiseFlightArrived((Flight.Arriving)flight, time, $"{flight.ActiveAircraft.Name} has landed");
             else
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Enters the runway");
         }
@@ -142,7 +142,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             inUse = false;
             if (flight.IsArrivingFlight == false)
-                RaiseFlightDeparted((Flight.Departing)flight, time, $"{flight.ActiveAircraft.ModelName} has departed");
+                RaiseFlightDeparted((Flight.Departing)flight, time, $"{flight.ActiveAircraft.Name} has departed");
             else
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Leaves the runway");
         }

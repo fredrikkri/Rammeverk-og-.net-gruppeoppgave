@@ -66,7 +66,7 @@ namespace BrusOgPotetgull.AirportLiberary
                     $"Date: {DateTimeFlight} " +
                     $"FlightId: {FlightId}\n" +
                     $"Length: {Length}\n" +
-                    $"Aircraft: {ActiveAircraft.ModelName}\n" +
+                    $"Aircraft: {ActiveAircraft.Name}\n" +
                     $"Departure Airport: {DepartureAirport.Name}\n" +
                     $"Departure Gate: {DepartureGate.Id}\n" +
                     $"Departure Taxiway: {DepartureTaxiway.Id}\n" +
@@ -114,7 +114,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Date: {DateTimeFlight} " +
                 $"FlightId: {FlightId}\n" +
                 $"Length: {Length}\n" +
-                $"Aircraft: {ActiveAircraft.ModelName}\n" +
+                $"Aircraft: {ActiveAircraft.Name}\n" +
                 $"Arrival Airport: {ArrivalAirport.Name}\n" +
                 $"Arrival Runway: {ArrivalRunway.Id}\n" +
                 $"Arrival Taxiway: {ArrivalTaxiway.Id}\n" +

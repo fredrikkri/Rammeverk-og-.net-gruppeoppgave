@@ -379,7 +379,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 Console.Write($"\nAll departuring flights for airport: {Name} ({AirportCode})\n");
                 foreach (Flight flight in departingFlights)
-                    Console.Write($"Aircraft:{flight.ActiveAircraft.ModelName}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
+                    Console.Write($"Aircraft:{flight.ActiveAircraft.Name}\nID: {flight.FlightId}\nDate: {flight.DateTimeFlight}\n");
             }
         }
 
