@@ -189,8 +189,15 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>A flight object.</returns>
         public Flight CheckNextFlightInQueue()
         {
+            if (taxiwayQueue.Count > 0)
+            {
                 Flight nextFlight = taxiwayQueue.Peek();
                 return nextFlight;
+            }
+            else
+            {
+                throw new InvalidOperationException("taxiway kø er tom");
+            }
         }
 
         /// <summary>

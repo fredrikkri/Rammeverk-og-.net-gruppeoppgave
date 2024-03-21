@@ -1,6 +1,7 @@
 ﻿using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.Simulation;
+using BrusOgPotetgull.AirportLiberary.Sim;
 
 namespace BrusOgPotetgull.Gruppeoppgave
 {
@@ -72,6 +73,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Flight.Departing flight3 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), middag, runway27R_09L);
             Flight.Departing flight4 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), bravo, runway27R_09L);
 
+            // Adding flights to Airport
+            /*heathrow.AddArrivingFlight(flight1);
+            heathrow.AddArrivingFlight(flight2);
+            heathrow.AddDepartingFlight(flight3);
+            heathrow.AddDepartingFlight(flight4);*/
+
             // setup taxiway system
             ConnectionPoint A1 = new ConnectionPoint("A1");
             ConnectionPoint B1 = new ConnectionPoint("B1");
@@ -105,10 +112,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.PrintTaxiwaySystem();
 
             // generate taxiwaypaths for flights
-            flight1.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
+            /*flight1.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
             flight2.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight2);
             flight3.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
-            flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
+            flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);*/
 
             heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
             heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
@@ -162,13 +169,16 @@ namespace BrusOgPotetgull.Gruppeoppgave
             runway27R_09L.FlightDeparted += OnFlightDeparted;
             runway27L_09R.FlightDeparted += OnFlightDeparted;
 
-            /*
+            
             // simulation
             DateTime start = new(2024, 3, 1);
             DateTime end = new(2024, 3, 1, 4, 00, 00);
+            Sim heathrowSimulation = new(heathrow, start, end);
+            heathrowSimulation.RunSimulation();
+            /*
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
-
+            */
             // Printing history for aircrafts on a given day.
             cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
@@ -176,7 +186,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
-            */
+            
 
 
             //heathrow.PrintTaxiwaySystem();
