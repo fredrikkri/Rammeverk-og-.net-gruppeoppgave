@@ -13,10 +13,12 @@
     <None Remove="AircraftTypes\" />
     <None Remove="AirportComponents\" />
     <None Remove="Simulation\" />
+    <None Remove="Simulation.2.0\" />
   </ItemGroup>
   <ItemGroup>
 	<Folder Include="AircraftTypes\" />
     <Folder Include="AirportComponents\" />
     <Folder Include="Simulation\" />
+    <Folder Include="Simulation.2.0\" />
   </ItemGroup>
 </Project>
