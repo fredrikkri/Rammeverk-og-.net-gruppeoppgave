@@ -110,10 +110,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             flight3.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
             flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
 
-            heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
+            //heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
+            //heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
+            //heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
+            //heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
 
             int time = flight2.CalculateTaxiwayPathTime();
 
@@ -160,9 +160,9 @@ namespace BrusOgPotetgull.Gruppeoppgave
             runway27R_09L.FlightDeparted += OnFlightDeparted;
             runway27L_09R.FlightDeparted += OnFlightDeparted;
 
-            /*
+            
             // simulation
-            DateTime start = new(2024, 3, 1);
+            DateTime start = new(2024, 3, 5);
             DateTime end = new(2024, 3, 1, 4, 00, 00);
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
@@ -174,10 +174,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
-            */
+            
 
 
-            //heathrow.PrintTaxiwaySystem();
+            heathrow.PrintTaxiwaySystem();
             System.Console.ReadLine();
         }
     }

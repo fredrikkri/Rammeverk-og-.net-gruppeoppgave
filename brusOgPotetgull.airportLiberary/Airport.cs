@@ -86,7 +86,8 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 Console.WriteLine($"{t.Name}");
             }
-            Console.WriteLine($"antall taksebanser i rute: {route.Count()}");
+            
+            Console.WriteLine($"Antall taksebanser i rute: {route.Count()}");
         }
 
         /// <summary>
