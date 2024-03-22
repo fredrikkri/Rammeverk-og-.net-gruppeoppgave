@@ -151,7 +151,8 @@ namespace BrusOgPotetgull.AirportLiberary
                 {
                     Console.WriteLine($"\t{taxiway.Name}");
                     if (taxiway.connectedGates != null)
-                        foreach (Gate gate in taxiway.connectedGates) {
+                        foreach (Gate gate in taxiway.connectedGates)
+                        {
                             Console.WriteLine($"\tGateConnection: {gate.Name}");
                         }
                     else
@@ -424,7 +425,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         /// <param name="flight">The arriving flight that is removed from the list.</param>
         public void RemoveArrivingFlight(Flight.Arriving flight)
-        {   
+        {
             if (arrivingFlights.Count == 0)
                 throw new InvalidOperationException("No arriving flights in list");
 
@@ -462,7 +463,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             for (int i = 1; i <= numberOfDays; i++)
             {
-                Flight.Arriving daily = new (activeAircraft, 
+                Flight.Arriving daily = new(activeAircraft,
                      dateTimeFlight.AddDays(i), length,
                      arrivalAirport, arrivalGate,
                      arrivalTaxiway, arrivalRunway);
@@ -518,7 +519,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             for (int i = 1; i <= numberOfWeeks; i++)
             {
-                Flight.Arriving weekly = new (activeAircraft,
+                Flight.Arriving weekly = new(activeAircraft,
                      dateTimeFlight.AddDays(i * 7), length,
                      arrivalAirport, arrivalGate,
                      arrivalTaxiway, arrivalRunway);
@@ -546,13 +547,39 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             for (int i = 1; i <= numberOfWeeks; i++)
             {
-                Flight.Departing weekly = new (activeAircraft,
-                    dateTimeFlight.AddDays(i*7), length,
+                Flight.Departing weekly = new(activeAircraft,
+                    dateTimeFlight.AddDays(i * 7), length,
                     departureAirport, departureGate,
                     departureTaxiway, departureRunway);
 
                 departingFlights.Add(weekly);
             }
+        }
+        public Gate GetAnotherAvalibleGateAtTheSameTerminal(string nameOfDesiredGate)
+        {
+            Gate desiredGate = GetGateBasedOnGateName(nameOfDesiredGate);
+            foreach (Terminal terminal in listTerminal)
+            {
+                if (terminal.GetgatesInTerminal().Contains(desiredGate))
+                {
+                    foreach (Gate newGate in terminal.GetgatesInTerminal())
+                    {
+                        if (newGate.IsAvailable == true)
+                        {
+                            return newGate;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            return null;
         }
     }
 }
