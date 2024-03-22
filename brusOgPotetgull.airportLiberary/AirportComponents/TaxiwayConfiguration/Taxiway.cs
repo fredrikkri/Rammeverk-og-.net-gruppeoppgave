@@ -12,16 +12,16 @@ namespace BrusOgPotetgull.AirportLiberary
         private int id;
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
         private string? airportLocation;
-        private List<Gate> connectedGates;
-        private List<Taxiway> connectedTaxiways;
-        private List<Runway> connectedRunways;
+        public List<Gate> connectedGates;
+        public List<Taxiway> connectedTaxiways;
+        public List<Runway> connectedRunways;
 
         /// <summary>
         /// Creates a taxiway.
         /// </summary>
         /// <param name="name">The name of the taxiway.</param>
-        /// <param name="length">Length of the taxiway.</param>
-        /// <param name="maxSpeed">Legal maxspeed for the taxiway</param>
+        /// <param name="length">Length of the taxiway (meters).</param>
+        /// <param name="maxSpeed">Legal maxspeed for the taxiway (Kp/h).</param>
         public Taxiway(string name, int length, int maxSpeed)
         {
             // (dosnetCore, 2020)
@@ -30,7 +30,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.Name = name;
             this.Length = length;
             this.MaxSpeed = maxSpeed;
-            this.connectedGates = new List<Gate>();
+            this.connectedGates = new List<Gate>(); 
             this.connectedTaxiways = new List<Taxiway>();
             this.connectedRunways = new List<Runway>();
         }
@@ -41,8 +41,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public int MaxSpeed { get; private set; }
         public ConnectionPoint A {  get; set; }
         public ConnectionPoint B { get; set; }
-        public Runway? ConnectedRunway { get; set; }
-        public Gate? ConnectedGate { get; set; }
+        //public List<Runway> connectedRunways { get; set; }
+        //public List<Gate> connectedGates { get; set; }
 
         /// <summary>
         /// Adds a gate to the list of connected gates for this taxiway.
@@ -51,9 +51,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddConnectedGate(Gate gate)
         {
             if (connectedGates.Contains(gate))
-            {
                 throw new InvalidOperationException($"Gate: '{gate.Name}' is already connected to taxiway: '{Name}'");
-            }
             connectedGates.Add(gate);
         }
 
@@ -64,9 +62,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveConnectedGate(Gate gate)
         {
             if (!connectedGates.Contains(gate))
-            {
                 throw new InvalidOperationException($"Gate: '{gate.Name}' cannot be removed as an connection for taxiway: '{Name}'. It does not exist as an connection to this taxiway.");
-            }
             connectedGates.Remove(gate);
         }
 
@@ -92,9 +88,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveConnectedTaxiway(Taxiway taxiway)
         {
             if (!connectedTaxiways.Contains(taxiway))
-            {
                 throw new InvalidOperationException($"Taxiway: '{taxiway.Name}' cannot be removed as an connection for taxiway: '{Name}'. It does not exist as an connection to this taxiway.");
-            }
             connectedTaxiways.Remove(taxiway);
         }
 
@@ -107,9 +101,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddConnectedRunway(Runway runway)
         {
             if (connectedRunways.Contains(runway))
-            {
                 throw new InvalidOperationException($"Runway: '{runway.Name}' is already connected to taxiway: '{Name}'");
-            }
             connectedRunways.Add(runway);
         }
 
@@ -120,9 +112,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public void RemoveConnectedRunway(Runway runway)
         {
             if (!connectedRunways.Contains(runway))
-            {
                 throw new InvalidOperationException($"Runway: '{runway.Name}' cannot be removed as an connection for taxiway: '{Name}'. It does not exist as an connection to this taxiway.");
-            }
             connectedRunways.Remove(runway);
         }
 
@@ -146,17 +136,11 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Airport location: { airportLocation}\n");
             Console.WriteLine("Connections:");
             foreach (Gate gate in connectedGates)
-            {
                 Console.Write($"Gate: {gate.Name} ");
-            }
             foreach (Taxiway taxiway in connectedTaxiways)
-            {
                 Console.Write($"Taxiway: {taxiway.Name} ");
-            }
             foreach (Runway runway in connectedRunways)
-            {
                 Console.Write($"Runway: {runway.Name} ");
-            }
         }
 
         /// <summary>
@@ -174,10 +158,7 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             // Sjekk om flight allerede finnes i køen
             if (taxiwayQueue.Contains(flight))
-            {
                 throw new InvalidOperationException($"Flight with id {flight.FlightId} already exists in queue");
-
-            }
             // (Nagel, 2022, s. 203)
             taxiwayQueue.Enqueue(flight);
             flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Arrived at taxiwayqueue");
@@ -189,8 +170,15 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>A flight object.</returns>
         public Flight CheckNextFlightInQueue()
         {
+            if (taxiwayQueue.Count > 0)
+            {
                 Flight nextFlight = taxiwayQueue.Peek();
                 return nextFlight;
+            }
+            else
+            {
+                throw new InvalidOperationException("taxiway kø er tom");
+            }
         }
 
         /// <summary>
@@ -205,7 +193,7 @@ namespace BrusOgPotetgull.AirportLiberary
             {
                 Flight nextFlightInQueue = taxiwayQueue.Dequeue();
                 taxiwayQueue.TrimExcess();
-                flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Leaves taxiwayqueue");
+                flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Leaves taxiway");
             }
         }
 
@@ -218,7 +206,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
         /// <param name="time">Used to log the history of the plane.</param>
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
-        public int SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
+        public double SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
         {
             flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Enter taxiway");
             

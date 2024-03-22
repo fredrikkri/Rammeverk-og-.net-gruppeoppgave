@@ -1,4 +1,5 @@
 ﻿using BrusOgPotetgull.AirportLiberary.CustomExceptions;
+using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
@@ -9,7 +10,6 @@ namespace BrusOgPotetgull.AirportLiberary
     {
         private static int idCounter = 1;
         private int tailNumber;
-        private int aircraftTypeId = 0;
         private bool outOfService = false;
         // (Trupja, 2023)
         private List<KeyValuePair<DateTime, string>> history;
@@ -17,12 +17,12 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates an aircraft.
         /// </summary>
-        /// <param name="modelName">What the model of the aircraft is called.</param>
+        /// <param name="name">What the model of the aircraft is called.</param>
         /// <param name="maxSpeedInAir">Maximum in-air speed (Kp/h).</param>
         /// <param name="accelerationInAir">The accleration in-air (Kp/h).</param>
         /// <param name="maxSpeedOnGround">Maximum on-ground speed (Kp/h).</param>
         /// <param name="accelerationOnGround">acceleration on ground (Kp/h).</param>
-        public Aircraft(string modelName,
+        public Aircraft(string name, AircraftType aircraftType,
             int maxSpeedInAir,
             int accelerationInAir,
             int maxSpeedOnGround,
@@ -31,9 +31,10 @@ namespace BrusOgPotetgull.AirportLiberary
             // (dosnetCore, 2020) 
             tailNumber = idCounter ++;
             this.TailNumber = tailNumber;
-            this.AircraftTypeId = aircraftTypeId;
+            this.AircraftType = aircraftType.Name;
+            this.AircraftTypeId = aircraftType.TypeId;
             this.OutOfService = outOfService;
-            this.ModelName = modelName;
+            this.Name = name;
             history = new List<KeyValuePair<DateTime, string>>();
             this.MaxSpeedInAir = maxSpeedInAir;
             this.AccelerationInAir = accelerationInAir;
@@ -42,9 +43,10 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         public int TailNumber { get; private set; }
+        public string AircraftType { get; private set; }
         public int AircraftTypeId { get; private set; }
         public bool OutOfService { get; private set; }
-        public string ModelName { get; private set; }
+        public string Name { get; private set; }
         public int MaxSpeedInAir { get; private set; }
         public int AccelerationInAir { get; private set; }
         public int MaxSpeedOnGround { get; private set; }
@@ -56,8 +58,9 @@ namespace BrusOgPotetgull.AirportLiberary
         virtual public void PrintAircraftInformation()
         {
             Console.Write($"\nId: {TailNumber}\n" +
-                $"Model: {ModelName}\n" +
-                $"Type(id): {AircraftTypeId}\n" +
+                $"Name: {Name}\n" +
+                $"AircraftType: {AircraftType}\n" +
+                $"AircraftTypeId: {AircraftTypeId}\n" +
                 $"Out of service: {OutOfService}\n" +
                 $"Max speed: {MaxSpeedInAir}\n" +
                 $"Acceleration: {AccelerationInAir}\n");
@@ -73,12 +76,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
             foreach (KeyValuePair<DateTime, string> pair in history)
-            {
                 if (pair.Key == time && pair.Value == (location + message))
-                {
                     throw new DuplicateOfContentException($"{time}, {location} {message} could not be added to history for plane with talenumber: '{TailNumber}'. The excact same line of history already exists for this plane.");
-                }
-            }
 
             history.Add(new KeyValuePair<DateTime, string>(time, (location + message))); 
         }
@@ -88,12 +87,10 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintFullAircraftHistory()
         {
-            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.TailNumber}' and model: '{this.ModelName}'\n");
+            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.TailNumber}' and model: '{this.Name}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
-            {
                 Console.WriteLine($"{line.Key}, {line.Value}");
-            }
         }
 
         /// <summary>
@@ -102,10 +99,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private void SetAircraftOutOfService()
         {
             if (OutOfService == true)
-            {
                 throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'true'.");
-               
-            }
 
             OutOfService = true;
         }
@@ -116,9 +110,7 @@ namespace BrusOgPotetgull.AirportLiberary
         private void SetAircraftInOperation()
         {
             if (OutOfService == false)
-            {
                 throw new InvalidOperationException($"bool variable 'OutOfService' for aircraft with talenumber '{tailNumber}' is already set to 'false'.");
-            }
 
             OutOfService = false;
         }
@@ -133,14 +125,10 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
             DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
-            Console.Write($"\n\n\tHistory for aircraft: '{ModelName}' and id: '{TailNumber}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
+            Console.Write($"\n\n\tHistory for aircraft: '{Name}' and id: '{TailNumber}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
             foreach (KeyValuePair<DateTime, string> line in history)
-            {
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
-                {
                     Console.WriteLine($"Time: {line.Key}, {line.Value}");                  
-                }
-            }
         }
     }
 }

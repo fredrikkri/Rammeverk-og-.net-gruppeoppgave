@@ -43,6 +43,9 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                     {
                         if (flight.DateTimeFlight == start)
                         {
+                            // Genererer en taxiway-rute for current arriving flight
+                            flight.taxiwayPath = Airport.GenerateArrivingFlightTaxiwayPath(flight);
+
                             //starter handlinger for flygning  ( når tiden for flygningen er inne )
                             flight.ArrivalRunway.AddFlightToQueue(flight); //  ----------------------------------------------------------------------------  step 1 arriving
                             // trenger ikke køsystem på loggede flygninger, kun tidspunkt. Har allerede køsystem i runway og taxiway.
@@ -101,6 +104,9 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         // Hvis tiden for flygningen er lik nåværende tid i simulasjonen
                         if (flight.DateTimeFlight == start)
                         {
+                            // Genererer en taxiway-rute for current departuring flight
+                            flight.taxiwayPath = Airport.GenerateDeparturingFlightTaxiwayPath(flight);
+
                             flight.DepartureGate.LeaveGate(flight.ActiveAircraft, start); // ----------------------------------------------------------- step 1 Departing
                             flight.DepartureTaxiway.SimulateTaxiwayTime(flight, 0, flight.ActiveAircraft.AccelerationOnGround, flight.ActiveAircraft.MaxSpeedOnGround, start);
                             flight.DepartureTaxiway.AddFlightToQueue(flight, start);

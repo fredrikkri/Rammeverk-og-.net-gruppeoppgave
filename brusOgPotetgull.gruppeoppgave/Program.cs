@@ -1,6 +1,7 @@
 ﻿using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary;
 using BrusOgPotetgull.AirportLiberary.Simulation;
+using BrusOgPotetgull.AirportLiberary.Sim;
 
 namespace BrusOgPotetgull.Gruppeoppgave
 {
@@ -8,17 +9,29 @@ namespace BrusOgPotetgull.Gruppeoppgave
     {
         static void Main(string[] args)
         {
+            // Creating Aircraft types
+            AircraftType boeing737 = new AircraftType("Boeing 737");
+            AircraftType boeing747 = new AircraftType("Boeing 747");
+            AircraftType boeing767 = new AircraftType("Boeing 767");
+            AircraftType boeing777 = new AircraftType("Boeing 777");
+            AircraftType boeing787 = new AircraftType("Boeing 787");
+
+            AircraftType airbusA320 = new AircraftType("Airbus A320");
+            AircraftType airbusA330 = new AircraftType("Airbus A330");
+            AircraftType airbusA340 = new AircraftType("Airbus A340");
+            AircraftType airbusA380 = new AircraftType("Airbus A380");
+
             // Creating aircrafts with category 
-            Aircraft cargoCraftV12 = new LongMediumAircraft("C420", 890, 50, 35, 3);
-            Aircraft superPlane = new ShortMediumAircraft("A130", 800, 70, 40, 5);
-            Aircraft sickPlane = new LongMediumAircraft("C355", 800, 50, 30, 4);
-            Aircraft SR71 = new LongMediumAircraft("S137", 700, 45, 30, 3);
-            Aircraft boeing737 = new ShortMediumAircraft("Boeing 737", 775, 36, 24, 4);
-            Aircraft boeing747 = new ShortMediumAircraft("Boeing 747", 750, 30, 18, 5);
-            Aircraft boeing767 = new LargeAircraft("Boeing 767", 850, 35, 20, 3);
-            Aircraft airbusA380 = new LargeAircraft("Airbus A380", 900, 30, 20, 2);
-            Aircraft airbusA340 = new LongMediumAircraft("Airbus A340", 800, 28, 22, 5);
-            Aircraft airbusA320 = new ShortMediumAircraft("Airbus A320", 700, 26, 24, 5);
+            Aircraft cargoCraft = new Aircraft("cargoCraft", boeing737, 890, 50, 35, 3);
+            Aircraft superPlane = new Aircraft("superPlane", boeing737, 800, 70, 40, 5);
+            Aircraft sickPlane = new Aircraft("sickPlane", boeing737, 800, 50, 30, 4);
+            Aircraft SR71 = new Aircraft("SR71", boeing737, 700, 45, 30, 3);
+            Aircraft coolplane = new Aircraft("cool Plane", boeing737, 775, 36, 24, 4);
+            Aircraft messiPlane = new Aircraft("Messi Aircraft", boeing737, 750, 30, 18, 5);
+            Aircraft RonaldosPlane = new Aircraft("Ronaldo Aircraft", boeing737, 850, 35, 20, 3);
+            Aircraft KakaPlane = new Aircraft("Kaka Aircraft", boeing737, 900, 30, 20, 2);
+            Aircraft RonaldinhoPlane = new Aircraft("Ronaldinho SambaAircraft", boeing737, 800, 28, 22, 5);
+            Aircraft mbappePlane = new Aircraft("Mbappe Aircraft", boeing737, 700, 26, 24, 5);
 
             // creating the airport
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
@@ -46,16 +59,16 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayToList(bravo);
             Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
             heathrow.AddTaxiwayToList(charlie);
-            Taxiway kapteinSabeltannIs = new Taxiway("kapteinsabeltann is (KAP)", 650, 20);
-            heathrow.AddTaxiwayToList(kapteinSabeltannIs);
-            Taxiway gresskar = new Taxiway("gresskar (G)", 650, 20);
-            heathrow.AddTaxiwayToList(gresskar);
-            Taxiway middag = new Taxiway("Middag (M)", 650, 20);
-            heathrow.AddTaxiwayToList(middag);
-            Taxiway vaksemiddel = new Taxiway("vaksemiddel (V)", 650, 20);
-            heathrow.AddTaxiwayToList(vaksemiddel);
-            Taxiway brus = new Taxiway("brus (B)", 650, 20);
-            heathrow.AddTaxiwayToList(brus);
+            Taxiway dimitri = new Taxiway("Dimitri (D)", 650, 20);
+            heathrow.AddTaxiwayToList(dimitri);
+            Taxiway elf = new Taxiway("Elf (E)", 650, 20);
+            heathrow.AddTaxiwayToList(elf);
+            Taxiway frodoBaggins = new Taxiway("Frodo Baggins (F)", 650, 20);
+            heathrow.AddTaxiwayToList(frodoBaggins);
+            Taxiway gandalf = new Taxiway("Gandalf (G)", 650, 20);
+            heathrow.AddTaxiwayToList(gandalf);
+            Taxiway harryPotter = new Taxiway("Harry Potter (H)", 650, 20);
+            heathrow.AddTaxiwayToList(harryPotter);
 
             // creating gates and adding them to terminals and airport
             terminal2.CreateMultipleGatesToTerminal("A", 1, 26, heathrow);
@@ -67,9 +80,9 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             // Creating flights.
             
-            Flight.Arriving flight1 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), gresskar, runway27L_09R);
+            Flight.Arriving flight1 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), elf, runway27L_09R);
             Flight.Arriving flight2 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
-            Flight.Departing flight3 = new(cargoCraftV12, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), middag, runway27R_09L);
+            Flight.Departing flight3 = new(cargoCraft, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), frodoBaggins, runway27R_09L);
             Flight.Departing flight4 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), bravo, runway27R_09L);
 
             // setup taxiway system
@@ -96,51 +109,23 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayConnection(alpha, B1, A1);
             heathrow.AddTaxiwayConnection(bravo, B1, C1);
             heathrow.AddTaxiwayConnection(charlie, D1, B1);
-            heathrow.AddTaxiwayConnection(kapteinSabeltannIs, E1, D1);
-            heathrow.AddTaxiwayConnection(gresskar, F1, E1);
-            heathrow.AddTaxiwayConnection(middag, G1, F1, heathrow.GetGateBasedOnGateName("C53"));
-            heathrow.AddTaxiwayConnection(vaksemiddel, H1, G1);
-            heathrow.AddTaxiwayConnection(brus, H1, G1, heathrow.GetGateBasedOnGateName("A3"));
+            heathrow.AddTaxiwayConnection(dimitri, E1, D1);
+            heathrow.AddTaxiwayConnection(elf, F1, E1);
+            heathrow.AddTaxiwayConnection(frodoBaggins, G1, F1);
+            frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C53"));
+            frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C54"));
+            frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C55"));
+            frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C56"));
+            heathrow.AddTaxiwayConnection(gandalf, H1, G1);
+            heathrow.AddTaxiwayConnection(harryPotter, H1, G1);
+            harryPotter.AddConnectedGate(heathrow.GetGateBasedOnGateName("A3"));
 
             heathrow.PrintTaxiwaySystem();
 
-            // generate taxiwaypaths for flights
-            flight1.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight1);
-            flight2.taxiwayPath = heathrow.GenerateArrivingFlightTaxiwayPath(flight2);
-            flight3.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight3);
-            flight4.taxiwayPath = heathrow.GenerateDeparturingFlightTaxiwayPath(flight4);
-
-            //heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
-            //heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
-            //heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
-            //heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
-
-            int time = flight2.CalculateTaxiwayPathTime();
-
-            Console.WriteLine($"\ntime for path for flight2: {time}");
-
-
-            /*
-                        // Adding connectoions between components
-
-
-                        // Making sure that aircrafts are allowed at gates.
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal2.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-
-                        terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal3.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-
-                        terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal4.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Large);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.LongMedium);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.ShortMedium);
-                        terminal5.AddAircraftAllowedAtGatesAtTerminal(AircraftType.Cargo);
-            */
-
+            heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
+            heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
 
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)
@@ -164,20 +149,22 @@ namespace BrusOgPotetgull.Gruppeoppgave
             // simulation
             DateTime start = new(2024, 3, 5);
             DateTime end = new(2024, 3, 1, 4, 00, 00);
+            Sim heathrowSimulation = new(heathrow, start, end);
+            heathrowSimulation.RunSimulation();
+            /*
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
-
+            */
             // Printing history for aircrafts on a given day.
-            cargoCraftV12.PrintAircraftHistoryForDay(2024, 3, 1);
+            cargoCraft.PrintAircraftHistoryForDay(2024, 3, 1);
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
-            
 
-
-            heathrow.PrintTaxiwaySystem();
+            superPlane.PrintAircraftInformation();
+            //heathrow.PrintTaxiwaySystem();
             System.Console.ReadLine();
         }
     }
