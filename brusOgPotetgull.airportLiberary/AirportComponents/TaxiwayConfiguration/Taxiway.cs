@@ -13,7 +13,6 @@ namespace BrusOgPotetgull.AirportLiberary
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
         private string? airportLocation;
         public List<Gate> connectedGates;
-        public List<Taxiway> connectedTaxiways;
         public List<Runway> connectedRunways;
 
         /// <summary>
@@ -31,7 +30,6 @@ namespace BrusOgPotetgull.AirportLiberary
             this.Length = length;
             this.MaxSpeed = maxSpeed;
             this.connectedGates = new List<Gate>(); 
-            this.connectedTaxiways = new List<Taxiway>();
             this.connectedRunways = new List<Runway>();
         }
 
@@ -65,34 +63,6 @@ namespace BrusOgPotetgull.AirportLiberary
                 throw new InvalidOperationException($"Gate: '{gate.Name}' cannot be removed as an connection for taxiway: '{Name}'. It does not exist as an connection to this taxiway.");
             connectedGates.Remove(gate);
         }
-
-        /// <summary>
-        /// Adds a taxiway to the list of connected taxiways for this taxiway.
-        /// </summary>
-        /// <param name="taxiway">The taxiway that will be added to the list.</param>
-        public void AddConnectedTaxiway(Taxiway taxiway)
-        {
-            /*if (connectedTaxiways.Contains(taxiway))
-            {
-                throw new InvalidOperationException($"Taxiway: '{taxiway.Name}' is already connected to taxiway: '{Name}'");
-            }*/
-            connectedTaxiways.Add(taxiway);
-            taxiway.AddConnectedTaxiway(this);
-            
-        }
-
-        /// <summary>
-        /// Removes a taxiway from the list of connected taxiways for this taxiway.
-        /// </summary>
-        /// <param name="taxiway">The taxiway that will be removed to the list.</param>
-        public void RemoveConnectedTaxiway(Taxiway taxiway)
-        {
-            if (!connectedTaxiways.Contains(taxiway))
-                throw new InvalidOperationException($"Taxiway: '{taxiway.Name}' cannot be removed as an connection for taxiway: '{Name}'. It does not exist as an connection to this taxiway.");
-            connectedTaxiways.Remove(taxiway);
-        }
-
-        public List<Taxiway> GetConnectedTaxiways() => connectedTaxiways;
 
         /// <summary>
         /// Adds a runway to the list of connected runways for this taxiway.
@@ -137,7 +107,9 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.WriteLine("Connections:");
             foreach (Gate gate in connectedGates)
                 Console.Write($"Gate: {gate.Name} ");
-            foreach (Taxiway taxiway in connectedTaxiways)
+            foreach (Taxiway taxiway in A.taxiways)
+                Console.Write($"Taxiway: {taxiway.Name} ");
+            foreach (Taxiway taxiway in B.taxiways)
                 Console.Write($"Taxiway: {taxiway.Name} ");
             foreach (Runway runway in connectedRunways)
                 Console.Write($"Runway: {runway.Name} ");
