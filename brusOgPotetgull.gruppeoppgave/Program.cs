@@ -122,12 +122,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
             heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
 
-            double time = flight2.CalculateTaxiwayPathTime();
-            double min = Math.Round(time / 60);
-            double sec = Math.Round(time % 60);
-
-            Console.WriteLine($"\ntime for path for flight2: {min}min and {sec}sec");
-
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)
             {

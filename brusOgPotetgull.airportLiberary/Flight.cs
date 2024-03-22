@@ -177,5 +177,13 @@ namespace BrusOgPotetgull.AirportLiberary
             }
             return result;
         }
+
+        public void PrintTaxiwayPathTime()
+        {
+            double time = CalculateTaxiwayPathTime();
+            double min = Math.Round(time / 60);
+            double sec = Math.Round(time % 60);
+            Console.WriteLine($"\ntime for path for flight with {FlightId} and active aircraft: {ActiveAircraft.Name} - {min}min and {sec}sec");
+        }
     }
 }
