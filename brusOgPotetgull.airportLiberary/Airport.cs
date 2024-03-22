@@ -49,10 +49,13 @@ namespace BrusOgPotetgull.AirportLiberary
         public List<Taxiway> GenerateArrivingFlightTaxiwayPath(Flight.Arriving flight)
         {
             foreach (Taxiway taxiway in GetListTaxiways())
-                if (taxiway.ConnectedGate == flight.ArrivalGate)
+                foreach (Gate gate in taxiway.connectedGates)
                 {
-                    List<Taxiway> path = FindPath(flight.ArrivalTaxiway, taxiway, new List<Taxiway>());
-                    return path;
+                    if (gate == flight.ArrivalGate)
+                    {
+                        List<Taxiway> path = FindPath(flight.ArrivalTaxiway, taxiway, new List<Taxiway>());
+                        return path;
+                    }
                 }
             return null;
         }
@@ -60,12 +63,14 @@ namespace BrusOgPotetgull.AirportLiberary
         public List<Taxiway> GenerateDeparturingFlightTaxiwayPath(Flight.Departing flight)
         {
             foreach (Taxiway taxiway in GetListTaxiways())
-                if (taxiway.ConnectedGate == flight.DepartureGate)
+                foreach (Gate gate in taxiway.connectedGates)
                 {
-                    List<Taxiway> path = FindPath(taxiway, flight.DepartureTaxiway, new List<Taxiway>());
-                    return path;
+                    if (gate == flight.DepartureGate)
+                    {
+                        List<Taxiway> path = FindPath(taxiway, flight.DepartureTaxiway, new List<Taxiway>());
+                        return path;
+                    }
                 }
-
             return null;
         }
 
@@ -144,8 +149,11 @@ namespace BrusOgPotetgull.AirportLiberary
                 Console.WriteLine($"{i}: {connection.Name}");
                 foreach (var taxiway in connection.taxiways)
                 {
-                    if (taxiway.ConnectedGate != null)
-                        Console.WriteLine($"\t{taxiway.Name}, GateConnection: {taxiway.ConnectedGate.Name}");
+                    Console.WriteLine($"\t{taxiway.Name}");
+                    if (taxiway.connectedGates != null)
+                        foreach (Gate gate in taxiway.connectedGates) {
+                            Console.WriteLine($"\tGateConnection: {gate.Name}");
+                        }
                     else
                         Console.WriteLine($"\t{taxiway.Name}");
                 }
@@ -173,14 +181,12 @@ namespace BrusOgPotetgull.AirportLiberary
             to.taxiways.Add(taxiway);
         }
         */
-        public void AddTaxiwayConnection(Taxiway taxiway, ConnectionPoint to, ConnectionPoint from, Gate? gateConnection = null, Runway? runwayConnection = null)
+        public void AddTaxiwayConnection(Taxiway taxiway, ConnectionPoint to, ConnectionPoint from)
         {
             taxiway.B = to;
             taxiway.A = from;
             from.taxiways.Add(taxiway);
             to.taxiways.Add(taxiway);
-            taxiway.ConnectedGate = gateConnection;
-            taxiway.ConnectedRunway = runwayConnection;
         }
 
         public List<Taxiway> FindPath(Taxiway start, Taxiway end, List<Taxiway> calculatedRoute)

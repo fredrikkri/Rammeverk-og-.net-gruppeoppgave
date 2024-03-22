@@ -12,9 +12,9 @@ namespace BrusOgPotetgull.AirportLiberary
         private int id;
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
         private string? airportLocation;
-        private List<Gate> connectedGates;
-        private List<Taxiway> connectedTaxiways;
-        private List<Runway> connectedRunways;
+        public List<Gate> connectedGates;
+        public List<Taxiway> connectedTaxiways;
+        public List<Runway> connectedRunways;
 
         /// <summary>
         /// Creates a taxiway.
@@ -30,7 +30,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.Name = name;
             this.Length = length;
             this.MaxSpeed = maxSpeed;
-            this.connectedGates = new List<Gate>();
+            this.connectedGates = new List<Gate>(); 
             this.connectedTaxiways = new List<Taxiway>();
             this.connectedRunways = new List<Runway>();
         }
@@ -41,8 +41,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public int MaxSpeed { get; private set; }
         public ConnectionPoint A {  get; set; }
         public ConnectionPoint B { get; set; }
-        public Runway? ConnectedRunway { get; set; }
-        public Gate? ConnectedGate { get; set; }
+        //public List<Runway> connectedRunways { get; set; }
+        //public List<Gate> connectedGates { get; set; }
 
         /// <summary>
         /// Adds a gate to the list of connected gates for this taxiway.

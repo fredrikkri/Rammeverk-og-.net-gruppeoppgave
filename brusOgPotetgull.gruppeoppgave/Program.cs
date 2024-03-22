@@ -111,9 +111,14 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayConnection(charlie, D1, B1);
             heathrow.AddTaxiwayConnection(dimitri, E1, D1);
             heathrow.AddTaxiwayConnection(elf, F1, E1);
-            heathrow.AddTaxiwayConnection(frodoBaggins, G1, F1, heathrow.GetGateBasedOnGateName("C53"));
+            heathrow.AddTaxiwayConnection(frodoBaggins, G1, F1);
+            frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C53"));
+            frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C54"));
+            frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C55"));
+            frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C56"));
             heathrow.AddTaxiwayConnection(gandalf, H1, G1);
-            heathrow.AddTaxiwayConnection(harryPotter, H1, G1, heathrow.GetGateBasedOnGateName("A3"));
+            heathrow.AddTaxiwayConnection(harryPotter, H1, G1);
+            harryPotter.AddConnectedGate(heathrow.GetGateBasedOnGateName("A3"));
 
             heathrow.PrintTaxiwaySystem();
 
