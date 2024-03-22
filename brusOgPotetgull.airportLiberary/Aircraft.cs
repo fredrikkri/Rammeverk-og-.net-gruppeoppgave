@@ -75,9 +75,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="message">The action of the plane.</param>
         public void AddHistoryToAircraft(DateTime time, string location, string message)
         {
-            foreach (KeyValuePair<DateTime, string> pair in history)
-                if (pair.Key == time && pair.Value == (location + message))
-                    throw new DuplicateOfContentException($"{time}, {location} {message} could not be added to history for plane with talenumber: '{TailNumber}'. The excact same line of history already exists for this plane.");
+            //foreach (KeyValuePair<DateTime, string> pair in history)
+            //    if (pair.Key == time && pair.Value == (location + message))
+            //        throw new DuplicateOfContentException($"{time}, {location} {message} could not be added to history for plane with talenumber: '{TailNumber}'. The excact same line of history already exists for this plane. ");
 
             history.Add(new KeyValuePair<DateTime, string>(time, (location + message))); 
         }
