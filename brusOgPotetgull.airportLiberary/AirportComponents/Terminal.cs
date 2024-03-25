@@ -32,9 +32,7 @@ public class Terminal
             $"Airport location: {airportLocation}\n");
         Console.WriteLine($"List of gates: ");
         foreach (Gate gate in gatesInTerminal)
-        {
             Console.WriteLine($"{gate.Name + ", id: " + Id} ");
-        }
     }
 
     /// <summary>
@@ -44,9 +42,7 @@ public class Terminal
     public void AddAircraftAllowedAtGatesAtTerminal(AircraftType aircraftType)
     {
         foreach (Gate gate in gatesInTerminal)
-        {
             gate.AddAircraftAllowedAtGate(aircraftType);
-        }
     }
 
     /// <summary>
@@ -102,9 +98,7 @@ public class Terminal
         {
             string gateName = ((string)gateLetter + i);
             if (airport.GetListGates().Find(currentGate => currentGate.Name == gateName) != null)
-            {
                 AddGateToList(airport.GetListGates().Find(currentGate => currentGate.Name == gateName));
-            }
             else
             {
                 Gate gateNameObject = new Gate(gateName);

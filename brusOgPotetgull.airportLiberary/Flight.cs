@@ -13,7 +13,8 @@ namespace BrusOgPotetgull.AirportLiberary
         public DateTime DateTimeFlight { get; private set; }
         public bool IsArrivingFlight { get; private set; }
         public int Length { get; private set; }
-        public List<Taxiway> calculatedRoute;
+        public List<Taxiway> taxiwayPath;
+        public DateTime Clock { get; set; }
 
         protected Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length)
         {
@@ -22,7 +23,7 @@ namespace BrusOgPotetgull.AirportLiberary
             DateTimeFlight = dateTimeFlight;
             IsArrivingFlight = isArrivingFlight;
             Length = length;
-            calculatedRoute = new List<Taxiway>();
+            taxiwayPath = new List<Taxiway>(); 
         }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace BrusOgPotetgull.AirportLiberary
                     $"Date: {DateTimeFlight} " +
                     $"FlightId: {FlightId}\n" +
                     $"Length: {Length}\n" +
-                    $"Aircraft: {ActiveAircraft.ModelName}\n" +
+                    $"Aircraft: {ActiveAircraft.Name}\n" +
                     $"Departure Airport: {DepartureAirport.Name}\n" +
                     $"Departure Gate: {DepartureGate.Id}\n" +
                     $"Departure Taxiway: {DepartureTaxiway.Id}\n" +
@@ -113,7 +114,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Date: {DateTimeFlight} " +
                 $"FlightId: {FlightId}\n" +
                 $"Length: {Length}\n" +
-                $"Aircraft: {ActiveAircraft.ModelName}\n" +
+                $"Aircraft: {ActiveAircraft.Name}\n" +
                 $"Arrival Airport: {ArrivalAirport.Name}\n" +
                 $"Arrival Runway: {ArrivalRunway.Id}\n" +
                 $"Arrival Taxiway: {ArrivalTaxiway.Id}\n" +
@@ -124,20 +125,20 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// simulates the movement for an flight object for landing and takeoff.
         /// </summary>
-        /// <param name="length">Traveldistance in KM.</param>
+        /// <param name="length">Traveldistance in meters.</param>
         /// <param name="initialSpeed">The speed at which the aircraft starts with (Kp/h).</param>
-        /// <param name="speedChange">The change in speed (Kp/h).</param>
+        /// <param name="speedChange">The change in speed per second (Kp/h).</param>
         /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
-        /// <returns>The time it takes to do the simulation.</returns>
-        public int CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
+        /// <returns>The time it takes to do the movement in seconds.</returns>
+        public double CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
         {
-            int remainingDistance = Length;
-            int time = 0;
+            int remainingDistance = length;
+            double time = 0;
 
-            while (remainingDistance == 0)
+            while (remainingDistance > 0)
             {
                 // trekker farten i meter per sekund fra Length
-                Length = Math.Max(Length - (initialSpeed * 5 / 18), 0);
+                remainingDistance = Math.Max(remainingDistance - (initialSpeed * 5 / 18), 0);
                 if (initialSpeed < maxSpeed)
                 {
                     initialSpeed = Math.Min(initialSpeed + speedChange, maxSpeed);
@@ -152,6 +153,37 @@ namespace BrusOgPotetgull.AirportLiberary
             }
 
             return time;
+        }
+
+        public double CalculateTaxiwayPathTime()
+        {
+            int lengthPath = GetLengthOfTaxiwayPath();
+            double time = 0;
+
+            foreach (Taxiway taxiway in taxiwayPath)
+            {
+
+                time += ((lengthPath / (taxiway.MaxSpeed / 3.6)));
+            }
+            return time;
+        }
+
+        private int GetLengthOfTaxiwayPath()
+        {
+            int result = 0;
+            foreach (Taxiway taxiway in taxiwayPath)
+            {
+                result += taxiway.Length;
+            }
+            return result;
+        }
+
+        public void PrintTaxiwayPathTime()
+        {
+            double time = CalculateTaxiwayPathTime();
+            double min = Math.Round(time / 60);
+            double sec = Math.Round(time % 60);
+            Console.WriteLine($"\ntime for path for flight with {FlightId} and active aircraft: {ActiveAircraft.Name} - {min}min and {sec}sec");
         }
     }
 }

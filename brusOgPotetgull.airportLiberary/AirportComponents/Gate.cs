@@ -55,9 +55,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Airport location: {airportLocation}\n");
             Console.Write("Legal aircraftstypes: ");
             foreach (int typeId in legalAircraftTypesId)
-            {
                 Console.Write($"{typeId} ");
-            }
             Console.Write("\n");
         }
 
@@ -73,11 +71,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftType">An Enum that represents the id of an aircraftType that you want to enable accsess for the gate.</param>
         public void AddAircraftAllowedAtGate(AircraftType aircraftType)
         {
-            if (!legalAircraftTypesId.Contains((int)aircraftType))
-            {
-                legalAircraftTypesId.Add((int)aircraftType);
-                //throw new DuplicateOfContentException($"{aircraftType} already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
-            }
+            legalAircraftTypesId.Add(aircraftType.TypeId);
         }
 
         /// <summary>
@@ -86,13 +80,11 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftTypeIds">A list of ids of aircrafts that you want to enable accsess for the gate</param>
         public void AddMultipleAircraftAllowedAtGate(List<AircraftType> aircraftTypeIds)
         {
-            foreach (int typeId in aircraftTypeIds)
+            foreach (AircraftType element in aircraftTypeIds)
             {
-                if (legalAircraftTypesId.Contains(typeId))
-                {
-                    throw new DuplicateOfContentException($"Aircraft with id '{typeId}' already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
-                }
-                legalAircraftTypesId.Add(typeId);
+                if (legalAircraftTypesId.Contains(element.TypeId))
+                    throw new DuplicateOfContentException($"Aircraft with id '{element.TypeId}' already exists in the list of allowed aircrafts for gate with id: '{Id}'.");
+                legalAircraftTypesId.Add(element.TypeId);
             }
         }
 
@@ -103,13 +95,9 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             int numberOfAircraftTypes = 6;
             for (int i = 0; i <= numberOfAircraftTypes; i++)
-            {
                 //AddAircraftAllowedAtGate(i);
                 if (!legalAircraftTypesId.Contains(i))
-                {
                     legalAircraftTypesId.Add(i);
-                }
-            }
         }
 
         /// <summary>
@@ -118,11 +106,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="aircraftTypeId">The id of an type of aircraft that you want to deny accsess to the gate.</param>
         public void RemoveAircraftAllowedAtGate(AircraftType aircraftTypeId)
         {
-            if (!legalAircraftTypesId.Contains((int)aircraftTypeId))
-            {
-                throw new InvalidOperationException($"Aircraft with type {aircraftTypeId} cannot be removed from the list of legal aircrafts for gate with id: '{Id}', because it does not exist in the list.");
-            }
-            legalAircraftTypesId.Remove((int)aircraftTypeId);
+            if (!legalAircraftTypesId.Contains(aircraftTypeId.TypeId))
+                throw new InvalidOperationException($"Aircraft with type {aircraftTypeId.TypeId} cannot be removed from the list of legal aircrafts for gate with id: '{Id}', because it does not exist in the list.");
+            legalAircraftTypesId.Remove(aircraftTypeId.TypeId);
         }
 
         /// <summary>
@@ -133,14 +119,9 @@ namespace BrusOgPotetgull.AirportLiberary
         public bool CheckAircraftAllowedAtGate(Aircraft aircraft)
         {
             if (legalAircraftTypesId.Contains(aircraft.AircraftTypeId))
-            {
                 return true;
-            }
-
             else
-            {
                 return false;
-            }
         }
 
         /// <summary>
@@ -172,9 +153,7 @@ namespace BrusOgPotetgull.AirportLiberary
                 aircraft.AddHistoryToAircraft(time, GetAirportNameAndGateName(), ", Arrived at Gate");
             }
             else
-            {
                 Console.Write($"Gate with id: {Id}, is already booked. Aircraft with id: '{aircraft.TailNumber}' cannot book this gate.");
-            }
         }
     }
 }

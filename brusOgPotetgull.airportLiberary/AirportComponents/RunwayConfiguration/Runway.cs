@@ -71,9 +71,7 @@ namespace BrusOgPotetgull.AirportLiberary
         public Flight RemoveFromQueue()
         {
             if (runwayQueue.Peek() == null)
-            {
                 throw new InvalidOperationException("Runwayqueue is empty. An object cannot be removed from the beginning of the queue.");
-            }
             return runwayQueue.Dequeue();
         }
 
@@ -98,13 +96,9 @@ namespace BrusOgPotetgull.AirportLiberary
         public void NextFlightEntersRunway()
         {
             if (runwayQueue.Count < 0)
-            {
                 throw new NegativeNumberException("Number of values in runwayQueue is a negative number.");
-            }
             if (runwayQueue.Count == 0)
-            {
                 throw new InvalidOperationException($"No flights in runway - {id} queue");
-            }
             Flight nextFlight = runwayQueue.Dequeue();
             runwayQueue.TrimExcess();
         }
@@ -117,7 +111,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="speedChange">The change in speed (Kp/h).</param>
         /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
         /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
-        public int SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) => flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
+        public double SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) => flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
 
         /// <summary>
         /// Sets the runwaystatus to 'inUse = true'
@@ -128,13 +122,9 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             inUse = true;
             if (flight.IsArrivingFlight == true)
-            {
-                RaiseFlightArrived((Flight.Arriving)flight, time, $"{flight.ActiveAircraft.ModelName} has landed");
-            }
+                RaiseFlightArrived((Flight.Arriving)flight, time, $"{flight.ActiveAircraft.Name} has landed");
             else
-            {
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Enters the runway");
-            }
         }
 
         // Triggers
@@ -152,13 +142,9 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             inUse = false;
             if (flight.IsArrivingFlight == false)
-            {
-                RaiseFlightDeparted((Flight.Departing)flight, time, $"{flight.ActiveAircraft.ModelName} has departed");
-            }
+                RaiseFlightDeparted((Flight.Departing)flight, time, $"{flight.ActiveAircraft.Name} has departed");
             else
-            {
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Leaves the runway");
-            }
         }
 
         protected virtual void RaiseFlightDeparted(Flight.Departing flight, DateTime time, string message)

@@ -6,6 +6,10 @@
     <Nullable>enable</Nullable>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<NoWarn>$(NoWarn);1591</NoWarn>
+    <PackageId>brusOgPotetgull.airportLiberaryTest</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Fredrik, ole, jacob, andrea</Authors>
+    <Company>brusOgPotetgull</Company>
 
   </PropertyGroup>
 
