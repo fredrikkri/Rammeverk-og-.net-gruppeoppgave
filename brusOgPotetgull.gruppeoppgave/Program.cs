@@ -1,6 +1,5 @@
 ﻿using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary;
-using BrusOgPotetgull.AirportLiberary.Simulation;
 using BrusOgPotetgull.AirportLiberary.Sim;
 
 namespace BrusOgPotetgull.Gruppeoppgave
@@ -80,10 +79,16 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             // Creating flights.
             
-            Flight.Arriving flight1 = new(sickPlane, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), elf, runway27L_09R);
-            Flight.Arriving flight2 = new(SR71, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
-            Flight.Departing flight3 = new(cargoCraft, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), frodoBaggins, runway27R_09L);
-            Flight.Departing flight4 = new(superPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), bravo, runway27R_09L);
+            Flight.Arriving flight1 = new(cargoCraft, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), elf, runway27L_09R);
+            Flight.Arriving flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
+            Flight.Arriving flight3 = new(sickPlane, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), gandalf, runway27R_09L);
+            Flight.Arriving flight4 = new(SR71, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A4"), alpha, runway27R_09L);
+            Flight.Arriving flight5 = new(coolplane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), harryPotter, runway27R_09L);
+            Flight.Departing flight6 = new(messiPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A4"), dimitri, runway27R_09L);
+            Flight.Departing flight7 = new(RonaldosPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A5"), charlie, runway27R_09L);
+            Flight.Departing flight8 = new(KakaPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("B22"), gandalf, runway27R_09L);
+            Flight.Departing flight9 = new(RonaldinhoPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("B24"), frodoBaggins, runway27R_09L);
+            Flight.Departing flight10 = new(mbappePlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C54"), bravo, runway27R_09L);
 
             // setup taxiway system
             ConnectionPoint A1 = new ConnectionPoint("A1");
@@ -109,6 +114,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.AddTaxiwayConnection(alpha, B1, A1);
             heathrow.AddTaxiwayConnection(bravo, B1, C1);
             heathrow.AddTaxiwayConnection(charlie, D1, B1);
+            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("B22"));
+            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("B23"));
+            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("B24"));
+            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("B25"));
+            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("B26"));
+            charlie.AddConnectedGate(heathrow.GetGateBasedOnGateName("B27"));
             heathrow.AddTaxiwayConnection(dimitri, E1, D1);
             heathrow.AddTaxiwayConnection(elf, F1, E1);
             heathrow.AddTaxiwayConnection(frodoBaggins, G1, F1);
@@ -118,14 +129,13 @@ namespace BrusOgPotetgull.Gruppeoppgave
             frodoBaggins.AddConnectedGate(heathrow.GetGateBasedOnGateName("C56"));
             heathrow.AddTaxiwayConnection(gandalf, H1, G1);
             heathrow.AddTaxiwayConnection(harryPotter, H1, G1);
+            harryPotter.AddConnectedGate(heathrow.GetGateBasedOnGateName("A1"));
+            harryPotter.AddConnectedGate(heathrow.GetGateBasedOnGateName("A2"));
             harryPotter.AddConnectedGate(heathrow.GetGateBasedOnGateName("A3"));
+            harryPotter.AddConnectedGate(heathrow.GetGateBasedOnGateName("A4"));
+            harryPotter.AddConnectedGate(heathrow.GetGateBasedOnGateName("A5"));
 
             heathrow.PrintTaxiwaySystem();
-
-            heathrow.PrintTaxiwayRoute(flight1.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight2.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight3.taxiwayPath);
-            heathrow.PrintTaxiwayRoute(flight4.taxiwayPath);
 
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)
@@ -161,6 +171,12 @@ namespace BrusOgPotetgull.Gruppeoppgave
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
+            coolplane.PrintAircraftHistoryForDay(2024, 3, 1);
+            messiPlane.PrintAircraftHistoryForDay(2024, 3, 1);
+            RonaldosPlane.PrintAircraftHistoryForDay(2024, 3, 1);
+            KakaPlane.PrintAircraftHistoryForDay(2024, 3, 1);
+            RonaldinhoPlane.PrintAircraftHistoryForDay(2024, 3, 1);
+            mbappePlane.PrintAircraftHistoryForDay(2024, 3, 1);
 
             heathrow.PrintAirportInformation();
 

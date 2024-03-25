@@ -118,8 +118,18 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
                             else
                             {
                                 Flight.Arriving currentArriving = (Flight.Arriving)currentFlight;
-                                currentArriving.ArrivalGate.BookGate(currentArriving.ActiveAircraft, currentFlight.Clock);
-                                Airport.RemoveArrivingFlight(currentArriving);
+                                //if (currentArriving.ArrivalGate.IsAvailable == true)
+                                //{
+                                    currentArriving.ArrivalGate.BookGate(currentArriving.ActiveAircraft, currentFlight.Clock);
+                                    Airport.RemoveArrivingFlight(currentArriving);
+                                //}
+                                //else
+                                //{
+                                //    string newGateName = currentArriving.ArrivalGate.Name;
+                                //    Gate newGate = Airport.GetAnotherAvalibleGateAtTheSameTerminal(newGateName);
+                                //    newGate.BookGate(currentArriving.ActiveAircraft, currentFlight.Clock);
+                                //    Airport.RemoveArrivingFlight(currentArriving);
+                                //}
                             }
                         }
                     }

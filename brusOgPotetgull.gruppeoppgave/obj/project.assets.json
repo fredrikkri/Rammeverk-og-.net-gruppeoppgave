@@ -27,24 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ole_f\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\jacob\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.gruppeoppgave.csproj",
+      "projectUniqueName": "C:\\Users\\jacob\\OneDrive\\Dokumenter\\GitHub\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.gruppeoppgave.csproj",
       "projectName": "brusOgPotetgull.gruppeoppgave",
-      "projectPath": "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.gruppeoppgave.csproj",
-      "packagesPath": "C:\\Users\\ole_f\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.gruppeoppgave\\obj\\",
+      "projectPath": "C:\\Users\\jacob\\OneDrive\\Dokumenter\\GitHub\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.gruppeoppgave.csproj",
+      "packagesPath": "C:\\Users\\jacob\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jacob\\OneDrive\\Dokumenter\\GitHub\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.gruppeoppgave\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ole_f\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\jacob\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -58,8 +53,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj": {
-              "projectPath": "C:\\Users\\ole_f\\Github\\rammeverk_.net\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj"
+            "C:\\Users\\jacob\\OneDrive\\Dokumenter\\GitHub\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj": {
+              "projectPath": "C:\\Users\\jacob\\OneDrive\\Dokumenter\\GitHub\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.airportLiberary\\brusOgPotetgull.airportLiberary.csproj"
             }
           }
         }
@@ -94,7 +89,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
