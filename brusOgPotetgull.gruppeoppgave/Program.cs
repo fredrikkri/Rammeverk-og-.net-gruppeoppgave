@@ -151,6 +151,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             DateTime end = new(2024, 3, 1, 4, 00, 00);
             Sim heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
+
             /*
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
@@ -164,7 +165,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.PrintAirportInformation();
 
             superPlane.PrintAircraftInformation();
-            //heathrow.PrintTaxiwaySystem();
+            heathrow.PrintTaxiwaySystem();
             System.Console.ReadLine();
         }
     }
