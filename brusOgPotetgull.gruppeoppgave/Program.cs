@@ -1,6 +1,6 @@
 ﻿using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary;
-using BrusOgPotetgull.AirportLiberary.Sim;
+using BrusOgPotetgull.AirportLiberary.Simulation;
 
 namespace BrusOgPotetgull.Gruppeoppgave
 {
@@ -179,7 +179,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             // simulation
             DateTime start = new(2024, 3, 5);
             DateTime end = new(2024, 3, 1, 4, 00, 00);
-            Sim heathrowSimulation = new(heathrow, start, end);
+            Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
 
             /*

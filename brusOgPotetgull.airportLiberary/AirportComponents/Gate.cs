@@ -4,7 +4,8 @@ using BrusOgPotetgull.AirportLiberary.CustomExceptions;
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
-    /// The gate class is defining how a gate is designed.
+    /// The gate class is used to define how a gate is designed.
+    /// It holds fields for the status of the gate and allowed aircraft types.
     /// </summary>
 	public class Gate
     {
@@ -12,7 +13,6 @@ namespace BrusOgPotetgull.AirportLiberary
         private int id;
         private bool isOpen;
         private bool isAvailable;
-        // Variable under baserer seg på at en flytype har en unik id med int og ikke en string-verdi. Se mappe med flytyper.
         private List<int> legalAircraftTypesId;
         private string? airportLocation;
 
@@ -36,9 +36,9 @@ namespace BrusOgPotetgull.AirportLiberary
         public bool IsAvailable { get; private set; }
 
         /// <summary>
-        /// Updates the information for which airport the gate is located at.
+        /// Updates the airport the gate is located at.
         /// </summary>
-        /// <param name="airportName">Name of the airport that the gate will be located at.</param>
+        /// <param name="airportName">Name of the airport that the gate will be updated to.</param>
         public void UpdateLocation(string airportName)
         {
             airportLocation = airportName;
@@ -60,7 +60,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Returns the id and name for the airport that this gate is located at.
+        /// Returns the airport location aswell as the gatename and id.
         /// </summary>
         /// <returns>String that contain information about the gate.</returns>
         private string GetAirportNameAndGateName() => (string)(airportLocation + ", Gate-id: " + Id + ", Name: " + Name);

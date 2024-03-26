@@ -3,7 +3,8 @@
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
-    /// The Flight-class is defined with the aircraft that is used in the flight, together with all the components on the airports its using. Eksamples is: taxiways, gates and runways.
+    /// The Flight-class is defined with the aircraft that is used in the flight, together with some components on the airports its using.
+    /// Examples of components: taxiways, gates and runways.
     /// </summary>
     public abstract class Flight
     {
@@ -123,12 +124,13 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// simulates the movement for an flight object for landing and takeoff.
+        /// Calculates the movement of a flight object across a set length, and returning the time it took in seconds.
         /// </summary>
+        /// <remarks>The time returned is based on the length, and the speed of the aircraft each second</remarks>
         /// <param name="length">Traveldistance in meters.</param>
-        /// <param name="initialSpeed">The speed at which the aircraft starts with (Kp/h).</param>
+        /// <param name="initialSpeed">The speed at which the aircraft starts traversing the lenght (Kp/h).</param>
         /// <param name="speedChange">The change in speed per second (Kp/h).</param>
-        /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
+        /// <param name="maxSpeed">Maximum speed of the aircraft (Kp/h).</param>
         /// <returns>The time it takes to do the movement in seconds.</returns>
         public double CalculateFlightMovement(int length, int initialSpeed, int speedChange, int maxSpeed)
         {

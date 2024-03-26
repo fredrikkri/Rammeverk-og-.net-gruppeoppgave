@@ -5,7 +5,7 @@ using BrusOgPotetgull.AirportLiberary.CustomExceptions;
 namespace BrusOgPotetgull.AirportLiberary;
 
 /// <summary>
-/// The terminal class is an area in a airport that contains a number of gates.
+/// The terminal class is an area in the airport that can host a set of gates.
 /// </summary>
 public class Terminal
 {
@@ -55,15 +55,15 @@ public class Terminal
     }
 
     /// <summary>
-    /// returns the id and name for the airport that this terminal is located at.
+    /// Returns the airport location aswell as the terminalname and id.
     /// </summary>
     /// <returns>String that contain information about the terminal.</returns>
     private string GetAirportNameAndTerminalId() => (string)(airportLocation + ", " + "Terminal-id: " + Id + ", Name: " + Name);
 
     /// <summary>
-    /// Updates the information for which airport the terminal is located at.
+    /// Updates the airport the terminal is located at.
     /// </summary>
-    /// <param name="airportName">Name of the airport that the terminal will be located at.</param>
+    /// <param name="airportName">Name of the airport that the terminal will be updated to.</param>
     public void UpdateGateLocation(string airportName)
     {
         airportLocation = airportName;
@@ -76,7 +76,7 @@ public class Terminal
     public List<Gate> GetgatesInTerminal() => gatesInTerminal;
 
     /// <summary>
-    /// Adds a gate to the list of gates for this terminal.
+    /// Adds a gate to the list of gates on this terminal.
     /// </summary>
     /// <param name="gate">The gate that will be added to the list.</param>
     public void AddGateToList(Gate gate)
@@ -85,7 +85,7 @@ public class Terminal
     }
 
     /// <summary>
-    /// Creating multiple gates and adding them to a terminal.
+    /// Creating multiple gates and adding them to this terminal.
     /// </summary>
     /// <param name="gateLetter">The letter thats a part of the gatename.</param>
     /// <param name="startNumber">The start-number for generating all the gates. This is gonna be the first generated gate.</param>
