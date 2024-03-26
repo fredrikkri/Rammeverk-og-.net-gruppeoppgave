@@ -3,7 +3,7 @@
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
-    /// This class defines how a airport is defined.
+    /// This class is used to configure an airport and holds all its components.
     /// </summary>
 	public class Airport
     {
@@ -19,7 +19,7 @@ namespace BrusOgPotetgull.AirportLiberary
 
 
         /// <summary>
-        /// Creates an airport.
+        /// Creates an airport without any components.
         /// </summary>
         /// <param name="airportCode">The code for the airport. typicaly 3 letters. Eksample: RYG</param>
         /// <param name="name">The name of the airport.</param>
@@ -46,6 +46,12 @@ namespace BrusOgPotetgull.AirportLiberary
         public string Name { get; private set; }
         public string Location { get; private set; }
 
+        /// <summary>
+        /// Generates a path from one taxiway to another for an arriving flight.
+        /// </summary>
+        /// <remarks>Only generates a path if the arrival gate on the flight is connected to one of the taxiways in the airport.</remarks>
+        /// <param name="flight">The Flight you want to generate a path for.</param>
+        /// <returns>Returns the path as a list of taxiway objects</returns>
         public List<Taxiway> GenerateArrivingFlightTaxiwayPath(Flight.Arriving flight)
         {
             foreach (Taxiway taxiway in GetListTaxiways())
@@ -60,6 +66,12 @@ namespace BrusOgPotetgull.AirportLiberary
             return null;
         }
 
+        /// <summary>
+        /// Generates a path from one taxiway to another for an departing flight.
+        /// </summary>
+        /// <remarks>Only generates a path if the depature gate on the flight is connected to one of the taxiways in the airport.</remarks>
+        /// <param name="flight">The Flight you want to generate a path for.</param>
+        /// <returns>Returns the path as a list of taxiway objects</returns>
         public List<Taxiway> GenerateDeparturingFlightTaxiwayPath(Flight.Departing flight)
         {
             foreach (Taxiway taxiway in GetListTaxiways())
@@ -74,6 +86,10 @@ namespace BrusOgPotetgull.AirportLiberary
             return null;
         }
 
+        /// <summary>
+        /// Prints out the name of all the taxiways in the route, and the total number of taxiways.
+        /// </summary>
+        /// <param name="route">The route you want to print out to the console</param>
         public void PrintTaxiwayRoute(List<Taxiway> route)
         {
             Console.WriteLine();
@@ -107,33 +123,33 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Gets Id and airport-code for the current airport.
+        /// Returns Id and airport-code for the current airport as a string.
         /// </summary>
         /// <returns>AirportId and AirportCode combined into a string</returns>
         private string GetIdAndAirportCode() => (string)(AirportId + " " + AirportCode);
 
         /// <summary>
-        /// Gets the list that contains all gates for this airport.
+        /// Returns a list of all the gates at this airport.
         /// </summary>
-        /// <returns>A list of gates for this airport.</returns>
+        /// <returns>A list of gates at this airport.</returns>
         public List<Gate> GetListGates() => listGate;
 
         /// <summary>
-        /// Gets the list that contains all taxiways for this airport.
+        /// Returns a list of all the taxiways at this airport.
         /// </summary>
-        /// <returns>Returns a list that contains all taxiways for this airport.</returns>
+        /// <returns>a list that contains all the taxiways at this airport.</returns>
         public List<Taxiway> GetListTaxiways() => listTaxiway;
 
         /// <summary>
-        /// Gets the list that contains all runways for this airport.
+        /// Returns a list of all the runways at this airport.
         /// </summary>
-        /// <returns>A list of runways for this airport</returns>
+        /// <returns>A list of runways at this airport</returns>
         public List<Runway> GetRunwayList() => listRunway;
 
         /// <summary>
-        /// Gets the taxiway system for this airport.
+        /// Gets the taxiway system at this airport. This is a list of connection points between taxiways.
         /// </summary>
-        /// <returns>A List of connections.</returns>
+        /// <returns>A List of connection points.</returns>
         private List<ConnectionPoint> GetTaxiwaySystem() => taxiwaySystem;
 
         /// <summary>
@@ -168,20 +184,11 @@ namespace BrusOgPotetgull.AirportLiberary
         public void AddConnectionPoint(ConnectionPoint connection) => taxiwaySystem.Add(connection);
 
         /// <summary>
-        /// 
+        /// creates the connection a taxiway has to connection points.
         /// </summary>
-        /// <param name="name">Name of the taxiway</param>
-        /// <param name="length">Length of the taxiway in meters</param>
-        /// <param name="maxspeed">Maximum travelspeed on the taxiway in KPH</param>
-        /// <param name="from">Starting connection point of the taxiway</param>
-        /// <param name="to">Ending connection point of the taxiway</param>
-        /*public void AddTaxiway(string name, int length, int maxspeed, ConnectionPoint from, ConnectionPoint to) 
-        {
-            Taxiway taxiway = new Taxiway(name, length, maxspeed) { From = from, To = to };
-            from.taxiways.Add(taxiway);
-            to.taxiways.Add(taxiway);
-        }
-        */
+        /// <param name="taxiway">The taxiway you want to create a connection for.</param>
+        /// <param name="to">Connection point B (to)</param>
+        /// <param name="from">Connection point A (from)</param>
         public void AddTaxiwayConnection(Taxiway taxiway, ConnectionPoint to, ConnectionPoint from)
         {
             taxiway.B = to;
@@ -190,6 +197,13 @@ namespace BrusOgPotetgull.AirportLiberary
             to.taxiways.Add(taxiway);
         }
 
+        /// <summary>
+        /// Finds a path through the taxiway system from one taxiway to another.
+        /// </summary>
+        /// <param name="start">start taxiway of the path.</param>
+        /// <param name="end">end taxiway of the path.</param>
+        /// <param name="calculatedRoute">An empty list of taxiways to be returned as a path</param>
+        /// <returns>Returns the path as a list of taxiway objects</returns>
         public List<Taxiway> FindPath(Taxiway start, Taxiway end, List<Taxiway> calculatedRoute)
         {
             // Sjekk om vi har nådd sluttpunktet
@@ -275,7 +289,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Adds a gate to the airport.
         /// </summary>
-        /// <param name="gate">The gate that is added to the list of gates for this airport.</param>
+        /// <param name="gate">The gate that is added to the list of gates at this airport.</param>
         public void AddGateToList(Gate gate)
         {
             if (listGate.Contains(gate))
@@ -289,7 +303,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Removes a gate from the airport.
         /// </summary>
-        /// <param name="gate">The gate that is removed from the list of gates for this airport.</param>
+        /// <param name="gate">The gate that is removed from the list of gates at this airport.</param>
         public void RemoveGateFromList(Gate gate)
         {
             if (!listGate.Contains(gate))
@@ -300,6 +314,12 @@ namespace BrusOgPotetgull.AirportLiberary
             listGate.Remove(gate);
         }
 
+        /// <summary>
+        /// Returns a gate object based on the gatename provided.
+        /// </summary>
+        /// <param name="gateName">Name of the gate you want to return.</param>
+        /// <returns>gate object</returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public Gate GetGateBasedOnGateName(string gateName)
         {
             if (GetListGates().Find(currentGate => currentGate.Name == gateName) == null)
@@ -326,7 +346,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Removes a taxiway from the airport.
         /// </summary>
-        /// <param name="taxiway">The taxiway that is removed from the list of taxiways for this airport.</param>
+        /// <param name="taxiway">The taxiway that is removed from the list of taxiways at this airport.</param>
         public void RemoveTaxiwayFromList(Taxiway taxiway)
         {
             if (!listTaxiway.Contains(taxiway))
@@ -340,7 +360,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Adds a runway to the airport.
         /// </summary>
-        /// <param name="runway">The runway that is gonna be added to the list of runways for this airport.</param>
+        /// <param name="runway">The runway that is being added to the list of runways at this airport.</param>
         public void AddRunwayToList(Runway runway)
         {
             if (listRunway.Contains(runway))
@@ -354,7 +374,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Removes a runway from the airport.
         /// </summary>
-        /// <param name="runway">The taxiway that is removed from the list of taxiways for this airport.</param>
+        /// <param name="runway">The taxiway that is removed from the list of taxiways at this airport.</param>
         public void RemoveRunwayFromList(Runway runway)
         {
             if (!listRunway.Contains(runway))
@@ -366,7 +386,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// This method makes all gates in a airport allow all aircraft types.
+        /// Makes all gates in this airport allow all aircraft types.
         /// </summary>
         public void MakeAllGatesAllowAllAircraftTypes()
         {
@@ -397,13 +417,13 @@ namespace BrusOgPotetgull.AirportLiberary
         public List<Flight> GetArrivingFlights() => arrivingFlights;
 
         /// <summary>
-        /// This method gets all departuring flights for this airport.
+        /// Gets all departuring flights for this airport.
         /// </summary>
         /// <returns>A list of departuring flights.</returns>
         public List<Flight> GetDepartingFlights() => departingFlights;
 
         /// <summary>
-        /// This method adds an arriving flight to this airport.
+        /// Adds an arriving flight to this airport.
         /// </summary>
         /// <param name="flight">The arriving flight that is added to the list.</param>
         public void AddArrivingFlight(Flight.Arriving flight)
@@ -412,7 +432,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// This method adds an departuring flight to this airport.
+        /// Adds an departuring flight to this airport.
         /// </summary>
         /// <param name="flight">The departuring flight that is added to the list.</param>
         public void AddDepartingFlight(Flight.Departing flight)
@@ -421,7 +441,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// This method removes an arriving flight from this airport.
+        /// Removes an arriving flight from this airport.
         /// </summary>
         /// <param name="flight">The arriving flight that is removed from the list.</param>
         public void RemoveArrivingFlight(Flight.Arriving flight)
@@ -433,7 +453,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// This method removes an departuring flight from this airport.
+        /// Removes a departuring flight from this airport.
         /// </summary>
         /// <param name="flight">The departuring flight that is removed from the list.</param>
         public void RemoveDepartingFlight(Flight.Departing flight)
@@ -445,7 +465,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// This method generates daily arriving flights. The first flight starts 24 hours after the value of the datetimeFlight object.
+        /// Generates daily arriving flights. The first flight starts 24 hours after the value of the datetimeFlight object.
         /// </summary>
         /// <param name="numberOfDays">The number of days the flight will do its flights.</param>
         /// <param name="activeAircraft">The aircraft that is used for this flight.</param>
@@ -473,7 +493,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// This method generates daily departuring flights. The first flight starts 24 hours after the value of the datetimeFlight object.
+        /// Generates daily departuring flights. The first flight starts 24 hours after the value of the datetimeFlight object.
         /// </summary>
         /// <param name="numberOfDays">The number of days the flight will do its flights.</param>
         /// <param name="activeAircraft">The aircraft that is used for this flight.</param>
@@ -501,7 +521,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// This method generates weekly arriving flights. The first flight starts 1 week after the value of the datetimeFlight object.
+        /// Generates weekly arriving flights. The first flight starts 1 week after the value of the datetimeFlight object.
         /// </summary>
         /// <param name="numberOfWeeks">The number of weeks the flight will do its flights.</param>
         /// <param name="activeAircraft">The aircraft that is used for this flight.</param>
@@ -529,7 +549,7 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// This method generates weekly departuring flights. The first flight starts 1 week after the value of the datetimeFlight object.
+        /// Generates weekly departuring flights. The first flight starts 1 week after the value of the datetimeFlight object.
         /// </summary>
         /// <param name="numberOfWeeks">The number of weeks the flight will do its flights.</param>
         /// <param name="activeAircraft">The aircraft that is used for this flight.</param>
@@ -555,7 +575,14 @@ namespace BrusOgPotetgull.AirportLiberary
                 departingFlights.Add(weekly);
             }
         }
-        public Gate GetAnotherAvalibleGateAtTheSameTerminal(string nameOfDesiredGate)
+
+        /// <summary>
+        /// Finds an availabel gate at the same terminal of the initially desired gate.
+        /// </summary>
+        /// <remarks>Will return null if there is no availabel gate at the terminal.</remarks>
+        /// <param name="nameOfDesiredGate">Gate you initially wanted to use.</param>
+        /// <returns>A gate object</returns>
+        public Gate GetAnotherAvailabelGateAtTheSameTerminal(string nameOfDesiredGate)
         {
             Gate desiredGate = GetGateBasedOnGateName(nameOfDesiredGate);
             foreach (Terminal terminal in listTerminal)

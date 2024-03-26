@@ -4,8 +4,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
-    /// The taxiway class is defining how a taxiway is designed.
+    /// The taxiway class is used to define how a taxiway is designed.
+    /// It is also used to conduct operations on the taxiway.
     /// </summary>
+    /// <remarks>
+    /// This is used to create the network of taxiways through connectionpoints and the lists of runway and gate connections.
+    /// </remarks>
 	public class Taxiway
     {
         private static int idCounter = 1;
@@ -39,8 +43,6 @@ namespace BrusOgPotetgull.AirportLiberary
         public int MaxSpeed { get; private set; }
         public ConnectionPoint A {  get; set; }
         public ConnectionPoint B { get; set; }
-        //public List<Runway> connectedRunways { get; set; }
-        //public List<Gate> connectedGates { get; set; }
 
         /// <summary>
         /// Adds a gate to the list of connected gates for this taxiway.
@@ -87,9 +89,9 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Updates the information for which airport the taxiway is located at.
+        /// Updates the airport the taxiway is located at.
         /// </summary>
-        /// <param name="airportName">Name of the airport that the taxiway is located at now.</param>
+        /// <param name="airportName">Name of the airport the taxiway updates to.</param>
         public void UpdateLocation(string airportName)
         {
             airportLocation = airportName;
@@ -116,16 +118,16 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// returns the id and name for the airport that this taxiway is located at.
+        /// Returns the airport location aswell as the taxiwayname and id.
         /// </summary>
         /// <returns>String that contain information about the taxiway.</returns>
         private string GetAirportNameAndTaxiwayId() => (string)(airportLocation + ", " + "Taxiway-id: " + Id + ", Name: " + Name);
 
         /// <summary>
-        /// Adds an flight to the queue for the taxiway.
+        /// Adds an flight to the taxiwayqueue.
         /// </summary>
         /// <param name="flight">The flight that is insertet into the queue.</param>
-        /// <param name="time">Used to log the time to the history of the used aircraft.</param>
+        /// <param name="time">Used to log the time the aircraft entered the queue.</param>
         public void AddFlightToQueue(Flight flight, DateTime time)
         {
             // Sjekk om flight allerede finnes i køen
@@ -139,7 +141,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// This method checks which flight is next in line for this taxiway.
         /// </summary>
-        /// <returns>A flight object.</returns>
+        /// <returns>The next flight object in the taxiwayqueue.</returns>
         public Flight CheckNextFlightInQueue()
         {
             if (taxiwayQueue.Count > 0)
@@ -170,14 +172,15 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Simulates an aircraft using the taxiway
+        /// Simulates an aircraft using the taxiway and returns the time spent in seconds.
+        /// This also logs when the aircraft starts using the taxiway.
         /// </summary>
         /// <param name="flight">The flight thats is using the taxiway.</param>
         /// <param name="initialSpeed">The speed at which the aircraft starts with (Kp/h).</param>
         /// <param name="speedChange">The change in speed (Kp/h).</param>
         /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
-        /// <param name="time">Used to log the history of the plane.</param>
-        /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
+        /// <param name="time">Time when the aircraft starts using the taxiway.</param>
+        /// <returns>Returns the time spent on the taxiway in seconds ( type = double )</returns>
         public double SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
         {
             flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndTaxiwayId(), ", Enter taxiway");
@@ -186,9 +189,9 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Gets the number og aircrafts in queue.
+        /// Gets the number of aircrafts in the queue.
         /// </summary>
-        /// <returns>An int value</returns>
+        /// <returns>Returns the number of aircrafts as an int value</returns>
         public int GetNumberOfAircraftsInQueue()
         {
             return taxiwayQueue.Count();

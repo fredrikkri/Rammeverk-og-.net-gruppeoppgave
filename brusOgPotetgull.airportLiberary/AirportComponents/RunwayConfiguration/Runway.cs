@@ -3,7 +3,8 @@
 namespace BrusOgPotetgull.AirportLiberary
 {
     /// <summary>
-    /// The runway class is defining how a runway is designed.
+    /// The runway class is used to define how a runway is designed.
+    /// It is also used to conduct operations on the runway.
     /// </summary>
 	public class Runway
 	{
@@ -38,9 +39,9 @@ namespace BrusOgPotetgull.AirportLiberary
         public Queue<Flight> RunwayQueue { get {  return runwayQueue; } }
 
         /// <summary>
-        /// Updates the information for which airport the Runway is located at.
+        /// Updates the airport the Runway is located at.
         /// </summary>
-        /// <param name="airportName">Name of the airport that the Runway is located at now.</param>
+        /// <param name="airportName">Name of the airport that you want to update the location to.</param>
         public void UpdateLocation(string airportName)
         {
             airportLocation = airportName;
@@ -59,13 +60,13 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// returns the id and name for the airport that this runway is located at.
+        /// Returns the airport location aswell as the runwayname and id.
         /// </summary>
         /// <returns>String that contain information about the runway.</returns>
         public string GetAirportNameAndRunwayId() => (string)(airportLocation + ", " + "Runway-id: " + Id + ", Name: " + Name);
 
         /// <summary>
-        /// Remove the flight located first in line in the runwayqueue.
+        /// Removes the first flight in the runwayqueue and returns it.
         /// </summary>
         /// <returns>Flight object that is removed from the beginning of the queue.</returns>
         public Flight RemoveFromQueue()
@@ -76,18 +77,18 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Adds flight to runway-queue.
+        /// Adds a flight to the runway-queue.
         /// </summary>
-        /// <param name="flight">The current flight that is added to runwayqueue.</param>
+        /// <param name="flight">The flight you want to add to the runwayqueue.</param>
         public void AddFlightToQueue(Flight flight)
         {   
             runwayQueue.Enqueue(flight);
         }
 
         /// <summary>
-        /// Checks which flight that is located first in line in runwayqueue.
+        /// Returns the first flight in the runwayqueue.
         /// </summary>
-        /// <returns>Flight object that is first in line at queue.</returns>
+        /// <returns>Flight object that is first in line at the queue.</returns>
         public Flight CheckNextFlightInQueue() => runwayQueue.Peek();
 
         /// <summary>
@@ -110,12 +111,16 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="initialSpeed">The speed at which the aircraft starts with (Kp/h).</param>
         /// <param name="speedChange">The change in speed (Kp/h).</param>
         /// <param name="maxSpeed">Maximum speed for this calculation (Kp/h).</param>
-        /// <returns>Returns the method flight.CalculateFlightMovement() which is the time taken for the simulation.</returns>
+        /// <returns>Returns the method flight.CalculateFlightMovement() which is the time spent on the runway in seconds.</returns>
         public double SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed) => flight.CalculateFlightMovement(Length, initialSpeed, speedChange, maxSpeed);
 
         /// <summary>
-        /// Sets the runwaystatus to 'inUse = true'
+        /// Method to signal that an aircraft is using the runway.
+        /// Sets the field inUse to true and logs the event.
         /// </summary>
+        /// <remarks>
+        /// If the flight is an arriving flight. The method RaiseFlightArrived is used to handle the event and logging.
+        /// </remarks>
         /// <param name="flight">Is the aircraft that uses the runway.</param>
         /// <param name="time">Is used to log the history of the aircraft.</param>
         public void UseRunway(Flight flight, DateTime time)
@@ -127,15 +132,24 @@ namespace BrusOgPotetgull.AirportLiberary
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Enters the runway");
         }
 
-        // Triggers
+        /// <summary>
+        /// Method to trigger the event FlightArrived
+        /// </summary>
+        /// <param name="flight">The flight which triggers the event</param>
+        /// <param name="time">Time of the event</param>
+        /// <param name="message">Message of what occured at the time of the event</param>
         protected virtual void RaiseFlightArrived(Flight.Arriving flight, DateTime time, string message)
         {
             FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, time, message));
         }
 
         /// <summary>
-        /// Sets the runwaystatus to 'inUse = false'
+        /// Method to signal that an aircraft has left the runway.
+        /// Set the field inUse to false and logs to event
         /// </summary>
+        /// <remarks>
+        /// If the flight is a departing flight, the method RaiseFlightDeparted() triggers the FlightDeparted event.
+        /// </remarks>
         /// <param name="flight">Is the aircraft that is leaving the runway.</param>
         /// <param name="time">Is used to log the history of the aircraft.</param>
         public void ExitRunway(Flight flight, DateTime time)
@@ -147,6 +161,12 @@ namespace BrusOgPotetgull.AirportLiberary
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Leaves the runway");
         }
 
+        /// <summary>
+        /// Method to trigger the event FlightDeparted
+        /// </summary>
+        /// <param name="flight">The flight which triggers the event</param>
+        /// <param name="time">Time of the event</param>
+        /// <param name="message">Message of what occured at the time of the event</param>
         protected virtual void RaiseFlightDeparted(Flight.Departing flight, DateTime time, string message)
         {
             FlightDeparted?.Invoke(this, new DepartingEventArgs(flight, time, message));

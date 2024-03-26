@@ -1,12 +1,12 @@
 ﻿using BrusOgPotetgull.AirportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary;
 
-namespace BrusOgPotetgull.AirportLiberary.Sim
+namespace BrusOgPotetgull.AirportLiberary.Simulation
 {
     /// <summary>
     /// A simulation that is used to simulate how an airport works.
     /// </summary>
-	public class Sim
+	public class Simulation
     {
         /// <summary>
         /// Creates an simulation of the choosen airport.
@@ -14,7 +14,7 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
         /// <param name="airport">Which airport that is using the simulation.</param>
         /// <param name="startTime">The day that is the start of the simulation.</param>
         /// <param name="endTime">The day that is the end of the simulation.</param>
-        public Sim(Airport airport, DateTime startTime, DateTime endTime)
+        public Simulation(Airport airport, DateTime startTime, DateTime endTime)
         {
             this.Airport = airport;
             this.StartTime = startTime;
@@ -126,7 +126,7 @@ namespace BrusOgPotetgull.AirportLiberary.Sim
                                 //else
                                 //{
                                 //    string newGateName = currentArriving.ArrivalGate.Name;
-                                //    Gate newGate = Airport.GetAnotherAvalibleGateAtTheSameTerminal(newGateName);
+                                //    Gate newGate = Airport.GetAnotherAvailabelGateAtTheSameTerminal(newGateName);
                                 //    newGate.BookGate(currentArriving.ActiveAircraft, currentFlight.Clock);
                                 //    Airport.RemoveArrivingFlight(currentArriving);
                                 //}
