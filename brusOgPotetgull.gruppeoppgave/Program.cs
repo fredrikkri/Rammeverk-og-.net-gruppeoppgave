@@ -64,7 +64,6 @@ namespace BrusOgPotetgull.Gruppeoppgave
             terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
 
             // Creating flights.
-            
             Flight.Arriving flight1 = new(cargoCraft, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), elf, runway27L_09R);
             Flight.Arriving flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
             Flight.Arriving flight3 = new(sickPlane, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), gandalf, runway27R_09L);
