@@ -14,12 +14,13 @@ public class Terminal
     private List<Gate> gatesInTerminal;
     private string? airportLocation;
 
-    public Terminal(string name)
+    public Terminal(string name, Airport airport)
     {
         id = idCounter++;
         this.Id = id;
         this.Name = name;
         this.gatesInTerminal = new List<Gate>();
+        airport.AddTerminalToList(this);
     }
 
     public int Id { get; private set; }

@@ -25,7 +25,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="name">The name of the taxiway.</param>
         /// <param name="length">Length of the taxiway (meters).</param>
         /// <param name="maxSpeed">Legal maxspeed for the taxiway (Kp/h).</param>
-        public Taxiway(string name, int length, int maxSpeed)
+        public Taxiway(string name, int length, int maxSpeed, Airport airport)
         {
             // (dosnetCore, 2020)
             id = idCounter++;
@@ -35,6 +35,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.MaxSpeed = maxSpeed;
             this.connectedGates = new List<Gate>(); 
             this.connectedRunways = new List<Runway>();
+            airport.AddTaxiwayToList(this);
         }
 
         public int Length { get; private set; }

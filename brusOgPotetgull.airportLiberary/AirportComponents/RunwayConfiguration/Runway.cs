@@ -21,7 +21,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         /// /// <param name="name">The name of the runway (meters).</param>
         /// <param name="length">The length of the runway (meters).</param>
-        public Runway(string name, int length)
+        public Runway(string name, int length, Airport airport)
         {
             // (dosnetCore, 2020) 
             id = idCounter++;
@@ -30,6 +30,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.Length = length;
             this.inUse = false;
             InUse = inUse;
+            airport.AddRunwayToList(this);
         }
 
         public int Id { get; private set; }

@@ -36,38 +36,24 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
             // creating terminals and adding them to airport
-            Terminal terminal2 = new Terminal("Terminal 2");
-            heathrow.AddTerminalToList(terminal2);
-            Terminal terminal3 = new Terminal("Terminal 3");
-            heathrow.AddTerminalToList(terminal3);
-            Terminal terminal4 = new Terminal("Terminal 4");
-            heathrow.AddTerminalToList(terminal4);
-            Terminal terminal5 = new Terminal("Terminal 5");
-            heathrow.AddTerminalToList(terminal5);
+            Terminal terminal2 = new Terminal("Terminal 2", heathrow);
+            Terminal terminal3 = new Terminal("Terminal 3", heathrow);
+            Terminal terminal4 = new Terminal("Terminal 4", heathrow);
+            Terminal terminal5 = new Terminal("Terminal 5", heathrow);
 
             // creating runways and adding them to airport
-            Runway runway27R_09L = new Runway("27R/09L", 200);
-            heathrow.AddRunwayToList(runway27R_09L);
-            Runway runway27L_09R = new Runway("27L/09R", 200);
-            heathrow.AddRunwayToList(runway27L_09R);
+            Runway runway27R_09L = new Runway("27R/09L", 200, heathrow);
+            Runway runway27L_09R = new Runway("27L/09R", 200, heathrow);
 
             // creating taxiways and adding them to airport
-            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
-            heathrow.AddTaxiwayToList(alpha);
-            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20);
-            heathrow.AddTaxiwayToList(bravo);
-            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
-            heathrow.AddTaxiwayToList(charlie);
-            Taxiway dimitri = new Taxiway("Dimitri (D)", 650, 20);
-            heathrow.AddTaxiwayToList(dimitri);
-            Taxiway elf = new Taxiway("Elf (E)", 650, 20);
-            heathrow.AddTaxiwayToList(elf);
-            Taxiway frodoBaggins = new Taxiway("Frodo Baggins (F)", 650, 20);
-            heathrow.AddTaxiwayToList(frodoBaggins);
-            Taxiway gandalf = new Taxiway("Gandalf (G)", 650, 20);
-            heathrow.AddTaxiwayToList(gandalf);
-            Taxiway harryPotter = new Taxiway("Harry Potter (H)", 650, 20);
-            heathrow.AddTaxiwayToList(harryPotter);
+            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20, heathrow);
+            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20, heathrow);
+            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20, heathrow);
+            Taxiway dimitri = new Taxiway("Dimitri (D)", 650, 20, heathrow);
+            Taxiway elf = new Taxiway("Elf (E)", 650, 20, heathrow);
+            Taxiway frodoBaggins = new Taxiway("Frodo Baggins (F)", 650, 20, heathrow);
+            Taxiway gandalf = new Taxiway("Gandalf (G)", 650, 20, heathrow);
+            Taxiway harryPotter = new Taxiway("Harry Potter (H)", 650, 20, heathrow);
 
             // creating gates and adding them to terminals and airport
             terminal2.CreateMultipleGatesToTerminal("A", 1, 26, heathrow);
