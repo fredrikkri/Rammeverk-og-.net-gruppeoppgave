@@ -428,6 +428,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="flight">The arriving flight that is added to the list.</param>
         public void AddArrivingFlight(Flight.Arriving flight)
         {
+            if (arrivingFlights.Contains(flight))
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Flight with id: '{flight.FlightId}' allready exists in airport: '{Name}'");
             arrivingFlights.Add(flight);
         }
 
@@ -437,6 +440,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="flight">The departuring flight that is added to the list.</param>
         public void AddDepartingFlight(Flight.Departing flight)
         {
+            if (departingFlights.Contains(flight))
+                // (Nagel, 2022, s. 267)
+                throw new InvalidOperationException($"Flight with id: '{flight.FlightId}' allready exists in airport: '{Name}'");
             departingFlights.Add(flight);
         }
 
