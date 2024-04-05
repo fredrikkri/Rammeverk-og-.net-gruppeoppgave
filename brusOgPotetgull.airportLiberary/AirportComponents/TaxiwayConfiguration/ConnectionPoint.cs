@@ -16,9 +16,10 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Creates a connection point in the taxiway system.
         /// </summary>
         /// <param name="name">Name of the connection point</param>
-        public ConnectionPoint(string name) 
+        public ConnectionPoint(string name, Airport airport) 
         {
             this.Name = name;
+            airport.AddConnectionPoint(this);
         }
     }
 }

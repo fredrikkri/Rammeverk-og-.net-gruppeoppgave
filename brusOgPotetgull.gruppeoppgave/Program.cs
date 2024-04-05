@@ -39,49 +39,24 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Airport heathrow = new Airport("LHR", "London Heathrow Airport", "London");
 
             // creating terminals and adding them to airport
-            Terminal terminal2 = new Terminal("Terminal 2");
-            heathrow.AddTerminalToList(terminal2);
-
-            Terminal terminal3 = new Terminal("Terminal 3");
-            heathrow.AddTerminalToList(terminal3);
-
-            Terminal terminal4 = new Terminal("Terminal 4");
-            heathrow.AddTerminalToList(terminal4);
-
-            Terminal terminal5 = new Terminal("Terminal 5");
-            heathrow.AddTerminalToList(terminal5);
+            Terminal terminal2 = new Terminal("Terminal 2", heathrow);
+            Terminal terminal3 = new Terminal("Terminal 3", heathrow);
+            Terminal terminal4 = new Terminal("Terminal 4", heathrow);
+            Terminal terminal5 = new Terminal("Terminal 5", heathrow);
 
             // creating runways and adding them to airport
-            Runway runway27R_09L = new Runway("27R/09L", 200);
-            heathrow.AddRunwayToList(runway27R_09L);
-            Runway runway27L_09R = new Runway("27L/09R", 200);
-            heathrow.AddRunwayToList(runway27L_09R);
+            Runway runway27R_09L = new Runway("27R/09L", 200, heathrow);
+            Runway runway27L_09R = new Runway("27L/09R", 200, heathrow);
 
             // creating taxiways and adding them to airport
-            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
-            heathrow.AddTaxiwayToList(alpha);
-            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20);
-            heathrow.AddTaxiwayToList(bravo);
-            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
-            heathrow.AddTaxiwayToList(charlie);
-            Taxiway dimitri = new Taxiway("Dimitri (D)", 650, 20);
-            heathrow.AddTaxiwayToList(dimitri);
-            Taxiway elf = new Taxiway("Elf (E)", 650, 20);
-            heathrow.AddTaxiwayToList(elf);
-            Taxiway frodoBaggins = new Taxiway("Frodo Baggins (F)", 650, 20);
-            heathrow.AddTaxiwayToList(frodoBaggins);
-            Taxiway gandalf = new Taxiway("Gandalf (G)", 650, 20);
-            heathrow.AddTaxiwayToList(gandalf);
-            Taxiway harryPotter = new Taxiway("Harry Potter (H)", 650, 20);
-            heathrow.AddTaxiwayToList(harryPotter);
-
-            // create single gate to airport
-            Gate singleGate = new Gate("cargoGate");
-            heathrow.AddGateToList(singleGate);
-
-            Console.WriteLine($"List of gates at airport {heathrow.Name} Gates: {heathrow.GetListGates}");
-
-          
+            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20, heathrow);
+            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20, heathrow);
+            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20, heathrow);
+            Taxiway dimitri = new Taxiway("Dimitri (D)", 650, 20, heathrow);
+            Taxiway elf = new Taxiway("Elf (E)", 650, 20, heathrow);
+            Taxiway frodoBaggins = new Taxiway("Frodo Baggins (F)", 650, 20, heathrow);
+            Taxiway gandalf = new Taxiway("Gandalf (G)", 650, 20, heathrow);
+            Taxiway harryPotter = new Taxiway("Harry Potter (H)", 650, 20, heathrow);
 
             // creating gates and adding them to terminals and airport
             terminal2.CreateMultipleGatesToTerminal("A", 1, 26, heathrow);
@@ -104,25 +79,15 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Flight.Departing flight10 = new(mbappePlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C54"), bravo, runway27R_09L);
 
             // setup taxiway system
-            ConnectionPoint A1 = new ConnectionPoint("A1");
-            ConnectionPoint B1 = new ConnectionPoint("B1");
-            ConnectionPoint C1 = new ConnectionPoint("C1");
-            ConnectionPoint D1 = new ConnectionPoint("D1");
-            ConnectionPoint E1 = new ConnectionPoint("E1");
-            ConnectionPoint F1 = new ConnectionPoint("F1");
-            ConnectionPoint G1 = new ConnectionPoint("G1");
-            ConnectionPoint H1 = new ConnectionPoint("H1");
-            ConnectionPoint I1 = new ConnectionPoint("I1");
-
-            heathrow.AddConnectionPoint(A1);
-            heathrow.AddConnectionPoint(B1);
-            heathrow.AddConnectionPoint(C1);
-            heathrow.AddConnectionPoint(D1);
-            heathrow.AddConnectionPoint(E1);
-            heathrow.AddConnectionPoint(F1);
-            heathrow.AddConnectionPoint(G1);
-            heathrow.AddConnectionPoint(H1);
-            heathrow.AddConnectionPoint(I1);
+            ConnectionPoint A1 = new ConnectionPoint("A1", heathrow);
+            ConnectionPoint B1 = new ConnectionPoint("B1", heathrow);
+            ConnectionPoint C1 = new ConnectionPoint("C1", heathrow);
+            ConnectionPoint D1 = new ConnectionPoint("D1", heathrow);
+            ConnectionPoint E1 = new ConnectionPoint("E1", heathrow);
+            ConnectionPoint F1 = new ConnectionPoint("F1", heathrow);
+            ConnectionPoint G1 = new ConnectionPoint("G1", heathrow);
+            ConnectionPoint H1 = new ConnectionPoint("H1", heathrow);
+            ConnectionPoint I1 = new ConnectionPoint("I1", heathrow);
 
             heathrow.AddTaxiwayConnection(alpha, B1, A1);
             heathrow.AddTaxiwayConnection(bravo, B1, C1);
