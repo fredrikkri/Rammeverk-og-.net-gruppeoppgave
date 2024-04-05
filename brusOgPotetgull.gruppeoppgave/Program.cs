@@ -77,25 +77,15 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Flight.Departing flight10 = new(mbappePlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C54"), bravo, runway27R_09L);
 
             // setup taxiway system
-            ConnectionPoint A1 = new ConnectionPoint("A1");
-            ConnectionPoint B1 = new ConnectionPoint("B1");
-            ConnectionPoint C1 = new ConnectionPoint("C1");
-            ConnectionPoint D1 = new ConnectionPoint("D1");
-            ConnectionPoint E1 = new ConnectionPoint("E1");
-            ConnectionPoint F1 = new ConnectionPoint("F1");
-            ConnectionPoint G1 = new ConnectionPoint("G1");
-            ConnectionPoint H1 = new ConnectionPoint("H1");
-            ConnectionPoint I1 = new ConnectionPoint("I1");
-
-            heathrow.AddConnectionPoint(A1);
-            heathrow.AddConnectionPoint(B1);
-            heathrow.AddConnectionPoint(C1);
-            heathrow.AddConnectionPoint(D1);
-            heathrow.AddConnectionPoint(E1);
-            heathrow.AddConnectionPoint(F1);
-            heathrow.AddConnectionPoint(G1);
-            heathrow.AddConnectionPoint(H1);
-            heathrow.AddConnectionPoint(I1);
+            ConnectionPoint A1 = new ConnectionPoint("A1", heathrow);
+            ConnectionPoint B1 = new ConnectionPoint("B1", heathrow);
+            ConnectionPoint C1 = new ConnectionPoint("C1", heathrow);
+            ConnectionPoint D1 = new ConnectionPoint("D1", heathrow);
+            ConnectionPoint E1 = new ConnectionPoint("E1", heathrow);
+            ConnectionPoint F1 = new ConnectionPoint("F1", heathrow);
+            ConnectionPoint G1 = new ConnectionPoint("G1", heathrow);
+            ConnectionPoint H1 = new ConnectionPoint("H1", heathrow);
+            ConnectionPoint I1 = new ConnectionPoint("I1", heathrow);
 
             heathrow.AddTaxiwayConnection(alpha, B1, A1);
             heathrow.AddTaxiwayConnection(bravo, B1, C1);
