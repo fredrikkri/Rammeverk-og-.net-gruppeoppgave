@@ -60,13 +60,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             // creating taxiways and adding them to airport
             Taxiway alpha = new Taxiway("Alpha (A)", 500, 20);
             heathrow.AddTaxiwayToList(alpha);
-
             Taxiway bravo = new Taxiway("Bravo (B)", 400, 20);
             heathrow.AddTaxiwayToList(bravo);
-
             Taxiway charlie = new Taxiway("Charlie (C)", 650, 20);
             heathrow.AddTaxiwayToList(charlie);
-
             Taxiway dimitri = new Taxiway("Dimitri (D)", 650, 20);
             heathrow.AddTaxiwayToList(dimitri);
             Taxiway elf = new Taxiway("Elf (E)", 650, 20);
@@ -90,18 +87,14 @@ namespace BrusOgPotetgull.Gruppeoppgave
             terminal2.CreateMultipleGatesToTerminal("A", 1, 26, heathrow);
             terminal3.CreateMultipleGatesToTerminal("B", 22, 42, heathrow);
             terminal4.CreateMultipleGatesToTerminal("C", 50, 66, heathrow);
-
             terminal5.CreateMultipleGatesToTerminal("A", 1, 23, heathrow);
             terminal5.CreateMultipleGatesToTerminal("B", 32, 48, heathrow);
             terminal5.CreateMultipleGatesToTerminal("C", 52, 66, heathrow);
 
             // Creating flights.
             Flight.Arriving flight1 = new(cargoCraft, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("C53"), elf, runway27L_09R);
-
             Flight.Arriving flight2 = new(superPlane, new DateTime(2024, 3, 1, 00, 02, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), alpha, runway27R_09L);
-
             Flight.Arriving flight3 = new(sickPlane, new DateTime(2024, 3, 1, 00, 10, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), gandalf, runway27R_09L);
-
             Flight.Arriving flight4 = new(SR71, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A4"), alpha, runway27R_09L);
             Flight.Arriving flight5 = new(coolplane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A3"), harryPotter, runway27R_09L);
             Flight.Departing flight6 = new(messiPlane, new DateTime(2024, 3, 1, 00, 15, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A4"), dimitri, runway27R_09L);
@@ -175,7 +168,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             runway27R_09L.FlightDeparted += OnFlightDeparted;
             runway27L_09R.FlightDeparted += OnFlightDeparted;
 
-            
+
             // simulation
             DateTime start = new(2024, 3, 5);
             DateTime end = new(2024, 3, 1, 4, 00, 00);
@@ -183,9 +176,10 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrowSimulation.RunSimulation();
 
             /*
-            Simulation heathrowSimulation = new(heathrow, start, end
+            Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
             */
+
             // Printing history for aircrafts on a given day.
             cargoCraft.PrintAircraftHistoryForDay(2024, 3, 1);
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
@@ -201,11 +195,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.PrintAirportInformation();
 
             superPlane.PrintAircraftInformation();
-
-
             heathrow.PrintTaxiwaySystem();
-
-
             System.Console.ReadLine();
         }
     }
