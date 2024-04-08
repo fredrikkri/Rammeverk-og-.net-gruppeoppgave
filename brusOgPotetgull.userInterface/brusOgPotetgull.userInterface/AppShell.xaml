@@ -5,10 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:brusOgPotetgull.userInterface"
     Shell.FlyoutBehavior="Disabled"
-    Title="brusOgPotetgull.userInterface">
+    Title="brusOgPotetgull.userInterface"
+    >
 
     <ShellContent
-        Title="Home"
+        Title="Airport Userinterface"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
