@@ -17,7 +17,8 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates an aircraft.
         /// </summary>
-        /// <param name="name">What the model of the aircraft is called.</param>
+        /// <param name="name">What the aircraft is called.</param>
+        /// <param name="aircraftType">The model of the aircraft.</param>
         /// <param name="maxSpeedInAir">Maximum in-air speed (Kp/h).</param>
         /// <param name="accelerationInAir">The accleration in-air (Kp/h).</param>
         /// <param name="maxSpeedOnGround">Maximum on-ground speed (Kp/h).</param>
@@ -64,6 +65,17 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Out of service: {OutOfService}\n" +
                 $"Max speed: {MaxSpeedInAir}\n" +
                 $"Acceleration: {AccelerationInAir}\n");
+        }
+
+        /// <summary>
+        /// This override the ToString() method that exists in all objects in c#
+        /// </summary>
+        /// <returns>A String with simple details about the aircraft.</returns>
+        public override string ToString()
+        {
+            return $"\nId: {TailNumber} " +
+                $"\nName: {Name} " +
+                $"\nAircraftType: {AircraftType}\n";
         }
 
         // TODO: Undersøke hvordan vi kan hente ulike TimeStamp fremfor DateTime, slik at: for hver gang et aircraft endrer lokasjon, registreres det TimeStamp -> og tilhørende location + message

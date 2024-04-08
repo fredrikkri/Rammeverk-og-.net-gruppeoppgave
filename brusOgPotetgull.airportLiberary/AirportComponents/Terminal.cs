@@ -37,6 +37,15 @@ public class Terminal
     }
 
     /// <summary>
+    /// This override the ToString() method that exists in all objects in c#
+    /// </summary>
+    /// <returns>A String with simple details about the Terminal.</returns>
+    public override string ToString()
+    {
+        return $"\nTaxiwayId: {Id}\n";
+    }
+
+    /// <summary>
     /// Adds an aircraft that will be able to use all of the gates in this terminal.
     /// </summary>
     /// <param name="aircraftType">An Enum that represents the id of an aircraftType that you want to enable accsess for the gate.</param>
@@ -102,8 +111,7 @@ public class Terminal
                 AddGateToList(airport.GetListGates().Find(currentGate => currentGate.Name == gateName));
             else
             {
-                Gate gateNameObject = new Gate(gateName);
-                airport.AddGateToList(gateNameObject);
+                Gate gateNameObject = new Gate(gateName, airport);
                 AddGateToList(gateNameObject);
                 
             }

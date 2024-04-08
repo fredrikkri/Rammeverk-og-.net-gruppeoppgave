@@ -19,7 +19,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates a gate.
         /// </summary>
-		public Gate(string name)
+		public Gate(string name, Airport airport)
         {
             // (dosnetCore, 2020) 
             id = idCounter++;
@@ -28,6 +28,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.isOpen = true;
             this.isAvailable = true;
             this.legalAircraftTypesId = new List<int>();
+            airport.AddGateToList(this);
 
         }
 
@@ -57,6 +58,16 @@ namespace BrusOgPotetgull.AirportLiberary
             foreach (int typeId in legalAircraftTypesId)
                 Console.Write($"{typeId} ");
             Console.Write("\n");
+        }
+
+        /// <summary>
+        /// This override the ToString() method that exists in all objects in c#
+        /// </summary>
+        /// <returns>A String with simple details about the Gate.</returns>
+        public override string ToString()
+        {
+            return $"\nGateNr: {Id}\n" +
+                $"Name: {Name}\n";
         }
 
         /// <summary>
