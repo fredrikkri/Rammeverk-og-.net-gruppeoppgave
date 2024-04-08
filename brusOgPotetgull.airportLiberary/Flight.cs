@@ -188,6 +188,10 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.WriteLine($"\ntime for path for flight with {FlightId} and active aircraft: {ActiveAircraft.Name} - {min}min and {sec}sec");
         }
 
+        /// <summary>
+        /// This override the ToString() method that exists in all objects in c#
+        /// </summary>
+        /// <returns>A String with simple details about the Flight.</returns>
         public override string ToString()
         {
             return $"\nDate: {DateTimeFlight} " +

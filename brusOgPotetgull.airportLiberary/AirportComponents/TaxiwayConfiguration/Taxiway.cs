@@ -25,6 +25,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <param name="name">The name of the taxiway.</param>
         /// <param name="length">Length of the taxiway (meters).</param>
         /// <param name="maxSpeed">Legal maxspeed for the taxiway (Kp/h).</param>
+        /// <param name="airport">The airport that the taxiway will be located at.</param>
         public Taxiway(string name, int length, int maxSpeed, Airport airport)
         {
             // (dosnetCore, 2020)
@@ -118,6 +119,10 @@ namespace BrusOgPotetgull.AirportLiberary
                 Console.Write($"Runway: {runway.Name} ");
         }
 
+        /// <summary>
+        /// This override the ToString() method that exists in all objects in c#
+        /// </summary>
+        /// <returns>A String with simple details about the Taxiway.</returns>
         public override string ToString()
         {
             return $"\nTaxiwayId: {Id}\n"+ $"Name: {Name}\n";

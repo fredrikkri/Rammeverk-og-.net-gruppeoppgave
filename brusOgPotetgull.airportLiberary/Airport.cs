@@ -122,6 +122,10 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.Write("\n");
         }
 
+        /// <summary>
+        /// This override the ToString() method that exists in all objects in c#
+        /// </summary>
+        /// <returns>A String with simple details about the Airport.</returns>
         public override string ToString()
         {
             return $"\nAirportId: {AirportId} " +

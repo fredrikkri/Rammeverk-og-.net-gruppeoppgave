@@ -36,6 +36,10 @@ public class Terminal
             Console.WriteLine($"{gate.Name + ", id: " + Id} ");
     }
 
+    /// <summary>
+    /// This override the ToString() method that exists in all objects in c#
+    /// </summary>
+    /// <returns>A String with simple details about the Terminal.</returns>
     public override string ToString()
     {
         return $"\nTaxiwayId: {Id}\n";

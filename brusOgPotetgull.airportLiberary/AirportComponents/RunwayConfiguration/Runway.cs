@@ -19,8 +19,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// creates a runway.
         /// </summary>
-        /// /// <param name="name">The name of the runway (meters).</param>
+        /// <param name="name">The name of the runway (meters).</param>
         /// <param name="length">The length of the runway (meters).</param>
+        /// <param name="airport">The airport that the taxiway will be located at.</param>
         public Runway(string name, int length, Airport airport)
         {
             // (dosnetCore, 2020) 
@@ -60,6 +61,10 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"\nAirport location: {airportLocation}\n");
         }
 
+        /// <summary>
+        /// This override the ToString() method that exists in all objects in c#
+        /// </summary>
+        /// <returns>A String with simple details about the Runway.</returns>
         public override string ToString()
         {
             return $"\nRunway id: {Id} + " +
