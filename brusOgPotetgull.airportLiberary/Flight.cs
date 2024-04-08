@@ -187,5 +187,12 @@ namespace BrusOgPotetgull.AirportLiberary
             double sec = Math.Round(time % 60);
             Console.WriteLine($"\ntime for path for flight with {FlightId} and active aircraft: {ActiveAircraft.Name} - {min}min and {sec}sec");
         }
+
+        public override string ToString()
+        {
+            return $"\nDate: {DateTimeFlight} " +
+                $"\nFlightId: {FlightId} " +
+                $"\nAircraft: {ActiveAircraft.Name}\n";
+        }
     }
 }

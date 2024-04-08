@@ -118,6 +118,11 @@ namespace BrusOgPotetgull.AirportLiberary
                 Console.Write($"Runway: {runway.Name} ");
         }
 
+        public override string ToString()
+        {
+            return $"\nTaxiwayId: {Id}\n"+ $"Name: {Name}\n";
+        }
+
         /// <summary>
         /// Returns the airport location aswell as the taxiwayname and id.
         /// </summary>

@@ -60,6 +60,12 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"\nAirport location: {airportLocation}\n");
         }
 
+        public override string ToString()
+        {
+            return $"\nRunway id: {Id} + " +
+                $"\nName: {Name}";
+        }
+
         /// <summary>
         /// Returns the airport location aswell as the runwayname and id.
         /// </summary>

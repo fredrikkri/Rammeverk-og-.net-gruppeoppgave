@@ -122,6 +122,12 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.Write("\n");
         }
 
+        public override string ToString()
+        {
+            return $"\nAirportId: {AirportId} " +
+                $"\nName: {Name}\n";
+        }
+
         /// <summary>
         /// Returns Id and airport-code for the current airport as a string.
         /// </summary>

@@ -36,6 +36,11 @@ public class Terminal
             Console.WriteLine($"{gate.Name + ", id: " + Id} ");
     }
 
+    public override string ToString()
+    {
+        return $"\nTaxiwayId: {Id}\n";
+    }
+
     /// <summary>
     /// Adds an aircraft that will be able to use all of the gates in this terminal.
     /// </summary>

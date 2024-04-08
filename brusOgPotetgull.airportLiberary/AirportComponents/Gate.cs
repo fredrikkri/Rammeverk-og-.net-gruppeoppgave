@@ -60,6 +60,12 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.Write("\n");
         }
 
+        public override string ToString()
+        {
+            return $"\nGateNr: {Id}\n" +
+                $"Name: {Name}\n";
+        }
+
         /// <summary>
         /// Returns the airport location aswell as the gatename and id.
         /// </summary>

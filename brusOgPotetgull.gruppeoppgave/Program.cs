@@ -156,6 +156,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             superPlane.PrintAircraftInformation();
             //heathrow.PrintTaxiwaySystem();
+            Console.WriteLine(flight7);
             System.Console.ReadLine();
         }
     }

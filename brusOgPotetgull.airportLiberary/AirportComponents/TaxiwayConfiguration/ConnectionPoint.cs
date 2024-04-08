@@ -21,5 +21,10 @@ namespace BrusOgPotetgull.AirportLiberary
             this.Name = name;
             airport.AddConnectionPoint(this);
         }
+
+        public override string ToString()
+        {
+            return $"\nName:  {Name}\n";
+        }
     }
 }

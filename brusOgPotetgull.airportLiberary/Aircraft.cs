@@ -66,6 +66,13 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"Acceleration: {AccelerationInAir}\n");
         }
 
+        public override string ToString()
+        {
+            return $"\nId: {TailNumber} " +
+                $"\nName: {Name} " +
+                $"\nAircraftType: {AircraftType}\n";
+        }
+
         // TODO: Undersøke hvordan vi kan hente ulike TimeStamp fremfor DateTime, slik at: for hver gang et aircraft endrer lokasjon, registreres det TimeStamp -> og tilhørende location + message
         /// <summary>
         /// logging an event to the history of the aircraft.

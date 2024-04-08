@@ -29,5 +29,11 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         }
         public int TypeId { get; private set; }
         public string Name { get; private set; }
+
+        public override string ToString()
+        {
+            return $"\nTypeId: {TypeId} " +
+                $"\nName: {Name}\n";
+        }
     }
 }
