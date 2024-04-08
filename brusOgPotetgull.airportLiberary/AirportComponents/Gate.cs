@@ -19,7 +19,7 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates a gate.
         /// </summary>
-		public Gate(string name)
+		public Gate(string name, Airport airport)
         {
             // (dosnetCore, 2020) 
             id = idCounter++;
@@ -28,6 +28,7 @@ namespace BrusOgPotetgull.AirportLiberary
             this.isOpen = true;
             this.isAvailable = true;
             this.legalAircraftTypesId = new List<int>();
+            airport.AddGateToList(this);
 
         }
 

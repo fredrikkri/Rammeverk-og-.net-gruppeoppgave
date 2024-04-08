@@ -102,8 +102,7 @@ public class Terminal
                 AddGateToList(airport.GetListGates().Find(currentGate => currentGate.Name == gateName));
             else
             {
-                Gate gateNameObject = new Gate(gateName);
-                airport.AddGateToList(gateNameObject);
+                Gate gateNameObject = new Gate(gateName, airport);
                 AddGateToList(gateNameObject);
                 
             }
