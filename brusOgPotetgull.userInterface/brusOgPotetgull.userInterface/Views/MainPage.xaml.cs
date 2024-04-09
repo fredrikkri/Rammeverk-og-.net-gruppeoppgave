@@ -1,10 +1,10 @@
 ﻿using BrusOgPotetgull.AirportLiberary;
-namespace brusOgPotetgull.userInterface
+namespace brusOgPotetgull.userInterface.Views
 {
     public partial class MainPage : ContentPage
     {
         int count = 0;
-
+        //private Airport? currentAirport = null;
         public MainPage()
         {
             InitializeComponent();
@@ -21,12 +21,22 @@ namespace brusOgPotetgull.userInterface
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
         
-        private void OnAirportClicked(object sender, EventArgs e)
+        /*private void OnAirportClicked(object sender, EventArgs e)
         {
             var airportCode = Paramentry1.Text;
             var name = Paramentry2.Text;
             var location = Paramentry3.Text;
-            _ = new Airport(airportCode, name, location);
+            currentAirport = new Airport(airportCode, name, location);
         }
+
+        private void ReturnAirportString(object sender, EventArgs e) 
+        {
+            if (currentAirport != null) 
+            {
+                var AirportInfo.Text = currentAirport.ToString();
+
+                SemanticScreenReader.Announce(AirportInfo.Text);
+            }
+        }*/
     }
 }
