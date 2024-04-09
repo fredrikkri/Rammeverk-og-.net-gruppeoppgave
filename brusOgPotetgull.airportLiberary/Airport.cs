@@ -17,7 +17,6 @@ namespace BrusOgPotetgull.AirportLiberary
         private List<Flight> departingFlights;
         private List<ConnectionPoint> taxiwaySystem;
 
-
         /// <summary>
         /// Creates an airport without any components.
         /// </summary>
