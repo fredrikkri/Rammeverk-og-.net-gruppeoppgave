@@ -144,6 +144,62 @@ namespace BrusOgPotetgull.AirportLiberary
         public List<Gate> GetListGates() => listGate;
 
         /// <summary>
+        /// Returns a list of all the terminals at this airport.
+        /// </summary>
+        /// <returns>A list of Terminals at this airport.</returns>
+        public List<Terminal> GetListTerminals() => listTerminal;
+
+        /// <summary>
+        /// Gets a single terminal based on id.
+        /// </summary>
+        /// <param name="terminalId">The id of the termial that is desired.</param>
+        /// <returns>The desired terminal</returns>
+        /// <exception cref="InvalidOperationException">If airport has no terminals or could not find any terminals that matches the terminals that exists in this airport.</exception>
+        public Terminal GetTerminalById(int terminalId)
+        {
+            if (listTerminal.Count <= 0)
+            {
+                throw new InvalidOperationException($"No terminals exists for airport: {Name}");
+            }
+            else
+            {
+                foreach (Terminal terminal in listTerminal)
+                {
+                    if (terminal.Id == terminalId)
+                    {
+                        return terminal;
+                    }
+                }
+                throw new InvalidOperationException($"Could not find terminal with id: {terminalId}");
+            }
+        }
+
+        /// <summary>
+        /// Gets a single gate based on id.
+        /// </summary>
+        /// <param name="gateId">The id of the gate that is desired.</param>
+        /// <returns>The desired gate</returns>
+        /// <exception cref="InvalidOperationException">If airport has no gates or could not find any gates that matches the gates that exists in this airport.</exception>
+        public Gate GetGatesById(int gateId)
+        {
+            if (listGate.Count <= 0)
+            {
+                throw new InvalidOperationException($"No terminals exists for airport: {Name}");
+            }
+            else
+            {
+                foreach (Gate gate in listGate)
+                {
+                    if (gate.Id == gateId)
+                    {
+                        return gate;
+                    }
+                }
+                throw new InvalidOperationException($"Could not find terminal with id: {gateId}");
+            }
+        }
+
+        /// <summary>
         /// Returns a list of all the taxiways at this airport.
         /// </summary>
         /// <returns>a list that contains all the taxiways at this airport.</returns>
