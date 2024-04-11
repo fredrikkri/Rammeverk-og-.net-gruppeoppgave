@@ -14,6 +14,11 @@ public class Terminal
     private List<Gate> gatesInTerminal;
     private string? airportLocation;
 
+    /// <summary>
+    /// Creates a terminal.
+    /// </summary>
+    /// <param name="name">The name for the terminal.</param>
+    /// <param name="airport">The airport that the terminal will be located at.</param>
     public Terminal(string name, Airport airport)
     {
         id = idCounter++;
@@ -26,6 +31,9 @@ public class Terminal
     public int Id { get; private set; }
     public string Name { get; private set; }
 
+    /// <summary>
+    /// Prints out information about the terminal.
+    /// </summary>
     public void PrintTaxiwayInformation()
     {
         Console.Write($"\nTaxiwayId: {Id}\n" +
