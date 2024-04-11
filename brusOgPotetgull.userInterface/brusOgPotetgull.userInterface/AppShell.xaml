@@ -12,7 +12,7 @@
         Title="Create your Airport"
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
-
+        
         <ShellContent
             Title="Airport Controlpanel"
             ContentTemplate="{DataTemplate views:AirportInterface}"

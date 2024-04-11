@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="brusOgPotetgull.userInterface.Views.AirportInterface"
              Title="Airport Controlpanel">
+    
     <VerticalStackLayout>
         <Label 
             Text="Airport Options"
@@ -10,5 +11,18 @@
             HorizontalOptions="Center"
             FontAttributes="Bold"
             />
+        <Entry
+            x:Name="GateName" Placeholder="Gate 1"/>
+        <Button
+            Text="Add Gate"
+            Clicked="AddGate"
+            />
+        <Entry
+            x:Name="TermName" Placeholder="Terminal 1"/>
+        <Button
+            Text="Add Terminal"
+            Clicked="AddTerminal"
+            />
     </VerticalStackLayout>
+    
 </ContentPage>

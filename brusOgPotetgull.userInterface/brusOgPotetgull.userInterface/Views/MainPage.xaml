@@ -11,7 +11,8 @@
             BackgroundColor="#e1f1fd">
 
             <Label
-                Text="Flyplass"               
+                Text="Flyplass" 
+                TextColor="White"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
             
@@ -19,11 +20,16 @@
                 Source="flyplass1.jpg"
                 HeightRequest="185"
                 Aspect="AspectFit"
+                ScaleY="4.4"
+                ScaleX="5"
+                AnchorY="0.1"
                 SemanticProperties.Description="dame som ser på en oversikt over flygninger på en flyplass" />
 
 
             <Label
                 Text="Velkommen til &#10;Brus og potetgull Airport API"
+                TextColor="White"
+                HorizontalOptions="Center"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Velkommen til Brus og Potetgull Airport API" />
@@ -32,16 +38,16 @@
                 Spacing="10"
                 >
                 <VerticalStackLayout>
-                    <Label Text="Airport Code"/>
-                    <Entry x:Name="Paramentry1" Placeholder="OSL"/>
+                    <Label Text="Airport Code" TextColor="White" HorizontalOptions="Center"/>
+                    <Entry x:Name="Paramentry1" Placeholder="OSL" BackgroundColor="White"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout>
-                    <Label Text="Name"/>
-                    <Entry x:Name="Paramentry2" Placeholder="Gardermoen"/>
+                    <Label Text="Name" TextColor="White" HorizontalOptions="Center"/>
+                    <Entry x:Name="Paramentry2" Placeholder="Gardermoen" BackgroundColor="White"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout>
-                    <Label Text="Location"/>
-                    <Entry x:Name="Paramentry3" Placeholder="Oslo"/>
+                    <Label Text="Location" TextColor="White" HorizontalOptions="Center"/>
+                    <Entry x:Name="Paramentry3" Placeholder="Oslo" BackgroundColor="White"/>
                 </VerticalStackLayout>
             </HorizontalStackLayout>
 
@@ -52,29 +58,13 @@
                     HorizontalOptions="Center"
                     />
 
-            <HorizontalStackLayout
-                Padding="10,0"
-                Spacing="10"
-                HorizontalOptions="Center"
-                >
-
-                <Button
-                        x:Name="CounterBtn"
-                        Text="Click me" 
-                        SemanticProperties.Hint="Counts the number of times you click"
-                        Clicked="OnCounterClicked"
-                        HorizontalOptions="Center" 
-                        BorderColor="Black" 
-                        BorderWidth="2" />
-
-            </HorizontalStackLayout>
-
-            <BoxView
+            <Label
                 x:Name="AirportInfo"
-                Color="LightGray"
-                WidthRequest="400"
-                HeightRequest="160"
-                CornerRadius="10"
+                Text=""
+                WidthRequest="300"
+                HeightRequest="100"
+                BackgroundColor="White"
+                Margin="0, 0, 0, 5"
                 HorizontalOptions="Center"/>
         </VerticalStackLayout>
     </ScrollView>
