@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="brusOgPotetgull.userInterface.Views.MyAirport"
+             x:Class="brusOgPotetgull.userInterface.Views.AircraftAndFlightsPage"
              xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"
-             x:DataType="viewmodel:MyAirportModel">
+             x:DataType="viewmodel:AircraftAndFlightsView">
     <ScrollView>
         <VerticalStackLayout>
             <Image
-                Source="background3.jpg"
+                Source="planewallpaper.jpg"
                 HeightRequest="185"
                 Aspect="AspectFit"
                 ScaleY="4.4"
@@ -15,7 +15,6 @@
                 AnchorY="0.1"/>
 
             <Label
-                    Text="{Binding AirportName}"
                     TextColor="Black"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center"

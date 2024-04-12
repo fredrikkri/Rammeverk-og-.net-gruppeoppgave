@@ -9,9 +9,9 @@
     >
     <TabBar>
         <ShellContent
-        Title="Create your Airport"
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage" />
+            Title="Create your Airport"
+            ContentTemplate="{DataTemplate views:MainPage}"
+            Route="MainPage" />
         
         <ShellContent
             Title="Airport Controlpanel"
@@ -19,14 +19,23 @@
             Route="AirportControlpanel" />
 
         <ShellContent
+            Title="Setup Taxiway System"
+            ContentTemplate="{DataTemplate views:TaxiwaySystemConfigPage}"
+            Route="TaxiwaySystemConfigPage" />
+
+        <ShellContent
+            Title="Setup Aircrafts and flights"
+            ContentTemplate="{DataTemplate views:AircraftAndFlightsPage}"
+            Route="AircraftAndFlightsPage" />
+
+        <ShellContent
             Title="My Airport"
             ContentTemplate="{DataTemplate views:MyAirport}"
-            Route="MyAirport"/>
+            Route="MyAirport" />
 
          <ShellContent
             Title="Simulation"
             ContentTemplate="{DataTemplate views:Simulation}"
             Route="Simulation"/>
     </TabBar>
-
 </Shell>
