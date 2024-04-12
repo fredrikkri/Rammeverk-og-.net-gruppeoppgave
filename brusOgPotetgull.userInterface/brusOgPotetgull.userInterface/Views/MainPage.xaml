@@ -16,7 +16,7 @@
                 HeightRequest="185"
                 Aspect="AspectFit"
                 ScaleY="4.4"
-                ScaleX="5"
+                ScaleX="6"
                 AnchorY="0.1"
                 SemanticProperties.Description="dame som ser på en oversikt over flygninger på en flyplass" />
 
