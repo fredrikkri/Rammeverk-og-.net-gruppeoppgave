@@ -11,13 +11,13 @@ public partial class SimulationModel : ObservableObject
     protected readonly IAirportService _airportService;
 
     [ObservableProperty]
-    private string airportName;
+    private string? airportName;
 
     [ObservableProperty]
-    private string startTime;
+    private string? startTime;
 
     [ObservableProperty]
-    private string endTime;
+    private string? endTime;
 
 
 
