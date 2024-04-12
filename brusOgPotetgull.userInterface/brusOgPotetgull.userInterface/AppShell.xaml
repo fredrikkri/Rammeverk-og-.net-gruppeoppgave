@@ -3,13 +3,25 @@
     x:Class="brusOgPotetgull.userInterface.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:brusOgPotetgull.userInterface"
+    xmlns:views="clr-namespace:brusOgPotetgull.userInterface.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="brusOgPotetgull.userInterface">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+    Title="brusOgPotetgull.userInterface"
+    >
+    <TabBar>
+        <ShellContent
+        Title="Create your Airport"
+        ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
+        
+        <ShellContent
+            Title="Airport Controlpanel"
+            ContentTemplate="{DataTemplate views:AirportControlpanel}"
+            Route="AirportControlpanel" />
+
+        <ShellContent
+            Title="My Airport"
+            ContentTemplate="{DataTemplate views:MyAirport}"
+            Route="MyAirport"/>
+    </TabBar>
 
 </Shell>

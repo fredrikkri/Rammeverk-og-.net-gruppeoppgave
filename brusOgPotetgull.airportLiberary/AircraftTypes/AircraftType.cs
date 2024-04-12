@@ -29,5 +29,15 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
         }
         public int TypeId { get; private set; }
         public string Name { get; private set; }
+
+        /// <summary>
+        /// This override the ToString() method that exists in all objects in c#
+        /// </summary>
+        /// <returns>A String with simple details about the AircraftType.</returns>
+        public override string ToString()
+        {
+            return $"\nTypeId: {TypeId} " +
+                $"\nName: {Name}\n";
+        }
     }
 }

@@ -160,7 +160,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
             heathrow.PrintAirportInformation();
 
             superPlane.PrintAircraftInformation();
-            heathrow.PrintTaxiwaySystem();
+            //heathrow.PrintTaxiwaySystem();
+            Console.WriteLine(flight7);
             System.Console.ReadLine();
         }
     }

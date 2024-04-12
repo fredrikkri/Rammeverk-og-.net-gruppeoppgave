@@ -14,6 +14,11 @@ public class Terminal
     private List<Gate> gatesInTerminal;
     private string? airportLocation;
 
+    /// <summary>
+    /// Creates a terminal.
+    /// </summary>
+    /// <param name="name">The name for the terminal.</param>
+    /// <param name="airport">The airport that the terminal will be located at.</param>
     public Terminal(string name, Airport airport)
     {
         id = idCounter++;
@@ -26,6 +31,9 @@ public class Terminal
     public int Id { get; private set; }
     public string Name { get; private set; }
 
+    /// <summary>
+    /// Prints out information about the terminal.
+    /// </summary>
     public void PrintTaxiwayInformation()
     {
         Console.Write($"\nTaxiwayId: {Id}\n" +
@@ -34,6 +42,15 @@ public class Terminal
         Console.WriteLine($"List of gates: ");
         foreach (Gate gate in gatesInTerminal)
             Console.WriteLine($"{gate.Name + ", id: " + Id} ");
+    }
+
+    /// <summary>
+    /// This override the ToString() method that exists in all objects in c#
+    /// </summary>
+    /// <returns>A String with simple details about the Terminal.</returns>
+    public override string ToString()
+    {
+        return $"\nTaxiwayId: {Id}\n";
     }
 
     /// <summary>
@@ -102,8 +119,7 @@ public class Terminal
                 AddGateToList(airport.GetListGates().Find(currentGate => currentGate.Name == gateName));
             else
             {
-                Gate gateNameObject = new Gate(gateName);
-                airport.AddGateToList(gateNameObject);
+                Gate gateNameObject = new Gate(gateName, airport);
                 AddGateToList(gateNameObject);
                 
             }

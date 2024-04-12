@@ -17,6 +17,13 @@ namespace BrusOgPotetgull.AirportLiberary
         public List<Taxiway> taxiwayPath;
         public DateTime Clock { get; set; }
 
+        /// <summary>
+        /// Creates a Flight-object. This must either be Arriving flight or departuring flight.
+        /// </summary>
+        /// <param name="activeAircraft">The aircraft that is used for this flight.</param>
+        /// <param name="dateTimeFlight">Date of the flight.</param>
+        /// <param name="isArrivingFlight">If the flight is an arriving flight, this value must be set to true.</param>
+        /// <param name="length">The lenght of the flight in KM.</param>
         protected Flight(Aircraft activeAircraft, DateTime dateTimeFlight, bool isArrivingFlight, int length)
         {
             FlightId = idCounter++;
@@ -157,6 +164,10 @@ namespace BrusOgPotetgull.AirportLiberary
             return time;
         }
 
+        /// <summary>
+        /// This method claculates a the time it takes to go trough the taxiway-path. 
+        /// </summary>
+        /// <returns>The time it takes as a double-datatype.</returns>
         public double CalculateTaxiwayPathTime()
         {
             int lengthPath = GetLengthOfTaxiwayPath();
@@ -170,6 +181,10 @@ namespace BrusOgPotetgull.AirportLiberary
             return time;
         }
 
+        /// <summary>
+        /// Gets the lenght of a taxiway-path.
+        /// </summary>
+        /// <returns>The result as an int-datatype.</returns>
         private int GetLengthOfTaxiwayPath()
         {
             int result = 0;
@@ -180,12 +195,26 @@ namespace BrusOgPotetgull.AirportLiberary
             return result;
         }
 
+        /// <summary>
+        /// Prints out the time it takes to go trough the taxiway-path.
+        /// </summary>
         public void PrintTaxiwayPathTime()
         {
             double time = CalculateTaxiwayPathTime();
             double min = Math.Round(time / 60);
             double sec = Math.Round(time % 60);
             Console.WriteLine($"\ntime for path for flight with {FlightId} and active aircraft: {ActiveAircraft.Name} - {min}min and {sec}sec");
+        }
+
+        /// <summary>
+        /// This override the ToString() method that exists in all objects in c#
+        /// </summary>
+        /// <returns>A String with simple details about the Flight.</returns>
+        public override string ToString()
+        {
+            return $"\nDate: {DateTimeFlight} " +
+                $"\nFlightId: {FlightId} " +
+                $"\nAircraft: {ActiveAircraft.Name}\n";
         }
     }
 }
