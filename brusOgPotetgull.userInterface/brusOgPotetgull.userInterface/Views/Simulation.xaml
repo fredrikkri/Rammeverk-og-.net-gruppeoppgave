@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="brusOgPotetgull.userInterface.Views.Simulation"
+             xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"
+             x:DataType="viewmodel:SimulationModel"
+             >
+    <VerticalStackLayout>
+        <VerticalStackLayout>
+                    <Label Text="Airport name" TextColor="White" HorizontalOptions="Center"/>
+                    <Entry Text="{Binding AirportName }" Placeholder="Airport name" BackgroundColor="White"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+                    <Label Text="Start time" TextColor="White" HorizontalOptions="Center"/>
+                    <Entry Text="{Binding StartTime}" Placeholder="Start time" BackgroundColor="White"/>
+        </VerticalStackLayout>
+
+
+        <VerticalStackLayout>
+                    <Label Text="End time" TextColor="White" HorizontalOptions="Center"/>
+                    <Entry Text="{Binding EndTime}" Placeholder="End time" BackgroundColor="White"/>
+        </VerticalStackLayout>
+        <Button Text="Create Simulation" Command="{Binding CreateSimulationCommand}" />
+        </VerticalStackLayout>
+</ContentPage>

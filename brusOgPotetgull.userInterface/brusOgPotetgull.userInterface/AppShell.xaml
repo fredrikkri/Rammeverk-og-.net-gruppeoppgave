@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="brusOgPotetgull.userInterface.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -22,6 +22,10 @@
             Title="My Airport"
             ContentTemplate="{DataTemplate views:MyAirport}"
             Route="MyAirport"/>
-    </TabBar>
 
+         <ShellContent
+            Title="Simulation"
+            ContentTemplate="{DataTemplate views:Simulation}"
+            Route="Simulation"/>
+    </TabBar>
 </Shell>
