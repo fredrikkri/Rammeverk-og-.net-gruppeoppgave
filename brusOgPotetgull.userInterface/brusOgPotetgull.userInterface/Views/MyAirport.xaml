@@ -11,7 +11,7 @@
                 HeightRequest="185"
                 Aspect="AspectFit"
                 ScaleY="4.4"
-                ScaleX="5"
+                ScaleX="5.55"
                 AnchorY="0.1"/>
 
             <Label

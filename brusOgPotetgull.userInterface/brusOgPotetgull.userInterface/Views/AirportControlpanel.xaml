@@ -20,7 +20,7 @@
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Fill"
                 ScaleY="4"
-                ScaleX="10"/>
+                ScaleX="12"/>
         <Border
             Grid.ColumnSpan="2"
             BackgroundColor="LightCyan"
