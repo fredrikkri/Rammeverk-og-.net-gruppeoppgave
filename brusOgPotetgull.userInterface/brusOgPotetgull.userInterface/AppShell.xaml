@@ -28,4 +28,5 @@
             ContentTemplate="{DataTemplate views:Simulation}"
             Route="Simulation"/>
     </TabBar>
+
 </Shell>

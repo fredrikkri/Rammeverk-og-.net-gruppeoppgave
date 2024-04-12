@@ -37,9 +37,6 @@ public partial class SimulationModel : ObservableObject
         EndTime = string.Empty;
     }
 
- 
-
-
 
  ///       Content = new VerticalStackLayout
  ///       {

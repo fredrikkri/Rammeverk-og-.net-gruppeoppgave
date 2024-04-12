@@ -97,4 +97,9 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Reference Include="brusOgPotetgull.airportLiberary">
+	    <HintPath>..\..\brusOgPotetgull.gruppeoppgave\bin\Debug\net8.0\brusOgPotetgull.airportLiberary.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 </Project>
