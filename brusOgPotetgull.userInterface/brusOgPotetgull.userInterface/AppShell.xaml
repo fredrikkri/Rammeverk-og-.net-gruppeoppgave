@@ -15,8 +15,13 @@
         
         <ShellContent
             Title="Airport Controlpanel"
-            ContentTemplate="{DataTemplate views:AirportInterface}"
-            Route="AirportInterface" />
+            ContentTemplate="{DataTemplate views:AirportControlpanel}"
+            Route="AirportControlpanel" />
+
+        <ShellContent
+            Title="My Airport"
+            ContentTemplate="{DataTemplate views:MyAirport}"
+            Route="MyAirport"/>
     </TabBar>
 
 </Shell>

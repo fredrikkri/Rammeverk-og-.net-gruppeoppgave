@@ -2,20 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="brusOgPotetgull.userInterface.Views.MainPage"
+             xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"
+             x:DataType="viewmodel:MainModel"
              >
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
-            Spacing="20"
-            BackgroundColor="#e1f1fd">
+            Spacing="20">
 
-            <Label
-                Text="Flyplass" 
-                TextColor="White"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
-            
             <Image
                 Source="flyplass1.jpg"
                 HeightRequest="185"
@@ -25,7 +20,12 @@
                 AnchorY="0.1"
                 SemanticProperties.Description="dame som ser på en oversikt over flygninger på en flyplass" />
 
-
+            <Label
+                Text="Flyplass" 
+                TextColor="White"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+            
             <Label
                 Text="Velkommen til &#10;Brus og potetgull Airport API"
                 TextColor="White"
@@ -39,33 +39,32 @@
                 >
                 <VerticalStackLayout>
                     <Label Text="Airport Code" TextColor="White" HorizontalOptions="Center"/>
-                    <Entry x:Name="Paramentry1" Placeholder="OSL" BackgroundColor="White"/>
+                    <Entry Text="{Binding Code}" Placeholder="OSL" BackgroundColor="White"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout>
                     <Label Text="Name" TextColor="White" HorizontalOptions="Center"/>
-                    <Entry x:Name="Paramentry2" Placeholder="Gardermoen" BackgroundColor="White"/>
+                    <Entry Text="{Binding Name}" Placeholder="Gardermoen" BackgroundColor="White"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout>
                     <Label Text="Location" TextColor="White" HorizontalOptions="Center"/>
-                    <Entry x:Name="Paramentry3" Placeholder="Oslo" BackgroundColor="White"/>
+                    <Entry Text="{Binding Location}" Placeholder="Oslo" BackgroundColor="White"/>
                 </VerticalStackLayout>
             </HorizontalStackLayout>
 
-            <Button
-                    Text="Create Airport"
-                    x:Name="CreateAirport"
-                    Clicked="OnAirportClicked"
-                    HorizontalOptions="Center"
-                    />
-
+            <Button Text="Create Airport" Command="{Binding CreateAirportCommand}" HorizontalOptions="Center"/>
+            <Frame
+                CornerRadius="8"
+                WidthRequest="400"
+                HeightRequest="100"
+                Opacity="0.6">
             <Label
                 x:Name="AirportInfo"
                 Text=""
-                WidthRequest="300"
+                TextColor="Black"
+                WidthRequest="400"
                 HeightRequest="100"
-                BackgroundColor="White"
-                Margin="0, 0, 0, 5"
                 HorizontalOptions="Center"/>
+            </Frame>
         </VerticalStackLayout>
     </ScrollView>
 

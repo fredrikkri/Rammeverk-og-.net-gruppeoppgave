@@ -2,12 +2,10 @@
 
 namespace brusOgPotetgull.userInterface.Services
 {
-    public class AirportService
+    public class AirportService : IAirportService
     {
-        public static AirportService Instance { get; } = new AirportService();
-
         public Airport CurrentAirport { get; set; }
 
-        private AirportService() { }
+        public AirportService() { }
     }
 }

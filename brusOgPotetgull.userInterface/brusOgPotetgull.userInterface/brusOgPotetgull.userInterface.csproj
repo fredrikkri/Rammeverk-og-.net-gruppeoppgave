@@ -72,14 +72,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="brusOgPotetgull.airportLiberaryTest" Version="1.0.2" />
+		<PackageReference Include="brusOgPotetgull.airportLiberaryTest" Version="1.0.3" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\AirportInterface.xaml">
+	  <Compile Update="Views\AirportControlpanel.xaml.cs">
+	    <DependentUpon>AirportControlpanel.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\AirportControlpanel.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MyAirport.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
