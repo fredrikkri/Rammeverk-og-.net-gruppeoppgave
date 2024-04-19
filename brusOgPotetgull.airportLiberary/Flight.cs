@@ -182,20 +182,6 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Gets the lenght of a taxiway-path.
-        /// </summary>
-        /// <returns>The result as an int-datatype.</returns>
-        private int GetLengthOfTaxiwayPath()
-        {
-            int result = 0;
-            foreach (Taxiway taxiway in taxiwayPath)
-            {
-                result += taxiway.Length;
-            }
-            return result;
-        }
-
-        /// <summary>
         /// Prints out the time it takes to go trough the taxiway-path.
         /// </summary>
         public void PrintTaxiwayPathTime()
@@ -215,6 +201,20 @@ namespace BrusOgPotetgull.AirportLiberary
             return $"\nDate: {DateTimeFlight} " +
                 $"\nFlightId: {FlightId} " +
                 $"\nAircraft: {ActiveAircraft.Name}\n";
+        }
+
+        /// <summary>
+        /// Gets the lenght of a taxiway-path.
+        /// </summary>
+        /// <returns>The result as an int-datatype.</returns>
+        private int GetLengthOfTaxiwayPath()
+        {
+            int result = 0;
+            foreach (Taxiway taxiway in taxiwayPath)
+            {
+                result += taxiway.Length;
+            }
+            return result;
         }
     }
 }

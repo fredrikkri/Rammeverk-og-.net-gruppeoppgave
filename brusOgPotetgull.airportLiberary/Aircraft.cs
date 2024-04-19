@@ -106,6 +106,23 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
+        /// Reads trough the list of the aircrafts history and prints out the log for that day
+        /// </summary>
+        /// <param name="year">The year it checks</param>
+        /// <param name="month">The month it checks</param>
+        /// <param name="day">The day it checks</param>
+        public void PrintAircraftHistoryForDay(int year, int month, int day)
+        {
+            DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
+            DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
+            Console.Write($"\n\n\tHistory for aircraft: '{Name}' and id: '{TailNumber}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
+            foreach (KeyValuePair<DateTime, string> line in history)
+                if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
+                    Console.WriteLine($"Time: {line.Key}, {line.Value}");
+        }
+
+
+        /// <summary>
         /// Changes the variable 'bool outOfService' from false to true, but only if the status already is set to 'false'. 
         /// </summary>
         private void SetAircraftOutOfService()
@@ -126,21 +143,6 @@ namespace BrusOgPotetgull.AirportLiberary
 
             OutOfService = false;
         }
-
-        /// <summary>
-        /// Reads trough the list of the aircrafts history and prints out the log for that day
-        /// </summary>
-        /// <param name="year">The year it checks</param>
-        /// <param name="month">The month it checks</param>
-        /// <param name="day">The day it checks</param>
-        public void PrintAircraftHistoryForDay(int year, int month, int day)
-        {
-            DateTime DayToCheckStart = new DateTime(year, month, day, 0, 0, 0);
-            DateTime DayToCheckEnd = new DateTime(year, month, day, 23, 59, 59);
-            Console.Write($"\n\n\tHistory for aircraft: '{Name}' and id: '{TailNumber}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
-            foreach (KeyValuePair<DateTime, string> line in history)
-                if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
-                    Console.WriteLine($"Time: {line.Key}, {line.Value}");                  
-        }
+       
     }
 }
