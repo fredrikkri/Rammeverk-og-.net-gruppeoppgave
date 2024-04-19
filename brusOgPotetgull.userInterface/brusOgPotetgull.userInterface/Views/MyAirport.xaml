@@ -15,11 +15,23 @@
                 AnchorY="0.1"/>
 
             <Label
-                    Text="{Binding AirportName}"
+                    Text="{Binding Airport.Name}"
                     TextColor="Black"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center"
                     />
+            <HorizontalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Gates"/>
+                    <CollectionView ItemsSource="{Binding Gates}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label TextColor="Black" Text="{Binding Name ,FallbackValue='Name not found'}" Margin="10" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
