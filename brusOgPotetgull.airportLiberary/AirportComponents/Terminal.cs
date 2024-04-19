@@ -73,12 +73,6 @@ public class Terminal
     }
 
     /// <summary>
-    /// Returns the airport location aswell as the terminalname and id.
-    /// </summary>
-    /// <returns>String that contain information about the terminal.</returns>
-    private string GetAirportNameAndTerminalId() => (string)(airportLocation + ", " + "Terminal-id: " + Id + ", Name: " + Name);
-
-    /// <summary>
     /// Updates the airport the terminal is located at.
     /// </summary>
     /// <param name="airportName">Name of the airport that the terminal will be updated to.</param>
@@ -125,5 +119,11 @@ public class Terminal
             }
         }
     }
+
+    /// <summary>
+    /// Returns the airport location aswell as the terminalname and id.
+    /// </summary>
+    /// <returns>String that contain information about the terminal.</returns>
+    private string GetAirportNameAndTerminalId() => (string)(airportLocation + ", " + "Terminal-id: " + Id + ", Name: " + Name);
 }
 

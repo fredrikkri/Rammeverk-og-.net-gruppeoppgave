@@ -128,11 +128,6 @@ namespace BrusOgPotetgull.AirportLiberary
             return $"\nTaxiwayId: {Id}\n"+ $"Name: {Name}\n";
         }
 
-        /// <summary>
-        /// Returns the airport location aswell as the taxiwayname and id.
-        /// </summary>
-        /// <returns>String that contain information about the taxiway.</returns>
-        private string GetAirportNameAndTaxiwayId() => (string)(airportLocation + ", " + "Taxiway-id: " + Id + ", Name: " + Name);
 
         /// <summary>
         /// Adds an flight to the taxiwayqueue.
@@ -207,5 +202,11 @@ namespace BrusOgPotetgull.AirportLiberary
         {
             return taxiwayQueue.Count();
         }
+
+        /// <summary>
+        /// Returns the airport location aswell as the taxiwayname and id.
+        /// </summary>
+        /// <returns>String that contain information about the taxiway.</returns>
+        private string GetAirportNameAndTaxiwayId() => (string)(airportLocation + ", " + "Taxiway-id: " + Id + ", Name: " + Name);
     }
 }

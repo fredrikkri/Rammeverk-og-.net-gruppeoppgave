@@ -145,17 +145,6 @@ namespace BrusOgPotetgull.AirportLiberary
         }
 
         /// <summary>
-        /// Method to trigger the event FlightArrived
-        /// </summary>
-        /// <param name="flight">The flight which triggers the event</param>
-        /// <param name="time">Time of the event</param>
-        /// <param name="message">Message of what occured at the time of the event</param>
-        protected virtual void RaiseFlightArrived(Flight.Arriving flight, DateTime time, string message)
-        {
-            FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, time, message));
-        }
-
-        /// <summary>
         /// Method to signal that an aircraft has left the runway.
         /// Set the field inUse to false and logs to event
         /// </summary>
@@ -171,6 +160,17 @@ namespace BrusOgPotetgull.AirportLiberary
                 RaiseFlightDeparted((Flight.Departing)flight, time, $"{flight.ActiveAircraft.Name} has departed");
             else
                 flight.ActiveAircraft.AddHistoryToAircraft(time, GetAirportNameAndRunwayId(), ", Leaves the runway");
+        }
+
+        /// <summary>
+        /// Method to trigger the event FlightArrived
+        /// </summary>
+        /// <param name="flight">The flight which triggers the event</param>
+        /// <param name="time">Time of the event</param>
+        /// <param name="message">Message of what occured at the time of the event</param>
+        protected virtual void RaiseFlightArrived(Flight.Arriving flight, DateTime time, string message)
+        {
+            FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, time, message));
         }
 
         /// <summary>
