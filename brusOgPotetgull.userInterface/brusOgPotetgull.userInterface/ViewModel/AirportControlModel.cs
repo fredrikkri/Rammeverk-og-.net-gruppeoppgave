@@ -41,5 +41,23 @@ namespace brusOgPotetgull.userInterface.ViewModel
             Gate gate = new Gate(GateName, airport);
             GateName = string.Empty;
         }
+
+        //[RelayCommand]
+        //private void AddTaxiWay(string name, int length, int maxspeed)
+        //{
+        //    var airport = _airportService.CurrentAirport;
+        //    Taxiway taxiway = new Taxiway(name, length, maxspeed, airport);
+        //    TaxiwayName = string.Empty;
+            
+            
+        //}
+
+        //[RelayCommand]
+        //private void AddRunway()
+        //{
+        //    var airport = _airportService.CurrentAirport;
+        //    Gate gate = new Gate(GateName, airport);
+        //    GateName = string.Empty;
+        //}
     }
 }

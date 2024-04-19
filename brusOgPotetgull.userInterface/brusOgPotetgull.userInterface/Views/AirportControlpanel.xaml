@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="brusOgPotetgull.userInterface.Views.AirportControlpanel"
@@ -6,10 +6,10 @@
              x:DataType="viewmodel:AirportControlModel">
     
     <Grid
-        RowDefinitions="50, 20, 50, 50"
+        RowDefinitions="50, 20, 50, 50,50"
         ColumnDefinitions="130, 150, 150, 150"
         Padding="10"
-        RowSpacing="5"
+        RowSpacing="10"
         ColumnSpacing="10"
         >
         <Image Source="background4.jpg"
@@ -37,7 +37,7 @@
         </Border>
 
         <Label
-            Text="Terminalname"
+            Text="Terminal name"
             HorizontalOptions="Center"
             Grid.Column="0"
             Grid.Row="1"
@@ -54,9 +54,19 @@
             Grid.Row="3"
             FontSize="14"
             />
+        <CollectionView Grid.ColumnSpan="0" Grid.Row="5" BackgroundColor="White">
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Terminal1</x:String>
+                    <x:String>Terminal2</x:String>
+                    <x:String>Terminal3</x:String>
+                    <x:String>Terminal4</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+        </CollectionView>
 
         <Label
-            Text="Gatename"
+            Text="Gate name"
             HorizontalOptions="Center"
             Grid.Column="1"
             Grid.Row="1"/>
@@ -74,7 +84,7 @@
             />
 
         <Label
-            Text="Taxiwayname"
+            Text="Taxiway name"
             HorizontalOptions="Center"
             Grid.Column="2"
             Grid.Row="1"
@@ -91,7 +101,7 @@
             />
 
         <Label
-            Text="Runwayname"
+            Text="Runway name"
             HorizontalOptions="Center"
             Grid.Column="3"
             Grid.Row="1"
