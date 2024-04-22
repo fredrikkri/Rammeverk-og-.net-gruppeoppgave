@@ -15,11 +15,29 @@
                 AnchorY="0.1"/>
 
             <Label
-                    Text="{Binding AirportName}"
+                    Text="{Binding Airport.Name}"
                     TextColor="Black"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center"
                     />
+            <Grid
+            RowDefinitions="Auto, Auto, Auto, Auto"
+            ColumnDefinitions="100, 100, Auto, Auto"
+            Padding="10"
+            RowSpacing="5"
+            ColumnSpacing="10"
+                >
+                <Label Text="Gates" TextColor="Black" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center"/>
+                <CollectionView ItemsSource="{Binding Gates}" Grid.Column="0" Grid.Row="1">
+                    <CollectionView.ItemTemplate Grid.Column="0" Grid.Row="1">
+                        <DataTemplate>
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding Name}" Padding="5"/>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
