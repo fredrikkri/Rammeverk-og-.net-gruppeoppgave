@@ -1,11 +1,6 @@
 ﻿using brusOgPotetgull.userInterface.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using BrusOgPotetgull.AirportLiberary;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
 namespace brusOgPotetgull.userInterface.ViewModel
@@ -20,14 +15,28 @@ namespace brusOgPotetgull.userInterface.ViewModel
         [ObservableProperty]
         private ObservableCollection<Gate> gates;
 
+        [ObservableProperty]
+        private string name;
+
         public MyAirportModel(IAirportService airportService)
         {
             _airportService = airportService;
 
             airport = _airportService.CurrentAirport;
 
-            gates = new ObservableCollection<Gate>(airport.GetListGates());
+            if (airport != null)
+            {
+                Gates = new ObservableCollection<Gate>(airport.GetListGates());
+            }
+            else
+            {
+                Gates = new ObservableCollection<Gate>();
+            }
 
+        }
+        public void LoadData()
+        {
+            Gates = new ObservableCollection<Gate>(_airportService.CurrentAirport.GetListGates());
         }
     }
 }

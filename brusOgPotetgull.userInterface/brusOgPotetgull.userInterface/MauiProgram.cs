@@ -21,13 +21,15 @@ namespace brusOgPotetgull.userInterface
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
             builder.Services.AddSingleton<IAirportService, AirportService>();
+
             builder.Services.AddSingleton<MainPage>();
-            builder.Services.AddSingleton<MainModel>();
             builder.Services.AddSingleton<AirportControlpanel>();
-            builder.Services.AddSingleton<AirportControlModel>();
             builder.Services.AddSingleton<MyAirport>();
+
+            builder.Services.AddTransient<MainModel>();
+            builder.Services.AddTransient<AirportControlModel>();
             builder.Services.AddSingleton<MyAirportModel>();
-            builder.Services.AddSingleton<IPopupService, PopupService>();
+
             builder.Services.AddTransientPopup<RunwayPopup, AirportControlModel>();
 #if DEBUG
             builder.Logging.AddDebug();

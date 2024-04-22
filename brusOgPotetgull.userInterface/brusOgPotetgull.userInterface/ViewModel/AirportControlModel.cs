@@ -12,7 +12,6 @@ namespace brusOgPotetgull.userInterface.ViewModel
     public partial class AirportControlModel : ObservableObject
     {
         protected readonly IAirportService _airportService;
-        private readonly IPopupService popupService;
         private RunwayPopup runwayPopup;
         private bool isRunwayPopupOpen;
 
@@ -34,11 +33,10 @@ namespace brusOgPotetgull.userInterface.ViewModel
         [ObservableProperty]
         private int runwayLength;
 
-        public AirportControlModel(IAirportService airportService, IPopupService popupService)
+        public AirportControlModel(IAirportService airportService)
         {
             _airportService = airportService;
             airport = _airportService.CurrentAirport;
-            this.popupService = popupService;
         }
 
         [RelayCommand]
