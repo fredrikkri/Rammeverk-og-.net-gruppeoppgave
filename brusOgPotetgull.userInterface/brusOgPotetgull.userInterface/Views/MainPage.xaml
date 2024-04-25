@@ -54,15 +54,16 @@
             <Button Text="Create Airport" Command="{Binding CreateAirportCommand}" HorizontalOptions="Center"/>
             <Frame
                 CornerRadius="8"
-                WidthRequest="400"
-                HeightRequest="100"
-                Opacity="0.6">
+                WidthRequest="330"
+                HeightRequest="70"
+                Opacity="0.7
+                ">
             <Label
-                x:Name="AirportInfo"
-                Text=""
+                Text="{Binding CurrentAirportDisplay}"
                 TextColor="Black"
-                WidthRequest="400"
-                HeightRequest="100"
+                FontAttributes="Bold"
+                WidthRequest="330"
+                HeightRequest="50"
                 HorizontalOptions="Center"/>
             </Frame>
         </VerticalStackLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"            
+               x:Class="brusOgPotetgull.userInterface.Popups.TaxiwayPopup"
+               Size="400,200">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <HorizontalStackLayout Spacing="110">
+            <Label Text="Name" TextColor="Black" FontAttributes="Bold"/>
+            <Label Text="Length (Meters)" TextColor="Black" FontAttributes="Bold"/>
+            <Label Text="Max Speed (kph)" TextColor="Black" FontAttributes="Bold"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Entry Text="{Binding TaxiwayName}" Placeholder="Enter name"/>
+            <Entry Text="{Binding TaxiwayLength}" Placeholder="Enter length in meters"/>
+            <Entry Text="{Binding TaxiwaySpeed}" Placeholder="Enter speed in kph"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Button Text="Add Taxiway" Command="{Binding AddTaxiwayCommand}" />
+            <Button Text="X" Command="{Binding CloseTaxiwayPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</toolkit:Popup>

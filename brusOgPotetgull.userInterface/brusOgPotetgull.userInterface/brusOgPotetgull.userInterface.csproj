@@ -56,17 +56,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="NewFolder1\**" />
 	  <AndroidResource Remove="NewFolder2\**" />
-	  <Compile Remove="NewFolder1\**" />
 	  <Compile Remove="NewFolder2\**" />
-	  <EmbeddedResource Remove="NewFolder1\**" />
 	  <EmbeddedResource Remove="NewFolder2\**" />
-	  <MauiCss Remove="NewFolder1\**" />
 	  <MauiCss Remove="NewFolder2\**" />
-	  <MauiXaml Remove="NewFolder1\**" />
 	  <MauiXaml Remove="NewFolder2\**" />
-	  <None Remove="NewFolder1\**" />
 	  <None Remove="NewFolder2\**" />
 	</ItemGroup>
 
@@ -81,19 +75,34 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Popups\TaxiwayPopup.xaml.cs">
+	    <DependentUpon>TaxiwayPopup.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Popups\TerminalPopup.xaml.cs">
+	    <DependentUpon>TerminalPopup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\AirportControlpanel.xaml.cs">
 	    <DependentUpon>AirportControlpanel.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Popups\GatePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\TaxiwayPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\TerminalPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AirportControlpanel.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MyAirport.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\RunwayPopup.xaml">
+	  <MauiXaml Update="Popups\RunwayPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

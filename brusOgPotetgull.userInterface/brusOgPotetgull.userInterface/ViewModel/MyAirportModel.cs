@@ -16,6 +16,15 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private ObservableCollection<Gate> gates;
 
         [ObservableProperty]
+        private ObservableCollection<Runway> runways;
+
+        [ObservableProperty]
+        private ObservableCollection<Terminal> terminals;
+
+        [ObservableProperty]
+        private ObservableCollection<Taxiway> taxiways;
+
+        [ObservableProperty]
         private string name;
 
         public MyAirportModel(IAirportService airportService)
@@ -27,16 +36,25 @@ namespace brusOgPotetgull.userInterface.ViewModel
             if (airport != null)
             {
                 Gates = new ObservableCollection<Gate>(airport.GetListGates());
+                Runways = new ObservableCollection<Runway>(airport.GetRunwayList());
+                Terminals = new ObservableCollection<Terminal>(airport.GetListTerminals());
+                Taxiways = new ObservableCollection<Taxiway>(airport.GetListTaxiways());
             }
             else
             {
+                Runways = new ObservableCollection<Runway>();
                 Gates = new ObservableCollection<Gate>();
+                Terminals = new ObservableCollection<Terminal>();
+                Taxiways = new ObservableCollection<Taxiway>();
             }
 
         }
         public void LoadData()
         {
             Gates = new ObservableCollection<Gate>(_airportService.CurrentAirport.GetListGates());
+            Runways = new ObservableCollection<Runway>(_airportService.CurrentAirport.GetRunwayList());
+            Terminals = new ObservableCollection<Terminal>(_airportService.CurrentAirport.GetListTerminals());
+            Taxiways = new ObservableCollection<Taxiway>(_airportService.CurrentAirport.GetListTaxiways());
         }
     }
 }
