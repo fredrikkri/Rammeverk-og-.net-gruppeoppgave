@@ -7,8 +7,8 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
     
     <Grid
-        RowDefinitions="50, 20, 50, 50, 50"
-        ColumnDefinitions="130, 150, 150, 150, 150"
+        RowDefinitions="50, 20, 50, 50, 50, 50"
+        ColumnDefinitions="150, 150, 150, 150, 150, 150"
         Padding="10"
         RowSpacing="5"
         ColumnSpacing="5"
@@ -38,10 +38,11 @@
         </Border>
 
         <Label
-            Text="Terminalname"
+            Text="Terminals"
             HorizontalOptions="Center"
             Grid.Column="0"
             Grid.Row="1"
+            FontAttributes="Bold"
             />
         <Button
             Text="Add Terminal"
@@ -52,10 +53,11 @@
             />
 
         <Label
-            Text="Gatename"
+            Text="Gates"
             HorizontalOptions="Center"
             Grid.Column="1"
-            Grid.Row="1"/>
+            Grid.Row="1"
+            FontAttributes="Bold"/>
         <Button
             Text="Add Gate"
             Command="{Binding ShowGatePopupCommand}"
@@ -69,6 +71,7 @@
             HorizontalOptions="Center"
             Grid.Column="2"
             Grid.Row="1"
+            FontAttributes="Bold"
             />
         <Button
             Text="Add Taxiway"
@@ -77,12 +80,20 @@
             Grid.Row="2"
             FontSize="14"
             />
+        <Button
+            Text="Add Connected Gate"
+            Command="{Binding ShowTaxiwayPopupCommand}"
+            Grid.Column="2"
+            Grid.Row="3"
+            FontSize="12"
+            />
 
         <Label
             Text="Runways"
             HorizontalOptions="Center"
             Grid.Column="3"
             Grid.Row="1"
+            FontAttributes="Bold"
             />
         <Button
             Text="Add Runway"
@@ -97,6 +108,7 @@
             HorizontalOptions="Center"
             Grid.Column="4"
             Grid.Row="1"
+            FontAttributes="Bold"
             />
         <Button
             Text="Add Aircraft type"
@@ -105,6 +117,28 @@
             Grid.Row="2"
             FontSize="14"
             />
+        <Button
+        Text="Add Aircraft"
+        Command="{Binding ShowRunwayPopupCommand}"
+        Grid.Column="4"
+        Grid.Row="3"
+        FontSize="14"
+        />
+
+        <Label
+            Text="RoadSystem"
+            HorizontalOptions="Center"
+            Grid.Column="5"
+            Grid.Row="1"
+            FontAttributes="Bold"
+            />
+        <Button
+        Text="Add Crossroad"
+        Command="{Binding ShowRunwayPopupCommand}"
+        Grid.Column="5"
+        Grid.Row="2"
+        FontSize="14"
+        />
     </Grid>
     
 </ContentPage>
