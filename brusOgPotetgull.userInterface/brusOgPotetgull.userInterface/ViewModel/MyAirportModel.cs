@@ -47,7 +47,6 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 Terminals = new ObservableCollection<Terminal>();
                 Taxiways = new ObservableCollection<Taxiway>();
             }
-
         }
         public void LoadData()
         {
