@@ -1,8 +1,7 @@
 ﻿using brusOgPotetgull.userInterface.Services;
-using brusOgPotetgull.userInterface.Views;
 using brusOgPotetgull.userInterface.Popups;
 using BrusOgPotetgull.AirportLiberary;
-using CommunityToolkit.Maui.Core;
+using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -17,10 +16,12 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private GatePopup gatePopup;
         private TerminalPopup terminalPopup;
         private TaxiwayPopup taxiwayPopup;
+        private AircraftTypePopup aircraftTypePopup;
         private bool isTerminalPopupOpen;
         private bool isGatePopupOpen;
         private bool isRunwayPopupOpen;
         private bool isTaxiwayPopupOpen;
+        private bool isAircraftTypePopupOpen;
 
         [ObservableProperty]
         private Airport airport;
@@ -45,6 +46,9 @@ namespace brusOgPotetgull.userInterface.ViewModel
 
         [ObservableProperty]
         private int runwayLength;
+
+        [ObservableProperty]
+        private string aircraftTypeName;
 
         public AirportControlModel(IAirportService airportService)
         {
@@ -191,6 +195,41 @@ namespace brusOgPotetgull.userInterface.ViewModel
             {
                 taxiwayPopup.Close();
                 isTaxiwayPopupOpen = false;
+            }
+        }
+
+        //              @@@@@@@@@@@  Aircrafts  @@@@@@@@@@@
+
+        [RelayCommand]
+        private void AddAircraftType()
+        {
+            if (string.IsNullOrWhiteSpace(AircraftTypeName))
+            {
+                return;
+            }
+            AircraftType aircraftType = new AircraftType(AircraftTypeName); // trenger parametere her og i toppen
+            AircraftTypeName = string.Empty;
+        }
+
+        [RelayCommand]
+        private void ShowAircraftTypePopup()
+        {
+            Debug.WriteLine("Attempting to show popup");
+            if (aircraftTypePopup == null)
+            {
+                aircraftTypePopup = new AircraftTypePopup(this);
+            }
+            Shell.Current.ShowPopup(aircraftTypePopup);
+            isAircraftTypePopupOpen = true;
+        }
+
+        [RelayCommand]
+        private void CloseAircraftTypePopup()
+        {
+            if (aircraftTypePopup != null && isAircraftTypePopupOpen)
+            {
+                aircraftTypePopup.Close();
+                isAircraftTypePopupOpen = false;
             }
         }
     }

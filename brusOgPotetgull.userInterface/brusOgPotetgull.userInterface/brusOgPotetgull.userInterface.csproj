@@ -56,15 +56,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="NewFolder2\**" />
-	  <Compile Remove="NewFolder2\**" />
-	  <EmbeddedResource Remove="NewFolder2\**" />
-	  <MauiCss Remove="NewFolder2\**" />
-	  <MauiXaml Remove="NewFolder2\**" />
-	  <None Remove="NewFolder2\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="brusOgPotetgull.airportLiberaryTest" Version="1.0.3" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
 		<PackageReference Include="CommunityToolkit.Maui.Core" Version="8.0.1" />
@@ -75,6 +66,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Popups\AircraftTypePopup.xaml.cs">
+	    <DependentUpon>AircraftTypePopup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Popups\TaxiwayPopup.xaml.cs">
 	    <DependentUpon>TaxiwayPopup.xaml</DependentUpon>
 	  </Compile>
@@ -87,6 +81,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Popups\AircraftTypePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Popups\GatePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

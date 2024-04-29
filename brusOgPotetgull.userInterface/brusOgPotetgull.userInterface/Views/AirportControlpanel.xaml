@@ -112,7 +112,7 @@
             />
         <Button
             Text="Add Aircraft type"
-            Command="{Binding ShowRunwayPopupCommand}"
+            Command="{Binding ShowAircraftTypePopupCommand}"
             Grid.Column="4"
             Grid.Row="2"
             FontSize="14"
