@@ -7,7 +7,7 @@ namespace brusOgPotetgull.userInterface.Popups
     {
         public AircraftTypePopup(AirportControlModel vm)
         {
-            InitializeComponent();
+            //InitializeComponent();
             BindingContext = vm;
         }
     }
