@@ -11,11 +11,11 @@
             <Label Text="Name" TextColor="Black" FontAttributes="Bold"/>
             <Label Text="Length (Meters)" TextColor="Black" FontAttributes="Bold"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="35">
             <Entry Text="{Binding RunwayName}" Placeholder="Enter name"/>
             <Entry Text="{Binding RunwayLength}" Placeholder="Enter length in meters"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
             <Button Text="Add Runway" Command="{Binding AddRunwayCommand}" />
             <Button Text="Close" Command="{Binding CloseRunwayPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
         </HorizontalStackLayout>

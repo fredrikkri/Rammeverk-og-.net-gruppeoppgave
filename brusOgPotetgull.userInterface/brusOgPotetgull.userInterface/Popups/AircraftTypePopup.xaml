@@ -7,7 +7,7 @@
                Size="400,200">
     
     <VerticalStackLayout Padding="20" Spacing="20">
-        <Label Text="Name" TextColor="Black" FontAttributes="Bold"/>
+        <Label Text="Aircraft Type" TextColor="Black" FontAttributes="Bold"/>
         <Entry Text="{Binding AircraftTypeName}" Placeholder="Enter name"/>
         <HorizontalStackLayout
             Spacing="10">

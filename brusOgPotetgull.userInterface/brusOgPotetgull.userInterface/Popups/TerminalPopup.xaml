@@ -13,7 +13,7 @@
         <HorizontalStackLayout>
             <Entry Text="{Binding TerminalName}" Placeholder="Enter name"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
             <Button Text="Add Terminal" Command="{Binding AddTerminalCommand}" />
             <Button Text="Close" Command="{Binding CloseTerminalPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
         </HorizontalStackLayout>
