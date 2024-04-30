@@ -12,7 +12,7 @@
         <HorizontalStackLayout
             Spacing="10">
             <Button Text="Add AircraftType" Command="{Binding AddAircraftTypeCommand}" />
-            <Button Text="Cancel" Command="{Binding CloseAircraftTypePopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
+            <Button Text="Close" Command="{Binding CloseAircraftTypePopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>

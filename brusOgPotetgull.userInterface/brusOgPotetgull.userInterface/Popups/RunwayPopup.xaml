@@ -17,7 +17,7 @@
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <Button Text="Add Runway" Command="{Binding AddRunwayCommand}" />
-            <Button Text="Cancel" Command="{Binding CloseRunwayPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
+            <Button Text="Close" Command="{Binding CloseRunwayPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>

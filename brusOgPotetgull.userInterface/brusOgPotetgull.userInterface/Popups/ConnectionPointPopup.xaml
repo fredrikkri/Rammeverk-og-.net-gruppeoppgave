@@ -12,7 +12,7 @@
         <HorizontalStackLayout
             Spacing="10">
             <Button Text="Add Crossroad" Command="{Binding AddConnectionPointCommand}" />
-            <Button Text="Cancel" Command="{Binding CloseConnectionPointPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
+            <Button Text="Close" Command="{Binding CloseConnectionPointPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>
