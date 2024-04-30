@@ -7,11 +7,11 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
     
     <Grid
-        RowDefinitions="50, 20, 50, 50"
-        ColumnDefinitions="130, 150, 150, 150"
+        RowDefinitions="50, 20, 50, 50, 50, 50"
+        ColumnDefinitions="150, 150, 150, 150, 150, 150"
         Padding="10"
         RowSpacing="5"
-        ColumnSpacing="10"
+        ColumnSpacing="5"
         >
         <Image Source="background4.jpg"
                 HeightRequest="185"
@@ -38,66 +38,107 @@
         </Border>
 
         <Label
-            Text="Terminalname"
+            Text="Terminals"
             HorizontalOptions="Center"
             Grid.Column="0"
             Grid.Row="1"
+            FontAttributes="Bold"
             />
-        <Entry
-            Text="{Binding TerminalName}"
-            Placeholder="Terminal 1"
-            Grid.Column="0"
-            Grid.Row="2"/>
         <Button
             Text="Add Terminal"
-            Command="{Binding AddTerminalCommand}"
+            Command="{Binding ShowTerminalPopupCommand}"
             Grid.Column="0"
-            Grid.Row="3"
+            Grid.Row="2"
             FontSize="14"
             />
 
         <Label
-            Text="Gatename"
+            Text="Gates"
             HorizontalOptions="Center"
             Grid.Column="1"
-            Grid.Row="1"/>
-        <Entry
-            Text="{Binding GateName}"
-            Placeholder="Gate 1"
-            Grid.Column="1"
-            Grid.Row="2"/>
+            Grid.Row="1"
+            FontAttributes="Bold"/>
         <Button
             Text="Add Gate"
-            Command="{Binding AddGateCommand}"
+            Command="{Binding ShowGatePopupCommand}"
             Grid.Column="1"
-            Grid.Row="3"
+            Grid.Row="2"
             FontSize="14"
             />
 
         <Label
-            Text="Taxiwayname"
+            Text="Taxiways"            
             HorizontalOptions="Center"
             Grid.Column="2"
             Grid.Row="1"
+            FontAttributes="Bold"
             />
-        <Entry
-            Placeholder="Tawiway 1"
-            Grid.Column="2"
-            Grid.Row="2"/>
         <Button
             Text="Add Taxiway"
+            Command="{Binding ShowTaxiwayPopupCommand}"
             Grid.Column="2"
-            Grid.Row="3"
+            Grid.Row="2"
             FontSize="14"
             />
+        <Button
+            Text="Add Connected Gate"
+            Command="{Binding ShowTaxiwayPopupCommand}"
+            Grid.Column="2"
+            Grid.Row="3"
+            FontSize="12"
+            />
 
+        <Label
+            Text="Runways"
+            HorizontalOptions="Center"
+            Grid.Column="3"
+            Grid.Row="1"
+            FontAttributes="Bold"
+            />
         <Button
             Text="Add Runway"
             Command="{Binding ShowRunwayPopupCommand}"
             Grid.Column="3"
-            Grid.Row="3"
+            Grid.Row="2"
             FontSize="14"
             />
+
+        <Label
+            Text="Aircrafts"
+            HorizontalOptions="Center"
+            Grid.Column="4"
+            Grid.Row="1"
+            FontAttributes="Bold"
+            />
+        <Button
+            Text="Add Aircraft type"
+            Command="{Binding ShowAircraftTypePopupCommand}"
+            Grid.Column="4"
+            Grid.Row="2"
+            FontSize="14"
+            />
+        <Button
+        Text="Add Aircraft"
+        Command="{Binding ShowRunwayPopupCommand}"
+        Grid.Column="4"
+        Grid.Row="3"
+        FontSize="14"
+        />
+
+        <Label
+            Text="RoadSystem"
+            HorizontalOptions="Center"
+            Grid.Column="5"
+            Grid.Row="1"
+            FontAttributes="Bold"
+            />
+        <Button
+        Text="Add Crossroad"
+        Command="{Binding ShowRunwayPopupCommand}"
+        Grid.Column="5"
+        Grid.Row="2"
+        FontSize="14"
+        />
     </Grid>
     
 </ContentPage>

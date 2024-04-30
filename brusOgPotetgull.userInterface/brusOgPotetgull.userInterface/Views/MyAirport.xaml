@@ -5,39 +5,85 @@
              xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"
              x:DataType="viewmodel:MyAirportModel">
     <ScrollView>
-        <VerticalStackLayout>
-            <Image
-                Source="background3.jpg"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                ScaleY="4.4"
-                ScaleX="5.55"
-                AnchorY="0.1"/>
 
-            <Label
-                    Text="{Binding Airport.Name}"
-                    TextColor="Black"
-                    VerticalOptions="Center" 
-                    HorizontalOptions="Center"
-                    />
-            <Grid
-            RowDefinitions="Auto, Auto, Auto, Auto"
-            ColumnDefinitions="100, 100, Auto, Auto"
+        <Grid
+            RowDefinitions="40, Auto, Auto, Auto, Auto"
+            ColumnDefinitions="100, 100, 100, 100, 100"
             Padding="10"
             RowSpacing="5"
             ColumnSpacing="10"
-                >
-                <Label Text="Gates" TextColor="Black" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center"/>
-                <CollectionView ItemsSource="{Binding Gates}" Grid.Column="0" Grid.Row="1">
-                    <CollectionView.ItemTemplate Grid.Column="0" Grid.Row="1">
-                        <DataTemplate>
-                            <Border BackgroundColor="LightGray" Opacity="0.5">
-                                <Label TextColor="Black" Text="{Binding Name}" Padding="5"/>
-                            </Border>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </Grid>
-        </VerticalStackLayout>
+            HorizontalOptions="Center">
+
+            <Image
+                Source="background3.jpg"
+                HeightRequest="185"
+                Aspect="Fill"
+                AnchorX="0.35"
+                AnchorY="-0.05"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                ScaleY="4"
+                ScaleX="20"/>
+            
+            <Border
+                BackgroundColor="Black"
+                Grid.Column="2"
+                Grid.Row="0"
+                Grid.ColumnSpan="2">
+                <Label
+                        Text="{Binding Airport.Name}"
+                        TextColor="White"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        />
+            </Border>
+
+            <Label Text="Gates" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center"/>
+            <CollectionView ItemsSource="{Binding Gates}" Grid.Column="1" Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="LightGray" Opacity="0.5">
+                            <Label TextColor="Black" Text="{Binding Name}" Padding="5"/>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Runways" TextColor="Black" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center"/>
+            <CollectionView ItemsSource="{Binding Runways}" Grid.Column="2" Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="LightGray" Opacity="0.5">
+                            <Label TextColor="Black" Text="{Binding Name}" Padding="5"/>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Terminals" TextColor="Black" Grid.Column="3" Grid.Row="1" HorizontalTextAlignment="Center"/>
+            <CollectionView ItemsSource="{Binding Terminals}" Grid.Column="3" Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="LightGray" Opacity="0.5">
+                            <Label TextColor="Black" Text="{Binding Name}" Padding="5"/>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Taxiways" TextColor="Black" Grid.Column="4" Grid.Row="1" HorizontalTextAlignment="Center"/>
+            <CollectionView ItemsSource="{Binding Taxiways}" Grid.Column="4" Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="LightGray" Opacity="0.5">
+                            <Label TextColor="Black" Text="{Binding Name}" Padding="5"/>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
     </ScrollView>
 </ContentPage>

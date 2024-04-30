@@ -1,7 +1,7 @@
 ﻿using brusOgPotetgull.userInterface.Services;
-using brusOgPotetgull.userInterface.Views;
+using brusOgPotetgull.userInterface.Popups;
 using BrusOgPotetgull.AirportLiberary;
-using CommunityToolkit.Maui.Core;
+using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -13,7 +13,15 @@ namespace brusOgPotetgull.userInterface.ViewModel
     {
         protected readonly IAirportService _airportService;
         private RunwayPopup runwayPopup;
+        private GatePopup gatePopup;
+        private TerminalPopup terminalPopup;
+        private TaxiwayPopup taxiwayPopup;
+        private AircraftTypePopup aircraftTypePopup;
+        private bool isTerminalPopupOpen;
+        private bool isGatePopupOpen;
         private bool isRunwayPopupOpen;
+        private bool isTaxiwayPopupOpen;
+        private bool isAircraftTypePopupOpen;
 
         [ObservableProperty]
         private Airport airport;
@@ -28,16 +36,27 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private string taxiwayName;
 
         [ObservableProperty]
+        private int taxiwayLength;
+
+        [ObservableProperty]
+        private int taxiwaySpeed;
+
+        [ObservableProperty]
         private string runwayName;
 
         [ObservableProperty]
         private int runwayLength;
+
+        [ObservableProperty]
+        private string aircraftTypeName;
 
         public AirportControlModel(IAirportService airportService)
         {
             _airportService = airportService;
             airport = _airportService.CurrentAirport;
         }
+
+//              @@@@@@@@@@@  RUNWAYS  @@@@@@@@@@@
 
         [RelayCommand]
         private void ShowRunwayPopup()
@@ -61,6 +80,53 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
+        [RelayCommand]
+        private void AddRunway()
+        {
+            Debug.WriteLine("Attempting to add runway");
+            Runway _ = new(RunwayName, RunwayLength, Airport);
+            RunwayName = string.Empty;
+            RunwayLength = 0;
+            CloseRunwayPopup();
+        }
+
+//              @@@@@@@@@@@  GATES  @@@@@@@@@@@
+
+        [RelayCommand]
+        private void ShowGatePopup()
+        {
+            Debug.WriteLine("Attempting to show popup");
+            if (gatePopup == null)
+            {
+                gatePopup = new GatePopup(this);
+            }
+            Shell.Current.ShowPopup(gatePopup);
+            isGatePopupOpen = true;
+        }
+
+        [RelayCommand]
+        private void CloseGatePopup()
+        {
+            if (gatePopup != null && isGatePopupOpen)
+            {
+                gatePopup.Close();
+                isGatePopupOpen = false;
+            }
+        }
+
+        [RelayCommand]
+        private void AddGate()
+        {
+            if (string.IsNullOrWhiteSpace(GateName))
+            {
+                return;
+            }
+            Gate gate = new Gate(GateName, Airport);
+            GateName = string.Empty;
+            CloseGatePopup();
+        }
+
+//              @@@@@@@@@@@  TERMINALS  @@@@@@@@@@@
 
         [RelayCommand]
         private void AddTerminal()
@@ -74,24 +140,97 @@ namespace brusOgPotetgull.userInterface.ViewModel
         }
 
         [RelayCommand]
-        private void AddGate()
+        private void ShowTerminalPopup()
         {
-            if (string.IsNullOrWhiteSpace(GateName))
+            Debug.WriteLine("Attempting to show popup");
+            if (terminalPopup == null)
             {
-                return;
+                terminalPopup = new TerminalPopup(this);
             }
-            Gate gate = new Gate(GateName, Airport);
-            GateName = string.Empty;
+            Shell.Current.ShowPopup(terminalPopup);
+            isTerminalPopupOpen = true;
         }
 
         [RelayCommand]
-        private void AddRunway() 
+        private void CloseTerminalPopup()
         {
-            Debug.WriteLine("Attempting to add runway");
-            //Runway _ = new(RunwayName, RunwayLength, Airport);
-            //RunwayName = string.Empty;
-            //RunwayLength = 0;
-            //CloseRunwayPopup();
+            if (terminalPopup != null && isTerminalPopupOpen)
+            {
+                terminalPopup.Close();
+                isTerminalPopupOpen = false;
+            }
+        }
+
+        //              @@@@@@@@@@@  TAXIWAYS  @@@@@@@@@@@
+
+        [RelayCommand]
+        private void AddTaxiway()
+        {
+            if (string.IsNullOrWhiteSpace(TaxiwayName) || TaxiwayLength <= 0 || TaxiwaySpeed <= 0)
+            {
+                return;
+            }
+            Taxiway taxiway = new Taxiway(TaxiwayName, TaxiwayLength, TaxiwaySpeed , Airport); // trenger parametere her og i toppen
+            TaxiwayName = string.Empty;
+            TaxiwayLength = 0;
+            TaxiwaySpeed = 0;
+        }
+
+        [RelayCommand]
+        private void ShowTaxiwayPopup()
+        {
+            Debug.WriteLine("Attempting to show popup");
+            if (taxiwayPopup == null)
+            {
+                taxiwayPopup = new TaxiwayPopup(this);
+            }
+            Shell.Current.ShowPopup(taxiwayPopup);
+            isTaxiwayPopupOpen = true;
+        }
+
+        [RelayCommand]
+        private void CloseTaxiwayPopup()
+        {
+            if (taxiwayPopup != null && isTaxiwayPopupOpen)
+            {
+                taxiwayPopup.Close();
+                isTaxiwayPopupOpen = false;
+            }
+        }
+
+        //              @@@@@@@@@@@  Aircrafts  @@@@@@@@@@@
+
+        [RelayCommand]
+        private void AddAircraftType()
+        {
+            if (string.IsNullOrWhiteSpace(AircraftTypeName))
+            {
+                return;
+            }
+            AircraftType aircraftType = new AircraftType(AircraftTypeName); // trenger parametere her og i toppen
+            AircraftTypeName = string.Empty;
+        }
+
+        [RelayCommand]
+        private void ShowAircraftTypePopup()
+        {
+            Debug.WriteLine("Attempting to show popup");
+            if (aircraftTypePopup == null)
+            {
+                aircraftTypePopup = new AircraftTypePopup(this);
+            }
+            Shell.Current.ShowPopup(aircraftTypePopup);
+            isAircraftTypePopupOpen = true;
+        }
+
+        [RelayCommand]
+        private void CloseAircraftTypePopup()
+        {
+            if (aircraftTypePopup != null && isAircraftTypePopupOpen)
+            {
+                aircraftTypePopup.Close();
+                isAircraftTypePopupOpen = false;
+            }
         }
     }
 }
