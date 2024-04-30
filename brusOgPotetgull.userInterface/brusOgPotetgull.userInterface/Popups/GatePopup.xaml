@@ -4,13 +4,14 @@
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"            
                x:Class="brusOgPotetgull.userInterface.Popups.GatePopup"
-               Size="400,200">
+               Size="400,300">
 
     <VerticalStackLayout Padding="20" Spacing="20">
         <Label Text="Name" TextColor="Black" FontAttributes="Bold"/>
         <Entry Text="{Binding GateName}" Placeholder="Enter name"/>
+        <Picker Title="Select Terminal" ItemsSource="{Binding Terminals}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTerminal}" />
         <HorizontalStackLayout>
-            <Button Text="Add Gate" Command="{Binding AddGateCommand}" />
+            <Button Text="Add Gate" Command="{Binding AddGateCommand}" Margin="0,0,10,0"/>
             <Button Text="X" Command="{Binding CloseGatePopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>

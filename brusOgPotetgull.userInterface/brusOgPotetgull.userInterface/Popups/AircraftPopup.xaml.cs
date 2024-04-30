@@ -3,9 +3,9 @@ using CommunityToolkit.Maui.Views;
 
 namespace brusOgPotetgull.userInterface.Popups
 {
-    public partial class AircraftTypePopup : Popup
+    public partial class AircraftPopup : Popup
     {
-        public AircraftTypePopup(AirportControlModel vm)
+        public AircraftPopup(AirportControlModel vm)
         {
             InitializeComponent();
             BindingContext = vm;

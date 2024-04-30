@@ -7,16 +7,17 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
     
     <Grid
-        RowDefinitions="50, 20, 50, 50, 50, 50"
-        ColumnDefinitions="150, 150, 150, 150, 150, 150"
+        RowDefinitions="50, 30, 50, 50, 30, 50, 50, 50, 50"
+        ColumnDefinitions="150, 150, 150, 150"
         Padding="10"
-        RowSpacing="5"
-        ColumnSpacing="5"
+        RowSpacing="15"
+        ColumnSpacing="15"
+        HorizontalOptions="Center"
         >
         <Image Source="background4.jpg"
                 HeightRequest="185"
                 Aspect="Fill"
-                AnchorX="0.015"
+                AnchorX="0.4"
                 AnchorY="-0.05"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Fill"
@@ -24,9 +25,11 @@
                 ScaleX="12"/>
         <Border
             Grid.ColumnSpan="2"
-            BackgroundColor="LightCyan"
-            Grid.Column="1"
+            BackgroundColor="LightGreen"
+            Grid.Column="1"         
             >
+            <Border.StrokeThickness>4</Border.StrokeThickness>
+            <Border.Stroke>Black</Border.Stroke>
             <Label 
                 Text="Airport Configuration"
                 TextColor="Black"
@@ -34,15 +37,26 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold"
+                TextTransform="Uppercase"
+                FontFamily=""
                 />
         </Border>
-
+        
+<!-- ######################################## TERMINALS ######################################## -->
+        <BoxView
+            Grid.Column="0"
+            Grid.Row="1"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
             Text="Terminals"
             HorizontalOptions="Center"
             Grid.Column="0"
             Grid.Row="1"
             FontAttributes="Bold"
+            Margin="0,5,0,0"
             />
         <Button
             Text="Add Terminal"
@@ -51,13 +65,23 @@
             Grid.Row="2"
             FontSize="14"
             />
-
+        
+<!-- ######################################## GATES ######################################## -->
+        <BoxView
+            Grid.Column="1"
+            Grid.Row="1"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
             Text="Gates"
             HorizontalOptions="Center"
             Grid.Column="1"
             Grid.Row="1"
-            FontAttributes="Bold"/>
+            FontAttributes="Bold"
+            Margin="0,5,0,0"
+            />
         <Button
             Text="Add Gate"
             Command="{Binding ShowGatePopupCommand}"
@@ -66,12 +90,21 @@
             FontSize="14"
             />
 
+<!-- ######################################## TAXIWAYS ######################################## -->
+        <BoxView
+            Grid.Column="2"
+            Grid.Row="1"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
             Text="Taxiways"            
             HorizontalOptions="Center"
             Grid.Column="2"
             Grid.Row="1"
             FontAttributes="Bold"
+            Margin="0,5,0,0"
             />
         <Button
             Text="Add Taxiway"
@@ -87,13 +120,21 @@
             Grid.Row="3"
             FontSize="12"
             />
-
+<!-- ######################################## RUNWAYS ######################################## -->
+        <BoxView
+            Grid.Column="3"
+            Grid.Row="1"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
             Text="Runways"
             HorizontalOptions="Center"
             Grid.Column="3"
             Grid.Row="1"
             FontAttributes="Bold"
+            Margin="0,5,0,0"            
             />
         <Button
             Text="Add Runway"
@@ -102,43 +143,85 @@
             Grid.Row="2"
             FontSize="14"
             />
-
+<!-- ######################################## AIRCRAFTS ######################################## -->
+        <BoxView
+            Grid.Column="0"
+            Grid.Row="4"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
             Text="Aircrafts"
             HorizontalOptions="Center"
-            Grid.Column="4"
-            Grid.Row="1"
+            Grid.Column="0"
+            Grid.Row="4"
             FontAttributes="Bold"
+            Margin="0,5,0,0"
             />
         <Button
             Text="Add Aircraft type"
             Command="{Binding ShowAircraftTypePopupCommand}"
-            Grid.Column="4"
-            Grid.Row="2"
+            Grid.Column="0"
+            Grid.Row="5"
             FontSize="14"
             />
         <Button
         Text="Add Aircraft"
-        Command="{Binding ShowRunwayPopupCommand}"
-        Grid.Column="4"
-        Grid.Row="3"
+        Command="{Binding ShowAircraftPopupCommand}"
+        Grid.Column="0"
+        Grid.Row="6"
         FontSize="14"
         />
+        
+<!-- ######################################## FLIGHTS ######################################## -->
+        <BoxView
+            Grid.Column="1"
+            Grid.Row="4"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
+        <Label
+            Text="Flights"
+            HorizontalOptions="Center"
+            Grid.Column="1"
+            Grid.Row="4"
+            FontAttributes="Bold"
+            Margin="0,5,0,0"            
+            />
+        <Button
+        Text="Add Flight"
+        Command="{Binding ShowFlightPopupCommand}"
+        Grid.Column="1"
+        Grid.Row="5"
+        FontSize="14"
+        />
+<!-- ######################################## ROAD SYSTEM ######################################## -->
 
+        <BoxView
+            Grid.Column="2"
+            Grid.Row="4"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
             Text="RoadSystem"
             HorizontalOptions="Center"
-            Grid.Column="5"
-            Grid.Row="1"
+            Grid.Column="2"
+            Grid.Row="4"
             FontAttributes="Bold"
+            Margin="0,5,0,0"            
             />
         <Button
         Text="Add Crossroad"
-        Command="{Binding ShowRunwayPopupCommand}"
-        Grid.Column="5"
-        Grid.Row="2"
+        Command="{Binding ShowConnectionPointPopupCommand}"
+        Grid.Column="2"
+        Grid.Row="5"
         FontSize="14"
         />
+
     </Grid>
     
 </ContentPage>

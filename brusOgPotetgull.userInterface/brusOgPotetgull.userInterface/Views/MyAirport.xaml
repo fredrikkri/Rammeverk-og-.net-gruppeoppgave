@@ -8,7 +8,7 @@
 
         <Grid
             RowDefinitions="40, Auto, Auto, Auto, Auto"
-            ColumnDefinitions="100, 100, 100, 100, 100"
+            ColumnDefinitions="0, 100, 100, 100, 100"
             Padding="10"
             RowSpacing="5"
             ColumnSpacing="10"
@@ -17,11 +17,12 @@
             <Image
                 Source="background3.jpg"
                 HeightRequest="185"
+                Grid.Column="1"
                 Aspect="Fill"
-                AnchorX="0.35"
+                AnchorX="0.40"
                 AnchorY="-0.05"
                 HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
+                VerticalOptions="Fill"
                 ScaleY="4"
                 ScaleX="20"/>
             
