@@ -8,7 +8,7 @@
 
     <VerticalStackLayout Padding="20" Spacing="20">
         <Entry Placeholder="Name" Text="{Binding AircraftName}" />
-        <Picker Title="Select Aircraft Type" ItemsSource="{Binding AircraftTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedAircraftType}" />
+        <Picker Title="Select Aircraft Type" ItemsSource="{Binding AircraftTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedAircraftType}" BackgroundColor="White" />
         <Entry Placeholder="Max Speed Air" Keyboard="Numeric" Text="{Binding MaxSpeedAir, Mode=TwoWay}" />
         <Entry Placeholder="Acceleration Air" Keyboard="Numeric" Text="{Binding AccelerationAir, Mode=TwoWay}" />
         <Entry Placeholder="Max Speed Ground" Keyboard="Numeric" Text="{Binding MaxSpeedGround, Mode=TwoWay}" />
@@ -16,7 +16,7 @@
         <HorizontalStackLayout
             Spacing="10">
             <Button Text="Add AircraftType" Command="{Binding AddAircraftCommand}" />
-            <Button Text="X" Command="{Binding CloseAircraftPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
+            <Button Text="Cancel" Command="{Binding CloseAircraftPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>

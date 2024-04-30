@@ -50,6 +50,15 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private ObservableCollection<Terminal> terminals = new ObservableCollection<Terminal>();
 
         [ObservableProperty]
+        private ObservableCollection<Runway> runways;
+
+        [ObservableProperty]
+        private ObservableCollection<Taxiway> taxiways;
+
+        [ObservableProperty]
+        private ObservableCollection<Gate> gates;
+
+        [ObservableProperty]
         private string terminalName;
 
         [ObservableProperty]
@@ -107,6 +116,9 @@ namespace brusOgPotetgull.userInterface.ViewModel
         DateTime selectedDate;
 
         [ObservableProperty]
+        TimeSpan selectedTime;
+
+        [ObservableProperty]
         private int flightLength;
 
         [ObservableProperty]
@@ -125,10 +137,11 @@ namespace brusOgPotetgull.userInterface.ViewModel
         {
             _airportService = airportService;
             airport = _airportService.CurrentAirport;
+            selectedDate = DateTime.Now;
+            selectedTime = DateTime.Now.TimeOfDay;
         }
 
         //              @@@@@@@@@@@  RUNWAYS  @@@@@@@@@@@
-
         [RelayCommand]
         private void ShowRunwayPopup()
         {
@@ -158,6 +171,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             Runway _ = new(RunwayName, RunwayLength, Airport);
             RunwayName = string.Empty;
             RunwayLength = 0;
+            LoadControlData();
             CloseRunwayPopup();
         }
 
@@ -198,6 +212,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 GateName = string.Empty;
                 SelectedTerminal.AddGateToList(gate);
                 SelectedTerminal = null;
+                LoadControlData();
                 CloseGatePopup();
             }
             else
@@ -220,6 +235,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             Terminal terminal = new Terminal(TerminalName, Airport);
             TerminalName = string.Empty;
             Terminals.Add(terminal);
+            LoadControlData();
         }
 
         [RelayCommand]
@@ -253,10 +269,11 @@ namespace brusOgPotetgull.userInterface.ViewModel
             {
                 return;
             }
-            Taxiway taxiway = new Taxiway(TaxiwayName, TaxiwayLength, TaxiwaySpeed , Airport); // trenger parametere her og i toppen
+            Taxiway taxiway = new Taxiway(TaxiwayName, TaxiwayLength, TaxiwaySpeed , Airport);
             TaxiwayName = string.Empty;
             TaxiwayLength = 0;
             TaxiwaySpeed = 0;
+            LoadControlData();
         }
 
         [RelayCommand]
@@ -407,13 +424,17 @@ namespace brusOgPotetgull.userInterface.ViewModel
         {
             if (FlightTypeSelector == "Arriving")
             {
-                Flight.Arriving flight = new(SelectedAircraft, SelectedDate, FlightLength, Airport, SelectedGate, SelectedTaxiway, SelectedRunway);
-                Airport.AddArrivingFlight(flight);
+                Flight.Arriving flight = new(SelectedAircraft, FlightDate, FlightLength, Airport, SelectedGate, SelectedTaxiway, SelectedRunway);
+                CloseFlightPopup();
             }
             else if (FlightTypeSelector == "Departing")
             {
-                Flight.Departing flight = new(SelectedAircraft, SelectedDate, FlightLength, Airport, SelectedGate, SelectedTaxiway, SelectedRunway);
-                Airport.AddDepartingFlight(flight);
+                Flight.Departing flight = new(SelectedAircraft, FlightDate, FlightLength, Airport, SelectedGate, SelectedTaxiway, SelectedRunway);
+                CloseFlightPopup();
+            }
+            else
+            {
+                return;
             }
             
         }
@@ -438,6 +459,23 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 flightPopup.Close();
                 isFlightPopupOpen = false;
             }
+        }
+
+        public DateTime FlightDate => new DateTime(
+            SelectedDate.Year,
+            SelectedDate.Month,
+            SelectedDate.Day,
+            SelectedTime.Hours,
+            SelectedTime.Minutes,
+            SelectedTime.Seconds
+            );
+
+        public void LoadControlData()
+        {
+            Gates = new ObservableCollection<Gate>(_airportService.CurrentAirport.GetListGates());
+            Runways = new ObservableCollection<Runway>(_airportService.CurrentAirport.GetRunwayList());
+            Terminals = new ObservableCollection<Terminal>(_airportService.CurrentAirport.GetListTerminals());
+            Taxiways = new ObservableCollection<Taxiway>(_airportService.CurrentAirport.GetListTaxiways());
         }
     }
 }

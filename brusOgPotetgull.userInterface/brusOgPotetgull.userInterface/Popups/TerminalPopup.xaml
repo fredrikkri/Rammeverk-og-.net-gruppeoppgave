@@ -15,7 +15,7 @@
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <Button Text="Add Terminal" Command="{Binding AddTerminalCommand}" />
-            <Button Text="X" Command="{Binding CloseTerminalPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
+            <Button Text="Cancel" Command="{Binding CloseTerminalPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>

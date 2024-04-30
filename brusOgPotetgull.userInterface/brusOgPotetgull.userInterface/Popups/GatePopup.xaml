@@ -12,7 +12,7 @@
         <Picker Title="Select Terminal" ItemsSource="{Binding Terminals}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTerminal}" />
         <HorizontalStackLayout>
             <Button Text="Add Gate" Command="{Binding AddGateCommand}" Margin="0,0,10,0"/>
-            <Button Text="X" Command="{Binding CloseGatePopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
+            <Button Text="Cancel" Command="{Binding CloseGatePopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>

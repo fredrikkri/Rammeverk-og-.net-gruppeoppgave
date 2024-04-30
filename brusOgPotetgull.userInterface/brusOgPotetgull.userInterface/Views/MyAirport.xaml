@@ -7,12 +7,13 @@
     <ScrollView>
 
         <Grid
-            RowDefinitions="40, Auto, Auto, Auto, Auto"
-            ColumnDefinitions="0, 100, 100, 100, 100"
+            RowDefinitions="40, Auto, Auto, Auto, Auto, Auto"
+            ColumnDefinitions="0, 130, 130, 130, 130, 130, 130, 130, 130"
             Padding="10"
             RowSpacing="5"
             ColumnSpacing="10"
-            HorizontalOptions="Center">
+            HorizontalOptions="Center"
+            >
 
             <Image
                 Source="background3.jpg"
@@ -28,7 +29,7 @@
             
             <Border
                 BackgroundColor="Black"
-                Grid.Column="2"
+                Grid.Column="4"
                 Grid.Row="0"
                 Grid.ColumnSpan="2">
                 <Label
@@ -41,8 +42,8 @@
                         />
             </Border>
 
-            <Label Text="Gates" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center"/>
-            <CollectionView ItemsSource="{Binding Gates}" Grid.Column="1" Grid.Row="2">
+            <Label Text="Gates" TextColor="Black" Grid.Column="3" Grid.Row="1" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Gates}" Grid.Column="3" Grid.Row="2">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border BackgroundColor="LightGray" Opacity="0.5">
@@ -52,8 +53,8 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Label Text="Runways" TextColor="Black" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center"/>
-            <CollectionView ItemsSource="{Binding Runways}" Grid.Column="2" Grid.Row="2">
+            <Label Text="Runways" TextColor="Black" Grid.Column="4" Grid.Row="1" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Runways}" Grid.Column="4" Grid.Row="2">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border BackgroundColor="LightGray" Opacity="0.5">
@@ -63,8 +64,8 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Label Text="Terminals" TextColor="Black" Grid.Column="3" Grid.Row="1" HorizontalTextAlignment="Center"/>
-            <CollectionView ItemsSource="{Binding Terminals}" Grid.Column="3" Grid.Row="2">
+            <Label Text="Terminals" TextColor="Black" Grid.Column="5" Grid.Row="1" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Terminals}" Grid.Column="5" Grid.Row="2">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border BackgroundColor="LightGray" Opacity="0.5">
@@ -74,13 +75,67 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Label Text="Taxiways" TextColor="Black" Grid.Column="4" Grid.Row="1" HorizontalTextAlignment="Center"/>
-            <CollectionView ItemsSource="{Binding Taxiways}" Grid.Column="4" Grid.Row="2">
+            <Label Text="Taxiways" TextColor="Black" Grid.Column="6" Grid.Row="1" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Taxiways}" Grid.Column="6" Grid.Row="2">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border BackgroundColor="LightGray" Opacity="0.5">
                             <Label TextColor="Black" Text="{Binding Name}" Padding="5"/>
                         </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Arriving Flights" TextColor="Black" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Label Text="Departing Flights" TextColor="Black" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" FontAttributes="Bold"/>
+
+            <Label Text="Date" TextColor="Black" Grid.Column="1" Grid.Row="4" HorizontalOptions="Center"/>
+            <Label Text="Aircraft Type" TextColor="Black" Grid.Column="2" Grid.Row="4" HorizontalOptions="Center"/>
+            <Label Text="Aircraft Name" TextColor="Black" Grid.Column="3" Grid.Row="4" HorizontalOptions="Center"/>
+            <Label Text="Arrival Gate" TextColor="Black" Grid.Column="4" Grid.Row="4" HorizontalOptions="Center"/>
+            <Label Text="Date" TextColor="Black" Grid.Column="5" Grid.Row="4" HorizontalOptions="Center"/>
+            <Label Text="Aircraft Type" TextColor="Black" Grid.Column="6" Grid.Row="4" HorizontalOptions="Center"/>
+            <Label Text="Aircraft Name" TextColor="Black" Grid.Column="7" Grid.Row="4" HorizontalOptions="Center"/>
+            <Label Text="Departure Gate" TextColor="Black" Grid.Column="8" Grid.Row="4" HorizontalOptions="Center"/>
+            
+            <CollectionView ItemsSource="{Binding ArrivingFlights}" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="1">
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding DateTimeFlight}" Padding="5" MinimumWidthRequest="130"/>
+                            </Border>
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding ActiveAircraft.AircraftType}" Padding="5" MinimumWidthRequest="130"/>
+                            </Border>
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding ActiveAircraft.Name}" Padding="5" MinimumWidthRequest="130"/>
+                            </Border>
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding ArrivalGate.Name}" Padding="5" MinimumWidthRequest="130"/>
+                            </Border>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <CollectionView ItemsSource="{Binding DepartingFlights}" Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="4">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="1">
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding DateTimeFlight}" Padding="5" MinimumWidthRequest="130"/>
+                            </Border>
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding ActiveAircraft.AircraftType}" Padding="5" MinimumWidthRequest="130"/>
+                            </Border>
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding ActiveAircraft.Name}" Padding="5" MinimumWidthRequest="130"/>
+                            </Border>
+                            <Border BackgroundColor="LightGray" Opacity="0.5">
+                                <Label TextColor="Black" Text="{Binding DepartureGate.Name}" Padding="5" MinimumWidthRequest="130"/>
+                            </Border>
+                        </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
