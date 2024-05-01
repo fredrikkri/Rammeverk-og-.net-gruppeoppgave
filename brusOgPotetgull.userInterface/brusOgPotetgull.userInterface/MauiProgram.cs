@@ -1,9 +1,11 @@
 ﻿using brusOgPotetgull.userInterface.Services;
 using brusOgPotetgull.userInterface.ViewModel;
 using brusOgPotetgull.userInterface.Views;
+using brusOgPotetgull.userInterface.Popups;
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui;
+using Microsoft.Maui.LifecycleEvents;
 
 namespace brusOgPotetgull.userInterface
 {
@@ -27,10 +29,9 @@ namespace brusOgPotetgull.userInterface
             builder.Services.AddSingleton<MyAirport>();
 
             builder.Services.AddTransient<MainModel>();
-            builder.Services.AddTransient<AirportControlModel>();
+            builder.Services.AddSingleton<AirportControlModel>();
             builder.Services.AddSingleton<MyAirportModel>();
 
-            builder.Services.AddTransientPopup<RunwayPopup, AirportControlModel>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

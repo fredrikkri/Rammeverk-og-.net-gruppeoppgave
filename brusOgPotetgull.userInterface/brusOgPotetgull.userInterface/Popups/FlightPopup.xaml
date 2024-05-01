@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel" 
+               x:Class="brusOgPotetgull.userInterface.Popups.FlightPopup"
+               Size="500,700">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label Text="Setup a flight" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+        <Picker BackgroundColor="White" Title="Select Flight Type" ItemsSource="{Binding FlightTypeOptions}" SelectedItem="{Binding FlightTypeSelector, Mode=TwoWay}" />
+        <Picker BackgroundColor="White" Title="Select Aircraft" ItemsSource="{Binding Aircrafts}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedAircraft, Mode=TwoWay}"/>
+        <HorizontalStackLayout Spacing="10">
+            <DatePicker BackgroundColor="White" Date="{Binding SelectedDate, Mode=TwoWay}"/>
+            <TimePicker BackgroundColor="White" Time="{Binding SelectedTime, Mode=TwoWay}"/>
+        </HorizontalStackLayout>
+        <Label Text="Flight length:" TextColor="Black"/>
+        <Entry Text="{Binding FlightLength}" Placeholder="Enter Length"/>
+        <Picker Title="Choose a gate" BackgroundColor="White" ItemsSource="{Binding Gates}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedGate, Mode=TwoWay}"/>
+        <Picker Title="Choose a runway" BackgroundColor="White" ItemsSource="{Binding Runways}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedGate, Mode=TwoWay}"/>
+        <Picker Title="Choose a taxiway" BackgroundColor="White" ItemsSource="{Binding Taxiways}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTaxiway, Mode=TwoWay}"/>
+        <HorizontalStackLayout
+            Spacing="10">
+            <Button Text="Add Flight" Command="{Binding AddFlightCommand}" />
+            <Button Text="Close" Command="{Binding CloseFlightPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</toolkit:Popup>
