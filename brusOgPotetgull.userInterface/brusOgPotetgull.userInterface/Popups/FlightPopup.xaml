@@ -17,7 +17,7 @@
         <Label Text="Flight length:" TextColor="Black"/>
         <Entry Text="{Binding FlightLength}" Placeholder="Enter Length"/>
         <Picker Title="Choose a gate" BackgroundColor="White" ItemsSource="{Binding Gates}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedGate, Mode=TwoWay}"/>
-        <Picker Title="Choose a runway" BackgroundColor="White" ItemsSource="{Binding Runways}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedGate, Mode=TwoWay}"/>
+        <Picker Title="Choose a runway" BackgroundColor="White" ItemsSource="{Binding Runways}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedRunway, Mode=TwoWay}"/>
         <Picker Title="Choose a taxiway" BackgroundColor="White" ItemsSource="{Binding Taxiways}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTaxiway, Mode=TwoWay}"/>
         <HorizontalStackLayout
             Spacing="10">
