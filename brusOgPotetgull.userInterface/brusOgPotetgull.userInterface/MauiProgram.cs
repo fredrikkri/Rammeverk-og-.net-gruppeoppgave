@@ -31,8 +31,7 @@ namespace brusOgPotetgull.userInterface
             builder.Services.AddTransient<MainModel>();
             builder.Services.AddSingleton<AirportControlModel>();
             builder.Services.AddSingleton<MyAirportModel>();
-            builder.Services.AddSingleton<Simulation>();
-            builder.Services.AddSingleton<SimulationModel>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
