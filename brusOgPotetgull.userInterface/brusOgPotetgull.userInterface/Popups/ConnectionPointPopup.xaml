@@ -1,18 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel" 
-               x:Class="brusOgPotetgull.userInterface.Popups.AircraftTypePopup"
+               x:Class="brusOgPotetgull.userInterface.Popups.ConnectionPointPopup"
                Size="400,200">
-    
+
     <VerticalStackLayout Padding="20" Spacing="20">
-        <Label Text="Aircraft Type" TextColor="Black" FontAttributes="Bold"/>
-        <Entry Text="{Binding AircraftTypeName}" Placeholder="Enter name"/>
+        <Label Text="Name" TextColor="Black" FontAttributes="Bold"/>
+        <Entry Text="{Binding ConnectionPointName}" Placeholder="Enter name"/>
         <HorizontalStackLayout
             Spacing="10">
-            <Button Text="Add AircraftType" Command="{Binding AddAircraftTypeCommand}" />
-            <Button Text="Close" Command="{Binding CloseAircraftTypePopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
+            <Button Text="Add Crossroad" Command="{Binding AddConnectionPointCommand}" />
+            <Button Text="Close" Command="{Binding CloseConnectionPointPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>

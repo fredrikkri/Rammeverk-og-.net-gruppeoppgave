@@ -4,22 +4,24 @@
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"            
                x:Class="brusOgPotetgull.userInterface.Popups.TaxiwayPopup"
-               Size="400,200">
+               Size="350,270">
 
     <VerticalStackLayout Padding="20" Spacing="20">
-        <HorizontalStackLayout Spacing="110">
-            <Label Text="Name" TextColor="Black" FontAttributes="Bold"/>
-            <Label Text="Length (Meters)" TextColor="Black" FontAttributes="Bold"/>
-            <Label Text="Max Speed (kph)" TextColor="Black" FontAttributes="Bold"/>
+        <HorizontalStackLayout Spacing="50">
+            <VerticalStackLayout Spacing="30" Margin="0,15,0,0">
+                <Label Text="Name" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Length (Meters)" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Max Speed (kph)" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="10">
+                <Entry Text="{Binding TaxiwayName}" Placeholder="Enter name"/>
+                <Entry Text="{Binding TaxiwayLength}" Placeholder="Enter length in meters"/>
+                <Entry Text="{Binding TaxiwaySpeed}" Placeholder="Enter speed in kph"/>
+            </VerticalStackLayout>
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Entry Text="{Binding TaxiwayName}" Placeholder="Enter name"/>
-            <Entry Text="{Binding TaxiwayLength}" Placeholder="Enter length in meters"/>
-            <Entry Text="{Binding TaxiwaySpeed}" Placeholder="Enter speed in kph"/>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
             <Button Text="Add Taxiway" Command="{Binding AddTaxiwayCommand}" />
-            <Button Text="X" Command="{Binding CloseTaxiwayPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
+            <Button Text="Close" Command="{Binding CloseTaxiwayPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>
