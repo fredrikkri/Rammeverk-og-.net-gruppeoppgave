@@ -118,9 +118,8 @@ namespace BrusOgPotetgull.AirportLiberary
             Console.Write($"\n\n\tHistory for aircraft: '{Name}' and id: '{TailNumber}'\n\tTimespace: '{DayToCheckStart}' - '{DayToCheckEnd}'.\n\n");
             foreach (KeyValuePair<DateTime, string> line in history)
                 if (DayToCheckStart <= line.Key && line.Key <= DayToCheckEnd)
-                    Console.WriteLine($"Time: {line.Key}, {line.Value}");
+                    Console.WriteLine($"Time: {line.Key}, {line.Value}");                  
         }
-
 
         /// <summary>
         /// Changes the variable 'bool outOfService' from false to true, but only if the status already is set to 'false'. 
@@ -143,6 +142,5 @@ namespace BrusOgPotetgull.AirportLiberary
 
             OutOfService = false;
         }
-       
     }
 }

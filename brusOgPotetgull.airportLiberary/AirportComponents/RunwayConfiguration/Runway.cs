@@ -177,6 +177,17 @@ namespace BrusOgPotetgull.AirportLiberary
     
 
         /// <summary>
+        /// Method to trigger the event FlightArrived
+        /// </summary>
+        /// <param name="flight">The flight which triggers the event</param>
+        /// <param name="time">Time of the event</param>
+        /// <param name="message">Message of what occured at the time of the event</param>
+        protected virtual void RaiseFlightArrived(Flight.Arriving flight, DateTime time, string message)
+        {
+            FlightArrived?.Invoke(this, new ArrivingEventArgs(flight, time, message));
+        }
+
+        /// <summary>
         /// Method to trigger the event FlightDeparted
         /// </summary>
         /// <param name="flight">The flight which triggers the event</param>

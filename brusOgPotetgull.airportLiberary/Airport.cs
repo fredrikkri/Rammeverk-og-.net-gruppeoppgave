@@ -132,11 +132,6 @@ namespace BrusOgPotetgull.AirportLiberary
                 $"\nName: {Name}\n";
         }
 
-        /// <summary>
-        /// Returns Id and airport-code for the current airport as a string.
-        /// </summary>
-        /// <returns>AirportId and AirportCode combined into a string</returns>
-        private string GetIdAndAirportCode() => (string)(AirportId + " " + AirportCode);
 
         /// <summary>
         /// Returns a list of all the gates at this airport.
@@ -211,12 +206,6 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         /// <returns>A list of runways at this airport</returns>
         public List<Runway> GetRunwayList() => listRunway;
-
-        /// <summary>
-        /// Gets the taxiway system at this airport. This is a list of connection points between taxiways.
-        /// </summary>
-        /// <returns>A List of connection points.</returns>
-        private List<ConnectionPoint> GetTaxiwaySystem() => taxiwaySystem;
 
         /// <summary>
         /// Prints out the information about the taxiwaysystem (All the connected components).
@@ -680,5 +669,17 @@ namespace BrusOgPotetgull.AirportLiberary
             }
             return null;
         }
+
+        /// <summary>
+        /// Returns Id and airport-code for the current airport as a string.
+        /// </summary>
+        /// <returns>AirportId and AirportCode combined into a string</returns>
+        private string GetIdAndAirportCode() => (string)(AirportId + " " + AirportCode);
+
+        /// <summary>
+        /// Gets the taxiway system at this airport. This is a list of connection points between taxiways.
+        /// </summary>
+        /// <returns>A List of connection points.</returns>
+        private List<ConnectionPoint> GetTaxiwaySystem() => taxiwaySystem;
     }
 }
