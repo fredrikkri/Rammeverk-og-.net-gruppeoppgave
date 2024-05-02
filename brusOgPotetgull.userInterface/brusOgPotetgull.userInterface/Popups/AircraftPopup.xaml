@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel" 
+               x:Class="brusOgPotetgull.userInterface.Popups.AircraftPopup"
+               Size="400,500">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <HorizontalStackLayout Spacing="20">
+            <VerticalStackLayout Spacing="30">
+                <Label Text="Aircraft Name" TextColor="Black"/>
+                <Label Text="" TextColor="Black"/>
+                <Label Text="Max Speed (Air)" TextColor="Black"/>
+                <Label Text="Acceleration (Air)" TextColor="Black"/>
+                <Label Text="Max Speed (Ground)" TextColor="Black"/>
+                <Label Text="Acceleration (Ground)" TextColor="Black"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Entry Placeholder="Name" Text="{Binding AircraftName}" />
+                <Picker Title="Select Aircraft Type" ItemsSource="{Binding AircraftTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedAircraftType}" BackgroundColor="White" />
+                <Entry Placeholder="Max Speed Air" Keyboard="Numeric" Text="{Binding MaxSpeedAir, Mode=TwoWay}" />
+                <Entry Placeholder="Acceleration Air" Keyboard="Numeric" Text="{Binding AccelerationAir, Mode=TwoWay}" />
+                <Entry Placeholder="Max Speed Ground" Keyboard="Numeric" Text="{Binding MaxSpeedGround, Mode=TwoWay}" />
+                <Entry Placeholder="Acceleration Ground" Keyboard="Numeric" Text="{Binding AccelerationGround, Mode=TwoWay}" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout
+            Spacing="10">
+            <Button Text="Add AircraftType" Command="{Binding AddAircraftCommand}" />
+            <Button Text="Close" Command="{Binding CloseAircraftPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</toolkit:Popup>

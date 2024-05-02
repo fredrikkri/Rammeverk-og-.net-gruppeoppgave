@@ -46,11 +46,10 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\*" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -60,39 +59,59 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="NewFolder1\**" />
-	  <AndroidResource Remove="NewFolder2\**" />
-	  <Compile Remove="NewFolder1\**" />
-	  <Compile Remove="NewFolder2\**" />
-	  <EmbeddedResource Remove="NewFolder1\**" />
-	  <EmbeddedResource Remove="NewFolder2\**" />
-	  <MauiCss Remove="NewFolder1\**" />
-	  <MauiCss Remove="NewFolder2\**" />
-	  <MauiXaml Remove="NewFolder1\**" />
-	  <MauiXaml Remove="NewFolder2\**" />
-	  <None Remove="NewFolder1\**" />
-	  <None Remove="NewFolder2\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="brusOgPotetgull.airportLiberaryTest" Version="1.0.3" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui.Core" Version="8.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.20" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.20" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Popups\AircraftTypePopup.xaml.cs">
+	    <DependentUpon>AircraftTypePopup.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Popups\TaxiwayPopup.xaml.cs">
+	    <DependentUpon>TaxiwayPopup.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Popups\TerminalPopup.xaml.cs">
+	    <DependentUpon>TerminalPopup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\AirportControlpanel.xaml.cs">
 	    <DependentUpon>AirportControlpanel.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Popups\AircraftPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\AircraftTypePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\ConnectionPointPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\FlightPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\GatePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\TaxiwayPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\TerminalPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AirportControlpanel.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MyAirport.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\RunwayPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
