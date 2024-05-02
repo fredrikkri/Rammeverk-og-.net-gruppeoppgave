@@ -3,19 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="brusOgPotetgull.userInterface.Views.AirportControlpanel"
              xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"
-             x:DataType="viewmodel:AirportControlModel">
+             x:DataType="viewmodel:AirportControlModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
     
     <Grid
-        RowDefinitions="50, 20, 50, 50"
-        ColumnDefinitions="130, 150, 150, 150"
+        RowDefinitions="50, 30, 50, 50, 30, 50, 50, 50, 50"
+        ColumnDefinitions="150, 150, 150, 150"
         Padding="10"
-        RowSpacing="5"
-        ColumnSpacing="10"
+        RowSpacing="15"
+        ColumnSpacing="15"
+        HorizontalOptions="Center"
         >
         <Image Source="background4.jpg"
                 HeightRequest="185"
                 Aspect="Fill"
-                AnchorX="0.015"
+                AnchorX="0.4"
                 AnchorY="-0.05"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Fill"
@@ -23,9 +25,11 @@
                 ScaleX="12"/>
         <Border
             Grid.ColumnSpan="2"
-            BackgroundColor="LightCyan"
-            Grid.Column="1"
+            BackgroundColor="LightGreen"
+            Grid.Column="1"         
             >
+            <Border.StrokeThickness>4</Border.StrokeThickness>
+            <Border.Stroke>Black</Border.Stroke>
             <Label 
                 Text="Airport Configuration"
                 TextColor="Black"
@@ -33,79 +37,191 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold"
+                TextTransform="Uppercase"
+                FontFamily=""
                 />
         </Border>
-
+        
+<!-- ######################################## TERMINALS ######################################## -->
+        <BoxView
+            Grid.Column="0"
+            Grid.Row="1"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
-            Text="Terminalname"
+            Text="Terminals"
             HorizontalOptions="Center"
             Grid.Column="0"
             Grid.Row="1"
+            FontAttributes="Bold"
+            Margin="0,5,0,0"
             />
-        <Entry
-            Text="{Binding TerminalName}"
-            Placeholder="Terminal 1"
-            Grid.Column="0"
-            Grid.Row="2"/>
         <Button
             Text="Add Terminal"
-            Command="{Binding AddTerminalCommand}"
+            Command="{Binding ShowTerminalPopupCommand}"
             Grid.Column="0"
-            Grid.Row="3"
+            Grid.Row="2"
             FontSize="14"
             />
-
+        
+<!-- ######################################## GATES ######################################## -->
+        <BoxView
+            Grid.Column="1"
+            Grid.Row="1"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
-            Text="Gatename"
+            Text="Gates"
             HorizontalOptions="Center"
             Grid.Column="1"
-            Grid.Row="1"/>
-        <Entry
-            Text="{Binding GateName}"
-            Placeholder="Gate 1"
-            Grid.Column="1"
-            Grid.Row="2"/>
+            Grid.Row="1"
+            FontAttributes="Bold"
+            Margin="0,5,0,0"
+            />
         <Button
             Text="Add Gate"
-            Command="{Binding AddGateCommand}"
+            Command="{Binding ShowGatePopupCommand}"
             Grid.Column="1"
-            Grid.Row="3"
+            Grid.Row="2"
             FontSize="14"
             />
 
+<!-- ######################################## TAXIWAYS ######################################## -->
+        <BoxView
+            Grid.Column="2"
+            Grid.Row="1"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
-            Text="Taxiwayname"
+            Text="Taxiways"            
             HorizontalOptions="Center"
             Grid.Column="2"
             Grid.Row="1"
+            FontAttributes="Bold"
+            Margin="0,5,0,0"
             />
-        <Entry
-            Placeholder="Tawiway 1"
-            Grid.Column="2"
-            Grid.Row="2"/>
         <Button
             Text="Add Taxiway"
+            Command="{Binding ShowTaxiwayPopupCommand}"
             Grid.Column="2"
-            Grid.Row="3"
+            Grid.Row="2"
             FontSize="14"
             />
-
+        <Button
+            Text="Add Connected Gate"
+            Command="{Binding ShowTaxiwayPopupCommand}"
+            Grid.Column="2"
+            Grid.Row="3"
+            FontSize="12"
+            />
+<!-- ######################################## RUNWAYS ######################################## -->
+        <BoxView
+            Grid.Column="3"
+            Grid.Row="1"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
         <Label
-            Text="Runwayname"
+            Text="Runways"
             HorizontalOptions="Center"
             Grid.Column="3"
             Grid.Row="1"
+            FontAttributes="Bold"
+            Margin="0,5,0,0"            
             />
-        <Entry
-            Placeholder="Runway 1"
-            Grid.Column="3"
-            Grid.Row="2"/>
         <Button
             Text="Add Runway"
+            Command="{Binding ShowRunwayPopupCommand}"
             Grid.Column="3"
-            Grid.Row="3"
+            Grid.Row="2"
             FontSize="14"
             />
+<!-- ######################################## AIRCRAFTS ######################################## -->
+        <BoxView
+            Grid.Column="0"
+            Grid.Row="4"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
+        <Label
+            Text="Aircrafts"
+            HorizontalOptions="Center"
+            Grid.Column="0"
+            Grid.Row="4"
+            FontAttributes="Bold"
+            Margin="0,5,0,0"
+            />
+        <Button
+            Text="Add Aircraft type"
+            Command="{Binding ShowAircraftTypePopupCommand}"
+            Grid.Column="0"
+            Grid.Row="5"
+            FontSize="14"
+            />
+        <Button
+        Text="Add Aircraft"
+        Command="{Binding ShowAircraftPopupCommand}"
+        Grid.Column="0"
+        Grid.Row="6"
+        FontSize="14"
+        />
+        
+<!-- ######################################## FLIGHTS ######################################## -->
+        <BoxView
+            Grid.Column="1"
+            Grid.Row="4"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
+        <Label
+            Text="Flights"
+            HorizontalOptions="Center"
+            Grid.Column="1"
+            Grid.Row="4"
+            FontAttributes="Bold"
+            Margin="0,5,0,0"            
+            />
+        <Button
+        Text="Add Flight"
+        Command="{Binding ShowFlightPopupCommand}"
+        Grid.Column="1"
+        Grid.Row="5"
+        FontSize="14"
+        />
+<!-- ######################################## ROAD SYSTEM ######################################## -->
+
+        <BoxView
+            Grid.Column="2"
+            Grid.Row="4"
+            BackgroundColor="Black"
+            Opacity="0.7"
+            CornerRadius="5">
+        </BoxView>
+        <Label
+            Text="RoadSystem"
+            HorizontalOptions="Center"
+            Grid.Column="2"
+            Grid.Row="4"
+            FontAttributes="Bold"
+            Margin="0,5,0,0"            
+            />
+        <Button
+        Text="Add Crossroad"
+        Command="{Binding ShowConnectionPointPopupCommand}"
+        Grid.Column="2"
+        Grid.Row="5"
+        FontSize="14"
+        />
+
     </Grid>
     
 </ContentPage>

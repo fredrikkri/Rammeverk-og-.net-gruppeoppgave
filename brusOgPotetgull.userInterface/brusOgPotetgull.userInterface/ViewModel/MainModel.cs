@@ -26,16 +26,22 @@ namespace brusOgPotetgull.userInterface.ViewModel
         [RelayCommand]
         void CreateAirport()
         {
-            _airportService.CurrentAirport = new Airport(Code, Name, Location);
-            Code = string.Empty;
-            Name = string.Empty;
-            Location = string.Empty;
-
+            if (string.IsNullOrEmpty(Code) || string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Location))
+            {
+                return;
+            }
+            else 
+            {
+                _airportService.CurrentAirport = new Airport(Code, Name, Location);
+                Code = string.Empty;
+                Name = string.Empty;
+                Location = string.Empty;
+            }
             OnPropertyChanged(nameof(CurrentAirportDisplay));
         }
 
         public string CurrentAirportDisplay => _airportService.CurrentAirport != null
-            ? $"Current Airport: {_airportService.CurrentAirport.Name} at {_airportService.CurrentAirport.Location}"
+            ? $"Current Airport: {_airportService.CurrentAirport.Name} at {_airportService.CurrentAirport.Location} ({_airportService.CurrentAirport.AirportCode})"
             : "No airport selected";
     }
 }
