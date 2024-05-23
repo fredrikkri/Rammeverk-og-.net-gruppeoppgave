@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"            
+               x:Class="brusOgPotetgull.userInterface.Popups.GateConnectionPopup"
+               Size="400,200">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <HorizontalStackLayout Spacing="110">
+            <Label Text="Gate" TextColor="Black" FontAttributes="Bold"/>
+            <Label Text="Taxiway" TextColor="Black" FontAttributes="Bold"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="35">
+            <Picker Title="Choose a gate" BackgroundColor="White" ItemsSource="{Binding Gates}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedGate, Mode=TwoWay}"/>
+            <Picker Title="Choose a taxiway" BackgroundColor="White" ItemsSource="{Binding Taxiways}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTaxiway, Mode=TwoWay}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Add Connection" Command="{Binding AddGateConnectionCommand}" />
+            <Button Text="Close" Command="{Binding CloseGateConnectionPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18" WidthRequest="40" HeightRequest="40"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</toolkit:Popup>

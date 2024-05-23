@@ -21,6 +21,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private AircraftPopup aircraftPopup;
         private ConnectionPointPopup connectionPointPopup;
         private FlightPopup flightPopup;
+        private GateConnectionPopup gateConnectionPopup;
         private bool isTerminalPopupOpen;
         private bool isGatePopupOpen;
         private bool isRunwayPopupOpen;
@@ -29,7 +30,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private bool isAircraftPopupOpen;
         private bool isConnectionPointPopupOpen;
         private bool isFlightPopupOpen;
-
+        private bool isGateConnectionPopupOpen;
 
         [ObservableProperty]
         private Airport airport;
@@ -141,7 +142,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             selectedTime = DateTime.Now.TimeOfDay;
         }
 
-        //              @@@@@@@@@@@  RUNWAYS  @@@@@@@@@@@
+        //              @@@@@@@@@@@  RUNWAYS  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         [RelayCommand]
         private void ShowRunwayPopup()
         {
@@ -175,7 +176,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             CloseRunwayPopup();
         }
 
-//              @@@@@@@@@@@  GATES  @@@@@@@@@@@
+//              @@@@@@@@@@@  GATES  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
         private void ShowGatePopup()
@@ -223,7 +224,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-//              @@@@@@@@@@@  TERMINALS  @@@@@@@@@@@
+//              @@@@@@@@@@@  TERMINALS  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
         private void AddTerminal()
@@ -260,7 +261,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-        //              @@@@@@@@@@@  TAXIWAYS  @@@@@@@@@@@
+        //              @@@@@@@@@@@  TAXIWAYS  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
         private void AddTaxiway()
@@ -298,7 +299,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-        //              @@@@@@@@@@@  CONNECTION POINT / X ROAD  @@@@@@@@@@@
+        //              @@@@@@@@@@@  CONNECTION POINT   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
         private void AddConnectionPoint()
@@ -335,7 +336,36 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-        //              @@@@@@@@@@@  AIRCRAFTS  @@@@@@@@@@@
+        [RelayCommand]
+        private void AddGateConnection()
+        {
+            SelectedTaxiway.AddConnectedGate(SelectedGate);
+            SelectedTaxiway = null;
+            SelectedGate = null;
+        }
+
+        [RelayCommand]
+        private void ShowGateConnectionPopup()
+        {
+            Debug.WriteLine("Attempting to show GateConnection popup");
+            if (gateConnectionPopup == null)
+            {
+                gateConnectionPopup = new GateConnectionPopup(this);
+            }
+            Shell.Current.ShowPopup(gateConnectionPopup);
+            isGateConnectionPopupOpen = true;
+        }
+
+        [RelayCommand]
+        private void CloseGateConnectionPopup()
+        {
+            if (gateConnectionPopup != null && isGateConnectionPopupOpen)
+            {
+                gateConnectionPopup.Close();
+                isGateConnectionPopupOpen = false;
+            }
+        }
+        //              @@@@@@@@@@@  AIRCRAFTS  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
         private void AddAircraftType()
@@ -417,7 +447,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-        // @@@@@@@@@@@@@@@@@@@@@@@ FLIGHTS @@@@@@@@@@@@@@@@@@@@@@@@@@@
+        // @@@@@@@@@@@@@@@@@@@@@@@ FLIGHTS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
         private void AddFlight()
