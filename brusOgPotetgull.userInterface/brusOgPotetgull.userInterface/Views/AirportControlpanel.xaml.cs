@@ -5,7 +5,7 @@ using BrusOgPotetgull.AirportLiberary;
 
 namespace brusOgPotetgull.userInterface.Views
 {
-    public partial class AirportControlpanel : ContentPage
+        public partial class AirportControlpanel : ContentPage
     {
         public AirportControlpanel(AirportControlModel vm)
         {

@@ -1,5 +1,6 @@
 ﻿using BrusOgPotetgull.AirportLiberary.CustomExceptions;
 using BrusOgPotetgull.AirportLiberary.AircraftTypes;
+using System.Text;
 
 namespace BrusOgPotetgull.AirportLiberary
 {
@@ -99,10 +100,21 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public void PrintFullAircraftHistory()
         {
-            Console.Write($"\n\n\tHistory for aircraft whith id: '{this.TailNumber}' and model: '{this.Name}'\n");
+            Console.Write($"\n\n\tHistory for aircraft with id: '{TailNumber}' and model: '{Name}'\n");
             // (Nagel, 2022, s. 216)
             foreach ( var line in history)
                 Console.WriteLine($"{line.Key}, {line.Value}");
+        }
+
+        public string GetFullAircraftHistory()
+        {
+            StringBuilder historyText = new();
+            historyText.AppendLine($"\nHistory for aircraft with id: '{TailNumber}' and model: '{Name}':\n");
+            foreach (var entry in history)
+            {
+                historyText.AppendLine($"{entry.Key.ToString("yyyy-MM-dd HH:mm:ss")}: {entry.Value}");
+            }
+            return historyText.ToString();
         }
 
         /// <summary>
