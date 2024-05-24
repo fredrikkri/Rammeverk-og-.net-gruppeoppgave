@@ -1,6 +1,8 @@
 ﻿using brusOgPotetgull.userInterface.Services;
 using BrusOgPotetgull.AirportLiberary;
+using BrusOgPotetgull.AirportLiberary.Simulation;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,6 +40,21 @@ namespace brusOgPotetgull.userInterface.ViewModel
         [ObservableProperty]
         private ObservableCollection<ConnectionPoint> connectionPoints = [];
 
+        [ObservableProperty]
+        private bool frameVisible = false;
+
+        [ObservableProperty]
+        DateTime startDate;
+
+        [ObservableProperty]
+        TimeSpan startTime;
+
+        [ObservableProperty]
+        DateTime endDate;
+
+        [ObservableProperty]
+        TimeSpan endTime;
+
         public SimulationModel(IAirportService airportService)
         {
             _airportService = airportService;
@@ -64,6 +81,22 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 ConnectionPoints = [];
             }
         }
+
+        [RelayCommand]
+        private async Task RunSimulation() 
+        {
+            if (Airport != null && SimulationStart < SimulationEnd)
+            {
+                Simulation sim = new(Airport, SimulationStart, SimulationEnd);
+                sim.RunSimulation();
+                await _airportService.ShowNotificationAsync("Notification", "Running simulation", "Ok");
+            }
+            else
+            {
+                await _airportService.ShowNotificationAsync("Alert", "Missing params. Start must come before end and airport must be selected and configured", "Ok");
+                return;
+            }
+        }
         public void LoadData()
         {
             if (_airportService.CurrentAirport == null) { return; }
@@ -78,6 +111,24 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(_airportService.CurrentAirport.GetTaxiwaySystem());
             }
         }
+
+        public DateTime SimulationStart => new (
+            StartDate.Year,
+            StartDate.Month,
+            StartDate.Day,
+            StartTime.Hours,
+            StartTime.Minutes,
+            StartTime.Seconds
+        );
+
+        public DateTime SimulationEnd => new (
+            StartDate.Year,
+            StartDate.Month,
+            StartDate.Day,
+            StartTime.Hours,
+            StartTime.Minutes,
+            StartTime.Seconds
+        );
 
     }
 }

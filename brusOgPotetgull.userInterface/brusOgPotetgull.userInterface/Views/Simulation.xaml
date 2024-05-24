@@ -3,10 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="brusOgPotetgull.userInterface.Views.Simulation"
              Title="Simulation">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout BackgroundColor="LightCyan" Padding="0,10,0,0">
+        <Label
+            Text="Simulate Airport" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+        <HorizontalStackLayout>
+            <Label
+                Text="Start"
+                TextColor="Black"
+                Margin="430,0,0,0"/>
+            <Label
+                Text="End"
+                TextColor="Black"
+                Margin="363,0,0,0"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <VerticalStackLayout Spacing="0" Margin="326,0,0,0">
+                <DatePicker Scale="0.8" Margin="65,0,0,0" BackgroundColor="White" Date="{Binding StartDate, Mode=TwoWay}"/>
+                <TimePicker Scale="0.8" FontSize="12" FontAutoScalingEnabled="True" BackgroundColor="White" Time="{Binding StartTime, Mode=TwoWay}"/>
+            </VerticalStackLayout>
+            <Button Text="Run" Scale="0.6" Command="{Binding RunSimulationCommand}"/>
+            <VerticalStackLayout Spacing="0">
+                <DatePicker Scale="0.8" Margin="65,0,0,0" BackgroundColor="White" Date="{Binding StartDate, Mode=TwoWay}"/>
+                <TimePicker Scale="0.8" FontSize="12" FontAutoScalingEnabled="True" BackgroundColor="White" Time="{Binding StartTime, Mode=TwoWay}"/>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <Frame
+                CornerRadius="8"
+                Opacity="0.7"
+                Margin="150,20,150,0"
+                >
+                <Label
+                    Text=""
+                    TextColor="Black"
+                    FontSize="12"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>

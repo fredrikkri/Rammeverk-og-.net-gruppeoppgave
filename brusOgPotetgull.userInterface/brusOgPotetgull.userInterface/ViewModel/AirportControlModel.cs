@@ -558,7 +558,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-        public DateTime FlightDate => new DateTime(
+        public DateTime FlightDate => new (
             SelectedDate.Year,
             SelectedDate.Month,
             SelectedDate.Day,
