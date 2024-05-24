@@ -39,7 +39,14 @@ namespace BrusOgPotetgull.AirportLiberary
             airport.AddTaxiwayToList(this);
         }
 
+        /// <summary>
+        /// Gets the length of the Taxiway
+        /// </summary>
         public int Length { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int Id { get; private set; }
         public string Name { get; private set; }
         public int MaxSpeed { get; private set; }

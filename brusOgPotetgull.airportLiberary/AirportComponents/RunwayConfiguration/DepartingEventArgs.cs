@@ -5,8 +5,19 @@
 /// </summary>
 public class DepartingEventArgs : EventArgs
 {
+    /// <summary>
+    /// Gets the departing flight details.
+    /// </summary>
     public Flight.Departing Flight { get; private set; }
+
+    /// <summary>
+    /// Gets the time associated with the event.
+    /// </summary>
     public DateTime Time { get; private set; }
+
+    /// <summary>
+    /// Gets the message related to the event.
+    /// </summary>
     public string Message { get; private set; }
 
     /// <summary>
