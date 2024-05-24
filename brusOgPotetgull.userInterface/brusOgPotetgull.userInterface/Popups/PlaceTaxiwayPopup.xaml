@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="brusOgPotetgull.userInterface.Popups.PlaceTaxiwayPopup"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:brusOgPotetgull.userInterface.ViewModel"
+             Size="400,300">
+    
+    <VerticalStackLayout Padding="10">
+        <Picker MaximumWidthRequest="250" Title="Select Taxiway" ItemsSource="{Binding Taxiways}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTaxiway}" BackgroundColor="White" />
+        <Picker MaximumWidthRequest="250" Title="Select Connectionpoint A" ItemsSource="{Binding ConnectionPoints}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedConnectionPointA}" BackgroundColor="White" />
+        <Picker MaximumWidthRequest="250" Title="Select Connectionpoint B" ItemsSource="{Binding ConnectionPoints}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedConnectionPointB}" BackgroundColor="White" />
+        <HorizontalStackLayout
+            Spacing="10"
+            Margin="0,30,0,0">
+            <Button Text="Add AircraftType" Command="{Binding PlaceTaxiwayCommand}" />
+            <Button Text="Close" Command="{Binding ClosePlaceTaxiwayPopupCommand}" BackgroundColor="Red" TextColor="White" FontSize="18"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+    
+</toolkit:Popup>

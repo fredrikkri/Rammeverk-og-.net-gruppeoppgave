@@ -23,5 +23,11 @@
             ContentTemplate="{DataTemplate views:MyAirport}"
             Route="MyAirport" />
 
+        <ShellContent
+            Title="Simulation"
+            ContentTemplate="{DataTemplate views:Simulation}"
+            Route="Simulation"
+            />
+
     </TabBar>
 </Shell>

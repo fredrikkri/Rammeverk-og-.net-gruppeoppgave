@@ -65,12 +65,12 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
             else
             {
-                Runways = new ObservableCollection<Runway>();
-                Gates = new ObservableCollection<Gate>();
-                Terminals = new ObservableCollection<Terminal>();
-                Taxiways = new ObservableCollection<Taxiway>();
-                DepartingFlights = new ObservableCollection<Flight>();
-                ArrivingFlights = new ObservableCollection<Flight>();
+                Runways = [];
+                Gates = [];
+                Terminals = [];
+                Taxiways = [];
+                DepartingFlights = [];
+                ArrivingFlights = [];
             }
 
         }

@@ -135,8 +135,8 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
 
             // simulation
-            DateTime start = new(2024, 3, 5);
-            DateTime end = new(2024, 3, 1, 4, 00, 00);
+            DateTime start = new(2024, 3, 1);
+            DateTime end = new(2024, 3, 1, 1, 30, 00);
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
 
@@ -144,9 +144,11 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
             */
+            Console.WriteLine(mbappePlane.GetFullAircraftHistory());
 
+            /*
             // Printing history for aircrafts on a given day.
-            cargoCraft.PrintAircraftHistoryForDay(2024, 3, 1);
+             cargoCraft.PrintAircraftHistoryForDay(2024, 3, 1);
             superPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             sickPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             SR71.PrintAircraftHistoryForDay(2024, 3, 1);
@@ -156,12 +158,14 @@ namespace BrusOgPotetgull.Gruppeoppgave
             KakaPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             RonaldinhoPlane.PrintAircraftHistoryForDay(2024, 3, 1);
             mbappePlane.PrintAircraftHistoryForDay(2024, 3, 1);
-
+            
             heathrow.PrintAirportInformation();
 
             superPlane.PrintAircraftInformation();
             //heathrow.PrintTaxiwaySystem();
-            Console.WriteLine(flight7);
+            Console.WriteLine(flight7); 
+            
+             */
             System.Console.ReadLine();
         }
     }

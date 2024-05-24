@@ -27,6 +27,7 @@ namespace brusOgPotetgull.userInterface
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<AirportControlpanel>();
             builder.Services.AddSingleton<MyAirport>();
+            builder.Services.AddSingleton<Simulation>();
 
             builder.Services.AddTransient<MainModel>();
             builder.Services.AddSingleton<AirportControlModel>();
