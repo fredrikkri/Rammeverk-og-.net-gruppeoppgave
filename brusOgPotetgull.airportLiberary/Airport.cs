@@ -680,6 +680,6 @@ namespace BrusOgPotetgull.AirportLiberary
         /// Gets the taxiway system at this airport. This is a list of connection points between taxiways.
         /// </summary>
         /// <returns>A List of connection points.</returns>
-        private List<ConnectionPoint> GetTaxiwaySystem() => taxiwaySystem;
+        public List<ConnectionPoint> GetTaxiwaySystem() => taxiwaySystem;
     }
 }

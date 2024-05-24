@@ -166,14 +166,18 @@ namespace brusOgPotetgull.userInterface.ViewModel
         }
 
         [RelayCommand]
-        private void AddRunway()
+        private async Task AddRunway()
         {
-            Debug.WriteLine("Attempting to add runway");
+            if (string.IsNullOrWhiteSpace(RunwayName) || RunwayLength <= 0)
+            {
+                await _airportService.ShowNotificationAsync("Alert", "Needs name and value greater than 0 to add runway", "Ok");
+                return;
+            }
             Runway _ = new(RunwayName, RunwayLength, Airport);
-            RunwayName = string.Empty;
-            RunwayLength = 0;
             LoadControlData();
             CloseRunwayPopup();
+            await _airportService.ShowNotificationAsync("Notification", RunwayName + " has been added", "Ok");
+            ResetParams();
         }
 
 //              @@@@@@@@@@@  GATES  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -201,25 +205,25 @@ namespace brusOgPotetgull.userInterface.ViewModel
         }
 
         [RelayCommand]
-        private void AddGate()
+        private async Task AddGate()
         {
             if (string.IsNullOrWhiteSpace(GateName))
             {
+                await _airportService.ShowNotificationAsync("Alert", "Missing Gatename", "Ok");
                 return;
             }
             Gate gate = new Gate(GateName, Airport);
             if (gate != null || SelectedTerminal != null) 
             {
-                GateName = string.Empty;
                 SelectedTerminal.AddGateToList(gate);
-                SelectedTerminal = null;
                 LoadControlData();
                 CloseGatePopup();
+                await _airportService.ShowNotificationAsync("Notification", GateName + " has been added", "Ok");
+                ResetParams();
             }
             else
             {
-                SelectedTerminal = null;
-                Debug.WriteLine($"Gate is missing name or terminal");
+                await _airportService.ShowNotificationAsync("Alert", "Missing Terminal", "Ok");
                 return;
             }
         }
@@ -227,16 +231,19 @@ namespace brusOgPotetgull.userInterface.ViewModel
 //              @@@@@@@@@@@  TERMINALS  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
-        private void AddTerminal()
+        private async Task AddTerminal()
         {
             if (string.IsNullOrWhiteSpace(TerminalName))
             {
+                await _airportService.ShowNotificationAsync("Alert", "Terminal Name is missing", "Ok");
                 return;
             }
             Terminal terminal = new Terminal(TerminalName, Airport);
-            TerminalName = string.Empty;
             Terminals.Add(terminal);
             LoadControlData();
+            await _airportService.ShowNotificationAsync("Notification", TerminalName + " has been added", "Ok");
+            //ResetParams();
+            CloseTerminalPopup();
         }
 
         [RelayCommand]
@@ -264,17 +271,18 @@ namespace brusOgPotetgull.userInterface.ViewModel
         //              @@@@@@@@@@@  TAXIWAYS  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
-        private void AddTaxiway()
+        private async Task AddTaxiway()
         {
             if (string.IsNullOrWhiteSpace(TaxiwayName) || TaxiwayLength <= 0 || TaxiwaySpeed <= 0)
             {
+                await _airportService.ShowNotificationAsync("Alert", "Needs Name and values greater than 0 to add taxiway", "Ok");
                 return;
             }
             Taxiway taxiway = new Taxiway(TaxiwayName, TaxiwayLength, TaxiwaySpeed , Airport);
-            TaxiwayName = string.Empty;
-            TaxiwayLength = 0;
-            TaxiwaySpeed = 0;
             LoadControlData();
+            CloseTaxiwayPopup();
+            await _airportService.ShowNotificationAsync("Notification", TaxiwayName + " has been added", "Ok");
+            ResetParams();
         }
 
         [RelayCommand]
@@ -302,15 +310,18 @@ namespace brusOgPotetgull.userInterface.ViewModel
         //              @@@@@@@@@@@  CONNECTION POINT   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
-        private void AddConnectionPoint()
+        private async Task AddConnectionPoint()
         {
             if (string.IsNullOrWhiteSpace(ConnectionPointName))
             {
+                await _airportService.ShowNotificationAsync("Alert", "Missing Name", "Ok");
                 return;
             }
             ConnectionPoint connectionPoint = new(ConnectionPointName, Airport);
             Airport.AddConnectionPoint(connectionPoint);
-            ConnectionPointName = string.Empty;
+            await _airportService.ShowNotificationAsync("Notification", ConnectionPointName + " has been added", "Ok");
+            CloseConnectionPointPopup();
+            ResetParams();
             // Får ikke tilgang til listen med connectionpoints i airport (private)
         }
 
@@ -337,11 +348,20 @@ namespace brusOgPotetgull.userInterface.ViewModel
         }
 
         [RelayCommand]
-        private void AddGateConnection()
+        private async Task AddGateConnection()
         {
-            SelectedTaxiway.AddConnectedGate(SelectedGate);
-            SelectedTaxiway = null;
-            SelectedGate = null;
+            if (SelectedGate != null && SelectedTaxiway != null)
+            {
+                SelectedTaxiway.AddConnectedGate(SelectedGate);
+                CloseGateConnectionPopup();
+                await _airportService.ShowNotificationAsync("Notification", "Connection ( " + SelectedGate + " -> " + SelectedTaxiway + " ) has been added", "Ok");
+                ResetParams();
+            }
+            else 
+            {
+                await _airportService.ShowNotificationAsync("Alert", "Missing Gate or Taxiway", "Ok");
+                return; 
+            }
         }
 
         [RelayCommand]
@@ -365,18 +385,28 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 isGateConnectionPopupOpen = false;
             }
         }
+
+        [RelayCommand]
+        private async Task PlaceTaxiway() 
+        {
+            //Airport.GetTaxiwayssystem()
+            //Airport.AddTaxiwayConnection(taxiway, connnectionpoint, connectionpoint)
+        }
         //              @@@@@@@@@@@  AIRCRAFTS  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
-        private void AddAircraftType()
+        private async Task AddAircraftType()
         {
             if (string.IsNullOrWhiteSpace(AircraftTypeName))
             {
+                await _airportService.ShowNotificationAsync("Alert", "Missing Aircrafttype Name", "Ok");
                 return;
             }
             AircraftType aircraftType = new AircraftType(AircraftTypeName);
-            AircraftTypeName = string.Empty;
             AircraftTypes.Add(aircraftType);
+            await _airportService.ShowNotificationAsync("Notification", AircraftTypeName + " has been added", "Ok");
+            ResetParams();
+            CloseAircraftTypePopup();
         }
 
         [RelayCommand]
@@ -402,27 +432,19 @@ namespace brusOgPotetgull.userInterface.ViewModel
         }
 
         [RelayCommand]
-        private void AddAircraft()
+        private async Task AddAircraft()
         {
             if (string.IsNullOrWhiteSpace(AircraftName) || MaxSpeedAir <= 0 || MaxSpeedGround <= 0 || AccelerationGround < 0 || AccelerationAir < 0)
             {
-                Debug.WriteLine($"Missing input or invalid fields");
+                await _airportService.ShowNotificationAsync("Alert", "Needs Aircraft Name and Values greater than 0", "Ok");
                 return;
                 
             }
             Aircraft aircraft = new Aircraft(AircraftName, SelectedAircraftType, MaxSpeedAir, AccelerationAir, MaxSpeedGround, AccelerationGround);
             Aircrafts.Add(aircraft);
-            ResetAircraftFields();
-        }
-
-        private void ResetAircraftFields()
-        {
-            AircraftName = string.Empty;
-            SelectedAircraftType = null;
-            MaxSpeedAir = 0;
-            AccelerationAir = 0;
-            MaxSpeedGround = 0;
-            AccelerationGround = 0;
+            await _airportService.ShowNotificationAsync("Notification", AircraftName + " has been added", "Ok");
+            ResetParams();
+            CloseAircraftPopup();
         }
 
         [RelayCommand]
@@ -450,20 +472,25 @@ namespace brusOgPotetgull.userInterface.ViewModel
         // @@@@@@@@@@@@@@@@@@@@@@@ FLIGHTS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
         [RelayCommand]
-        private void AddFlight()
+        private async Task AddFlight()
         {
             if (FlightTypeSelector == "Arriving")
             {
                 Flight.Arriving flight = new(SelectedAircraft, FlightDate, FlightLength, Airport, SelectedGate, SelectedTaxiway, SelectedRunway);
+                await _airportService.ShowNotificationAsync("Notification", "Arriving flight with id " + flight.FlightId.ToString() + " added", "Ok");
+                ResetParams();
                 CloseFlightPopup();
             }
             else if (FlightTypeSelector == "Departing")
             {
                 Flight.Departing flight = new(SelectedAircraft, FlightDate, FlightLength, Airport, SelectedGate, SelectedTaxiway, SelectedRunway);
+                await _airportService.ShowNotificationAsync("Notification", "Departing flight with id " + flight.FlightId.ToString() + " added", "Ok");
+                ResetParams();
                 CloseFlightPopup();
             }
             else
             {
+                await _airportService.ShowNotificationAsync("Alert", "Missing Paramter", "Ok");
                 return;
             }
             
@@ -506,6 +533,32 @@ namespace brusOgPotetgull.userInterface.ViewModel
             Runways = new ObservableCollection<Runway>(_airportService.CurrentAirport.GetRunwayList());
             Terminals = new ObservableCollection<Terminal>(_airportService.CurrentAirport.GetListTerminals());
             Taxiways = new ObservableCollection<Taxiway>(_airportService.CurrentAirport.GetListTaxiways());
+        }
+        private void ResetParams() 
+        {
+            SelectedGate = null;
+            SelectedTaxiway = null;
+            SelectedRunway = null;
+            SelectedTerminal = null;
+            SelectedAircraft = null;
+            SelectedAircraftType = null;
+            AircraftTypeName = string.Empty;
+            
+            
+            
+            ConnectionPointName = string.Empty;
+            AircraftName = string.Empty;
+            MaxSpeedAir = 0;
+            AccelerationAir = 0;
+            MaxSpeedGround = 0;
+            AccelerationGround = 0;
+            TaxiwayName = string.Empty;
+            TaxiwayLength = 0;
+            TaxiwaySpeed = 0;
+            RunwayName = string.Empty;
+            RunwayLength = 0;
+            GateName = string.Empty;
+            TerminalName = string.Empty;
         }
     }
 }

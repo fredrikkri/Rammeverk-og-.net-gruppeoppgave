@@ -6,5 +6,12 @@ namespace brusOgPotetgull.userInterface.Services
     {
         public Airport CurrentAirport { get; set; }
         public AirportService() { }
+        public async Task ShowNotificationAsync(string title, string message, string buttonText)
+        {
+            if (Shell.Current != null)
+            {
+                await Shell.Current.DisplayAlert(title, message, buttonText);
+            }
+        }
     }
 }

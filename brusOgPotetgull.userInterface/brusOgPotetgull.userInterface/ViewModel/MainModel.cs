@@ -36,6 +36,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 Code = string.Empty;
                 Name = string.Empty;
                 Location = string.Empty;
+
             }
             OnPropertyChanged(nameof(CurrentAirportDisplay));
         }
