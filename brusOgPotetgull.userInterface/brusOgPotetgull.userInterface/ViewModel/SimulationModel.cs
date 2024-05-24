@@ -1,5 +1,6 @@
 ﻿using brusOgPotetgull.userInterface.Services;
 using BrusOgPotetgull.AirportLiberary;
+using BrusOgPotetgull.AirportLiberary.AircraftTypes;
 using BrusOgPotetgull.AirportLiberary.Simulation;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -20,40 +21,52 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private Airport airport;
 
         [ObservableProperty]
-        private ObservableCollection<Gate> gates;
+        private ObservableCollection<Gate> gates = [];
 
         [ObservableProperty]
-        private ObservableCollection<Runway> runways;
+        private ObservableCollection<Runway> runways = [];
 
         [ObservableProperty]
-        private ObservableCollection<Terminal> terminals;
+        private ObservableCollection<Terminal> terminals = [];
 
         [ObservableProperty]
-        private ObservableCollection<Taxiway> taxiways;
+        private ObservableCollection<Taxiway> taxiways = [];
 
         [ObservableProperty]
-        private ObservableCollection<Flight> departingFlights;
+        private ObservableCollection<Aircraft> aircrafts = [];
 
         [ObservableProperty]
-        private ObservableCollection<Flight> arrivingFlights;
+        private ObservableCollection<Flight> departingFlights = [];
+
+        [ObservableProperty]
+        private ObservableCollection<Flight> arrivingFlights = [];
 
         [ObservableProperty]
         private ObservableCollection<ConnectionPoint> connectionPoints = [];
 
         [ObservableProperty]
-        private bool frameVisible = false;
+        private Aircraft simAircraft;
 
         [ObservableProperty]
-        DateTime startDate;
+        private string name;
 
         [ObservableProperty]
-        TimeSpan startTime;
+        private bool frameVisible;
 
         [ObservableProperty]
-        DateTime endDate;
+        DateTime simStartDate;
 
         [ObservableProperty]
-        TimeSpan endTime;
+        TimeSpan simStartTime;
+
+        [ObservableProperty]
+        DateTime simEndDate;
+
+        [ObservableProperty]
+        TimeSpan simEndTime;
+
+        [ObservableProperty]
+        string history;
 
         public SimulationModel(IAirportService airportService)
         {
@@ -88,14 +101,22 @@ namespace brusOgPotetgull.userInterface.ViewModel
             if (Airport != null && SimulationStart < SimulationEnd)
             {
                 Simulation sim = new(Airport, SimulationStart, SimulationEnd);
-                sim.RunSimulation();
                 await _airportService.ShowNotificationAsync("Notification", "Running simulation", "Ok");
+                sim.RunSimulation();
+                LoadData();
+                await _airportService.ShowNotificationAsync("Notification", "Simulation Complete", "Ok");
             }
             else
             {
                 await _airportService.ShowNotificationAsync("Alert", "Missing params. Start must come before end and airport must be selected and configured", "Ok");
                 return;
             }
+        }
+
+        private bool ShowFrame()
+        {
+            if (SimAircraft != null) { return true; }
+            else { return false; }
         }
         public void LoadData()
         {
@@ -109,26 +130,31 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 ArrivingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetArrivingFlights());
                 DepartingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetDepartingFlights());
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(_airportService.CurrentAirport.GetTaxiwaySystem());
+                FrameVisible = ShowFrame();
+
+                //AircraftType t = new("d");
+                //Aircraft a = new("gg",t, 10, 10, 10, 10);
+                if (SimAircraft != null) { History = SimAircraft.GetFullAircraftHistory(); }                
+                
             }
         }
 
         public DateTime SimulationStart => new (
-            StartDate.Year,
-            StartDate.Month,
-            StartDate.Day,
-            StartTime.Hours,
-            StartTime.Minutes,
-            StartTime.Seconds
+            SimStartDate.Year,
+            SimStartDate.Month,
+            SimStartDate.Day,
+            SimStartTime.Hours,
+            SimStartTime.Minutes,
+            SimStartTime.Seconds
         );
 
         public DateTime SimulationEnd => new (
-            StartDate.Year,
-            StartDate.Month,
-            StartDate.Day,
-            StartTime.Hours,
-            StartTime.Minutes,
-            StartTime.Seconds
+            SimStartDate.Year,
+            SimStartDate.Month,
+            SimStartDate.Day,
+            SimStartTime.Hours,
+            SimStartTime.Minutes,
+            SimStartTime.Seconds
         );
-
     }
 }
