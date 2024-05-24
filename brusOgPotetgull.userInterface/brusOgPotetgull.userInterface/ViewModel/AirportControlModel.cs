@@ -419,8 +419,18 @@ namespace brusOgPotetgull.userInterface.ViewModel
         [RelayCommand]
         private async Task PlaceTaxiway() 
         {
-            //Airport.GetTaxiwayssystem()
-            //Airport.AddTaxiwayConnection(taxiway, connnectionpoint, connectionpoint)
+            if (SelectedTaxiway != null && SelectedConnectionPointA != null && SelectedConnectionPointB != null)
+            {
+                Airport.AddTaxiwayConnection(SelectedTaxiway, SelectedConnectionPointA, SelectedConnectionPointB);
+                await _airportService.ShowNotificationAsync("Notification", "Connection ( " + SelectedConnectionPointA + " <-> " + SelectedTaxiway + " <-> " + SelectedConnectionPointB + " ) Created", "Ok");
+                ResetParams();
+                ClosePlaceTaxiwayPopup();
+            }
+            else 
+            {
+                await _airportService.ShowNotificationAsync("Alert", "Missing Params", "Ok");
+                return ; 
+            }
         }
         //              @@@@@@@@@@@  AIRCRAFTS  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
