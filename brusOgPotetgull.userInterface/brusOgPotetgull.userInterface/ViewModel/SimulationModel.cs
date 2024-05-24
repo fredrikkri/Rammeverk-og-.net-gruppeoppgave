@@ -1,11 +1,16 @@
 ﻿using brusOgPotetgull.userInterface.Services;
-using CommunityToolkit.Mvvm.ComponentModel;
 using BrusOgPotetgull.AirportLiberary;
+using CommunityToolkit.Mvvm.ComponentModel;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace brusOgPotetgull.userInterface.ViewModel
 {
-    public partial class MyAirportModel : ObservableObject
+    public partial class SimulationModel : ObservableObject
     {
         protected readonly IAirportService _airportService;
 
@@ -31,27 +36,11 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private ObservableCollection<Flight> arrivingFlights;
 
         [ObservableProperty]
-        private int id;
+        private ObservableCollection<ConnectionPoint> connectionPoints = [];
 
-        [ObservableProperty]
-        private DateTime dateTimeFlight;
-
-        [ObservableProperty]
-        private Aircraft activeAircraft;
-
-        [ObservableProperty]
-        private Gate departureGate;
-
-        [ObservableProperty]
-        private Gate arrivalGate;
-
-        [ObservableProperty]
-        private string name;
-
-        public MyAirportModel(IAirportService airportService)
+        public SimulationModel(IAirportService airportService)
         {
             _airportService = airportService;
-
             airport = _airportService.CurrentAirport;
 
             if (airport != null)
@@ -62,6 +51,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 Taxiways = new ObservableCollection<Taxiway>(airport.GetListTaxiways());
                 DepartingFlights = new ObservableCollection<Flight>(airport.GetDepartingFlights());
                 ArrivingFlights = new ObservableCollection<Flight>(airport.GetArrivingFlights());
+                ConnectionPoints = new ObservableCollection<ConnectionPoint>(airport.GetTaxiwaySystem());
             }
             else
             {
@@ -71,12 +61,12 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 Taxiways = [];
                 DepartingFlights = [];
                 ArrivingFlights = [];
+                ConnectionPoints = [];
             }
-
         }
         public void LoadData()
         {
-            if ( _airportService.CurrentAirport == null) { return; }
+            if (_airportService.CurrentAirport == null) { return; }
             else
             {
                 Gates = new ObservableCollection<Gate>(_airportService.CurrentAirport.GetListGates());
@@ -85,7 +75,9 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 Taxiways = new ObservableCollection<Taxiway>(_airportService.CurrentAirport.GetListTaxiways());
                 ArrivingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetArrivingFlights());
                 DepartingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetDepartingFlights());
+                ConnectionPoints = new ObservableCollection<ConnectionPoint>(_airportService.CurrentAirport.GetTaxiwaySystem());
             }
         }
+
     }
 }
