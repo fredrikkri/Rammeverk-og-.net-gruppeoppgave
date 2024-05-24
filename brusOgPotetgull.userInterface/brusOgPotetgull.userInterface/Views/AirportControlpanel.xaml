@@ -215,8 +215,8 @@
         FontSize="14"
         />
         <Button
-            Text="Place Taxiway X"
-            Command="{Binding ShowTaxiwayPopupCommand}"
+            Text="Place Taxiway"
+            Command="{Binding ShowPlaceTaxiwayPopupCommand}"
             Grid.Column="2"
             Grid.Row="6"
             FontSize="14"

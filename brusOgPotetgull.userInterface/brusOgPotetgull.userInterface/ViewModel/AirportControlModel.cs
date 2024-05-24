@@ -22,6 +22,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private ConnectionPointPopup connectionPointPopup;
         private FlightPopup flightPopup;
         private GateConnectionPopup gateConnectionPopup;
+        private PlaceTaxiwayPopup placeTaxiwayPopup;
         private bool isTerminalPopupOpen;
         private bool isGatePopupOpen;
         private bool isRunwayPopupOpen;
@@ -31,6 +32,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private bool isConnectionPointPopupOpen;
         private bool isFlightPopupOpen;
         private bool isGateConnectionPopupOpen;
+        private bool isPlaceTaxiwayPopupOpen;
 
         [ObservableProperty]
         private Airport airport;
@@ -39,16 +41,16 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private string name;
 
         [ObservableProperty]
-        private ObservableCollection<AircraftType> aircraftTypes = new ObservableCollection<AircraftType>();
+        private ObservableCollection<AircraftType> aircraftTypes = [];
 
         [ObservableProperty]
-        private ObservableCollection<Aircraft> aircrafts = new ObservableCollection<Aircraft>();
+        private ObservableCollection<Aircraft> aircrafts = [];
 
         [ObservableProperty]
-        private ObservableCollection<ConnectionPoint> connectionPoints = new ObservableCollection<ConnectionPoint>();
+        private ObservableCollection<ConnectionPoint> connectionPoints = [];
 
         [ObservableProperty]
-        private ObservableCollection<Terminal> terminals = new ObservableCollection<Terminal>();
+        private ObservableCollection<Terminal> terminals = [];
 
         [ObservableProperty]
         private ObservableCollection<Runway> runways;
@@ -133,6 +135,12 @@ namespace brusOgPotetgull.userInterface.ViewModel
 
         [ObservableProperty]
         private Aircraft selectedAircraft;
+
+        [ObservableProperty]
+        private ConnectionPoint selectedConnectionPointA;
+
+        [ObservableProperty]
+        private ConnectionPoint selectedConnectionPointB;
 
         public AirportControlModel(IAirportService airportService)
         {
@@ -318,7 +326,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 return;
             }
             ConnectionPoint connectionPoint = new(ConnectionPointName, Airport);
-            Airport.AddConnectionPoint(connectionPoint);
+            LoadControlData();
             await _airportService.ShowNotificationAsync("Notification", ConnectionPointName + " has been added", "Ok");
             CloseConnectionPointPopup();
             ResetParams();
@@ -383,6 +391,28 @@ namespace brusOgPotetgull.userInterface.ViewModel
             {
                 gateConnectionPopup.Close();
                 isGateConnectionPopupOpen = false;
+            }
+        }
+
+        [RelayCommand]
+        private void ShowPlaceTaxiwayPopup()
+        {
+            Debug.WriteLine("Attempting to show GateConnection popup");
+            if (placeTaxiwayPopup == null)
+            {
+                placeTaxiwayPopup = new PlaceTaxiwayPopup(this);
+            }
+            Shell.Current.ShowPopup(placeTaxiwayPopup);
+            isPlaceTaxiwayPopupOpen = true;
+        }
+
+        [RelayCommand]
+        private void ClosePlaceTaxiwayPopup()
+        {
+            if (placeTaxiwayPopup != null && isPlaceTaxiwayPopupOpen)
+            {
+                placeTaxiwayPopup.Close();
+                isPlaceTaxiwayPopupOpen = false;
             }
         }
 
@@ -533,6 +563,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             Runways = new ObservableCollection<Runway>(_airportService.CurrentAirport.GetRunwayList());
             Terminals = new ObservableCollection<Terminal>(_airportService.CurrentAirport.GetListTerminals());
             Taxiways = new ObservableCollection<Taxiway>(_airportService.CurrentAirport.GetListTaxiways());
+            ConnectionPoints = new ObservableCollection<ConnectionPoint>(_airportService.CurrentAirport.GetTaxiwaySystem());
         }
         private void ResetParams() 
         {
