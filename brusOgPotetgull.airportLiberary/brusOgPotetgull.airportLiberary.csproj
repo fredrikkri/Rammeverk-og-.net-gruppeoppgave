@@ -7,7 +7,7 @@
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<NoWarn>$(NoWarn);1591</NoWarn>
     <PackageId>brusOgPotetgull.airportLiberaryTest</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Fredrik, ole, jacob, andrea</Authors>
     <Company>brusOgPotetgull</Company>
 
