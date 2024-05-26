@@ -9,12 +9,37 @@ namespace BrusOgPotetgull.AirportLiberary
     public abstract class Flight
     {
         private static int idCounter = 1;
+
+        /// <summary>
+        /// Gets flight id
+        /// </summary>
         public int FlightId { get; private set; }
+
+        /// <summary>
+        /// Gets active aircraft
+        /// </summary>
         public Aircraft ActiveAircraft { get; private set; }
+
+        /// <summary>
+        /// Gets the time of the flight
+        /// </summary>
         public DateTime DateTimeFlight { get; private set; }
+
+        /// <summary>
+        /// Gets bool to se if flight is ariving or taking off
+        /// </summary>
         public bool IsArrivingFlight { get; private set; }
+
+        /// <summary>
+        /// Gets flight length
+        /// </summary>
         public int Length { get; private set; }
+
         public List<Taxiway> taxiwayPath;
+
+        /// <summary>
+        /// Gets or sets the time on clock
+        /// </summary>
         public DateTime Clock { get; set; }
 
         /// <summary>
@@ -87,9 +112,24 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public class Arriving : Flight
         {
+            /// <summary>
+            /// Gets the arival airport
+            /// </summary>
             public Airport ArrivalAirport { get; private set; }
+
+            /// <summary>
+            /// Gets the arival gate
+            /// </summary>
             public Gate ArrivalGate { get; private set; }
+
+            /// <summary>
+            /// Gets the arival taxiway
+            /// </summary>
             public Taxiway ArrivalTaxiway { get; private set; }
+
+            /// <summary>
+            /// gets the arival runnway
+            /// </summary>
             public Runway ArrivalRunway { get; private set; }
 
             /// <summary>

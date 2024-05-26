@@ -45,12 +45,28 @@ namespace BrusOgPotetgull.AirportLiberary
         public int Length { get; private set; }
 
         /// <summary>
-        /// 
+        /// gets Id of taxiway
         /// </summary>
         public int Id { get; private set; }
+
+        /// <summary>
+        /// Gets name of taxiway
+        /// </summary>
         public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets max speed on taxiway
+        /// </summary>
         public int MaxSpeed { get; private set; }
+
+        /// <summary>
+        /// Gets or sets connectionpoint A
+        /// </summary>
         public ConnectionPoint A {  get; set; }
+
+        /// <summary>
+        /// Gets or sets connectionpoint B
+        /// </summary>
         public ConnectionPoint B { get; set; }
 
         /// <summary>
