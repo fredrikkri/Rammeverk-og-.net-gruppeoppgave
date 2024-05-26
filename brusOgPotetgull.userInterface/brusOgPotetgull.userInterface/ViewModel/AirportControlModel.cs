@@ -53,13 +53,13 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private ObservableCollection<Terminal> terminals = [];
 
         [ObservableProperty]
-        private ObservableCollection<Runway> runways;
+        private ObservableCollection<Runway> runways = [];
 
         [ObservableProperty]
-        private ObservableCollection<Taxiway> taxiways;
+        private ObservableCollection<Taxiway> taxiways = [];
 
         [ObservableProperty]
-        private ObservableCollection<Gate> gates;
+        private ObservableCollection<Gate> gates = [];
 
         [ObservableProperty]
         private string terminalName;

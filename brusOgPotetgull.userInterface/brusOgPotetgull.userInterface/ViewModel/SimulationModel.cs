@@ -51,7 +51,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private string name;
 
         [ObservableProperty]
-        private bool frameVisible;
+        private bool frameVisible = false;
 
         [ObservableProperty]
         DateTime simStartDate;
@@ -66,7 +66,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         TimeSpan simEndTime;
 
         [ObservableProperty]
-        string history;
+        string history = "";
 
         public SimulationModel(IAirportService airportService)
         {
@@ -113,10 +113,10 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-        private bool ShowFrame()
+        private void ShowFrame()
         {
-            if (SimAircraft != null) { return true; }
-            else { return false; }
+            if (SimAircraft != null && History != "" || History != null) { FrameVisible = true; }
+            else { FrameVisible = false; }
         }
         public void LoadData()
         {
@@ -130,12 +130,10 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 ArrivingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetArrivingFlights());
                 DepartingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetDepartingFlights());
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(_airportService.CurrentAirport.GetTaxiwaySystem());
-                FrameVisible = ShowFrame();
+                ShowFrame();
 
-                //AircraftType t = new("d");
-                //Aircraft a = new("gg",t, 10, 10, 10, 10);
-                if (SimAircraft != null) { History = SimAircraft.GetFullAircraftHistory(); }                
-                
+                if (SimAircraft != null) { History = SimAircraft.GetFullAircraftHistory(); }
+                else { History = "No Aircraft Selected or Simulation not ran yet"; }
             }
         }
 

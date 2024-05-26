@@ -4,7 +4,7 @@ namespace brusOgPotetgull.userInterface.Views
 {
         public partial class Simulation : ContentPage
     {
-        public Simulation(MyAirportModel vm)
+        public Simulation(SimulationModel vm)
         {
             InitializeComponent();
             BindingContext = vm;
