@@ -82,6 +82,14 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 DepartingFlights = new ObservableCollection<Flight>(airport.GetDepartingFlights());
                 ArrivingFlights = new ObservableCollection<Flight>(airport.GetArrivingFlights());
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(airport.GetTaxiwaySystem());
+                foreach (var item in airport.GetArrivingFlights())
+                {
+                    Aircrafts.Add(item.ActiveAircraft);
+                }
+                foreach (var item in airport.GetDepartingFlights())
+                {
+                    Aircrafts.Add(item.ActiveAircraft);
+                }
             }
             else
             {
