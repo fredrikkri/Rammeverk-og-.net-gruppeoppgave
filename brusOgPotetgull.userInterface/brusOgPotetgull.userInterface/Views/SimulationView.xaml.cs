@@ -2,9 +2,9 @@ using brusOgPotetgull.userInterface.ViewModel;
 
 namespace brusOgPotetgull.userInterface.Views
 {
-        public partial class Simulation : ContentPage
+        public partial class SimulationView : ContentPage
     {
-        public Simulation(SimulationModel vm)
+        public SimulationView(SimulationModel vm)
         {
             InitializeComponent();
             BindingContext = vm;
