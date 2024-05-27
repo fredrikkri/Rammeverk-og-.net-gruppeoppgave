@@ -96,7 +96,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         [RelayCommand]
         private async Task RunSimulation() 
         {
-            if (Airport != null && SimulationStart < SimulationEnd)
+            if (Airport != null)
             {
                 Simulation sim = new(Airport, SimulationStart, SimulationEnd);
                 await _airportService.ShowNotificationAsync("Notification", "Running simulation", "Ok");
