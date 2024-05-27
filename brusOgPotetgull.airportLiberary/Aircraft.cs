@@ -44,14 +44,49 @@ namespace BrusOgPotetgull.AirportLiberary
             this.AccelerationOnGround = accelerationOnGround;
         }
 
+        /// <summary>
+        /// Gets aircraft tail number
+        /// </summary>
         public int TailNumber { get; private set; }
+
+        /// <summary>
+        /// Gets aircraft type
+        /// </summary>
         public string AircraftType { get; private set; }
+        
+        /// <summary>
+        /// Gets aircraft type Id
+        /// </summary>
         public int AircraftTypeId { get; private set; }
+
+        /// <summary>
+        /// Gets if aircraft is in service with bool
+        /// </summary>
         public bool OutOfService { get; private set; }
+
+        /// <summary>
+        /// Gets aircraft name
+        /// </summary>
         public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets airraft max speed in air
+        /// </summary>
         public int MaxSpeedInAir { get; private set; }
+
+        /// <summary>
+        /// Gets aircraft acceleration in air
+        /// </summary>
         public int AccelerationInAir { get; private set; }
+
+        /// <summary>
+        /// Gets aircraft max speed on ground
+        /// </summary>
         public int MaxSpeedOnGround { get; private set; }
+
+        /// <summary>
+        /// Gets aircraft acceleration on ground
+        /// </summary>
         public int AccelerationOnGround { get; private set; }
 
         /// <summary>
@@ -106,6 +141,10 @@ namespace BrusOgPotetgull.AirportLiberary
                 Console.WriteLine($"{line.Key}, {line.Value}");
         }
 
+        /// <summary>
+        /// Gets the history of the aircraft
+        /// </summary>
+        /// <returns>returns aircraft history in string</returns>
         public string GetFullAircraftHistory()
         {
             StringBuilder historyText = new();

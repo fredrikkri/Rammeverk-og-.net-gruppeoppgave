@@ -28,7 +28,14 @@ public class Terminal
         airport.AddTerminalToList(this);
     }
 
+    /// <summary>
+    /// Gets Id of Terminal
+    /// </summary>
     public int Id { get; private set; }
+
+    /// <summary>
+    /// Gets Name of Terminal
+    /// </summary>
     public string Name { get; private set; }
 
     /// <summary>

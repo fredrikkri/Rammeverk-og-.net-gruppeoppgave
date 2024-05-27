@@ -32,8 +32,19 @@ namespace BrusOgPotetgull.AirportLiberary
 
         }
 
+        /// <summary>
+        /// Gets Id of gate
+        /// </summary>
         public int Id { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets if gate is available with bool
+        /// </summary>
         public bool IsAvailable { get; private set; }
 
         /// <summary>

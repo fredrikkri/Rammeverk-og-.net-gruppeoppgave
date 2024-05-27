@@ -9,7 +9,14 @@ namespace BrusOgPotetgull.AirportLiberary
     /// </summary>
     public class ConnectionPoint
     {
+        /// <summary>
+        /// Gets the name of the connection poin
+        /// </summary>
         public string? Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of taxiways connected to the connectionPoint.
+        /// </summary>
         public List<Taxiway> taxiways { get; set; } = new List<Taxiway>();
 
         /// <summary>

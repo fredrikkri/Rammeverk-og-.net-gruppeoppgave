@@ -41,9 +41,24 @@ namespace BrusOgPotetgull.AirportLiberary
             taxiwaySystem = new List<ConnectionPoint>();
         }
 
+        /// <summary>
+        /// Gets airport id
+        /// </summary>
         public int AirportId { get; private set; }
+
+        /// <summary>
+        /// gets airport code
+        /// </summary>
         public string AirportCode { get; private set; }
+
+        /// <summary>
+        /// gets airport name
+        /// </summary>
         public string Name { get; private set; }
+
+        /// <summary>
+        /// gets airport location
+        /// </summary>
         public string Location { get; private set; }
 
         /// <summary>

@@ -27,7 +27,14 @@ namespace BrusOgPotetgull.AirportLiberary.AircraftTypes
             this.Name = name;
 
         }
+        /// <summary>
+        /// Gets the TypeId of the aircraft type
+        /// </summary>
         public int TypeId { get; private set; }
+
+        /// <summary>
+        /// Gets the name of the aircraft type
+        /// </summary>
         public string Name { get; private set; }
 
         /// <summary>

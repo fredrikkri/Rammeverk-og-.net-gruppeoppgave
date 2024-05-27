@@ -34,10 +34,29 @@ namespace BrusOgPotetgull.AirportLiberary
             airport.AddRunwayToList(this);
         }
 
+        /// <summary>
+        /// Gets the Id of the runway.
+        /// </summary>
         public int Id { get; private set; }
+
+        /// <summary>
+        /// Gets the name of the runway.
+        /// </summary>
         public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets the length of the runway.
+        /// </summary>
         public int Length { get; private set; }
+
+        /// <summary>
+        /// Gets a bool value i wheter the runway is in use or not.
+        /// </summary>
         public bool InUse { get; private set; }
+
+        /// <summary>
+        /// Gets the queue of flights waiting for the runway.
+        /// </summary>
         public Queue<Flight> RunwayQueue { get {  return runwayQueue; } }
 
         /// <summary>
