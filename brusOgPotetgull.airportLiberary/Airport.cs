@@ -276,7 +276,6 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <returns>Returns the path as a list of taxiway objects</returns>
         public List<Taxiway> FindPath(Taxiway start, Taxiway end, List<Taxiway> calculatedRoute)
         {
-            // Sjekk om vi har nådd sluttpunktet
             if (start == end)
             {
                 for (int i = 1; i < calculatedRoute.Count - 1; i++)
@@ -292,39 +291,32 @@ namespace BrusOgPotetgull.AirportLiberary
                         if (!current.A.taxiways.Contains(next))
                             calculatedRoute.Remove(current);
 
-                    //calculatedRoute.Remove(current);
                     calculatedRoute.Add(end);
                     return calculatedRoute;
                 }
 
-                calculatedRoute.Add(end); // Legg til sluttpunktet
-                return calculatedRoute;   // Returner den beregnede ruten
+                calculatedRoute.Add(end);
+                return calculatedRoute;
             }
 
-            // Legg til startpunktet i den beregnede ruten
             calculatedRoute.Add(start);
 
-            // Utforsk alle tilgjengelige veier fra dette punktet
             foreach (Taxiway nextTaxiway in start.B.taxiways)
                 if (!calculatedRoute.Contains(nextTaxiway))
                 {
-                    // Utforsk videre fra neste taksebane
                     List<Taxiway> result = FindPath(nextTaxiway, end, calculatedRoute.ToList());
                     if (result != null)
-                        return result; // Hvis rute er funnet, returner den
+                        return result;
                 }
 
-            // Hvis ingen rute ble funnet fra B, utforsk fra A
             foreach (Taxiway nextTaxiway in start.A.taxiways)
                 if (!calculatedRoute.Contains(nextTaxiway))
                 {
-                    // Utforsk videre fra neste taksebane
                     List<Taxiway> result = FindPath(nextTaxiway, end, calculatedRoute.ToList());
                     if (result != null)
-                        return result; // Hvis rute er funnet, returner den
+                        return result;
                 }
 
-            // Ingen rute funnet fra dette punktet
             return null;
         }
 

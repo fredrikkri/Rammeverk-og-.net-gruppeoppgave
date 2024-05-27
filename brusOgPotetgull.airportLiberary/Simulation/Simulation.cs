@@ -21,8 +21,19 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
             this.EndTime = endTime;
         }
 
+        /// <summary>
+        /// Gets the airport sim is running on
+        /// </summary>
         public Airport Airport { get; private set; }
+
+        /// <summary>
+        /// Gets start time of simulation
+        /// </summary>
         public DateTime StartTime { get; private set; }
+
+        /// <summary>
+        /// gets end time of simulation
+        /// </summary>
         public DateTime EndTime { get; private set; }
 
         /// <summary>
@@ -36,8 +47,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
             while (start <= end)
             {
                 Console.WriteLine(start);
-                // Sette i gang flygninger når tiden er inne
-                // Arriving flights
+
                 if (Airport.GetArrivingFlights().Count > 0)
                 {
                     foreach (Flight.Arriving flight in Airport.GetArrivingFlights())
@@ -59,7 +69,7 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                         }
                     }
                 }
-                // Departing flights
+
                 if (Airport.GetDepartingFlights().Count > 0) 
                 {
                     foreach (Flight.Departing flight in Airport.GetDepartingFlights()) 
@@ -85,23 +95,18 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                 {
                     if (taxiway.GetNumberOfAircraftsInQueue() > 0)
                     {
-                        // neste fly i kø
                         Flight currentFlight = taxiway.CheckNextFlightInQueue();
 
                         double taxitime = taxiway.SimulateTaxiwayTime(currentFlight, 10, currentFlight.ActiveAircraft.AccelerationOnGround, currentFlight.ActiveAircraft.MaxSpeedOnGround, currentFlight.Clock);
                         currentFlight.Clock = currentFlight.Clock.AddSeconds(taxitime);
-                        // neste fly forlater taksebane
                         taxiway.NextFlightLeavesTaxiway(currentFlight, currentFlight.Clock);
 
                         if (currentFlight.taxiwayPath.Count > 0 && currentFlight.taxiwayPath[0] != null)
                         {
-                            //setter neste taksebane i path
                             Taxiway nextLocation = currentFlight.taxiwayPath[0];
 
-                            //Legger fly i kø på neste taksebane
                             nextLocation.AddFlightToQueue(currentFlight, currentFlight.Clock);
 
-                            //Fjerner taksebane fra path
                             currentFlight.taxiwayPath.Remove(nextLocation);
                         }
                         else
@@ -118,18 +123,9 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
                             else
                             {
                                 Flight.Arriving currentArriving = (Flight.Arriving)currentFlight;
-                                //if (currentArriving.ArrivalGate.IsAvailable == true)
-                                //{
+
                                     currentArriving.ArrivalGate.BookGate(currentArriving.ActiveAircraft, currentFlight.Clock);
                                     Airport.RemoveArrivingFlight(currentArriving);
-                                //}
-                                //else
-                                //{
-                                //    string newGateName = currentArriving.ArrivalGate.Name;
-                                //    Gate newGate = Airport.GetAnotherAvailabelGateAtTheSameTerminal(newGateName);
-                                //    newGate.BookGate(currentArriving.ActiveAircraft, currentFlight.Clock);
-                                //    Airport.RemoveArrivingFlight(currentArriving);
-                                //}
                             }
                         }
                     }

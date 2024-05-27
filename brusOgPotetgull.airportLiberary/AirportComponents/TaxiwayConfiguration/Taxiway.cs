@@ -16,7 +16,15 @@ namespace BrusOgPotetgull.AirportLiberary
         private int id;
         private Queue<Flight> taxiwayQueue = new Queue<Flight>();
         private string? airportLocation;
+
+        /// <summary>
+        /// List of connected gates
+        /// </summary>
         public List<Gate> connectedGates;
+
+        /// <summary>
+        /// list of connected runways
+        /// </summary>
         public List<Runway> connectedRunways;
 
         /// <summary>

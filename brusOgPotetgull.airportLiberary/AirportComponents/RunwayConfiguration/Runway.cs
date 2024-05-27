@@ -13,7 +13,15 @@ namespace BrusOgPotetgull.AirportLiberary
         private bool inUse;
         private Queue<Flight> runwayQueue = new Queue<Flight>();
         private string? airportLocation;
+
+        /// <summary>
+        /// Event to be used when a flight is ariving
+        /// </summary>
         public event EventHandler<ArrivingEventArgs>? FlightArrived;
+
+        /// <summary>
+        /// Event to be used when a flight is departing
+        /// </summary>
         public event EventHandler<DepartingEventArgs>? FlightDeparted;
 
         /// <summary>
