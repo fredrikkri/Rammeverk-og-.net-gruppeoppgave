@@ -64,9 +64,25 @@ namespace BrusOgPotetgull.AirportLiberary
         /// </summary>
         public class Departing : Flight
         {
+
+            /// <summary>
+            /// Gets deparutre airport
+            /// </summary>
             public Airport DepartureAirport { get; private set; }
+
+            /// <summary>
+            /// Gets departure gate
+            /// </summary>
             public Gate DepartureGate { get; private set; }
+
+            /// <summary>
+            /// Gets departure taxiway
+            /// </summary>
             public Taxiway DepartureTaxiway { get; private set; }
+
+            /// <summary>
+            /// Gets departure runway
+            /// </summary>
             public Runway DepartureRunway { get; private set; }
 
             /// <summary>
