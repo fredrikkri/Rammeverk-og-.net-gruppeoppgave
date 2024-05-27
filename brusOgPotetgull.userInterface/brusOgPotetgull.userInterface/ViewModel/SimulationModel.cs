@@ -91,16 +91,6 @@ namespace brusOgPotetgull.userInterface.ViewModel
                     Aircrafts.Add(item.ActiveAircraft);
                 }
             }
-            else
-            {
-                Runways = [];
-                Gates = [];
-                Terminals = [];
-                Taxiways = [];
-                DepartingFlights = [];
-                ArrivingFlights = [];
-                ConnectionPoints = [];
-            }
         }
 
         [RelayCommand]
