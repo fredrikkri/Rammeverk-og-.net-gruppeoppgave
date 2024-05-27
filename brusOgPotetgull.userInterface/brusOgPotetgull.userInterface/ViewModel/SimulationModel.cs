@@ -82,14 +82,6 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 DepartingFlights = new ObservableCollection<Flight>(airport.GetDepartingFlights());
                 ArrivingFlights = new ObservableCollection<Flight>(airport.GetArrivingFlights());
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(airport.GetTaxiwaySystem());
-                foreach (var item in airport.GetArrivingFlights())
-                {
-                    Aircrafts.Add(item.ActiveAircraft);
-                }
-                foreach (var item in airport.GetDepartingFlights())
-                {
-                    Aircrafts.Add(item.ActiveAircraft);
-                }
             }
         }
 
@@ -111,11 +103,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-        private void ShowFrame()
-        {
-            if (SimAircraft != null && History != "" || History != null) { FrameVisible = true; }
-            else { FrameVisible = false; }
-        }
+        [RelayCommand]
         public void LoadData()
         {
             if (_airportService.CurrentAirport == null) { return; }
@@ -128,11 +116,25 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 ArrivingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetArrivingFlights());
                 DepartingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetDepartingFlights());
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(_airportService.CurrentAirport.GetTaxiwaySystem());
-                ShowFrame();
-
-                if (SimAircraft != null) { History = SimAircraft.GetFullAircraftHistory(); }
-                else { History = "No Aircraft Selected or Simulation not ran yet"; }
+                //Aircrafts.Clear();
+                foreach (var item in Airport.GetArrivingFlights())
+                {
+                    if (Aircrafts.Contains(item.ActiveAircraft)) { continue; }
+                    else { Aircrafts.Add(item.ActiveAircraft); }
+                }
+                foreach (var item in Airport.GetDepartingFlights())
+                {
+                    if (Aircrafts.Contains(item.ActiveAircraft)) { continue; }
+                    else { Aircrafts.Add(item.ActiveAircraft); }
+                }
+                UpdateHistory();
             }
+        }
+
+        private void UpdateHistory()
+        {
+            if (SimAircraft != null && Aircrafts.Contains(SimAircraft)) { History = SimAircraft.GetFullAircraftHistory(); }
+            else { History = "No Aircraft Selected or Simulation not ran yet"; }
         }
 
         public DateTime SimulationStart => new (

@@ -31,11 +31,11 @@
                 </VerticalStackLayout>
             </HorizontalStackLayout>
             <Picker Margin="0,20,0,0" MaximumWidthRequest="150" BackgroundColor="White" Title="View History of Aircraft" ItemsSource="{Binding Aircrafts}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SimAircraft, Mode=TwoWay}"/>
+            <Button Text="Get History" Scale="0.8" Command="{Binding LoadDataCommand}"/>
             <Frame
                     CornerRadius="8"
                     Opacity="0.7"
                     Margin="150,20,150,0"
-                    IsVisible="{Binding FrameVisible}"
                     >
                     <Label
                         Text="{Binding History}"
