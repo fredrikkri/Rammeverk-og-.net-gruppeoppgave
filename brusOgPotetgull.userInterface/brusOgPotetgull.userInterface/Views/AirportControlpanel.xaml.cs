@@ -11,6 +11,13 @@ namespace brusOgPotetgull.userInterface.Views
         {
             InitializeComponent();
             BindingContext = vm;
+            vm.DummyData();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var viewModel = BindingContext as AirportControlModel;
+            viewModel?.LoadControlData();
         }
     }
 }

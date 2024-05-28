@@ -72,6 +72,10 @@ namespace brusOgPotetgull.userInterface.ViewModel
         {
             _airportService = airportService;
             airport = _airportService.CurrentAirport;
+            SimStartDate = DateTime.Now;
+            SimEndDate = DateTime.Now;
+            SimStartTime = DateTime.Now.TimeOfDay;
+            SimEndTime = DateTime.Now.TimeOfDay;
 
             if (airport != null)
             {
@@ -88,7 +92,22 @@ namespace brusOgPotetgull.userInterface.ViewModel
         [RelayCommand]
         private async Task RunSimulation() 
         {
-            if (Airport != null)
+            DateTime SimulationStart = new(
+            SimStartDate.Year,
+            SimStartDate.Month,
+            SimStartDate.Day,
+            SimStartTime.Hours,
+            SimStartTime.Minutes,
+            SimStartTime.Seconds);
+            DateTime SimulationEnd = new(
+            SimEndDate.Year,
+            SimEndDate.Month,
+            SimEndDate.Day,
+            SimEndTime.Hours,
+            SimEndTime.Minutes,
+            SimEndTime.Seconds);
+
+            if (Airport != null && SimulationStart < SimulationEnd)
             {
                 Simulation sim = new(Airport, SimulationStart, SimulationEnd);
                 await _airportService.ShowNotificationAsync("Notification", "Running simulation", "Ok");
@@ -116,7 +135,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 ArrivingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetArrivingFlights());
                 DepartingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetDepartingFlights());
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(_airportService.CurrentAirport.GetTaxiwaySystem());
-                //Aircrafts.Clear();
+
                 foreach (var item in Airport.GetArrivingFlights())
                 {
                     if (Aircrafts.Contains(item.ActiveAircraft)) { continue; }
@@ -136,23 +155,5 @@ namespace brusOgPotetgull.userInterface.ViewModel
             if (SimAircraft != null && Aircrafts.Contains(SimAircraft)) { History = SimAircraft.GetFullAircraftHistory(); }
             else { History = "No Aircraft Selected or Simulation not ran yet"; }
         }
-
-        public DateTime SimulationStart => new (
-            SimStartDate.Year,
-            SimStartDate.Month,
-            SimStartDate.Day,
-            SimStartTime.Hours,
-            SimStartTime.Minutes,
-            SimStartTime.Seconds
-        );
-
-        public DateTime SimulationEnd => new (
-            SimStartDate.Year,
-            SimStartDate.Month,
-            SimStartDate.Day,
-            SimStartTime.Hours,
-            SimStartTime.Minutes,
-            SimStartTime.Seconds
-        );
     }
 }
