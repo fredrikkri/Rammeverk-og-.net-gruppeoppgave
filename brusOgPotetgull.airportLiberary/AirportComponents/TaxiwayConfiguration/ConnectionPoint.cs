@@ -12,6 +12,9 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Gets the name of the connection poin
         /// </summary>
+        /// <value>
+        /// string of name of connection point
+        /// </value>
         public string? Name { get; set; }
 
         /// <summary>

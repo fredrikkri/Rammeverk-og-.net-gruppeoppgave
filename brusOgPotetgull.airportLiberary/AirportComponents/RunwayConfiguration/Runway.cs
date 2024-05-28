@@ -45,21 +45,33 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Gets the Id of the runway.
         /// </summary>
+        /// <value>
+        /// int of id of runwat
+        /// </value>
         public int Id { get; private set; }
 
         /// <summary>
         /// Gets the name of the runway.
         /// </summary>
+        /// <value>
+        /// string of name of runway
+        /// </value>
         public string Name { get; private set; }
 
         /// <summary>
         /// Gets the length of the runway.
         /// </summary>
+        /// <value>
+        /// int of length of runway
+        /// </value>
         public int Length { get; private set; }
 
         /// <summary>
         /// Gets a bool value i wheter the runway is in use or not.
         /// </summary>
+        /// <value>
+        /// bool if runway is in use
+        /// </value>
         public bool InUse { get; private set; }
 
         /// <summary>

@@ -44,21 +44,33 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Gets airport id
         /// </summary>
+        /// <value>
+        /// int value with airport id
+        /// </value>
         public int AirportId { get; private set; }
 
         /// <summary>
         /// gets airport code
         /// </summary>
+        /// <value>
+        /// string with the code of the airport
+        /// </value>
         public string AirportCode { get; private set; }
 
         /// <summary>
         /// gets airport name
         /// </summary>
+        /// <value>
+        /// string with the name of the airport
+        /// </value>
         public string Name { get; private set; }
 
         /// <summary>
         /// gets airport location
         /// </summary>
+        /// <value>
+        /// string with location of the airport
+        /// </value>
         public string Location { get; private set; }
 
         /// <summary>

@@ -24,16 +24,25 @@ namespace BrusOgPotetgull.AirportLiberary.Simulation
         /// <summary>
         /// Gets the airport sim is running on
         /// </summary>
+        /// <value>
+        /// airport object that the sim is running on
+        /// </value>
         public Airport Airport { get; private set; }
 
         /// <summary>
         /// Gets start time of simulation
         /// </summary>
+        /// <value>
+        /// DateTime object of the start time of the sim
+        /// </value>
         public DateTime StartTime { get; private set; }
 
         /// <summary>
         /// gets end time of simulation
         /// </summary>
+        /// <value>
+        /// DateTime object of the time the sim is ending
+        /// </value>
         public DateTime EndTime { get; private set; }
 
         /// <summary>
