@@ -40,6 +40,29 @@ namespace BrusOgPotetgull.Gruppeoppgave
 
             // creating terminals and adding them to airport
             Terminal terminal2 = new Terminal("Terminal 2", heathrow);
+
+            Runway runway27R_09L = new Runway("27R/09L", 200, heathrow);
+            Runway runway27L_09R = new Runway("27L/09R", 200, heathrow);
+
+            Taxiway alpha = new Taxiway("Alpha (A)", 500, 20, heathrow);
+            Taxiway bravo = new Taxiway("Bravo (B)", 400, 20, heathrow);
+            Taxiway charlie = new Taxiway("Charlie (C)", 650, 20, heathrow);
+
+            terminal2.CreateMultipleGatesToTerminal("A", 1, 26, heathrow);
+
+            Flight.Arriving flight1 = new(cargoCraft, new DateTime(2024, 3, 1, 00, 05, 00), 5000, heathrow, heathrow.GetGateBasedOnGateName("A2"), charlie, runway27L_09R);
+
+            ConnectionPoint A1 = new ConnectionPoint("A1", heathrow);
+            ConnectionPoint B1 = new ConnectionPoint("B1", heathrow);
+            ConnectionPoint C1 = new ConnectionPoint("C1", heathrow);
+            ConnectionPoint D1 = new ConnectionPoint("D1", heathrow);
+
+            heathrow.AddTaxiwayConnection(alpha, B1, A1);
+            heathrow.AddTaxiwayConnection(bravo, B1, C1);
+            heathrow.AddTaxiwayConnection(charlie, D1, C1);
+
+            alpha.AddConnectedGate(heathrow.GetGateBasedOnGateName("A2"));
+            /*
             Terminal terminal3 = new Terminal("Terminal 3", heathrow);
             Terminal terminal4 = new Terminal("Terminal 4", heathrow);
             Terminal terminal5 = new Terminal("Terminal 5", heathrow);
@@ -114,7 +137,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             harryPotter.AddConnectedGate(heathrow.GetGateBasedOnGateName("A5"));
 
             heathrow.PrintTaxiwaySystem();
-
+            */
             // Events setup
             static void OnFlightArrived(object? sender, ArrivingEventArgs e)
             {
@@ -127,6 +150,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
                 e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetAirportNameAndRunwayId(), ", Leaves the runway");
                 Console.WriteLine("Departure: " + e.Message);
             }
+
 
             runway27R_09L.FlightArrived += OnFlightArrived;
             runway27L_09R.FlightArrived += OnFlightArrived;
@@ -144,7 +168,7 @@ namespace BrusOgPotetgull.Gruppeoppgave
             Simulation heathrowSimulation = new(heathrow, start, end);
             heathrowSimulation.RunSimulation();
             */
-            Console.WriteLine(mbappePlane.GetFullAircraftHistory());
+            Console.WriteLine(cargoCraft.GetFullAircraftHistory());
 
             /*
             // Printing history for aircrafts on a given day.
