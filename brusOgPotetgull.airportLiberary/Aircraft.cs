@@ -47,46 +47,73 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Gets aircraft tail number
         /// </summary>
+        /// <value>
+        /// int of the tailnumber of the aircraft
+        /// </value>
         public int TailNumber { get; private set; }
 
         /// <summary>
         /// Gets aircraft type
         /// </summary>
+        /// <value>
+        /// string of the aircraft type
+        /// </value>
         public string AircraftType { get; private set; }
-        
+
         /// <summary>
         /// Gets aircraft type Id
         /// </summary>
+        /// <value>
+        /// int of the aircraft type id
+        /// </value>
         public int AircraftTypeId { get; private set; }
 
         /// <summary>
         /// Gets if aircraft is in service with bool
         /// </summary>
+        /// <value>
+        /// bool if out of service
+        /// </value>
         public bool OutOfService { get; private set; }
 
         /// <summary>
         /// Gets aircraft name
         /// </summary>
+        /// <value>
+        /// string of the name of the aircraft
+        /// </value>
         public string Name { get; private set; }
 
         /// <summary>
         /// Gets airraft max speed in air
         /// </summary>
+        /// <value>
+        /// int of max air speed of plane
+        /// </value>
         public int MaxSpeedInAir { get; private set; }
 
         /// <summary>
         /// Gets aircraft acceleration in air
         /// </summary>
+        /// <value>
+        /// int of the acceleration in the air
+        /// </value>
         public int AccelerationInAir { get; private set; }
 
         /// <summary>
         /// Gets aircraft max speed on ground
         /// </summary>
+        /// <value>
+        /// int of the max speed on ground for the aircraft
+        /// </value>
         public int MaxSpeedOnGround { get; private set; }
 
         /// <summary>
         /// Gets aircraft acceleration on ground
         /// </summary>
+        /// <value>
+        /// int of acceleration on ground for aircraft
+        /// </value>
         public int AccelerationOnGround { get; private set; }
 
         /// <summary>

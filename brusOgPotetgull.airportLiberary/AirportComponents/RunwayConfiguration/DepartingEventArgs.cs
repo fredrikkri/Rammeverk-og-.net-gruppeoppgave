@@ -8,16 +8,25 @@ public class DepartingEventArgs : EventArgs
     /// <summary>
     /// Gets the departing flight details.
     /// </summary>
+    /// <value>
+    /// departing flight object of flight departing runway
+    /// </value>
     public Flight.Departing Flight { get; private set; }
 
     /// <summary>
     /// Gets the time associated with the event.
     /// </summary>
+    /// <value>
+    /// datetime object of time aircraft leaves runway
+    /// </value>
     public DateTime Time { get; private set; }
 
     /// <summary>
     /// Gets the message related to the event.
     /// </summary>
+    /// <value>
+    /// string of message related to the event
+    /// </value>
     public string Message { get; private set; }
 
     /// <summary>

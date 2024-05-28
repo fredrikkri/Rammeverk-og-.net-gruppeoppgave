@@ -20,11 +20,17 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// List of connected gates
         /// </summary>
+        /// <value>
+        /// list of gate objects
+        /// </value>
         public List<Gate> connectedGates;
 
         /// <summary>
         /// list of connected runways
         /// </summary>
+        /// <value>
+        /// list of runway objects
+        /// </value>
         public List<Runway> connectedRunways;
 
         /// <summary>
@@ -50,31 +56,49 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Gets the length of the Taxiway
         /// </summary>
+        /// <value>
+        /// int of length of taxiway
+        /// </value>
         public int Length { get; private set; }
 
         /// <summary>
         /// gets Id of taxiway
         /// </summary>
+        /// <value>
+        /// int of id of taxiway
+        /// </value>
         public int Id { get; private set; }
 
         /// <summary>
         /// Gets name of taxiway
         /// </summary>
+        /// <value>
+        /// string of taxiway name
+        /// </value>
         public string Name { get; private set; }
 
         /// <summary>
         /// Gets max speed on taxiway
         /// </summary>
+        /// <value>
+        /// int of max sped on taxiway
+        /// </value>
         public int MaxSpeed { get; private set; }
 
         /// <summary>
         /// Gets or sets connectionpoint A
         /// </summary>
+        /// <value>
+        /// connection point objet conected to end of road
+        /// </value>
         public ConnectionPoint A {  get; set; }
 
         /// <summary>
         /// Gets or sets connectionpoint B
         /// </summary>
+        /// <value>
+        /// connection point object connected to other end of road
+        /// </value>
         public ConnectionPoint B { get; set; }
 
         /// <summary>

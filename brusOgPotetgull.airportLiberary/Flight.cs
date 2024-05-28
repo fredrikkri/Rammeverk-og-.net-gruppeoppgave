@@ -13,33 +13,54 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Gets flight id
         /// </summary>
+        /// <value>
+        /// Flight id that is assosiated with the flight
+        /// </value>
         public int FlightId { get; private set; }
 
         /// <summary>
         /// Gets active aircraft
         /// </summary>
+        /// <value>
+        /// Aircraft object that is set to fly
+        /// </value>
         public Aircraft ActiveAircraft { get; private set; }
 
         /// <summary>
         /// Gets the time of the flight
         /// </summary>
+        /// <value>
+        /// DateTime object that desides when the flight is.
+        /// </value>
         public DateTime DateTimeFlight { get; private set; }
 
         /// <summary>
         /// Gets bool to se if flight is ariving or taking off
         /// </summary>
+        /// <value>
+        /// bool value that is true if flight is ariving and false if leaving
+        /// </value>
         public bool IsArrivingFlight { get; private set; }
 
         /// <summary>
         /// Gets flight length
         /// </summary>
+        /// <value>
+        /// int value of the length of the flight
+        /// </value>
         public int Length { get; private set; }
 
+        /// <summary>
+        /// list of taxiways tahat is the path it took
+        /// </summary>
         public List<Taxiway> taxiwayPath;
 
         /// <summary>
         /// Gets or sets the time on clock
         /// </summary>
+        /// <value>
+        /// DateTime value of the clock
+        /// </value>
         public DateTime Clock { get; set; }
 
         /// <summary>
@@ -66,23 +87,35 @@ namespace BrusOgPotetgull.AirportLiberary
         {
 
             /// <summary>
-            /// Gets deparutre airport
+            /// Gets departure airport
             /// </summary>
+            /// <value>
+            /// Airport object of the departure airport for the flight
+            /// </value>
             public Airport DepartureAirport { get; private set; }
 
             /// <summary>
             /// Gets departure gate
             /// </summary>
+            /// <value>
+            /// Gate object of the departure gate for the flight
+            /// </value>
             public Gate DepartureGate { get; private set; }
 
             /// <summary>
             /// Gets departure taxiway
             /// </summary>
+            /// <value>
+            /// Taxiway object of the departure taxiway for the flight
+            /// </value>
             public Taxiway DepartureTaxiway { get; private set; }
 
             /// <summary>
             /// Gets departure runway
             /// </summary>
+            /// <value>
+            /// Runway object of the departure runway for the flight
+            /// </value>
             public Runway DepartureRunway { get; private set; }
 
             /// <summary>
@@ -131,21 +164,33 @@ namespace BrusOgPotetgull.AirportLiberary
             /// <summary>
             /// Gets the arival airport
             /// </summary>
+            /// <value>
+            /// Airport object of the arivaø airport of the flight
+            /// </value>
             public Airport ArrivalAirport { get; private set; }
 
             /// <summary>
             /// Gets the arival gate
             /// </summary>
+            /// <value>
+            /// Gate object of the arival gate of the flight
+            /// </value>
             public Gate ArrivalGate { get; private set; }
 
             /// <summary>
             /// Gets the arival taxiway
             /// </summary>
+            /// <value>
+            /// Taxiway object of the arival taxiway of the flight
+            /// </value>
             public Taxiway ArrivalTaxiway { get; private set; }
 
             /// <summary>
             /// gets the arival runnway
             /// </summary>
+            /// <value>
+            /// Runway object of the arival runway of the flight
+            /// </value>
             public Runway ArrivalRunway { get; private set; }
 
             /// <summary>

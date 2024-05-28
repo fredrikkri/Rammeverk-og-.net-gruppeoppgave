@@ -19,6 +19,8 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Creates a gate.
         /// </summary>
+        /// <param name="airport">Airport object</param>
+        /// <param name="name">string of gate name</param>
 		public Gate(string name, Airport airport)
         {
             // (dosnetCore, 2020) 
@@ -35,16 +37,25 @@ namespace BrusOgPotetgull.AirportLiberary
         /// <summary>
         /// Gets Id of gate
         /// </summary>
+        /// <value>
+        /// int of gate id
+        /// </value>
         public int Id { get; private set; }
 
         /// <summary>
-        /// 
+        /// gets gate name
         /// </summary>
+        /// <value>
+        /// string of gate name
+        /// </value>
         public string Name { get; private set; }
 
         /// <summary>
         /// Gets if gate is available with bool
         /// </summary>
+        /// <value>
+        /// bool of if gate is available
+        /// </value>
         public bool IsAvailable { get; private set; }
 
         /// <summary>

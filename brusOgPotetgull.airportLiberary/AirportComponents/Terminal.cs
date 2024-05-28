@@ -31,11 +31,17 @@ public class Terminal
     /// <summary>
     /// Gets Id of Terminal
     /// </summary>
+    /// <value>
+    /// int value of the id of the terminal
+    /// </value>
     public int Id { get; private set; }
 
     /// <summary>
     /// Gets Name of Terminal
     /// </summary>
+    /// <value>
+    /// string of name of terminal
+    /// </value>
     public string Name { get; private set; }
 
     /// <summary>

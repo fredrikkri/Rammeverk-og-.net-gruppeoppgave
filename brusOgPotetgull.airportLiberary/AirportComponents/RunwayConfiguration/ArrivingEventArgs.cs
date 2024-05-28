@@ -7,16 +7,25 @@ public class ArrivingEventArgs : EventArgs
     /// <summary>
     /// Gets the arriving flight details.
     /// </summary>
+    /// <value>
+    /// Arriving flight object of flight arriving at runnway
+    /// </value>
     public Flight.Arriving Flight { get; private set; }
 
     /// <summary>
     /// Gets the time associated with the event.
     /// </summary>
+    /// <value>
+    /// DateTime object of time aircraft arives at runway
+    /// </value>
     public DateTime Time { get; private set; }
 
     /// <summary>
     /// Gets the message related to the event.
     /// </summary>
+    /// <value>
+    /// string of message related to event
+    /// </value>
     public string Message { get; private set; }
 
 	/// <summary>
