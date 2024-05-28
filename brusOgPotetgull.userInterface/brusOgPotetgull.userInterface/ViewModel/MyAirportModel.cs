@@ -13,22 +13,22 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private Airport airport;
 
         [ObservableProperty]
-        private ObservableCollection<Gate> gates;
+        private ObservableCollection<Gate> gates = [];
 
         [ObservableProperty]
-        private ObservableCollection<Runway> runways;
+        private ObservableCollection<Runway> runways = [];
 
         [ObservableProperty]
-        private ObservableCollection<Terminal> terminals;
+        private ObservableCollection<Terminal> terminals = [];
 
         [ObservableProperty]
-        private ObservableCollection<Taxiway> taxiways;
+        private ObservableCollection<Taxiway> taxiways = [];
 
         [ObservableProperty]
-        private ObservableCollection<Flight> departingFlights;
+        private ObservableCollection<Flight> departingFlights = [];
 
         [ObservableProperty]
-        private ObservableCollection<Flight> arrivingFlights;
+        private ObservableCollection<Flight> arrivingFlights = [];
 
         [ObservableProperty]
         private int id;

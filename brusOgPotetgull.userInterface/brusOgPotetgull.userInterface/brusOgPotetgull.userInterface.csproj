@@ -59,7 +59,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="brusOgPotetgull.airportLiberaryTest" Version="1.0.4" />
+		<PackageReference Include="brusOgPotetgull.airportLiberaryTest" Version="1.0.5" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
 		<PackageReference Include="CommunityToolkit.Maui.Core" Version="8.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
@@ -80,6 +80,9 @@
 	  </Compile>
 	  <Compile Update="Views\AirportControlpanel.xaml.cs">
 	    <DependentUpon>AirportControlpanel.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SimulationView.xaml.cs">
+	    <DependentUpon>SimulationView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -120,7 +123,7 @@
 	  <MauiXaml Update="Popups\RunwayPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Simulation.xaml">
+	  <MauiXaml Update="Views\SimulationView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

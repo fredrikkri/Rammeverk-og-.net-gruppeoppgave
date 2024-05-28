@@ -51,7 +51,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private string name;
 
         [ObservableProperty]
-        private bool frameVisible;
+        private bool frameVisible = false;
 
         [ObservableProperty]
         DateTime simStartDate;
@@ -66,12 +66,16 @@ namespace brusOgPotetgull.userInterface.ViewModel
         TimeSpan simEndTime;
 
         [ObservableProperty]
-        string history;
+        string history = "";
 
         public SimulationModel(IAirportService airportService)
         {
             _airportService = airportService;
             airport = _airportService.CurrentAirport;
+            SimStartDate = DateTime.Now;
+            SimEndDate = DateTime.Now;
+            SimStartTime = DateTime.Now.TimeOfDay;
+            SimEndTime = DateTime.Now.TimeOfDay;
 
             if (airport != null)
             {
@@ -83,21 +87,26 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 ArrivingFlights = new ObservableCollection<Flight>(airport.GetArrivingFlights());
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(airport.GetTaxiwaySystem());
             }
-            else
-            {
-                Runways = [];
-                Gates = [];
-                Terminals = [];
-                Taxiways = [];
-                DepartingFlights = [];
-                ArrivingFlights = [];
-                ConnectionPoints = [];
-            }
         }
 
         [RelayCommand]
         private async Task RunSimulation() 
         {
+            DateTime SimulationStart = new(
+            SimStartDate.Year,
+            SimStartDate.Month,
+            SimStartDate.Day,
+            SimStartTime.Hours,
+            SimStartTime.Minutes,
+            SimStartTime.Seconds);
+            DateTime SimulationEnd = new(
+            SimEndDate.Year,
+            SimEndDate.Month,
+            SimEndDate.Day,
+            SimEndTime.Hours,
+            SimEndTime.Minutes,
+            SimEndTime.Seconds);
+
             if (Airport != null && SimulationStart < SimulationEnd)
             {
                 Simulation sim = new(Airport, SimulationStart, SimulationEnd);
@@ -113,11 +122,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
             }
         }
 
-        private bool ShowFrame()
-        {
-            if (SimAircraft != null) { return true; }
-            else { return false; }
-        }
+        [RelayCommand]
         public void LoadData()
         {
             if (_airportService.CurrentAirport == null) { return; }
@@ -130,31 +135,25 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 ArrivingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetArrivingFlights());
                 DepartingFlights = new ObservableCollection<Flight>(_airportService.CurrentAirport.GetDepartingFlights());
                 ConnectionPoints = new ObservableCollection<ConnectionPoint>(_airportService.CurrentAirport.GetTaxiwaySystem());
-                FrameVisible = ShowFrame();
 
-                //AircraftType t = new("d");
-                //Aircraft a = new("gg",t, 10, 10, 10, 10);
-                if (SimAircraft != null) { History = SimAircraft.GetFullAircraftHistory(); }                
-                
+                foreach (var item in Airport.GetArrivingFlights())
+                {
+                    if (Aircrafts.Contains(item.ActiveAircraft)) { continue; }
+                    else { Aircrafts.Add(item.ActiveAircraft); }
+                }
+                foreach (var item in Airport.GetDepartingFlights())
+                {
+                    if (Aircrafts.Contains(item.ActiveAircraft)) { continue; }
+                    else { Aircrafts.Add(item.ActiveAircraft); }
+                }
+                UpdateHistory();
             }
         }
 
-        public DateTime SimulationStart => new (
-            SimStartDate.Year,
-            SimStartDate.Month,
-            SimStartDate.Day,
-            SimStartTime.Hours,
-            SimStartTime.Minutes,
-            SimStartTime.Seconds
-        );
-
-        public DateTime SimulationEnd => new (
-            SimStartDate.Year,
-            SimStartDate.Month,
-            SimStartDate.Day,
-            SimStartTime.Hours,
-            SimStartTime.Minutes,
-            SimStartTime.Seconds
-        );
+        private void UpdateHistory()
+        {
+            if (SimAircraft != null && Aircrafts.Contains(SimAircraft)) { History = SimAircraft.GetFullAircraftHistory(); }
+            else { History = "No Aircraft Selected or Simulation not ran yet"; }
+        }
     }
 }
