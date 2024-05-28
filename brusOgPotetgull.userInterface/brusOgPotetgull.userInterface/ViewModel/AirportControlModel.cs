@@ -181,7 +181,9 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 await _airportService.ShowNotificationAsync("Alert", "Needs name and value greater than 0 to add runway", "Ok");
                 return;
             }
-            Runway _ = new(RunwayName, RunwayLength, _airportService.CurrentAirport);
+            Runway runway = new(RunwayName, RunwayLength, _airportService.CurrentAirport);
+            runway.FlightArrived += OnFlightArrived;
+            runway.FlightDeparted += OnFlightDeparted;
             LoadControlData();
             CloseRunwayPopup();
             await _airportService.ShowNotificationAsync("Notification", RunwayName + " has been added", "Ok");
@@ -577,6 +579,11 @@ namespace brusOgPotetgull.userInterface.ViewModel
             ObservableCollection<Taxiway> taxiList = [new("Alpha", 200, 30, _airportService.CurrentAirport), new("Bravo", 200, 30, _airportService.CurrentAirport), new("Charlie", 200, 30, _airportService.CurrentAirport), new("Delta", 200, 30, _airportService.CurrentAirport), new("Echo", 200, 30, _airportService.CurrentAirport), new("Foxtrot", 200, 30, _airportService.CurrentAirport), new("Golf", 200, 30, _airportService.CurrentAirport), new("Hotel", 200, 30, _airportService.CurrentAirport),];
             ObservableCollection<ConnectionPoint> connectionPointList = [new("A1", _airportService.CurrentAirport), new("B2", _airportService.CurrentAirport), new("C3", _airportService.CurrentAirport), new("D4", _airportService.CurrentAirport), new("E5", _airportService.CurrentAirport), new("F6", _airportService.CurrentAirport), new("G7", _airportService.CurrentAirport), new("H8", _airportService.CurrentAirport), new("I9", _airportService.CurrentAirport)];
 
+            runwayList[0].FlightArrived += OnFlightArrived;
+            runwayList[0].FlightDeparted += OnFlightDeparted;
+            runwayList[1].FlightArrived += OnFlightArrived;
+            runwayList[1].FlightDeparted += OnFlightDeparted;
+
             // Roadsystem setup
             taxiList[0].AddConnectedGate(gateList[0]);
             taxiList[3].AddConnectedGate(gateList[2]);
@@ -592,11 +599,21 @@ namespace brusOgPotetgull.userInterface.ViewModel
 
             // Flight config
             ObservableCollection<AircraftType> aircraftTypesList = [new("Airbus 480"), new("Boeing 737")];
-            ObservableCollection<Aircraft> aircraftsList = [new("D1280", aircraftTypesList[0], 890, 50, 35, 3), new("MH370", aircraftTypesList[1], 800, 30, 30, 3)];
+            ObservableCollection<Aircraft> aircraftsList = [new("D1280", aircraftTypesList[0], 890, 50, 35, 4), new("MH370", aircraftTypesList[1], 800, 30, 30, 4)];
             AircraftTypes = aircraftTypesList;
             Aircrafts = aircraftsList;
             Flight.Arriving Flight1 = new(Aircrafts[0], new DateTime(2024, 5, 28, 00, 05, 00), 10000, _airportService.CurrentAirport, gateList[0], taxiList[2], runwayList[0]);
             Flight.Departing Flight2 = new(Aircrafts[1], new DateTime(2024, 5, 28, 00, 15, 00), 10000, _airportService.CurrentAirport, gateList[3], taxiList[1], runwayList[1]);
+        }
+
+        private static void OnFlightArrived(object? sender, ArrivingEventArgs e)
+        {
+            e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.ArrivalRunway.GetAirportNameAndRunwayId(), ", Enters the runway");
+        }
+
+        private static void OnFlightDeparted(object? sender, DepartingEventArgs e)
+        {
+            e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetAirportNameAndRunwayId(), ", Leaves the runway");
         }
 
         [RelayCommand]
