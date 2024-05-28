@@ -53,13 +53,13 @@ namespace brusOgPotetgull.userInterface.ViewModel
         private ObservableCollection<Terminal> terminals = [];
 
         [ObservableProperty]
-        private ObservableCollection<Runway> runways;
+        private ObservableCollection<Runway> runways = [];
 
         [ObservableProperty]
-        private ObservableCollection<Taxiway> taxiways;
+        private ObservableCollection<Taxiway> taxiways = [];
 
         [ObservableProperty]
-        private ObservableCollection<Gate> gates;
+        private ObservableCollection<Gate> gates = [];
 
         [ObservableProperty]
         private string terminalName;
@@ -181,7 +181,9 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 await _airportService.ShowNotificationAsync("Alert", "Needs name and value greater than 0 to add runway", "Ok");
                 return;
             }
-            Runway _ = new(RunwayName, RunwayLength, Airport);
+            Runway runway = new(RunwayName, RunwayLength, _airportService.CurrentAirport);
+            runway.FlightArrived += OnFlightArrived;
+            runway.FlightDeparted += OnFlightDeparted;
             LoadControlData();
             CloseRunwayPopup();
             await _airportService.ShowNotificationAsync("Notification", RunwayName + " has been added", "Ok");
@@ -220,7 +222,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 await _airportService.ShowNotificationAsync("Alert", "Missing Gatename", "Ok");
                 return;
             }
-            Gate gate = new Gate(GateName, Airport);
+            Gate gate = new Gate(GateName, _airportService.CurrentAirport);
             if (gate != null || SelectedTerminal != null) 
             {
                 SelectedTerminal.AddGateToList(gate);
@@ -246,7 +248,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 await _airportService.ShowNotificationAsync("Alert", "Terminal Name is missing", "Ok");
                 return;
             }
-            Terminal terminal = new Terminal(TerminalName, Airport);
+            Terminal terminal = new Terminal(TerminalName, _airportService.CurrentAirport);
             Terminals.Add(terminal);
             LoadControlData();
             await _airportService.ShowNotificationAsync("Notification", TerminalName + " has been added", "Ok");
@@ -286,7 +288,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 await _airportService.ShowNotificationAsync("Alert", "Needs Name and values greater than 0 to add taxiway", "Ok");
                 return;
             }
-            Taxiway taxiway = new Taxiway(TaxiwayName, TaxiwayLength, TaxiwaySpeed , Airport);
+            Taxiway taxiway = new Taxiway(TaxiwayName, TaxiwayLength, TaxiwaySpeed , _airportService.CurrentAirport);
             LoadControlData();
             CloseTaxiwayPopup();
             await _airportService.ShowNotificationAsync("Notification", TaxiwayName + " has been added", "Ok");
@@ -325,7 +327,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
                 await _airportService.ShowNotificationAsync("Alert", "Missing Name", "Ok");
                 return;
             }
-            ConnectionPoint connectionPoint = new(ConnectionPointName, Airport);
+            ConnectionPoint _ = new(ConnectionPointName, _airportService.CurrentAirport);
             LoadControlData();
             await _airportService.ShowNotificationAsync("Notification", ConnectionPointName + " has been added", "Ok");
             CloseConnectionPointPopup();
@@ -421,7 +423,7 @@ namespace brusOgPotetgull.userInterface.ViewModel
         {
             if (SelectedTaxiway != null && SelectedConnectionPointA != null && SelectedConnectionPointB != null)
             {
-                Airport.AddTaxiwayConnection(SelectedTaxiway, SelectedConnectionPointA, SelectedConnectionPointB);
+                _airportService.CurrentAirport.AddTaxiwayConnection(SelectedTaxiway, SelectedConnectionPointA, SelectedConnectionPointB);
                 await _airportService.ShowNotificationAsync("Notification", "Connection ( " + SelectedConnectionPointA + " <-> " + SelectedTaxiway + " <-> " + SelectedConnectionPointB + " ) Created", "Ok");
                 ResetParams();
                 ClosePlaceTaxiwayPopup();
@@ -516,14 +518,14 @@ namespace brusOgPotetgull.userInterface.ViewModel
         {
             if (FlightTypeSelector == "Arriving")
             {
-                Flight.Arriving flight = new(SelectedAircraft, FlightDate, FlightLength, Airport, SelectedGate, SelectedTaxiway, SelectedRunway);
+                Flight.Arriving flight = new(SelectedAircraft, FlightDate, FlightLength, _airportService.CurrentAirport, SelectedGate, SelectedTaxiway, SelectedRunway);
                 await _airportService.ShowNotificationAsync("Notification", "Arriving flight with id " + flight.FlightId.ToString() + " added", "Ok");
                 ResetParams();
                 CloseFlightPopup();
             }
             else if (FlightTypeSelector == "Departing")
             {
-                Flight.Departing flight = new(SelectedAircraft, FlightDate, FlightLength, Airport, SelectedGate, SelectedTaxiway, SelectedRunway);
+                Flight.Departing flight = new(SelectedAircraft, FlightDate, FlightLength, _airportService.CurrentAirport, SelectedGate, SelectedTaxiway, SelectedRunway);
                 await _airportService.ShowNotificationAsync("Notification", "Departing flight with id " + flight.FlightId.ToString() + " added", "Ok");
                 ResetParams();
                 CloseFlightPopup();
@@ -567,6 +569,54 @@ namespace brusOgPotetgull.userInterface.ViewModel
             SelectedTime.Seconds
             );
 
+        [RelayCommand]
+        public void DummyData()
+        {
+            // Airport config
+            ObservableCollection<Gate> gateList = [new("Gate A1", _airportService.CurrentAirport), new("Gate B1", _airportService.CurrentAirport), new("Gate C1", _airportService.CurrentAirport), new("Gate C2", _airportService.CurrentAirport)];
+            ObservableCollection<Runway> runwayList = [new("Runway 1", 1000, _airportService.CurrentAirport), new("Runway 2", 1000, _airportService.CurrentAirport)];
+            ObservableCollection<Terminal> terminalList = [new("Terminal 1", _airportService.CurrentAirport), new("Terminal 2", _airportService.CurrentAirport)];
+            ObservableCollection<Taxiway> taxiList = [new("Alpha", 200, 30, _airportService.CurrentAirport), new("Bravo", 200, 30, _airportService.CurrentAirport), new("Charlie", 200, 30, _airportService.CurrentAirport), new("Delta", 200, 30, _airportService.CurrentAirport), new("Echo", 200, 30, _airportService.CurrentAirport), new("Foxtrot", 200, 30, _airportService.CurrentAirport), new("Golf", 200, 30, _airportService.CurrentAirport), new("Hotel", 200, 30, _airportService.CurrentAirport),];
+            ObservableCollection<ConnectionPoint> connectionPointList = [new("A1", _airportService.CurrentAirport), new("B2", _airportService.CurrentAirport), new("C3", _airportService.CurrentAirport), new("D4", _airportService.CurrentAirport), new("E5", _airportService.CurrentAirport), new("F6", _airportService.CurrentAirport), new("G7", _airportService.CurrentAirport), new("H8", _airportService.CurrentAirport), new("I9", _airportService.CurrentAirport)];
+
+            runwayList[0].FlightArrived += OnFlightArrived;
+            runwayList[0].FlightDeparted += OnFlightDeparted;
+            runwayList[1].FlightArrived += OnFlightArrived;
+            runwayList[1].FlightDeparted += OnFlightDeparted;
+
+            // Roadsystem setup
+            taxiList[0].AddConnectedGate(gateList[0]);
+            taxiList[3].AddConnectedGate(gateList[2]);
+            taxiList[5].AddConnectedGate(gateList[3]);
+            taxiList[0].AddConnectedRunway(runwayList[0]);
+            taxiList[5].AddConnectedRunway(runwayList[1]);
+            this.Airport.AddTaxiwayConnection(taxiList[0], connectionPointList[0], connectionPointList[1]);
+            this.Airport.AddTaxiwayConnection(taxiList[1], connectionPointList[1], connectionPointList[2]);
+            this.Airport.AddTaxiwayConnection(taxiList[2], connectionPointList[2], connectionPointList[3]);
+            this.Airport.AddTaxiwayConnection(taxiList[3], connectionPointList[3], connectionPointList[4]);
+            this.Airport.AddTaxiwayConnection(taxiList[4], connectionPointList[4], connectionPointList[5]);
+            this.Airport.AddTaxiwayConnection(taxiList[5], connectionPointList[5], connectionPointList[6]);
+
+            // Flight config
+            ObservableCollection<AircraftType> aircraftTypesList = [new("Airbus 480"), new("Boeing 737")];
+            ObservableCollection<Aircraft> aircraftsList = [new("D1280", aircraftTypesList[0], 890, 50, 35, 4), new("MH370", aircraftTypesList[1], 800, 30, 30, 4)];
+            AircraftTypes = aircraftTypesList;
+            Aircrafts = aircraftsList;
+            Flight.Arriving Flight1 = new(Aircrafts[0], new DateTime(2024, 5, 28, 00, 05, 00), 10000, _airportService.CurrentAirport, gateList[0], taxiList[2], runwayList[0]);
+            Flight.Departing Flight2 = new(Aircrafts[1], new DateTime(2024, 5, 28, 00, 15, 00), 10000, _airportService.CurrentAirport, gateList[3], taxiList[1], runwayList[1]);
+        }
+
+        private static void OnFlightArrived(object? sender, ArrivingEventArgs e)
+        {
+            e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.ArrivalRunway.GetAirportNameAndRunwayId(), ", Enters the runway");
+        }
+
+        private static void OnFlightDeparted(object? sender, DepartingEventArgs e)
+        {
+            e.Flight.ActiveAircraft.AddHistoryToAircraft(e.Time, e.Flight.DepartureRunway.GetAirportNameAndRunwayId(), ", Leaves the runway");
+        }
+
+        [RelayCommand]
         public void LoadControlData()
         {
             Gates = new ObservableCollection<Gate>(_airportService.CurrentAirport.GetListGates());
