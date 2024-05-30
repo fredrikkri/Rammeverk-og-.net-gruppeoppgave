@@ -22,3 +22,6 @@ For å kjørt nettsiden med API dokumentasjonen:
 	docfx docFx\docfx.json --serve
 
 Gå deretter til http://localhost:8080/api/BrusOgPotetgull.AirportLiberary.html
+
+
+NB - docFX versjon av dokumentasjonen har noe bedre formattering og navigasjonsmuligheter.
