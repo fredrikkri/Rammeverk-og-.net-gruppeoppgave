@@ -1,0 +1,245 @@
+{
+  "source_base_path": "C:/Rammeverk-og-.net-gruppeoppgave/docFx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Aircraft.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Aircraft.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.AircraftTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.AircraftTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Airport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Airport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.ArrivingEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.ArrivingEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.ConnectionPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.ConnectionPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.CustomExceptions.DuplicateOfContentException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.CustomExceptions.DuplicateOfContentException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.CustomExceptions.NegativeNumberException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.CustomExceptions.NegativeNumberException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.CustomExceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.CustomExceptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.DepartingEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.DepartingEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Flight.Arriving.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Flight.Arriving.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Flight.Departing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Flight.Departing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Flight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Flight.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Gate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Gate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Runway.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Runway.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Simulation.Simulation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Simulation.Simulation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Simulation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Simulation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Taxiway.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Taxiway.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.Terminal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.Terminal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BrusOgPotetgull.AirportLiberary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BrusOgPotetgull.AirportLiberary.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

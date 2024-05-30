@@ -1,0 +1,781 @@
+### YamlMime:ManagedReference
+items:
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight.Departing
+  id: Flight.Departing
+  parent: BrusOgPotetgull.AirportLiberary
+  children:
+  - BrusOgPotetgull.AirportLiberary.Flight.Departing.#ctor(BrusOgPotetgull.AirportLiberary.Aircraft,System.DateTime,System.Int32,BrusOgPotetgull.AirportLiberary.Airport,BrusOgPotetgull.AirportLiberary.Gate,BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Runway)
+  - BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureAirport
+  - BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureGate
+  - BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureRunway
+  - BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureTaxiway
+  - BrusOgPotetgull.AirportLiberary.Flight.Departing.PrintFlightInformation
+  langs:
+  - csharp
+  - vb
+  name: Flight.Departing
+  nameWithType: Flight.Departing
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  type: Class
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Flight.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Departing
+    path: ../brusOgPotetgull.airportLiberary/Flight.cs
+    startLine: 88
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: The Departuring-class represents a departing flight. The class inherits from the Flight-class.
+  example: []
+  syntax:
+    content: 'public class Flight.Departing : Flight'
+    content.vb: Public Class Flight.Departing Inherits Flight
+  inheritance:
+  - System.Object
+  - BrusOgPotetgull.AirportLiberary.Flight
+  inheritedMembers:
+  - BrusOgPotetgull.AirportLiberary.Flight.FlightId
+  - BrusOgPotetgull.AirportLiberary.Flight.ActiveAircraft
+  - BrusOgPotetgull.AirportLiberary.Flight.DateTimeFlight
+  - BrusOgPotetgull.AirportLiberary.Flight.IsArrivingFlight
+  - BrusOgPotetgull.AirportLiberary.Flight.Length
+  - BrusOgPotetgull.AirportLiberary.Flight.taxiwayPath
+  - BrusOgPotetgull.AirportLiberary.Flight.Clock
+  - BrusOgPotetgull.AirportLiberary.Flight.CalculateFlightMovement(System.Int32,System.Int32,System.Int32,System.Int32)
+  - BrusOgPotetgull.AirportLiberary.Flight.CalculateTaxiwayPathTime
+  - BrusOgPotetgull.AirportLiberary.Flight.PrintTaxiwayPathTime
+  - BrusOgPotetgull.AirportLiberary.Flight.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureAirport
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureAirport
+  id: DepartureAirport
+  parent: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  langs:
+  - csharp
+  - vb
+  name: DepartureAirport
+  nameWithType: Flight.Departing.DepartureAirport
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureAirport
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Flight.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: DepartureAirport
+    path: ../brusOgPotetgull.airportLiberary/Flight.cs
+    startLine: 97
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets departure airport
+  example: []
+  syntax:
+    content: public Airport DepartureAirport { get; }
+    parameters: []
+    return:
+      type: BrusOgPotetgull.AirportLiberary.Airport
+      description: Airport object of the departure airport for the flight
+    content.vb: Public Property DepartureAirport As Airport
+  overload: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureAirport*
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureGate
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureGate
+  id: DepartureGate
+  parent: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  langs:
+  - csharp
+  - vb
+  name: DepartureGate
+  nameWithType: Flight.Departing.DepartureGate
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureGate
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Flight.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: DepartureGate
+    path: ../brusOgPotetgull.airportLiberary/Flight.cs
+    startLine: 105
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets departure gate
+  example: []
+  syntax:
+    content: public Gate DepartureGate { get; }
+    parameters: []
+    return:
+      type: BrusOgPotetgull.AirportLiberary.Gate
+      description: Gate object of the departure gate for the flight
+    content.vb: Public Property DepartureGate As Gate
+  overload: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureGate*
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureTaxiway
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureTaxiway
+  id: DepartureTaxiway
+  parent: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  langs:
+  - csharp
+  - vb
+  name: DepartureTaxiway
+  nameWithType: Flight.Departing.DepartureTaxiway
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureTaxiway
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Flight.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: DepartureTaxiway
+    path: ../brusOgPotetgull.airportLiberary/Flight.cs
+    startLine: 113
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets departure taxiway
+  example: []
+  syntax:
+    content: public Taxiway DepartureTaxiway { get; }
+    parameters: []
+    return:
+      type: BrusOgPotetgull.AirportLiberary.Taxiway
+      description: Taxiway object of the departure taxiway for the flight
+    content.vb: Public Property DepartureTaxiway As Taxiway
+  overload: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureTaxiway*
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureRunway
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureRunway
+  id: DepartureRunway
+  parent: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  langs:
+  - csharp
+  - vb
+  name: DepartureRunway
+  nameWithType: Flight.Departing.DepartureRunway
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureRunway
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Flight.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: DepartureRunway
+    path: ../brusOgPotetgull.airportLiberary/Flight.cs
+    startLine: 121
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets departure runway
+  example: []
+  syntax:
+    content: public Runway DepartureRunway { get; }
+    parameters: []
+    return:
+      type: BrusOgPotetgull.AirportLiberary.Runway
+      description: Runway object of the departure runway for the flight
+    content.vb: Public Property DepartureRunway As Runway
+  overload: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureRunway*
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.#ctor(BrusOgPotetgull.AirportLiberary.Aircraft,System.DateTime,System.Int32,BrusOgPotetgull.AirportLiberary.Airport,BrusOgPotetgull.AirportLiberary.Gate,BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Runway)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Flight.Departing.#ctor(BrusOgPotetgull.AirportLiberary.Aircraft,System.DateTime,System.Int32,BrusOgPotetgull.AirportLiberary.Airport,BrusOgPotetgull.AirportLiberary.Gate,BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Runway)
+  id: '#ctor(BrusOgPotetgull.AirportLiberary.Aircraft,System.DateTime,System.Int32,BrusOgPotetgull.AirportLiberary.Airport,BrusOgPotetgull.AirportLiberary.Gate,BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Runway)'
+  parent: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  langs:
+  - csharp
+  - vb
+  name: Departing(Aircraft, DateTime, int, Airport, Gate, Taxiway, Runway)
+  nameWithType: Flight.Departing.Departing(Aircraft, DateTime, int, Airport, Gate, Taxiway, Runway)
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.Departing(BrusOgPotetgull.AirportLiberary.Aircraft, System.DateTime, int, BrusOgPotetgull.AirportLiberary.Airport, BrusOgPotetgull.AirportLiberary.Gate, BrusOgPotetgull.AirportLiberary.Taxiway, BrusOgPotetgull.AirportLiberary.Runway)
+  type: Constructor
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Flight.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: .ctor
+    path: ../brusOgPotetgull.airportLiberary/Flight.cs
+    startLine: 133
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Creates a departing flight object.
+  example: []
+  syntax:
+    content: public Departing(Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport departureAirport, Gate departureGate, Taxiway departureTaxiway, Runway departureRunway)
+    parameters:
+    - id: activeAircraft
+      type: BrusOgPotetgull.AirportLiberary.Aircraft
+      description: The aircraft that is used for this flight.
+    - id: dateTimeFlight
+      type: System.DateTime
+      description: Date of the flight.
+    - id: length
+      type: System.Int32
+      description: Length of the flight im KM.
+    - id: departureAirport
+      type: BrusOgPotetgull.AirportLiberary.Airport
+      description: The airport that the aircraft departure from.
+    - id: departureGate
+      type: BrusOgPotetgull.AirportLiberary.Gate
+      description: The gate that the aircraft departure from.
+    - id: departureTaxiway
+      type: BrusOgPotetgull.AirportLiberary.Taxiway
+      description: The taxiway that the aircraft is using to departure from.
+    - id: departureRunway
+      type: BrusOgPotetgull.AirportLiberary.Runway
+      description: The runway that the aircraft is departuring from.
+    content.vb: Public Sub New(activeAircraft As Aircraft, dateTimeFlight As Date, length As Integer, departureAirport As Airport, departureGate As Gate, departureTaxiway As Taxiway, departureRunway As Runway)
+  overload: BrusOgPotetgull.AirportLiberary.Flight.Departing.#ctor*
+  nameWithType.vb: Flight.Departing.New(Aircraft, Date, Integer, Airport, Gate, Taxiway, Runway)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Flight.Departing.New(BrusOgPotetgull.AirportLiberary.Aircraft, Date, Integer, BrusOgPotetgull.AirportLiberary.Airport, BrusOgPotetgull.AirportLiberary.Gate, BrusOgPotetgull.AirportLiberary.Taxiway, BrusOgPotetgull.AirportLiberary.Runway)
+  name.vb: New(Aircraft, Date, Integer, Airport, Gate, Taxiway, Runway)
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.PrintFlightInformation
+  commentId: M:BrusOgPotetgull.AirportLiberary.Flight.Departing.PrintFlightInformation
+  id: PrintFlightInformation
+  parent: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  langs:
+  - csharp
+  - vb
+  name: PrintFlightInformation()
+  nameWithType: Flight.Departing.PrintFlightInformation()
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.PrintFlightInformation()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Flight.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: PrintFlightInformation
+    path: ../brusOgPotetgull.airportLiberary/Flight.cs
+    startLine: 147
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: >-
+    Prints information about the flight.
+
+    This includes the date, flights ID, length of the flight, modelname, runway id, taxiway id and gate id.
+  example: []
+  syntax:
+    content: public void PrintFlightInformation()
+    content.vb: Public Sub PrintFlightInformation()
+  overload: BrusOgPotetgull.AirportLiberary.Flight.Departing.PrintFlightInformation*
+references:
+- uid: BrusOgPotetgull.AirportLiberary
+  commentId: N:BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary
+  nameWithType: BrusOgPotetgull.AirportLiberary
+  fullName: BrusOgPotetgull.AirportLiberary
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: BrusOgPotetgull.AirportLiberary.Flight
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Flight.html
+  name: Flight
+  nameWithType: Flight
+  fullName: BrusOgPotetgull.AirportLiberary.Flight
+- uid: BrusOgPotetgull.AirportLiberary.Flight.FlightId
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.FlightId
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_FlightId
+  name: FlightId
+  nameWithType: Flight.FlightId
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.FlightId
+- uid: BrusOgPotetgull.AirportLiberary.Flight.ActiveAircraft
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.ActiveAircraft
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_ActiveAircraft
+  name: ActiveAircraft
+  nameWithType: Flight.ActiveAircraft
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.ActiveAircraft
+- uid: BrusOgPotetgull.AirportLiberary.Flight.DateTimeFlight
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.DateTimeFlight
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_DateTimeFlight
+  name: DateTimeFlight
+  nameWithType: Flight.DateTimeFlight
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.DateTimeFlight
+- uid: BrusOgPotetgull.AirportLiberary.Flight.IsArrivingFlight
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.IsArrivingFlight
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_IsArrivingFlight
+  name: IsArrivingFlight
+  nameWithType: Flight.IsArrivingFlight
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.IsArrivingFlight
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Length
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.Length
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_Length
+  name: Length
+  nameWithType: Flight.Length
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Length
+- uid: BrusOgPotetgull.AirportLiberary.Flight.taxiwayPath
+  commentId: F:BrusOgPotetgull.AirportLiberary.Flight.taxiwayPath
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_taxiwayPath
+  name: taxiwayPath
+  nameWithType: Flight.taxiwayPath
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.taxiwayPath
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Clock
+  commentId: P:BrusOgPotetgull.AirportLiberary.Flight.Clock
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_Clock
+  name: Clock
+  nameWithType: Flight.Clock
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Clock
+- uid: BrusOgPotetgull.AirportLiberary.Flight.CalculateFlightMovement(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Flight.CalculateFlightMovement(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  isExternal: true
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_CalculateFlightMovement_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: CalculateFlightMovement(int, int, int, int)
+  nameWithType: Flight.CalculateFlightMovement(int, int, int, int)
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.CalculateFlightMovement(int, int, int, int)
+  nameWithType.vb: Flight.CalculateFlightMovement(Integer, Integer, Integer, Integer)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Flight.CalculateFlightMovement(Integer, Integer, Integer, Integer)
+  name.vb: CalculateFlightMovement(Integer, Integer, Integer, Integer)
+  spec.csharp:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.CalculateFlightMovement(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: CalculateFlightMovement
+    href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_CalculateFlightMovement_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.CalculateFlightMovement(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: CalculateFlightMovement
+    href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_CalculateFlightMovement_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Flight.CalculateTaxiwayPathTime
+  commentId: M:BrusOgPotetgull.AirportLiberary.Flight.CalculateTaxiwayPathTime
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_CalculateTaxiwayPathTime
+  name: CalculateTaxiwayPathTime()
+  nameWithType: Flight.CalculateTaxiwayPathTime()
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.CalculateTaxiwayPathTime()
+  spec.csharp:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.CalculateTaxiwayPathTime
+    name: CalculateTaxiwayPathTime
+    href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_CalculateTaxiwayPathTime
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.CalculateTaxiwayPathTime
+    name: CalculateTaxiwayPathTime
+    href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_CalculateTaxiwayPathTime
+  - name: (
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Flight.PrintTaxiwayPathTime
+  commentId: M:BrusOgPotetgull.AirportLiberary.Flight.PrintTaxiwayPathTime
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_PrintTaxiwayPathTime
+  name: PrintTaxiwayPathTime()
+  nameWithType: Flight.PrintTaxiwayPathTime()
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.PrintTaxiwayPathTime()
+  spec.csharp:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.PrintTaxiwayPathTime
+    name: PrintTaxiwayPathTime
+    href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_PrintTaxiwayPathTime
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.PrintTaxiwayPathTime
+    name: PrintTaxiwayPathTime
+    href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_PrintTaxiwayPathTime
+  - name: (
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Flight.ToString
+  commentId: M:BrusOgPotetgull.AirportLiberary.Flight.ToString
+  parent: BrusOgPotetgull.AirportLiberary.Flight
+  href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_ToString
+  name: ToString()
+  nameWithType: Flight.ToString()
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.ToString()
+  spec.csharp:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.ToString
+    name: ToString
+    href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.ToString
+    name: ToString
+    href: BrusOgPotetgull.AirportLiberary.Flight.html#BrusOgPotetgull_AirportLiberary_Flight_ToString
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureAirport*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureAirport
+  href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html#BrusOgPotetgull_AirportLiberary_Flight_Departing_DepartureAirport
+  name: DepartureAirport
+  nameWithType: Flight.Departing.DepartureAirport
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureAirport
+- uid: BrusOgPotetgull.AirportLiberary.Airport
+  commentId: T:BrusOgPotetgull.AirportLiberary.Airport
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Airport.html
+  name: Airport
+  nameWithType: Airport
+  fullName: BrusOgPotetgull.AirportLiberary.Airport
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureGate*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureGate
+  href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html#BrusOgPotetgull_AirportLiberary_Flight_Departing_DepartureGate
+  name: DepartureGate
+  nameWithType: Flight.Departing.DepartureGate
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureGate
+- uid: BrusOgPotetgull.AirportLiberary.Gate
+  commentId: T:BrusOgPotetgull.AirportLiberary.Gate
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Gate.html
+  name: Gate
+  nameWithType: Gate
+  fullName: BrusOgPotetgull.AirportLiberary.Gate
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureTaxiway*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureTaxiway
+  href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html#BrusOgPotetgull_AirportLiberary_Flight_Departing_DepartureTaxiway
+  name: DepartureTaxiway
+  nameWithType: Flight.Departing.DepartureTaxiway
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureTaxiway
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway
+  commentId: T:BrusOgPotetgull.AirportLiberary.Taxiway
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html
+  name: Taxiway
+  nameWithType: Taxiway
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureRunway*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureRunway
+  href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html#BrusOgPotetgull_AirportLiberary_Flight_Departing_DepartureRunway
+  name: DepartureRunway
+  nameWithType: Flight.Departing.DepartureRunway
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.DepartureRunway
+- uid: BrusOgPotetgull.AirportLiberary.Runway
+  commentId: T:BrusOgPotetgull.AirportLiberary.Runway
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Runway.html
+  name: Runway
+  nameWithType: Runway
+  fullName: BrusOgPotetgull.AirportLiberary.Runway
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.#ctor*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Flight.Departing.#ctor
+  href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html#BrusOgPotetgull_AirportLiberary_Flight_Departing__ctor_BrusOgPotetgull_AirportLiberary_Aircraft_System_DateTime_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_BrusOgPotetgull_AirportLiberary_Gate_BrusOgPotetgull_AirportLiberary_Taxiway_BrusOgPotetgull_AirportLiberary_Runway_
+  name: Departing
+  nameWithType: Flight.Departing.Departing
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.Departing
+  nameWithType.vb: Flight.Departing.New
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Flight.Departing.New
+  name.vb: New
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft
+  commentId: T:BrusOgPotetgull.AirportLiberary.Aircraft
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html
+  name: Aircraft
+  nameWithType: Aircraft
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing.PrintFlightInformation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Flight.Departing.PrintFlightInformation
+  href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html#BrusOgPotetgull_AirportLiberary_Flight_Departing_PrintFlightInformation
+  name: PrintFlightInformation
+  nameWithType: Flight.Departing.PrintFlightInformation
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing.PrintFlightInformation

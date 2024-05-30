@@ -1,0 +1,729 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Aircraft | BrusDocs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Aircraft | BrusDocs ">
+      
+      <meta name="description" content="The Aircraft-class is a blueprint for how an aircraft would look like.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/new/main/apiSpec/new?filename=BrusOgPotetgull_AirportLiberary_Aircraft.md&amp;value=---%0Auid%3A%20BrusOgPotetgull.AirportLiberary.Aircraft%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="BrusDocs">
+            BrusDocs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="BrusOgPotetgull.AirportLiberary.Aircraft">
+
+
+
+  <h1 id="BrusOgPotetgull_AirportLiberary_Aircraft" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft" class="text-break">
+Class Aircraft  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="BrusOgPotetgull.html">BrusOgPotetgull</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.html">AirportLiberary</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>brusOgPotetgull.airportLiberary.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Aircraft-class is a blueprint for how an aircraft would look like.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Aircraft</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Aircraft</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft__ctor_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.#ctor*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft__ctor_System_String_BrusOgPotetgull_AirportLiberary_AircraftTypes_AircraftType_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.#ctor(System.String,BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType,System.Int32,System.Int32,System.Int32,System.Int32)">
+  Aircraft(string, AircraftType, int, int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an aircraft.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Aircraft(string name, AircraftType aircraftType, int maxSpeedInAir, int accelerationInAir, int maxSpeedOnGround, int accelerationOnGround)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>What the aircraft is called.</p>
+</dd>
+    <dt><code>aircraftType</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType.html">AircraftType</a></dt>
+    <dd><p>The model of the aircraft.</p>
+</dd>
+    <dt><code>maxSpeedInAir</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Maximum in-air speed (Kp/h).</p>
+</dd>
+    <dt><code>accelerationInAir</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The accleration in-air (Kp/h).</p>
+</dd>
+    <dt><code>maxSpeedOnGround</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Maximum on-ground speed (Kp/h).</p>
+</dd>
+    <dt><code>accelerationOnGround</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>acceleration on ground (Kp/h).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_AccelerationInAir_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_AccelerationInAir" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir">
+  AccelerationInAir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets aircraft acceleration in air</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AccelerationInAir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of the acceleration in the air</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_AccelerationOnGround_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_AccelerationOnGround" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround">
+  AccelerationOnGround
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets aircraft acceleration on ground</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AccelerationOnGround { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of acceleration on ground for aircraft</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_AircraftType_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_AircraftType" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType">
+  AircraftType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets aircraft type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AircraftType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>string of the aircraft type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_AircraftTypeId_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_AircraftTypeId" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId">
+  AircraftTypeId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets aircraft type Id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AircraftTypeId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of the aircraft type id</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_MaxSpeedInAir_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_MaxSpeedInAir" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir">
+  MaxSpeedInAir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets airraft max speed in air</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxSpeedInAir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of max air speed of plane</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_MaxSpeedOnGround_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_MaxSpeedOnGround" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround">
+  MaxSpeedOnGround
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets aircraft max speed on ground</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxSpeedOnGround { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of the max speed on ground for the aircraft</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_Name_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.Name*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_Name" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets aircraft name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>string of the name of the aircraft</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_OutOfService_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_OutOfService" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService">
+  OutOfService
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets if aircraft is in service with bool</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool OutOfService { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>bool if out of service</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_TailNumber_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_TailNumber" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber">
+  TailNumber
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets aircraft tail number</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TailNumber { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of the tailnumber of the aircraft</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_AddHistoryToAircraft_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_AddHistoryToAircraft_System_DateTime_System_String_System_String_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft(System.DateTime,System.String,System.String)">
+  AddHistoryToAircraft(DateTime, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>logging an event to the history of the aircraft.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddHistoryToAircraft(DateTime time, string location, string message)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>When the event took place.</p>
+</dd>
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The location of the plane.</p>
+</dd>
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The action of the plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_GetFullAircraftHistory_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_GetFullAircraftHistory" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory">
+  GetFullAircraftHistory()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the history of the aircraft</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetFullAircraftHistory()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>returns aircraft history in string</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_PrintAircraftHistoryForDay_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_PrintAircraftHistoryForDay_System_Int32_System_Int32_System_Int32_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay(System.Int32,System.Int32,System.Int32)">
+  PrintAircraftHistoryForDay(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads trough the list of the aircrafts history and prints out the log for that day</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrintAircraftHistoryForDay(int year, int month, int day)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>year</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The year it checks</p>
+</dd>
+    <dt><code>month</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The month it checks</p>
+</dd>
+    <dt><code>day</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The day it checks</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_PrintAircraftInformation_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_PrintAircraftInformation" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation">
+  PrintAircraftInformation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prints the information about the Aircraft.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void PrintAircraftInformation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_PrintFullAircraftHistory_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_PrintFullAircraftHistory" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory">
+  PrintFullAircraftHistory()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prints the full history of the plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrintFullAircraftHistory()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Aircraft_ToString_" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.ToString*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Aircraft_ToString" data-uid="BrusOgPotetgull.AirportLiberary.Aircraft.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This override the ToString() method that exists in all objects in c#</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A String with simple details about the aircraft.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Aircraft.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

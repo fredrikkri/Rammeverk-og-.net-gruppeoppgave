@@ -1,0 +1,1034 @@
+### YamlMime:ManagedReference
+items:
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft
+  commentId: T:BrusOgPotetgull.AirportLiberary.Aircraft
+  id: Aircraft
+  parent: BrusOgPotetgull.AirportLiberary
+  children:
+  - BrusOgPotetgull.AirportLiberary.Aircraft.#ctor(System.String,BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType,System.Int32,System.Int32,System.Int32,System.Int32)
+  - BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir
+  - BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround
+  - BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft(System.DateTime,System.String,System.String)
+  - BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType
+  - BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId
+  - BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory
+  - BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir
+  - BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround
+  - BrusOgPotetgull.AirportLiberary.Aircraft.Name
+  - BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService
+  - BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay(System.Int32,System.Int32,System.Int32)
+  - BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation
+  - BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory
+  - BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber
+  - BrusOgPotetgull.AirportLiberary.Aircraft.ToString
+  langs:
+  - csharp
+  - vb
+  name: Aircraft
+  nameWithType: Aircraft
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft
+  type: Class
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Aircraft
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 9
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: The Aircraft-class is a blueprint for how an aircraft would look like.
+  example: []
+  syntax:
+    content: public class Aircraft
+    content.vb: Public Class Aircraft
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.#ctor(System.String,BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Aircraft.#ctor(System.String,BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: '#ctor(System.String,BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType,System.Int32,System.Int32,System.Int32,System.Int32)'
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: Aircraft(string, AircraftType, int, int, int, int)
+  nameWithType: Aircraft.Aircraft(string, AircraftType, int, int, int, int)
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.Aircraft(string, BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType, int, int, int, int)
+  type: Constructor
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: .ctor
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 26
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Creates an aircraft.
+  example: []
+  syntax:
+    content: public Aircraft(string name, AircraftType aircraftType, int maxSpeedInAir, int accelerationInAir, int maxSpeedOnGround, int accelerationOnGround)
+    parameters:
+    - id: name
+      type: System.String
+      description: What the aircraft is called.
+    - id: aircraftType
+      type: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+      description: The model of the aircraft.
+    - id: maxSpeedInAir
+      type: System.Int32
+      description: Maximum in-air speed (Kp/h).
+    - id: accelerationInAir
+      type: System.Int32
+      description: The accleration in-air (Kp/h).
+    - id: maxSpeedOnGround
+      type: System.Int32
+      description: Maximum on-ground speed (Kp/h).
+    - id: accelerationOnGround
+      type: System.Int32
+      description: acceleration on ground (Kp/h).
+    content.vb: Public Sub New(name As String, aircraftType As AircraftType, maxSpeedInAir As Integer, accelerationInAir As Integer, maxSpeedOnGround As Integer, accelerationOnGround As Integer)
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.#ctor*
+  nameWithType.vb: Aircraft.New(String, AircraftType, Integer, Integer, Integer, Integer)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Aircraft.New(String, BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType, Integer, Integer, Integer, Integer)
+  name.vb: New(String, AircraftType, Integer, Integer, Integer, Integer)
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber
+  id: TailNumber
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: TailNumber
+  nameWithType: Aircraft.TailNumber
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: TailNumber
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 52
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets aircraft tail number
+  example: []
+  syntax:
+    content: public int TailNumber { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of the tailnumber of the aircraft
+    content.vb: Public Property TailNumber As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType
+  id: AircraftType
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: AircraftType
+  nameWithType: Aircraft.AircraftType
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AircraftType
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 60
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets aircraft type
+  example: []
+  syntax:
+    content: public string AircraftType { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: string of the aircraft type
+    content.vb: Public Property AircraftType As String
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId
+  id: AircraftTypeId
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: AircraftTypeId
+  nameWithType: Aircraft.AircraftTypeId
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AircraftTypeId
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 68
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets aircraft type Id
+  example: []
+  syntax:
+    content: public int AircraftTypeId { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of the aircraft type id
+    content.vb: Public Property AircraftTypeId As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService
+  id: OutOfService
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: OutOfService
+  nameWithType: Aircraft.OutOfService
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: OutOfService
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 76
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets if aircraft is in service with bool
+  example: []
+  syntax:
+    content: public bool OutOfService { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: bool if out of service
+    content.vb: Public Property OutOfService As Boolean
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.Name
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.Name
+  id: Name
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Aircraft.Name
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.Name
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Name
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 84
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets aircraft name
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: string of the name of the aircraft
+    content.vb: Public Property Name As String
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.Name*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir
+  id: MaxSpeedInAir
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: MaxSpeedInAir
+  nameWithType: Aircraft.MaxSpeedInAir
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: MaxSpeedInAir
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 92
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets airraft max speed in air
+  example: []
+  syntax:
+    content: public int MaxSpeedInAir { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of max air speed of plane
+    content.vb: Public Property MaxSpeedInAir As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir
+  id: AccelerationInAir
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: AccelerationInAir
+  nameWithType: Aircraft.AccelerationInAir
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AccelerationInAir
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 100
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets aircraft acceleration in air
+  example: []
+  syntax:
+    content: public int AccelerationInAir { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of the acceleration in the air
+    content.vb: Public Property AccelerationInAir As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround
+  id: MaxSpeedOnGround
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: MaxSpeedOnGround
+  nameWithType: Aircraft.MaxSpeedOnGround
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: MaxSpeedOnGround
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 108
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets aircraft max speed on ground
+  example: []
+  syntax:
+    content: public int MaxSpeedOnGround { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of the max speed on ground for the aircraft
+    content.vb: Public Property MaxSpeedOnGround As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround
+  commentId: P:BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround
+  id: AccelerationOnGround
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: AccelerationOnGround
+  nameWithType: Aircraft.AccelerationOnGround
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AccelerationOnGround
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 116
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets aircraft acceleration on ground
+  example: []
+  syntax:
+    content: public int AccelerationOnGround { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of acceleration on ground for aircraft
+    content.vb: Public Property AccelerationOnGround As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation
+  commentId: M:BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation
+  id: PrintAircraftInformation
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: PrintAircraftInformation()
+  nameWithType: Aircraft.PrintAircraftInformation()
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: PrintAircraftInformation
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 121
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Prints the information about the Aircraft.
+  example: []
+  syntax:
+    content: public virtual void PrintAircraftInformation()
+    content.vb: Public Overridable Sub PrintAircraftInformation()
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.ToString
+  commentId: M:BrusOgPotetgull.AirportLiberary.Aircraft.ToString
+  id: ToString
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Aircraft.ToString()
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.ToString()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: ToString
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 136
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: This override the ToString() method that exists in all objects in c#
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A String with simple details about the aircraft.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.ToString*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft(System.DateTime,System.String,System.String)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft(System.DateTime,System.String,System.String)
+  id: AddHistoryToAircraft(System.DateTime,System.String,System.String)
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: AddHistoryToAircraft(DateTime, string, string)
+  nameWithType: Aircraft.AddHistoryToAircraft(DateTime, string, string)
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft(System.DateTime, string, string)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AddHistoryToAircraft
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 150
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: logging an event to the history of the aircraft.
+  example: []
+  syntax:
+    content: public void AddHistoryToAircraft(DateTime time, string location, string message)
+    parameters:
+    - id: time
+      type: System.DateTime
+      description: When the event took place.
+    - id: location
+      type: System.String
+      description: The location of the plane.
+    - id: message
+      type: System.String
+      description: The action of the plane.
+    content.vb: Public Sub AddHistoryToAircraft(time As Date, location As String, message As String)
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft*
+  nameWithType.vb: Aircraft.AddHistoryToAircraft(Date, String, String)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft(Date, String, String)
+  name.vb: AddHistoryToAircraft(Date, String, String)
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory
+  commentId: M:BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory
+  id: PrintFullAircraftHistory
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: PrintFullAircraftHistory()
+  nameWithType: Aircraft.PrintFullAircraftHistory()
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: PrintFullAircraftHistory
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 162
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Prints the full history of the plane.
+  example: []
+  syntax:
+    content: public void PrintFullAircraftHistory()
+    content.vb: Public Sub PrintFullAircraftHistory()
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory
+  commentId: M:BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory
+  id: GetFullAircraftHistory
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: GetFullAircraftHistory()
+  nameWithType: Aircraft.GetFullAircraftHistory()
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: GetFullAircraftHistory
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 174
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets the history of the aircraft
+  example: []
+  syntax:
+    content: public string GetFullAircraftHistory()
+    return:
+      type: System.String
+      description: returns aircraft history in string
+    content.vb: Public Function GetFullAircraftHistory() As String
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory*
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay(System.Int32,System.Int32,System.Int32)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay(System.Int32,System.Int32,System.Int32)
+  id: PrintAircraftHistoryForDay(System.Int32,System.Int32,System.Int32)
+  parent: BrusOgPotetgull.AirportLiberary.Aircraft
+  langs:
+  - csharp
+  - vb
+  name: PrintAircraftHistoryForDay(int, int, int)
+  nameWithType: Aircraft.PrintAircraftHistoryForDay(int, int, int)
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay(int, int, int)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/Aircraft.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: PrintAircraftHistoryForDay
+    path: ../brusOgPotetgull.airportLiberary/Aircraft.cs
+    startLine: 191
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Reads trough the list of the aircrafts history and prints out the log for that day
+  example: []
+  syntax:
+    content: public void PrintAircraftHistoryForDay(int year, int month, int day)
+    parameters:
+    - id: year
+      type: System.Int32
+      description: The year it checks
+    - id: month
+      type: System.Int32
+      description: The month it checks
+    - id: day
+      type: System.Int32
+      description: The day it checks
+    content.vb: Public Sub PrintAircraftHistoryForDay(year As Integer, month As Integer, day As Integer)
+  overload: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay*
+  nameWithType.vb: Aircraft.PrintAircraftHistoryForDay(Integer, Integer, Integer)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay(Integer, Integer, Integer)
+  name.vb: PrintAircraftHistoryForDay(Integer, Integer, Integer)
+references:
+- uid: BrusOgPotetgull.AirportLiberary
+  commentId: N:BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary
+  nameWithType: BrusOgPotetgull.AirportLiberary
+  fullName: BrusOgPotetgull.AirportLiberary
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.#ctor*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.#ctor
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft__ctor_System_String_BrusOgPotetgull_AirportLiberary_AircraftTypes_AircraftType_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: Aircraft
+  nameWithType: Aircraft.Aircraft
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.Aircraft
+  nameWithType.vb: Aircraft.New
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Aircraft.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+  commentId: T:BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+  parent: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  href: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType.html
+  name: AircraftType
+  nameWithType: AircraftType
+  fullName: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  commentId: N:BrusOgPotetgull.AirportLiberary.AircraftTypes
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  nameWithType: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  fullName: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+    name: AircraftTypes
+    href: BrusOgPotetgull.AirportLiberary.AircraftTypes.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+    name: AircraftTypes
+    href: BrusOgPotetgull.AirportLiberary.AircraftTypes.html
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_TailNumber
+  name: TailNumber
+  nameWithType: Aircraft.TailNumber
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.TailNumber
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_AircraftType
+  name: AircraftType
+  nameWithType: Aircraft.AircraftType
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftType
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_AircraftTypeId
+  name: AircraftTypeId
+  nameWithType: Aircraft.AircraftTypeId
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AircraftTypeId
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_OutOfService
+  name: OutOfService
+  nameWithType: Aircraft.OutOfService
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.OutOfService
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.Name*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.Name
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_Name
+  name: Name
+  nameWithType: Aircraft.Name
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.Name
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_MaxSpeedInAir
+  name: MaxSpeedInAir
+  nameWithType: Aircraft.MaxSpeedInAir
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedInAir
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_AccelerationInAir
+  name: AccelerationInAir
+  nameWithType: Aircraft.AccelerationInAir
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationInAir
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_MaxSpeedOnGround
+  name: MaxSpeedOnGround
+  nameWithType: Aircraft.MaxSpeedOnGround
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.MaxSpeedOnGround
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_AccelerationOnGround
+  name: AccelerationOnGround
+  nameWithType: Aircraft.AccelerationOnGround
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AccelerationOnGround
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_PrintAircraftInformation
+  name: PrintAircraftInformation
+  nameWithType: Aircraft.PrintAircraftInformation
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftInformation
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.ToString*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.ToString
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_ToString
+  name: ToString
+  nameWithType: Aircraft.ToString
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.ToString
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_AddHistoryToAircraft_System_DateTime_System_String_System_String_
+  name: AddHistoryToAircraft
+  nameWithType: Aircraft.AddHistoryToAircraft
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.AddHistoryToAircraft
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_PrintFullAircraftHistory
+  name: PrintFullAircraftHistory
+  nameWithType: Aircraft.PrintFullAircraftHistory
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.PrintFullAircraftHistory
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_GetFullAircraftHistory
+  name: GetFullAircraftHistory
+  nameWithType: Aircraft.GetFullAircraftHistory
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.GetFullAircraftHistory
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html#BrusOgPotetgull_AirportLiberary_Aircraft_PrintAircraftHistoryForDay_System_Int32_System_Int32_System_Int32_
+  name: PrintAircraftHistoryForDay
+  nameWithType: Aircraft.PrintAircraftHistoryForDay
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft.PrintAircraftHistoryForDay

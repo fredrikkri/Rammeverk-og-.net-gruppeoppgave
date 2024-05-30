@@ -1,0 +1,921 @@
+### YamlMime:ManagedReference
+items:
+- uid: BrusOgPotetgull.AirportLiberary.Terminal
+  commentId: T:BrusOgPotetgull.AirportLiberary.Terminal
+  id: Terminal
+  parent: BrusOgPotetgull.AirportLiberary
+  children:
+  - BrusOgPotetgull.AirportLiberary.Terminal.#ctor(System.String,BrusOgPotetgull.AirportLiberary.Airport)
+  - BrusOgPotetgull.AirportLiberary.Terminal.AddAircraftAllowedAtGatesAtTerminal(BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType)
+  - BrusOgPotetgull.AirportLiberary.Terminal.AddGateToList(BrusOgPotetgull.AirportLiberary.Gate)
+  - BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  - BrusOgPotetgull.AirportLiberary.Terminal.GetgatesInTerminal
+  - BrusOgPotetgull.AirportLiberary.Terminal.Id
+  - BrusOgPotetgull.AirportLiberary.Terminal.Name
+  - BrusOgPotetgull.AirportLiberary.Terminal.PrintTaxiwayInformation
+  - BrusOgPotetgull.AirportLiberary.Terminal.ToString
+  - BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation(System.String)
+  - BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation(System.String)
+  langs:
+  - csharp
+  - vb
+  name: Terminal
+  nameWithType: Terminal
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal
+  type: Class
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Terminal
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 9
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: The terminal class is an area in the airport that can host a set of gates.
+  example: []
+  syntax:
+    content: public class Terminal
+    content.vb: Public Class Terminal
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.#ctor(System.String,BrusOgPotetgull.AirportLiberary.Airport)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.#ctor(System.String,BrusOgPotetgull.AirportLiberary.Airport)
+  id: '#ctor(System.String,BrusOgPotetgull.AirportLiberary.Airport)'
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: Terminal(string, Airport)
+  nameWithType: Terminal.Terminal(string, Airport)
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.Terminal(string, BrusOgPotetgull.AirportLiberary.Airport)
+  type: Constructor
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: .ctor
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 21
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Creates a terminal.
+  example: []
+  syntax:
+    content: public Terminal(string name, Airport airport)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name for the terminal.
+    - id: airport
+      type: BrusOgPotetgull.AirportLiberary.Airport
+      description: The airport that the terminal will be located at.
+    content.vb: Public Sub New(name As String, airport As Airport)
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.#ctor*
+  nameWithType.vb: Terminal.New(String, Airport)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Terminal.New(String, BrusOgPotetgull.AirportLiberary.Airport)
+  name.vb: New(String, Airport)
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.Id
+  commentId: P:BrusOgPotetgull.AirportLiberary.Terminal.Id
+  id: Id
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Terminal.Id
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.Id
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Id
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 36
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets Id of Terminal
+  example: []
+  syntax:
+    content: public int Id { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int value of the id of the terminal
+    content.vb: Public Property Id As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.Id*
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.Name
+  commentId: P:BrusOgPotetgull.AirportLiberary.Terminal.Name
+  id: Name
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Terminal.Name
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.Name
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Name
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 44
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets Name of Terminal
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: string of name of terminal
+    content.vb: Public Property Name As String
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.Name*
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.PrintTaxiwayInformation
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.PrintTaxiwayInformation
+  id: PrintTaxiwayInformation
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: PrintTaxiwayInformation()
+  nameWithType: Terminal.PrintTaxiwayInformation()
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.PrintTaxiwayInformation()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: PrintTaxiwayInformation
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 49
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Prints out information about the terminal.
+  example: []
+  syntax:
+    content: public void PrintTaxiwayInformation()
+    content.vb: Public Sub PrintTaxiwayInformation()
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.PrintTaxiwayInformation*
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.ToString
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.ToString
+  id: ToString
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Terminal.ToString()
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.ToString()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: ToString
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 63
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: This override the ToString() method that exists in all objects in c#
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A String with simple details about the Terminal.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.ToString*
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.AddAircraftAllowedAtGatesAtTerminal(BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.AddAircraftAllowedAtGatesAtTerminal(BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType)
+  id: AddAircraftAllowedAtGatesAtTerminal(BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType)
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: AddAircraftAllowedAtGatesAtTerminal(AircraftType)
+  nameWithType: Terminal.AddAircraftAllowedAtGatesAtTerminal(AircraftType)
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.AddAircraftAllowedAtGatesAtTerminal(BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AddAircraftAllowedAtGatesAtTerminal
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 72
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Adds an aircraft that will be able to use all of the gates in this terminal.
+  example: []
+  syntax:
+    content: public void AddAircraftAllowedAtGatesAtTerminal(AircraftType aircraftType)
+    parameters:
+    - id: aircraftType
+      type: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+      description: An Enum that represents the id of an aircraftType that you want to enable accsess for the gate.
+    content.vb: Public Sub AddAircraftAllowedAtGatesAtTerminal(aircraftType As AircraftType)
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.AddAircraftAllowedAtGatesAtTerminal*
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation(System.String)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation(System.String)
+  id: UpdateLocation(System.String)
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: UpdateLocation(string)
+  nameWithType: Terminal.UpdateLocation(string)
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation(string)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: UpdateLocation
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 82
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Updates the information for which airport the terminal is located at.
+  example: []
+  syntax:
+    content: public void UpdateLocation(string airportName)
+    parameters:
+    - id: airportName
+      type: System.String
+      description: Name of the airport that the terminal will be located at.
+    content.vb: Public Sub UpdateLocation(airportName As String)
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation*
+  nameWithType.vb: Terminal.UpdateLocation(String)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation(String)
+  name.vb: UpdateLocation(String)
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation(System.String)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation(System.String)
+  id: UpdateGateLocation(System.String)
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: UpdateGateLocation(string)
+  nameWithType: Terminal.UpdateGateLocation(string)
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation(string)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: UpdateGateLocation
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 91
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Updates the airport the terminal is located at.
+  example: []
+  syntax:
+    content: public void UpdateGateLocation(string airportName)
+    parameters:
+    - id: airportName
+      type: System.String
+      description: Name of the airport that the terminal will be updated to.
+    content.vb: Public Sub UpdateGateLocation(airportName As String)
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation*
+  nameWithType.vb: Terminal.UpdateGateLocation(String)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation(String)
+  name.vb: UpdateGateLocation(String)
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.GetgatesInTerminal
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.GetgatesInTerminal
+  id: GetgatesInTerminal
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: GetgatesInTerminal()
+  nameWithType: Terminal.GetgatesInTerminal()
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.GetgatesInTerminal()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: GetgatesInTerminal
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 100
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets the list that contains all gates for this Terminal.
+  example: []
+  syntax:
+    content: public List<Gate> GetgatesInTerminal()
+    return:
+      type: System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Gate}
+      description: A list of gates for this terminal.
+    content.vb: Public Function GetgatesInTerminal() As List(Of Gate)
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.GetgatesInTerminal*
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.AddGateToList(BrusOgPotetgull.AirportLiberary.Gate)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.AddGateToList(BrusOgPotetgull.AirportLiberary.Gate)
+  id: AddGateToList(BrusOgPotetgull.AirportLiberary.Gate)
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: AddGateToList(Gate)
+  nameWithType: Terminal.AddGateToList(Gate)
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.AddGateToList(BrusOgPotetgull.AirportLiberary.Gate)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AddGateToList
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 106
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Adds a gate to the list of gates on this terminal.
+  example: []
+  syntax:
+    content: public void AddGateToList(Gate gate)
+    parameters:
+    - id: gate
+      type: BrusOgPotetgull.AirportLiberary.Gate
+      description: The gate that will be added to the list.
+    content.vb: Public Sub AddGateToList(gate As Gate)
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.AddGateToList*
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  id: CreateMultipleGatesToTerminal(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  parent: BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: CreateMultipleGatesToTerminal(string, int, int, Airport)
+  nameWithType: Terminal.CreateMultipleGatesToTerminal(string, int, int, Airport)
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal(string, int, int, BrusOgPotetgull.AirportLiberary.Airport)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: CreateMultipleGatesToTerminal
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/Terminal.cs
+    startLine: 118
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Creating multiple gates and adding them to this terminal.
+  example: []
+  syntax:
+    content: public void CreateMultipleGatesToTerminal(string gateLetter, int startNumber, int numberOfGates, Airport airport)
+    parameters:
+    - id: gateLetter
+      type: System.String
+      description: The letter thats a part of the gatename.
+    - id: startNumber
+      type: System.Int32
+      description: The start-number for generating all the gates. This is gonna be the first generated gate.
+    - id: numberOfGates
+      type: System.Int32
+      description: The number of gates thats gonna be created.
+    - id: airport
+      type: BrusOgPotetgull.AirportLiberary.Airport
+      description: The airport that these gates will be added to.
+    content.vb: Public Sub CreateMultipleGatesToTerminal(gateLetter As String, startNumber As Integer, numberOfGates As Integer, airport As Airport)
+  overload: BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal*
+  nameWithType.vb: Terminal.CreateMultipleGatesToTerminal(String, Integer, Integer, Airport)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal(String, Integer, Integer, BrusOgPotetgull.AirportLiberary.Airport)
+  name.vb: CreateMultipleGatesToTerminal(String, Integer, Integer, Airport)
+references:
+- uid: BrusOgPotetgull.AirportLiberary
+  commentId: N:BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary
+  nameWithType: BrusOgPotetgull.AirportLiberary
+  fullName: BrusOgPotetgull.AirportLiberary
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.#ctor*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.#ctor
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal__ctor_System_String_BrusOgPotetgull_AirportLiberary_Airport_
+  name: Terminal
+  nameWithType: Terminal.Terminal
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.Terminal
+  nameWithType.vb: Terminal.New
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Terminal.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: BrusOgPotetgull.AirportLiberary.Airport
+  commentId: T:BrusOgPotetgull.AirportLiberary.Airport
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Airport.html
+  name: Airport
+  nameWithType: Airport
+  fullName: BrusOgPotetgull.AirportLiberary.Airport
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.Id*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.Id
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_Id
+  name: Id
+  nameWithType: Terminal.Id
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.Name*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.Name
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_Name
+  name: Name
+  nameWithType: Terminal.Name
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.Name
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.PrintTaxiwayInformation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.PrintTaxiwayInformation
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_PrintTaxiwayInformation
+  name: PrintTaxiwayInformation
+  nameWithType: Terminal.PrintTaxiwayInformation
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.PrintTaxiwayInformation
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.ToString*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.ToString
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_ToString
+  name: ToString
+  nameWithType: Terminal.ToString
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.ToString
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.AddAircraftAllowedAtGatesAtTerminal*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.AddAircraftAllowedAtGatesAtTerminal
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_AddAircraftAllowedAtGatesAtTerminal_BrusOgPotetgull_AirportLiberary_AircraftTypes_AircraftType_
+  name: AddAircraftAllowedAtGatesAtTerminal
+  nameWithType: Terminal.AddAircraftAllowedAtGatesAtTerminal
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.AddAircraftAllowedAtGatesAtTerminal
+- uid: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+  commentId: T:BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+  parent: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  href: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType.html
+  name: AircraftType
+  nameWithType: AircraftType
+  fullName: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+- uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  commentId: N:BrusOgPotetgull.AirportLiberary.AircraftTypes
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  nameWithType: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  fullName: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+    name: AircraftTypes
+    href: BrusOgPotetgull.AirportLiberary.AircraftTypes.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+    name: AircraftTypes
+    href: BrusOgPotetgull.AirportLiberary.AircraftTypes.html
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_UpdateLocation_System_String_
+  name: UpdateLocation
+  nameWithType: Terminal.UpdateLocation
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.UpdateLocation
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_UpdateGateLocation_System_String_
+  name: UpdateGateLocation
+  nameWithType: Terminal.UpdateGateLocation
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.UpdateGateLocation
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.GetgatesInTerminal*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.GetgatesInTerminal
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_GetgatesInTerminal
+  name: GetgatesInTerminal
+  nameWithType: Terminal.GetgatesInTerminal
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.GetgatesInTerminal
+- uid: System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Gate}
+  commentId: T:System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Gate}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Gate>
+  nameWithType: List<Gate>
+  fullName: System.Collections.Generic.List<BrusOgPotetgull.AirportLiberary.Gate>
+  nameWithType.vb: List(Of Gate)
+  fullName.vb: System.Collections.Generic.List(Of BrusOgPotetgull.AirportLiberary.Gate)
+  name.vb: List(Of Gate)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BrusOgPotetgull.AirportLiberary.Gate
+    name: Gate
+    href: BrusOgPotetgull.AirportLiberary.Gate.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BrusOgPotetgull.AirportLiberary.Gate
+    name: Gate
+    href: BrusOgPotetgull.AirportLiberary.Gate.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.AddGateToList*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.AddGateToList
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_AddGateToList_BrusOgPotetgull_AirportLiberary_Gate_
+  name: AddGateToList
+  nameWithType: Terminal.AddGateToList
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.AddGateToList
+- uid: BrusOgPotetgull.AirportLiberary.Gate
+  commentId: T:BrusOgPotetgull.AirportLiberary.Gate
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Gate.html
+  name: Gate
+  nameWithType: Gate
+  fullName: BrusOgPotetgull.AirportLiberary.Gate
+- uid: BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html#BrusOgPotetgull_AirportLiberary_Terminal_CreateMultipleGatesToTerminal_System_String_System_Int32_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_
+  name: CreateMultipleGatesToTerminal
+  nameWithType: Terminal.CreateMultipleGatesToTerminal
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal.CreateMultipleGatesToTerminal

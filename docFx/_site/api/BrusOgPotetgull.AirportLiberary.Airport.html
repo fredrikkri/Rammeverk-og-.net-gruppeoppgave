@@ -1,0 +1,1751 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Airport | BrusDocs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Airport | BrusDocs ">
+      
+      <meta name="description" content="This class is used to configure an airport and holds all its components.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/new/main/apiSpec/new?filename=BrusOgPotetgull_AirportLiberary_Airport.md&amp;value=---%0Auid%3A%20BrusOgPotetgull.AirportLiberary.Airport%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="BrusDocs">
+            BrusDocs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="BrusOgPotetgull.AirportLiberary.Airport">
+
+
+
+  <h1 id="BrusOgPotetgull_AirportLiberary_Airport" data-uid="BrusOgPotetgull.AirportLiberary.Airport" class="text-break">
+Class Airport  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="BrusOgPotetgull.html">BrusOgPotetgull</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.html">AirportLiberary</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>brusOgPotetgull.airportLiberary.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>This class is used to configure an airport and holds all its components.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Airport</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Airport</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport__ctor_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.#ctor*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport__ctor_System_String_System_String_System_String_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.#ctor(System.String,System.String,System.String)">
+  Airport(string, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an airport without any components.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Airport(string airportCode, string name, string location)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>airportCode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The code for the airport. typicaly 3 letters. Eksample: RYG</p>
+</dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the airport.</p>
+</dd>
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Where the airport is located at.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AirportCode_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AirportCode*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AirportCode" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AirportCode">
+  AirportCode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>gets airport code</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AirportCode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>string with the code of the airport</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AirportId_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AirportId*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AirportId" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AirportId">
+  AirportId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets airport id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AirportId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int value with airport id</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_Location_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.Location*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_Location" data-uid="BrusOgPotetgull.AirportLiberary.Airport.Location">
+  Location
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>gets airport location</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Location { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>string with location of the airport</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_Name_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.Name*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_Name" data-uid="BrusOgPotetgull.AirportLiberary.Airport.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>gets airport name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>string with the name of the airport</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddArrivingFlight_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddArrivingFlight*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddArrivingFlight_BrusOgPotetgull_AirportLiberary_Flight_Arriving_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddArrivingFlight(BrusOgPotetgull.AirportLiberary.Flight.Arriving)">
+  AddArrivingFlight(Arriving)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L503"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an arriving flight to this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddArrivingFlight(Flight.Arriving flight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.Arriving.html">Arriving</a></dt>
+    <dd><p>The arriving flight that is added to the list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddConnectionPoint_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddConnectionPoint*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddConnectionPoint_BrusOgPotetgull_AirportLiberary_ConnectionPoint_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddConnectionPoint(BrusOgPotetgull.AirportLiberary.ConnectionPoint)">
+  AddConnectionPoint(ConnectionPoint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a connection point to the taxiwaysystem</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddConnectionPoint(ConnectionPoint connection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connection</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.ConnectionPoint.html">ConnectionPoint</a></dt>
+    <dd><p>ConnectionPoint point to connect two or more taxiways</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddDailyArrivingFlight_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddDailyArrivingFlight*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddDailyArrivingFlight_System_Int32_BrusOgPotetgull_AirportLiberary_Aircraft_System_DateTime_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_BrusOgPotetgull_AirportLiberary_Gate_BrusOgPotetgull_AirportLiberary_Taxiway_BrusOgPotetgull_AirportLiberary_Runway_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddDailyArrivingFlight(System.Int32,BrusOgPotetgull.AirportLiberary.Aircraft,System.DateTime,System.Int32,BrusOgPotetgull.AirportLiberary.Airport,BrusOgPotetgull.AirportLiberary.Gate,BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Runway)">
+  AddDailyArrivingFlight(int, Aircraft, DateTime, int, Airport, Gate, Taxiway, Runway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L558"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates daily arriving flights. The first flight starts 24 hours after the value of the datetimeFlight object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddDailyArrivingFlight(int numberOfDays, Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport arrivalAirport, Gate arrivalGate, Taxiway arrivalTaxiway, Runway arrivalRunway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numberOfDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of days the flight will do its flights.</p>
+</dd>
+    <dt><code>activeAircraft</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Aircraft.html">Aircraft</a></dt>
+    <dd><p>The aircraft that is used for this flight.</p>
+</dd>
+    <dt><code>dateTimeFlight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Date of the flight.</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Length of the flight im KM.</p>
+</dd>
+    <dt><code>arrivalAirport</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Airport.html">Airport</a></dt>
+    <dd><p>The airport that the aircraft is arriving at.</p>
+</dd>
+    <dt><code>arrivalGate</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The gate that the aircraft is arriving at.</p>
+</dd>
+    <dt><code>arrivalTaxiway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>The taxiway that the aircraft is arriving at.</p>
+</dd>
+    <dt><code>arrivalRunway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a></dt>
+    <dd><p>The runway that the aircraft is arriving at.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddDailyDeparturingFlight_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddDailyDeparturingFlight*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddDailyDeparturingFlight_System_Int32_BrusOgPotetgull_AirportLiberary_Aircraft_System_DateTime_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_BrusOgPotetgull_AirportLiberary_Gate_BrusOgPotetgull_AirportLiberary_Taxiway_BrusOgPotetgull_AirportLiberary_Runway_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddDailyDeparturingFlight(System.Int32,BrusOgPotetgull.AirportLiberary.Aircraft,System.DateTime,System.Int32,BrusOgPotetgull.AirportLiberary.Airport,BrusOgPotetgull.AirportLiberary.Gate,BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Runway)">
+  AddDailyDeparturingFlight(int, Aircraft, DateTime, int, Airport, Gate, Taxiway, Runway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L586"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates daily departuring flights. The first flight starts 24 hours after the value of the datetimeFlight object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddDailyDeparturingFlight(int numberOfDays, Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport departureAirport, Gate departureGate, Taxiway departureTaxiway, Runway departureRunway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numberOfDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of days the flight will do its flights.</p>
+</dd>
+    <dt><code>activeAircraft</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Aircraft.html">Aircraft</a></dt>
+    <dd><p>The aircraft that is used for this flight.</p>
+</dd>
+    <dt><code>dateTimeFlight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Date of the flight.</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Length of the flight im KM.</p>
+</dd>
+    <dt><code>departureAirport</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Airport.html">Airport</a></dt>
+    <dd><p>The airport that the aircraft departure from.</p>
+</dd>
+    <dt><code>departureGate</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The gate that the aircraft departure from.</p>
+</dd>
+    <dt><code>departureTaxiway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>The taxiway that the aircraft is using to departure from.</p>
+</dd>
+    <dt><code>departureRunway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a></dt>
+    <dd><p>The runway that the aircraft is departuring from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddDepartingFlight_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddDepartingFlight*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddDepartingFlight_BrusOgPotetgull_AirportLiberary_Flight_Departing_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddDepartingFlight(BrusOgPotetgull.AirportLiberary.Flight.Departing)">
+  AddDepartingFlight(Departing)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L515"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an departuring flight to this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddDepartingFlight(Flight.Departing flight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.Departing.html">Departing</a></dt>
+    <dd><p>The departuring flight that is added to the list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddGateToList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddGateToList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddGateToList_BrusOgPotetgull_AirportLiberary_Gate_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddGateToList(BrusOgPotetgull.AirportLiberary.Gate)">
+  AddGateToList(Gate)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a gate to the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddGateToList(Gate gate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gate</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The gate that is added to the list of gates at this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddRunwayToList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddRunwayToList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddRunwayToList_BrusOgPotetgull_AirportLiberary_Runway_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddRunwayToList(BrusOgPotetgull.AirportLiberary.Runway)">
+  AddRunwayToList(Runway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L438"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a runway to the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRunwayToList(Runway runway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>runway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a></dt>
+    <dd><p>The runway that is being added to the list of runways at this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddTaxiwayConnection_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddTaxiwayConnection*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddTaxiwayConnection_BrusOgPotetgull_AirportLiberary_Taxiway_BrusOgPotetgull_AirportLiberary_ConnectionPoint_BrusOgPotetgull_AirportLiberary_ConnectionPoint_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddTaxiwayConnection(BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.ConnectionPoint,BrusOgPotetgull.AirportLiberary.ConnectionPoint)">
+  AddTaxiwayConnection(Taxiway, ConnectionPoint, ConnectionPoint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L274"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>creates the connection a taxiway has to connection points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTaxiwayConnection(Taxiway taxiway, ConnectionPoint to, ConnectionPoint from)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>taxiway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>The taxiway you want to create a connection for.</p>
+</dd>
+    <dt><code>to</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.ConnectionPoint.html">ConnectionPoint</a></dt>
+    <dd><p>Connection point B (to)</p>
+</dd>
+    <dt><code>from</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.ConnectionPoint.html">ConnectionPoint</a></dt>
+    <dd><p>Connection point A (from)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddTaxiwayToList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddTaxiwayToList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddTaxiwayToList_BrusOgPotetgull_AirportLiberary_Taxiway_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddTaxiwayToList(BrusOgPotetgull.AirportLiberary.Taxiway)">
+  AddTaxiwayToList(Taxiway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L410"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a taxiway to the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTaxiwayToList(Taxiway taxiway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>taxiway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>The taxiway that is added to the list of taxiways for this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddTerminalToList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddTerminalToList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddTerminalToList_BrusOgPotetgull_AirportLiberary_Terminal_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddTerminalToList(BrusOgPotetgull.AirportLiberary.Terminal)">
+  AddTerminalToList(Terminal)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L339"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a terminal to the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTerminalToList(Terminal terminal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terminal</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Terminal.html">Terminal</a></dt>
+    <dd><p>The terminal that is added to the list of terminals for this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddWeeklyArrivingFlight_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddWeeklyArrivingFlight*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddWeeklyArrivingFlight_System_Int32_BrusOgPotetgull_AirportLiberary_Aircraft_System_DateTime_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_BrusOgPotetgull_AirportLiberary_Gate_BrusOgPotetgull_AirportLiberary_Taxiway_BrusOgPotetgull_AirportLiberary_Runway_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddWeeklyArrivingFlight(System.Int32,BrusOgPotetgull.AirportLiberary.Aircraft,System.DateTime,System.Int32,BrusOgPotetgull.AirportLiberary.Airport,BrusOgPotetgull.AirportLiberary.Gate,BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Runway)">
+  AddWeeklyArrivingFlight(int, Aircraft, DateTime, int, Airport, Gate, Taxiway, Runway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L614"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates weekly arriving flights. The first flight starts 1 week after the value of the datetimeFlight object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddWeeklyArrivingFlight(int numberOfWeeks, Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport arrivalAirport, Gate arrivalGate, Taxiway arrivalTaxiway, Runway arrivalRunway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numberOfWeeks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of weeks the flight will do its flights.</p>
+</dd>
+    <dt><code>activeAircraft</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Aircraft.html">Aircraft</a></dt>
+    <dd><p>The aircraft that is used for this flight.</p>
+</dd>
+    <dt><code>dateTimeFlight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Date of the flight.</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Length of the flight im KM.</p>
+</dd>
+    <dt><code>arrivalAirport</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Airport.html">Airport</a></dt>
+    <dd><p>The airport that the aircraft is arriving at.</p>
+</dd>
+    <dt><code>arrivalGate</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The gate that the aircraft is arriving at.</p>
+</dd>
+    <dt><code>arrivalTaxiway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>The taxiway that the aircraft is arriving at.</p>
+</dd>
+    <dt><code>arrivalRunway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a></dt>
+    <dd><p>The runway that the aircraft is arriving at.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_AddWeeklyDeparturingFlight_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddWeeklyDeparturingFlight*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_AddWeeklyDeparturingFlight_System_Int32_BrusOgPotetgull_AirportLiberary_Aircraft_System_DateTime_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_BrusOgPotetgull_AirportLiberary_Gate_BrusOgPotetgull_AirportLiberary_Taxiway_BrusOgPotetgull_AirportLiberary_Runway_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.AddWeeklyDeparturingFlight(System.Int32,BrusOgPotetgull.AirportLiberary.Aircraft,System.DateTime,System.Int32,BrusOgPotetgull.AirportLiberary.Airport,BrusOgPotetgull.AirportLiberary.Gate,BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Runway)">
+  AddWeeklyDeparturingFlight(int, Aircraft, DateTime, int, Airport, Gate, Taxiway, Runway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L642"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates weekly departuring flights. The first flight starts 1 week after the value of the datetimeFlight object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddWeeklyDeparturingFlight(int numberOfWeeks, Aircraft activeAircraft, DateTime dateTimeFlight, int length, Airport departureAirport, Gate departureGate, Taxiway departureTaxiway, Runway departureRunway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numberOfWeeks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of weeks the flight will do its flights.</p>
+</dd>
+    <dt><code>activeAircraft</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Aircraft.html">Aircraft</a></dt>
+    <dd><p>The aircraft that is used for this flight.</p>
+</dd>
+    <dt><code>dateTimeFlight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Date of the flight.</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Length of the flight im KM.</p>
+</dd>
+    <dt><code>departureAirport</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Airport.html">Airport</a></dt>
+    <dd><p>The airport that the aircraft departure from.</p>
+</dd>
+    <dt><code>departureGate</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The gate that the aircraft departure from.</p>
+</dd>
+    <dt><code>departureTaxiway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>The taxiway that the aircraft is using to departure from.</p>
+</dd>
+    <dt><code>departureRunway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a></dt>
+    <dd><p>The runway that the aircraft is departuring from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_FindPath_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.FindPath*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_FindPath_BrusOgPotetgull_AirportLiberary_Taxiway_BrusOgPotetgull_AirportLiberary_Taxiway_System_Collections_Generic_List_BrusOgPotetgull_AirportLiberary_Taxiway__" data-uid="BrusOgPotetgull.AirportLiberary.Airport.FindPath(BrusOgPotetgull.AirportLiberary.Taxiway,BrusOgPotetgull.AirportLiberary.Taxiway,System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Taxiway})">
+  FindPath(Taxiway, Taxiway, List&lt;Taxiway&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds a path through the taxiway system from one taxiway to another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Taxiway&gt; FindPath(Taxiway start, Taxiway end, List&lt;Taxiway&gt; calculatedRoute)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>start taxiway of the path.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>end taxiway of the path.</p>
+</dd>
+    <dt><code>calculatedRoute</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a>&gt;</dt>
+    <dd><p>An empty list of taxiways to be returned as a path</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a>&gt;</dt>
+    <dd><p>Returns the path as a list of taxiway objects</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GenerateArrivingFlightTaxiwayPath_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GenerateArrivingFlightTaxiwayPath*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GenerateArrivingFlightTaxiwayPath_BrusOgPotetgull_AirportLiberary_Flight_Arriving_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GenerateArrivingFlightTaxiwayPath(BrusOgPotetgull.AirportLiberary.Flight.Arriving)">
+  GenerateArrivingFlightTaxiwayPath(Arriving)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a path from one taxiway to another for an arriving flight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Taxiway&gt; GenerateArrivingFlightTaxiwayPath(Flight.Arriving flight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.Arriving.html">Arriving</a></dt>
+    <dd><p>The Flight you want to generate a path for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a>&gt;</dt>
+    <dd><p>Returns the path as a list of taxiway objects</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="BrusOgPotetgull_AirportLiberary_Airport_GenerateArrivingFlightTaxiwayPath_BrusOgPotetgull_AirportLiberary_Flight_Arriving__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only generates a path if the arrival gate on the flight is connected to one of the taxiways in the airport.</p>
+</div>
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GenerateDeparturingFlightTaxiwayPath_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GenerateDeparturingFlightTaxiwayPath*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GenerateDeparturingFlightTaxiwayPath_BrusOgPotetgull_AirportLiberary_Flight_Departing_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GenerateDeparturingFlightTaxiwayPath(BrusOgPotetgull.AirportLiberary.Flight.Departing)">
+  GenerateDeparturingFlightTaxiwayPath(Departing)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a path from one taxiway to another for an departing flight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Taxiway&gt; GenerateDeparturingFlightTaxiwayPath(Flight.Departing flight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.Departing.html">Departing</a></dt>
+    <dd><p>The Flight you want to generate a path for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a>&gt;</dt>
+    <dd><p>Returns the path as a list of taxiway objects</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="BrusOgPotetgull_AirportLiberary_Airport_GenerateDeparturingFlightTaxiwayPath_BrusOgPotetgull_AirportLiberary_Flight_Departing__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only generates a path if the depature gate on the flight is connected to one of the taxiways in the airport.</p>
+</div>
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetAnotherAvailabelGateAtTheSameTerminal_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetAnotherAvailabelGateAtTheSameTerminal*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetAnotherAvailabelGateAtTheSameTerminal_System_String_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetAnotherAvailabelGateAtTheSameTerminal(System.String)">
+  GetAnotherAvailabelGateAtTheSameTerminal(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L665"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds an availabel gate at the same terminal of the initially desired gate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Gate GetAnotherAvailabelGateAtTheSameTerminal(string nameOfDesiredGate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameOfDesiredGate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Gate you initially wanted to use.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>A gate object</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="BrusOgPotetgull_AirportLiberary_Airport_GetAnotherAvailabelGateAtTheSameTerminal_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will return null if there is no availabel gate at the terminal.</p>
+</div>
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetArrivingFlights_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetArrivingFlights*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetArrivingFlights" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetArrivingFlights">
+  GetArrivingFlights()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L491"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all arriving flights for this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Flight&gt; GetArrivingFlights()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a>&gt;</dt>
+    <dd><p>The list containing all arriving flights for this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetDepartingFlights_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetDepartingFlights*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetDepartingFlights" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetDepartingFlights">
+  GetDepartingFlights()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all departuring flights for this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Flight&gt; GetDepartingFlights()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a>&gt;</dt>
+    <dd><p>A list of departuring flights.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetGateBasedOnGateName_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetGateBasedOnGateName*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetGateBasedOnGateName_System_String_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetGateBasedOnGateName(System.String)">
+  GetGateBasedOnGateName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L397"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a gate object based on the gatename provided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Gate GetGateBasedOnGateName(string gateName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gateName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of the gate you want to return.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>gate object</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetGatesById_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetGatesById*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetGatesById_System_Int32_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetGatesById(System.Int32)">
+  GetGatesById(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a single gate based on id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Gate GetGatesById(int gateId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gateId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The id of the gate that is desired.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The desired gate</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>If airport has no gates or could not find any gates that matches the gates that exists in this airport.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetListGates_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetListGates*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetListGates" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetListGates">
+  GetListGates()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all the gates at this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Gate&gt; GetListGates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a>&gt;</dt>
+    <dd><p>A list of gates at this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetListTaxiways_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetListTaxiways*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetListTaxiways" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetListTaxiways">
+  GetListTaxiways()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all the taxiways at this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Taxiway&gt; GetListTaxiways()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a>&gt;</dt>
+    <dd><p>a list that contains all the taxiways at this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetListTerminals_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetListTerminals*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetListTerminals" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetListTerminals">
+  GetListTerminals()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all the terminals at this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Terminal&gt; GetListTerminals()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Terminal.html">Terminal</a>&gt;</dt>
+    <dd><p>A list of Terminals at this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetRunwayList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetRunwayList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetRunwayList" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetRunwayList">
+  GetRunwayList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all the runways at this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Runway&gt; GetRunwayList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a>&gt;</dt>
+    <dd><p>A list of runways at this airport</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetTaxiwaySystem_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetTaxiwaySystem*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetTaxiwaySystem" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetTaxiwaySystem">
+  GetTaxiwaySystem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L702"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the taxiway system at this airport. This is a list of connection points between taxiways.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ConnectionPoint&gt; GetTaxiwaySystem()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.ConnectionPoint.html">ConnectionPoint</a>&gt;</dt>
+    <dd><p>A List of connection points.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_GetTerminalById_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetTerminalById*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_GetTerminalById_System_Int32_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.GetTerminalById(System.Int32)">
+  GetTerminalById(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a single terminal based on id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Terminal GetTerminalById(int terminalId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terminalId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The id of the termial that is desired.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BrusOgPotetgull.AirportLiberary.Terminal.html">Terminal</a></dt>
+    <dd><p>The desired terminal</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>If airport has no terminals or could not find any terminals that matches the terminals that exists in this airport.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_MakeAllGatesAllowAllAircraftTypes_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.MakeAllGatesAllowAllAircraftTypes*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_MakeAllGatesAllowAllAircraftTypes" data-uid="BrusOgPotetgull.AirportLiberary.Airport.MakeAllGatesAllowAllAircraftTypes">
+  MakeAllGatesAllowAllAircraftTypes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L465"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes all gates in this airport allow all aircraft types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MakeAllGatesAllowAllAircraftTypes()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_PrintAirportInformation_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.PrintAirportInformation*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_PrintAirportInformation" data-uid="BrusOgPotetgull.AirportLiberary.Airport.PrintAirportInformation">
+  PrintAirportInformation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prints out the information about the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrintAirportInformation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_PrintListOfDeparturingFlights_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.PrintListOfDeparturingFlights*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_PrintListOfDeparturingFlights" data-uid="BrusOgPotetgull.AirportLiberary.Airport.PrintListOfDeparturingFlights">
+  PrintListOfDeparturingFlights()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prints out information about every flight in the list of departuring flights for this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrintListOfDeparturingFlights()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_PrintTaxiwayRoute_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.PrintTaxiwayRoute*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_PrintTaxiwayRoute_System_Collections_Generic_List_BrusOgPotetgull_AirportLiberary_Taxiway__" data-uid="BrusOgPotetgull.AirportLiberary.Airport.PrintTaxiwayRoute(System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Taxiway})">
+  PrintTaxiwayRoute(List&lt;Taxiway&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prints out the name of all the taxiways in the route, and the total number of taxiways.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrintTaxiwayRoute(List&lt;Taxiway&gt; route)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>route</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a>&gt;</dt>
+    <dd><p>The route you want to print out to the console</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_PrintTaxiwaySystem_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.PrintTaxiwaySystem*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_PrintTaxiwaySystem" data-uid="BrusOgPotetgull.AirportLiberary.Airport.PrintTaxiwaySystem">
+  PrintTaxiwaySystem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prints out the information about the taxiwaysystem (All the connected components).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrintTaxiwaySystem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_RemoveArrivingFlight_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveArrivingFlight*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_RemoveArrivingFlight_BrusOgPotetgull_AirportLiberary_Flight_Arriving_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveArrivingFlight(BrusOgPotetgull.AirportLiberary.Flight.Arriving)">
+  RemoveArrivingFlight(Arriving)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L527"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes an arriving flight from this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveArrivingFlight(Flight.Arriving flight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.Arriving.html">Arriving</a></dt>
+    <dd><p>The arriving flight that is removed from the list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_RemoveDepartingFlight_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveDepartingFlight*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_RemoveDepartingFlight_BrusOgPotetgull_AirportLiberary_Flight_Departing_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveDepartingFlight(BrusOgPotetgull.AirportLiberary.Flight.Departing)">
+  RemoveDepartingFlight(Departing)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L539"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a departuring flight from this airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveDepartingFlight(Flight.Departing flight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.Departing.html">Departing</a></dt>
+    <dd><p>The departuring flight that is removed from the list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_RemoveGateFromList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveGateFromList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_RemoveGateFromList_BrusOgPotetgull_AirportLiberary_Gate_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveGateFromList(BrusOgPotetgull.AirportLiberary.Gate)">
+  RemoveGateFromList(Gate)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a gate from the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveGateFromList(Gate gate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gate</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The gate that is removed from the list of gates at this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_RemoveRunwayFromList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveRunwayFromList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_RemoveRunwayFromList_BrusOgPotetgull_AirportLiberary_Runway_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveRunwayFromList(BrusOgPotetgull.AirportLiberary.Runway)">
+  RemoveRunwayFromList(Runway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L452"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a runway from the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveRunwayFromList(Runway runway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>runway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a></dt>
+    <dd><p>The taxiway that is removed from the list of taxiways at this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_RemoveTaxiwayFromList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveTaxiwayFromList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_RemoveTaxiwayFromList_BrusOgPotetgull_AirportLiberary_Taxiway_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveTaxiwayFromList(BrusOgPotetgull.AirportLiberary.Taxiway)">
+  RemoveTaxiwayFromList(Taxiway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L424"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a taxiway from the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTaxiwayFromList(Taxiway taxiway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>taxiway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Taxiway.html">Taxiway</a></dt>
+    <dd><p>The taxiway that is removed from the list of taxiways at this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_RemoveTerminalFromList_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveTerminalFromList*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_RemoveTerminalFromList_BrusOgPotetgull_AirportLiberary_Terminal_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.RemoveTerminalFromList(BrusOgPotetgull.AirportLiberary.Terminal)">
+  RemoveTerminalFromList(Terminal)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a terminal from the airport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTerminalFromList(Terminal terminal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terminal</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Terminal.html">Terminal</a></dt>
+    <dd><p>The terminal that is removed from the list of terminals for this airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Airport_ToString_" data-uid="BrusOgPotetgull.AirportLiberary.Airport.ToString*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Airport_ToString" data-uid="BrusOgPotetgull.AirportLiberary.Airport.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This override the ToString() method that exists in all objects in c#</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A String with simple details about the Airport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/Airport.cs/#L9" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

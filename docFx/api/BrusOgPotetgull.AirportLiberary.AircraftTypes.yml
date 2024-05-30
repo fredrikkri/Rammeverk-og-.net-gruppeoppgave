@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  commentId: N:BrusOgPotetgull.AirportLiberary.AircraftTypes
+  id: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  children:
+  - BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+  langs:
+  - csharp
+  - vb
+  name: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  nameWithType: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  fullName: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  type: Namespace
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+references:
+- uid: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+  commentId: T:BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+  parent: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  href: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType.html
+  name: AircraftType
+  nameWithType: AircraftType
+  fullName: BrusOgPotetgull.AirportLiberary.AircraftTypes.AircraftType
+- uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  commentId: N:BrusOgPotetgull.AirportLiberary.AircraftTypes
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  nameWithType: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  fullName: BrusOgPotetgull.AirportLiberary.AircraftTypes
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+    name: AircraftTypes
+    href: BrusOgPotetgull.AirportLiberary.AircraftTypes.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.AircraftTypes
+    name: AircraftTypes
+    href: BrusOgPotetgull.AirportLiberary.AircraftTypes.html

@@ -51,8 +51,11 @@ namespace BrusOgPotetgull.AirportLiberary
         public int Length { get; private set; }
 
         /// <summary>
-        /// list of taxiways tahat is the path it took
+        /// Calculated route a flight takes on the taxiwaysystem to get from a gate to a runway, or wise-versa
         /// </summary>
+        /// <value>
+        /// list of taxiways that makes up the path / route
+        /// </value>
         public List<Taxiway> taxiwayPath;
 
         /// <summary>

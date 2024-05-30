@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "S7dZogeARkBAaDb5s8LM5UB+UHrnYOrvlIbFV9+tntx/hMiSzn0tLMDu+GYq/k4NShRuvxl8/O04r8gz6FeGoA==",
+  "dgSpecHash": "lBS+ViJnqWcUNhgrAyODREngTAOPPhjMAlkb3xzppED4B5NYPvcgC5A0fNQVjPgYHPT3mo8Fh8C4p6vPObSqFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jacob\\OneDrive\\Dokumenter\\GitHub\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.gruppeoppgave.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Rammeverk-og-.net-gruppeoppgave\\brusOgPotetgull.gruppeoppgave\\brusOgPotetgull.gruppeoppgave.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ole_f\\.nuget\\packages\\brusogpotetgull.airportliberarytest\\1.0.4\\brusogpotetgull.airportliberarytest.1.0.4.nupkg.sha512"
+  ],
   "logs": []
 }

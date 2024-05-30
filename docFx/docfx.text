@@ -1,0 +1,64 @@
+Fullstendig API dokumentasjon
+
+Vi har benyttet docFX for å generere vår fullstendig API dokumentasjon basert på xml-kommentarene vi har skrevet.
+Det er mulig å få tilgang til denne på to ulike måter.
+
+Mulighet 1 - uten docFX
+	Åpne BrusDocs.pdf i root
+
+Mulighet 2 - med docFX
+
+For å installere docFX bruk følgende kommando som admin i terminal:
+	dotnet tool update -g docfx
+
+For å kjørt nettsiden med API dokumentasjonen:
+	gå til terminalen  -->  Fra root skriv: cd doc + trykk tab enter --> kjør følgende kommando:
+	docfx docfx.json --serve
+
+Gå deretter til http://localhost:8080/
+Det står i terminalen etter kommandoen er kjørt hvilken localhost som er benyttet.
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../brusOgPotetgull.airportLiberary", 
+          "files": [
+            "**/*.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "BrusDocs",
+      "_appTitle": "BrusDocs",
+      "_enableSearch": true,
+      "pdf": true
+    }
+  }
+}

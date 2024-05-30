@@ -1,0 +1,1466 @@
+### YamlMime:ManagedReference
+items:
+- uid: BrusOgPotetgull.AirportLiberary.Runway
+  commentId: T:BrusOgPotetgull.AirportLiberary.Runway
+  id: Runway
+  parent: BrusOgPotetgull.AirportLiberary
+  children:
+  - BrusOgPotetgull.AirportLiberary.Runway.#ctor(System.String,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  - BrusOgPotetgull.AirportLiberary.Runway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight)
+  - BrusOgPotetgull.AirportLiberary.Runway.CheckNextFlightInQueue
+  - BrusOgPotetgull.AirportLiberary.Runway.ExitRunway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  - BrusOgPotetgull.AirportLiberary.Runway.FlightArrived
+  - BrusOgPotetgull.AirportLiberary.Runway.FlightDeparted
+  - BrusOgPotetgull.AirportLiberary.Runway.GetAirportNameAndRunwayId
+  - BrusOgPotetgull.AirportLiberary.Runway.Id
+  - BrusOgPotetgull.AirportLiberary.Runway.InUse
+  - BrusOgPotetgull.AirportLiberary.Runway.Length
+  - BrusOgPotetgull.AirportLiberary.Runway.Name
+  - BrusOgPotetgull.AirportLiberary.Runway.NextFlightEntersRunway
+  - BrusOgPotetgull.AirportLiberary.Runway.PrintRunwayInformation
+  - BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived(BrusOgPotetgull.AirportLiberary.Flight.Arriving,System.DateTime,System.String)
+  - BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted(BrusOgPotetgull.AirportLiberary.Flight.Departing,System.DateTime,System.String)
+  - BrusOgPotetgull.AirportLiberary.Runway.RemoveFromQueue
+  - BrusOgPotetgull.AirportLiberary.Runway.RunwayQueue
+  - BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32)
+  - BrusOgPotetgull.AirportLiberary.Runway.ToString
+  - BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation(System.String)
+  - BrusOgPotetgull.AirportLiberary.Runway.UseRunway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  langs:
+  - csharp
+  - vb
+  name: Runway
+  nameWithType: Runway
+  fullName: BrusOgPotetgull.AirportLiberary.Runway
+  type: Class
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Runway
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 8
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: >-
+    The runway class is used to define how a runway is designed.
+
+    It is also used to conduct operations on the runway.
+  example: []
+  syntax:
+    content: public class Runway
+    content.vb: Public Class Runway
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.FlightArrived
+  commentId: E:BrusOgPotetgull.AirportLiberary.Runway.FlightArrived
+  id: FlightArrived
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: FlightArrived
+  nameWithType: Runway.FlightArrived
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.FlightArrived
+  type: Event
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: FlightArrived
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 19
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Event to be used when a flight is ariving
+  example: []
+  syntax:
+    content: public event EventHandler<ArrivingEventArgs>? FlightArrived
+    return:
+      type: System.EventHandler{BrusOgPotetgull.AirportLiberary.ArrivingEventArgs}
+    content.vb: Public Event FlightArrived As EventHandler(Of ArrivingEventArgs)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.FlightDeparted
+  commentId: E:BrusOgPotetgull.AirportLiberary.Runway.FlightDeparted
+  id: FlightDeparted
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: FlightDeparted
+  nameWithType: Runway.FlightDeparted
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.FlightDeparted
+  type: Event
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: FlightDeparted
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 24
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Event to be used when a flight is departing
+  example: []
+  syntax:
+    content: public event EventHandler<DepartingEventArgs>? FlightDeparted
+    return:
+      type: System.EventHandler{BrusOgPotetgull.AirportLiberary.DepartingEventArgs}
+    content.vb: Public Event FlightDeparted As EventHandler(Of DepartingEventArgs)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.#ctor(System.String,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.#ctor(System.String,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  id: '#ctor(System.String,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)'
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: Runway(string, int, Airport)
+  nameWithType: Runway.Runway(string, int, Airport)
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.Runway(string, int, BrusOgPotetgull.AirportLiberary.Airport)
+  type: Constructor
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: .ctor
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 32
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: creates a runway.
+  example: []
+  syntax:
+    content: public Runway(string name, int length, Airport airport)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the runway (meters).
+    - id: length
+      type: System.Int32
+      description: The length of the runway (meters).
+    - id: airport
+      type: BrusOgPotetgull.AirportLiberary.Airport
+      description: The airport that the taxiway will be located at.
+    content.vb: Public Sub New(name As String, length As Integer, airport As Airport)
+  overload: BrusOgPotetgull.AirportLiberary.Runway.#ctor*
+  nameWithType.vb: Runway.New(String, Integer, Airport)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Runway.New(String, Integer, BrusOgPotetgull.AirportLiberary.Airport)
+  name.vb: New(String, Integer, Airport)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.Id
+  commentId: P:BrusOgPotetgull.AirportLiberary.Runway.Id
+  id: Id
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Runway.Id
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.Id
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Id
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 50
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets the Id of the runway.
+  example: []
+  syntax:
+    content: public int Id { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of id of runwat
+    content.vb: Public Property Id As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Runway.Id*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.Name
+  commentId: P:BrusOgPotetgull.AirportLiberary.Runway.Name
+  id: Name
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Runway.Name
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.Name
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Name
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 58
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets the name of the runway.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: string of name of runway
+    content.vb: Public Property Name As String
+  overload: BrusOgPotetgull.AirportLiberary.Runway.Name*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.Length
+  commentId: P:BrusOgPotetgull.AirportLiberary.Runway.Length
+  id: Length
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: Runway.Length
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.Length
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Length
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 66
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets the length of the runway.
+  example: []
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of length of runway
+    content.vb: Public Property Length As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Runway.Length*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.InUse
+  commentId: P:BrusOgPotetgull.AirportLiberary.Runway.InUse
+  id: InUse
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: InUse
+  nameWithType: Runway.InUse
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.InUse
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: InUse
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 74
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets a bool value i wheter the runway is in use or not.
+  example: []
+  syntax:
+    content: public bool InUse { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: bool if runway is in use
+    content.vb: Public Property InUse As Boolean
+  overload: BrusOgPotetgull.AirportLiberary.Runway.InUse*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.RunwayQueue
+  commentId: P:BrusOgPotetgull.AirportLiberary.Runway.RunwayQueue
+  id: RunwayQueue
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: RunwayQueue
+  nameWithType: Runway.RunwayQueue
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.RunwayQueue
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: RunwayQueue
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 79
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets the queue of flights waiting for the runway.
+  example: []
+  syntax:
+    content: public Queue<Flight> RunwayQueue { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Queue{BrusOgPotetgull.AirportLiberary.Flight}
+    content.vb: Public ReadOnly Property RunwayQueue As Queue(Of Flight)
+  overload: BrusOgPotetgull.AirportLiberary.Runway.RunwayQueue*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation(System.String)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation(System.String)
+  id: UpdateLocation(System.String)
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: UpdateLocation(string)
+  nameWithType: Runway.UpdateLocation(string)
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation(string)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: UpdateLocation
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 85
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Updates the airport the Runway is located at.
+  example: []
+  syntax:
+    content: public void UpdateLocation(string airportName)
+    parameters:
+    - id: airportName
+      type: System.String
+      description: Name of the airport that you want to update the location to.
+    content.vb: Public Sub UpdateLocation(airportName As String)
+  overload: BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation*
+  nameWithType.vb: Runway.UpdateLocation(String)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation(String)
+  name.vb: UpdateLocation(String)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.PrintRunwayInformation
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.PrintRunwayInformation
+  id: PrintRunwayInformation
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: PrintRunwayInformation()
+  nameWithType: Runway.PrintRunwayInformation()
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.PrintRunwayInformation()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: PrintRunwayInformation
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 93
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Prints the information about the Runway.
+  example: []
+  syntax:
+    content: public void PrintRunwayInformation()
+    content.vb: Public Sub PrintRunwayInformation()
+  overload: BrusOgPotetgull.AirportLiberary.Runway.PrintRunwayInformation*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.ToString
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.ToString
+  id: ToString
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Runway.ToString()
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.ToString()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: ToString
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 106
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: This override the ToString() method that exists in all objects in c#
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A String with simple details about the Runway.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: BrusOgPotetgull.AirportLiberary.Runway.ToString*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.GetAirportNameAndRunwayId
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.GetAirportNameAndRunwayId
+  id: GetAirportNameAndRunwayId
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: GetAirportNameAndRunwayId()
+  nameWithType: Runway.GetAirportNameAndRunwayId()
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.GetAirportNameAndRunwayId()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: GetAirportNameAndRunwayId
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 116
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Returns the airport location aswell as the runwayname and id.
+  example: []
+  syntax:
+    content: public string GetAirportNameAndRunwayId()
+    return:
+      type: System.String
+      description: String that contain information about the runway.
+    content.vb: Public Function GetAirportNameAndRunwayId() As String
+  overload: BrusOgPotetgull.AirportLiberary.Runway.GetAirportNameAndRunwayId*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.RemoveFromQueue
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.RemoveFromQueue
+  id: RemoveFromQueue
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: RemoveFromQueue()
+  nameWithType: Runway.RemoveFromQueue()
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.RemoveFromQueue()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: RemoveFromQueue
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 122
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Removes the first flight in the runwayqueue and returns it.
+  example: []
+  syntax:
+    content: public Flight RemoveFromQueue()
+    return:
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: Flight object that is removed from the beginning of the queue.
+    content.vb: Public Function RemoveFromQueue() As Flight
+  overload: BrusOgPotetgull.AirportLiberary.Runway.RemoveFromQueue*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight)
+  id: AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight)
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: AddFlightToQueue(Flight)
+  nameWithType: Runway.AddFlightToQueue(Flight)
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AddFlightToQueue
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 133
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Adds a flight to the runway-queue.
+  example: []
+  syntax:
+    content: public void AddFlightToQueue(Flight flight)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: The flight you want to add to the runwayqueue.
+    content.vb: Public Sub AddFlightToQueue(flight As Flight)
+  overload: BrusOgPotetgull.AirportLiberary.Runway.AddFlightToQueue*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.CheckNextFlightInQueue
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.CheckNextFlightInQueue
+  id: CheckNextFlightInQueue
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: CheckNextFlightInQueue()
+  nameWithType: Runway.CheckNextFlightInQueue()
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.CheckNextFlightInQueue()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: CheckNextFlightInQueue
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 142
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Returns the first flight in the runwayqueue.
+  example: []
+  syntax:
+    content: public Flight CheckNextFlightInQueue()
+    return:
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: Flight object that is first in line at the queue.
+    content.vb: Public Function CheckNextFlightInQueue() As Flight
+  overload: BrusOgPotetgull.AirportLiberary.Runway.CheckNextFlightInQueue*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.NextFlightEntersRunway
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.NextFlightEntersRunway
+  id: NextFlightEntersRunway
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: NextFlightEntersRunway()
+  nameWithType: Runway.NextFlightEntersRunway()
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.NextFlightEntersRunway()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: NextFlightEntersRunway
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 147
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: This method lets the next flight in queue enter the runway.
+  example: []
+  syntax:
+    content: public void NextFlightEntersRunway()
+    content.vb: Public Sub NextFlightEntersRunway()
+  overload: BrusOgPotetgull.AirportLiberary.Runway.NextFlightEntersRunway*
+- uid: BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32)
+  id: SimulateRunwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32)
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: SimulateRunwayTime(Flight, int, int, int)
+  nameWithType: Runway.SimulateRunwayTime(Flight, int, int, int)
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime(BrusOgPotetgull.AirportLiberary.Flight, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: SimulateRunwayTime
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 165
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Returns the time in seconds that an aircraft uses on the runway. Given the length of runway is meters, and speed / speedChange is kph.
+  example: []
+  syntax:
+    content: public double SimulateRunwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: The current flight.
+    - id: initialSpeed
+      type: System.Int32
+      description: The speed at which the aircraft starts with (Kp/h).
+    - id: speedChange
+      type: System.Int32
+      description: The change in speed (Kp/h).
+    - id: maxSpeed
+      type: System.Int32
+      description: Maximum speed for this calculation (Kp/h).
+    return:
+      type: System.Double
+      description: Returns the method flight.CalculateFlightMovement() which is the time spent on the runway in seconds.
+    content.vb: Public Function SimulateRunwayTime(flight As Flight, initialSpeed As Integer, speedChange As Integer, maxSpeed As Integer) As Double
+  overload: BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime*
+  nameWithType.vb: Runway.SimulateRunwayTime(Flight, Integer, Integer, Integer)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime(BrusOgPotetgull.AirportLiberary.Flight, Integer, Integer, Integer)
+  name.vb: SimulateRunwayTime(Flight, Integer, Integer, Integer)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.UseRunway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.UseRunway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  id: UseRunway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: UseRunway(Flight, DateTime)
+  nameWithType: Runway.UseRunway(Flight, DateTime)
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.UseRunway(BrusOgPotetgull.AirportLiberary.Flight, System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: UseRunway
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 176
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: >-
+    Method to signal that an aircraft is using the runway.
+
+    Sets the field inUse to true and logs the event.
+  remarks: If the flight is an arriving flight. The method RaiseFlightArrived is used to handle the event and logging.
+  example: []
+  syntax:
+    content: public void UseRunway(Flight flight, DateTime time)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: Is the aircraft that uses the runway.
+    - id: time
+      type: System.DateTime
+      description: Is used to log the history of the aircraft.
+    content.vb: Public Sub UseRunway(flight As Flight, time As Date)
+  overload: BrusOgPotetgull.AirportLiberary.Runway.UseRunway*
+  nameWithType.vb: Runway.UseRunway(Flight, Date)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Runway.UseRunway(BrusOgPotetgull.AirportLiberary.Flight, Date)
+  name.vb: UseRunway(Flight, Date)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.ExitRunway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.ExitRunway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  id: ExitRunway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: ExitRunway(Flight, DateTime)
+  nameWithType: Runway.ExitRunway(Flight, DateTime)
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.ExitRunway(BrusOgPotetgull.AirportLiberary.Flight, System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: ExitRunway
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 194
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: >-
+    Method to signal that an aircraft has left the runway.
+
+    Set the field inUse to false and logs to event
+  remarks: If the flight is a departing flight, the method RaiseFlightDeparted() triggers the FlightDeparted event.
+  example: []
+  syntax:
+    content: public void ExitRunway(Flight flight, DateTime time)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: Is the aircraft that is leaving the runway.
+    - id: time
+      type: System.DateTime
+      description: Is used to log the history of the aircraft.
+    content.vb: Public Sub ExitRunway(flight As Flight, time As Date)
+  overload: BrusOgPotetgull.AirportLiberary.Runway.ExitRunway*
+  nameWithType.vb: Runway.ExitRunway(Flight, Date)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Runway.ExitRunway(BrusOgPotetgull.AirportLiberary.Flight, Date)
+  name.vb: ExitRunway(Flight, Date)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived(BrusOgPotetgull.AirportLiberary.Flight.Arriving,System.DateTime,System.String)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived(BrusOgPotetgull.AirportLiberary.Flight.Arriving,System.DateTime,System.String)
+  id: RaiseFlightArrived(BrusOgPotetgull.AirportLiberary.Flight.Arriving,System.DateTime,System.String)
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: RaiseFlightArrived(Arriving, DateTime, string)
+  nameWithType: Runway.RaiseFlightArrived(Flight.Arriving, DateTime, string)
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived(BrusOgPotetgull.AirportLiberary.Flight.Arriving, System.DateTime, string)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: RaiseFlightArrived
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 209
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Method to trigger the event FlightArrived
+  example: []
+  syntax:
+    content: protected virtual void RaiseFlightArrived(Flight.Arriving flight, DateTime time, string message)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+      description: The flight which triggers the event
+    - id: time
+      type: System.DateTime
+      description: Time of the event
+    - id: message
+      type: System.String
+      description: Message of what occured at the time of the event
+    content.vb: Protected Overridable Sub RaiseFlightArrived(flight As Flight.Arriving, time As Date, message As String)
+  overload: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived*
+  nameWithType.vb: Runway.RaiseFlightArrived(Flight.Arriving, Date, String)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived(BrusOgPotetgull.AirportLiberary.Flight.Arriving, Date, String)
+  name.vb: RaiseFlightArrived(Arriving, Date, String)
+- uid: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted(BrusOgPotetgull.AirportLiberary.Flight.Departing,System.DateTime,System.String)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted(BrusOgPotetgull.AirportLiberary.Flight.Departing,System.DateTime,System.String)
+  id: RaiseFlightDeparted(BrusOgPotetgull.AirportLiberary.Flight.Departing,System.DateTime,System.String)
+  parent: BrusOgPotetgull.AirportLiberary.Runway
+  langs:
+  - csharp
+  - vb
+  name: RaiseFlightDeparted(Departing, DateTime, string)
+  nameWithType: Runway.RaiseFlightDeparted(Flight.Departing, DateTime, string)
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted(BrusOgPotetgull.AirportLiberary.Flight.Departing, System.DateTime, string)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: RaiseFlightDeparted
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/RunwayConfiguration/Runway.cs
+    startLine: 220
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Method to trigger the event FlightDeparted
+  example: []
+  syntax:
+    content: protected virtual void RaiseFlightDeparted(Flight.Departing flight, DateTime time, string message)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight.Departing
+      description: The flight which triggers the event
+    - id: time
+      type: System.DateTime
+      description: Time of the event
+    - id: message
+      type: System.String
+      description: Message of what occured at the time of the event
+    content.vb: Protected Overridable Sub RaiseFlightDeparted(flight As Flight.Departing, time As Date, message As String)
+  overload: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted*
+  nameWithType.vb: Runway.RaiseFlightDeparted(Flight.Departing, Date, String)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted(BrusOgPotetgull.AirportLiberary.Flight.Departing, Date, String)
+  name.vb: RaiseFlightDeparted(Departing, Date, String)
+references:
+- uid: BrusOgPotetgull.AirportLiberary
+  commentId: N:BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary
+  nameWithType: BrusOgPotetgull.AirportLiberary
+  fullName: BrusOgPotetgull.AirportLiberary
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.EventHandler{BrusOgPotetgull.AirportLiberary.ArrivingEventArgs}
+  commentId: T:System.EventHandler{BrusOgPotetgull.AirportLiberary.ArrivingEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<ArrivingEventArgs>
+  nameWithType: EventHandler<ArrivingEventArgs>
+  fullName: System.EventHandler<BrusOgPotetgull.AirportLiberary.ArrivingEventArgs>
+  nameWithType.vb: EventHandler(Of ArrivingEventArgs)
+  fullName.vb: System.EventHandler(Of BrusOgPotetgull.AirportLiberary.ArrivingEventArgs)
+  name.vb: EventHandler(Of ArrivingEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: BrusOgPotetgull.AirportLiberary.ArrivingEventArgs
+    name: ArrivingEventArgs
+    href: BrusOgPotetgull.AirportLiberary.ArrivingEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BrusOgPotetgull.AirportLiberary.ArrivingEventArgs
+    name: ArrivingEventArgs
+    href: BrusOgPotetgull.AirportLiberary.ArrivingEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System.EventHandler{BrusOgPotetgull.AirportLiberary.DepartingEventArgs}
+  commentId: T:System.EventHandler{BrusOgPotetgull.AirportLiberary.DepartingEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<DepartingEventArgs>
+  nameWithType: EventHandler<DepartingEventArgs>
+  fullName: System.EventHandler<BrusOgPotetgull.AirportLiberary.DepartingEventArgs>
+  nameWithType.vb: EventHandler(Of DepartingEventArgs)
+  fullName.vb: System.EventHandler(Of BrusOgPotetgull.AirportLiberary.DepartingEventArgs)
+  name.vb: EventHandler(Of DepartingEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: BrusOgPotetgull.AirportLiberary.DepartingEventArgs
+    name: DepartingEventArgs
+    href: BrusOgPotetgull.AirportLiberary.DepartingEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BrusOgPotetgull.AirportLiberary.DepartingEventArgs
+    name: DepartingEventArgs
+    href: BrusOgPotetgull.AirportLiberary.DepartingEventArgs.html
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Runway.#ctor*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.#ctor
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway__ctor_System_String_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_
+  name: Runway
+  nameWithType: Runway.Runway
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.Runway
+  nameWithType.vb: Runway.New
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Runway.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BrusOgPotetgull.AirportLiberary.Airport
+  commentId: T:BrusOgPotetgull.AirportLiberary.Airport
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Airport.html
+  name: Airport
+  nameWithType: Airport
+  fullName: BrusOgPotetgull.AirportLiberary.Airport
+- uid: BrusOgPotetgull.AirportLiberary.Runway.Id*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.Id
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_Id
+  name: Id
+  nameWithType: Runway.Id
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.Id
+- uid: BrusOgPotetgull.AirportLiberary.Runway.Name*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.Name
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_Name
+  name: Name
+  nameWithType: Runway.Name
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.Name
+- uid: BrusOgPotetgull.AirportLiberary.Runway.Length*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.Length
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_Length
+  name: Length
+  nameWithType: Runway.Length
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.Length
+- uid: BrusOgPotetgull.AirportLiberary.Runway.InUse*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.InUse
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_InUse
+  name: InUse
+  nameWithType: Runway.InUse
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.InUse
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: BrusOgPotetgull.AirportLiberary.Runway.RunwayQueue*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.RunwayQueue
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_RunwayQueue
+  name: RunwayQueue
+  nameWithType: Runway.RunwayQueue
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.RunwayQueue
+- uid: System.Collections.Generic.Queue{BrusOgPotetgull.AirportLiberary.Flight}
+  commentId: T:System.Collections.Generic.Queue{BrusOgPotetgull.AirportLiberary.Flight}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Queue`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  name: Queue<Flight>
+  nameWithType: Queue<Flight>
+  fullName: System.Collections.Generic.Queue<BrusOgPotetgull.AirportLiberary.Flight>
+  nameWithType.vb: Queue(Of Flight)
+  fullName.vb: System.Collections.Generic.Queue(Of BrusOgPotetgull.AirportLiberary.Flight)
+  name.vb: Queue(Of Flight)
+  spec.csharp:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: <
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: )
+- uid: System.Collections.Generic.Queue`1
+  commentId: T:System.Collections.Generic.Queue`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  name: Queue<T>
+  nameWithType: Queue<T>
+  fullName: System.Collections.Generic.Queue<T>
+  nameWithType.vb: Queue(Of T)
+  fullName.vb: System.Collections.Generic.Queue(Of T)
+  name.vb: Queue(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_UpdateLocation_System_String_
+  name: UpdateLocation
+  nameWithType: Runway.UpdateLocation
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.UpdateLocation
+- uid: BrusOgPotetgull.AirportLiberary.Runway.PrintRunwayInformation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.PrintRunwayInformation
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_PrintRunwayInformation
+  name: PrintRunwayInformation
+  nameWithType: Runway.PrintRunwayInformation
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.PrintRunwayInformation
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Runway.ToString*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.ToString
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_ToString
+  name: ToString
+  nameWithType: Runway.ToString
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.ToString
+- uid: BrusOgPotetgull.AirportLiberary.Runway.GetAirportNameAndRunwayId*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.GetAirportNameAndRunwayId
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_GetAirportNameAndRunwayId
+  name: GetAirportNameAndRunwayId
+  nameWithType: Runway.GetAirportNameAndRunwayId
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.GetAirportNameAndRunwayId
+- uid: BrusOgPotetgull.AirportLiberary.Runway.RemoveFromQueue*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.RemoveFromQueue
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_RemoveFromQueue
+  name: RemoveFromQueue
+  nameWithType: Runway.RemoveFromQueue
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.RemoveFromQueue
+- uid: BrusOgPotetgull.AirportLiberary.Flight
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Flight.html
+  name: Flight
+  nameWithType: Flight
+  fullName: BrusOgPotetgull.AirportLiberary.Flight
+- uid: BrusOgPotetgull.AirportLiberary.Runway.AddFlightToQueue*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.AddFlightToQueue
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_AddFlightToQueue_BrusOgPotetgull_AirportLiberary_Flight_
+  name: AddFlightToQueue
+  nameWithType: Runway.AddFlightToQueue
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.AddFlightToQueue
+- uid: BrusOgPotetgull.AirportLiberary.Runway.CheckNextFlightInQueue*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.CheckNextFlightInQueue
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_CheckNextFlightInQueue
+  name: CheckNextFlightInQueue
+  nameWithType: Runway.CheckNextFlightInQueue
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.CheckNextFlightInQueue
+- uid: BrusOgPotetgull.AirportLiberary.Runway.NextFlightEntersRunway*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.NextFlightEntersRunway
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_NextFlightEntersRunway
+  name: NextFlightEntersRunway
+  nameWithType: Runway.NextFlightEntersRunway
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.NextFlightEntersRunway
+- uid: BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_SimulateRunwayTime_BrusOgPotetgull_AirportLiberary_Flight_System_Int32_System_Int32_System_Int32_
+  name: SimulateRunwayTime
+  nameWithType: Runway.SimulateRunwayTime
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.SimulateRunwayTime
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: BrusOgPotetgull.AirportLiberary.Runway.UseRunway*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.UseRunway
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_UseRunway_BrusOgPotetgull_AirportLiberary_Flight_System_DateTime_
+  name: UseRunway
+  nameWithType: Runway.UseRunway
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.UseRunway
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: BrusOgPotetgull.AirportLiberary.Runway.ExitRunway*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.ExitRunway
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_ExitRunway_BrusOgPotetgull_AirportLiberary_Flight_System_DateTime_
+  name: ExitRunway
+  nameWithType: Runway.ExitRunway
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.ExitRunway
+- uid: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_RaiseFlightArrived_BrusOgPotetgull_AirportLiberary_Flight_Arriving_System_DateTime_System_String_
+  name: RaiseFlightArrived
+  nameWithType: Runway.RaiseFlightArrived
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightArrived
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight.Arriving
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Flight.html
+  name: Flight.Arriving
+  nameWithType: Flight.Arriving
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+  spec.csharp:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+    name: Arriving
+    href: BrusOgPotetgull.AirportLiberary.Flight.Arriving.html
+  spec.vb:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+    name: Arriving
+    href: BrusOgPotetgull.AirportLiberary.Flight.Arriving.html
+- uid: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted
+  href: BrusOgPotetgull.AirportLiberary.Runway.html#BrusOgPotetgull_AirportLiberary_Runway_RaiseFlightDeparted_BrusOgPotetgull_AirportLiberary_Flight_Departing_System_DateTime_System_String_
+  name: RaiseFlightDeparted
+  nameWithType: Runway.RaiseFlightDeparted
+  fullName: BrusOgPotetgull.AirportLiberary.Runway.RaiseFlightDeparted
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight.Departing
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Flight.html
+  name: Flight.Departing
+  nameWithType: Flight.Departing
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  spec.csharp:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.Departing
+    name: Departing
+    href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html
+  spec.vb:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.Departing
+    name: Departing
+    href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html

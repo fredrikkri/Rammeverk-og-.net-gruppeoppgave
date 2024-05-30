@@ -1,0 +1,1361 @@
+### YamlMime:ManagedReference
+items:
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway
+  commentId: T:BrusOgPotetgull.AirportLiberary.Taxiway
+  id: Taxiway
+  parent: BrusOgPotetgull.AirportLiberary
+  children:
+  - BrusOgPotetgull.AirportLiberary.Taxiway.#ctor(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.A
+  - BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.B
+  - BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue
+  - BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue
+  - BrusOgPotetgull.AirportLiberary.Taxiway.Id
+  - BrusOgPotetgull.AirportLiberary.Taxiway.Length
+  - BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed
+  - BrusOgPotetgull.AirportLiberary.Taxiway.Name
+  - BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation
+  - BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32,System.DateTime)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.ToString
+  - BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation(System.String)
+  - BrusOgPotetgull.AirportLiberary.Taxiway.connectedGates
+  - BrusOgPotetgull.AirportLiberary.Taxiway.connectedRunways
+  langs:
+  - csharp
+  - vb
+  name: Taxiway
+  nameWithType: Taxiway
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway
+  type: Class
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Taxiway
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 12
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: >-
+    The taxiway class is used to define how a taxiway is designed.
+
+    It is also used to conduct operations on the taxiway.
+  remarks: This is used to create the network of taxiways through connectionpoints and the lists of runway and gate connections.
+  example: []
+  syntax:
+    content: public class Taxiway
+    content.vb: Public Class Taxiway
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.connectedGates
+  commentId: F:BrusOgPotetgull.AirportLiberary.Taxiway.connectedGates
+  id: connectedGates
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: connectedGates
+  nameWithType: Taxiway.connectedGates
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.connectedGates
+  type: Field
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: connectedGates
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 25
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: List of connected gates
+  example: []
+  syntax:
+    content: public List<Gate> connectedGates
+    return:
+      type: System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Gate}
+      description: list of gate objects
+    content.vb: Public connectedGates As List(Of Gate)
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.connectedRunways
+  commentId: F:BrusOgPotetgull.AirportLiberary.Taxiway.connectedRunways
+  id: connectedRunways
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: connectedRunways
+  nameWithType: Taxiway.connectedRunways
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.connectedRunways
+  type: Field
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: connectedRunways
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 33
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: list of connected runways
+  example: []
+  syntax:
+    content: public List<Runway> connectedRunways
+    return:
+      type: System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Runway}
+      description: list of runway objects
+    content.vb: Public connectedRunways As List(Of Runway)
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.#ctor(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.#ctor(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)
+  id: '#ctor(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)'
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: Taxiway(string, int, int, Airport)
+  nameWithType: Taxiway.Taxiway(string, int, int, Airport)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.Taxiway(string, int, int, BrusOgPotetgull.AirportLiberary.Airport)
+  type: Constructor
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: .ctor
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 42
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Creates a taxiway.
+  example: []
+  syntax:
+    content: public Taxiway(string name, int length, int maxSpeed, Airport airport)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the taxiway.
+    - id: length
+      type: System.Int32
+      description: Length of the taxiway (meters).
+    - id: maxSpeed
+      type: System.Int32
+      description: Legal maxspeed for the taxiway (Kp/h).
+    - id: airport
+      type: BrusOgPotetgull.AirportLiberary.Airport
+      description: The airport that the taxiway will be located at.
+    content.vb: Public Sub New(name As String, length As Integer, maxSpeed As Integer, airport As Airport)
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.#ctor*
+  nameWithType.vb: Taxiway.New(String, Integer, Integer, Airport)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Taxiway.New(String, Integer, Integer, BrusOgPotetgull.AirportLiberary.Airport)
+  name.vb: New(String, Integer, Integer, Airport)
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.Length
+  commentId: P:BrusOgPotetgull.AirportLiberary.Taxiway.Length
+  id: Length
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: Taxiway.Length
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.Length
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Length
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 61
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets the length of the Taxiway
+  example: []
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of length of taxiway
+    content.vb: Public Property Length As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.Length*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.Id
+  commentId: P:BrusOgPotetgull.AirportLiberary.Taxiway.Id
+  id: Id
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Taxiway.Id
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.Id
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Id
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 69
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: gets Id of taxiway
+  example: []
+  syntax:
+    content: public int Id { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of id of taxiway
+    content.vb: Public Property Id As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.Id*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.Name
+  commentId: P:BrusOgPotetgull.AirportLiberary.Taxiway.Name
+  id: Name
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Taxiway.Name
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.Name
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: Name
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 77
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets name of taxiway
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: string of taxiway name
+    content.vb: Public Property Name As String
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.Name*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed
+  commentId: P:BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed
+  id: MaxSpeed
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: MaxSpeed
+  nameWithType: Taxiway.MaxSpeed
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: MaxSpeed
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 85
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets max speed on taxiway
+  example: []
+  syntax:
+    content: public int MaxSpeed { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: int of max sped on taxiway
+    content.vb: Public Property MaxSpeed As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.A
+  commentId: P:BrusOgPotetgull.AirportLiberary.Taxiway.A
+  id: A
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: A
+  nameWithType: Taxiway.A
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.A
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: A
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 93
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets or sets connectionpoint A
+  example: []
+  syntax:
+    content: public ConnectionPoint A { get; set; }
+    parameters: []
+    return:
+      type: BrusOgPotetgull.AirportLiberary.ConnectionPoint
+      description: connection point objet conected to end of road
+    content.vb: Public Property A As ConnectionPoint
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.A*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.B
+  commentId: P:BrusOgPotetgull.AirportLiberary.Taxiway.B
+  id: B
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: B
+  nameWithType: Taxiway.B
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.B
+  type: Property
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: B
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 101
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets or sets connectionpoint B
+  example: []
+  syntax:
+    content: public ConnectionPoint B { get; set; }
+    parameters: []
+    return:
+      type: BrusOgPotetgull.AirportLiberary.ConnectionPoint
+      description: connection point object connected to other end of road
+    content.vb: Public Property B As ConnectionPoint
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.B*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  id: AddConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: AddConnectedGate(Gate)
+  nameWithType: Taxiway.AddConnectedGate(Gate)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AddConnectedGate
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 107
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Adds a gate to the list of connected gates for this taxiway.
+  example: []
+  syntax:
+    content: public void AddConnectedGate(Gate gate)
+    parameters:
+    - id: gate
+      type: BrusOgPotetgull.AirportLiberary.Gate
+      description: The gate that will be added to the list.
+    content.vb: Public Sub AddConnectedGate(gate As Gate)
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  id: RemoveConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: RemoveConnectedGate(Gate)
+  nameWithType: Taxiway.RemoveConnectedGate(Gate)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: RemoveConnectedGate
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 118
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Removes a gate from the list of connected gates for this taxiway.
+  example: []
+  syntax:
+    content: public void RemoveConnectedGate(Gate gate)
+    parameters:
+    - id: gate
+      type: BrusOgPotetgull.AirportLiberary.Gate
+      description: The gate that will be removed from the list.
+    content.vb: Public Sub RemoveConnectedGate(gate As Gate)
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  id: AddConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: AddConnectedRunway(Runway)
+  nameWithType: Taxiway.AddConnectedRunway(Runway)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AddConnectedRunway
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 129
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Adds a runway to the list of connected runways for this taxiway.
+  example: []
+  syntax:
+    content: public void AddConnectedRunway(Runway runway)
+    parameters:
+    - id: runway
+      type: BrusOgPotetgull.AirportLiberary.Runway
+      description: The runway that will be added to the list.
+    content.vb: Public Sub AddConnectedRunway(runway As Runway)
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  id: RemoveConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: RemoveConnectedRunway(Runway)
+  nameWithType: Taxiway.RemoveConnectedRunway(Runway)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: RemoveConnectedRunway
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 140
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Removes a runway from the list of connected runways for this taxiway.
+  example: []
+  syntax:
+    content: public void RemoveConnectedRunway(Runway runway)
+    parameters:
+    - id: runway
+      type: BrusOgPotetgull.AirportLiberary.Runway
+      description: The runway that will be removed from the list.
+    content.vb: Public Sub RemoveConnectedRunway(runway As Runway)
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation(System.String)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation(System.String)
+  id: UpdateLocation(System.String)
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: UpdateLocation(string)
+  nameWithType: Taxiway.UpdateLocation(string)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation(string)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: UpdateLocation
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 151
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Updates the airport the taxiway is located at.
+  example: []
+  syntax:
+    content: public void UpdateLocation(string airportName)
+    parameters:
+    - id: airportName
+      type: System.String
+      description: Name of the airport the taxiway updates to.
+    content.vb: Public Sub UpdateLocation(airportName As String)
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation*
+  nameWithType.vb: Taxiway.UpdateLocation(String)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation(String)
+  name.vb: UpdateLocation(String)
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation
+  id: PrintTaxiwayInformation
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: PrintTaxiwayInformation()
+  nameWithType: Taxiway.PrintTaxiwayInformation()
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: PrintTaxiwayInformation
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 159
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Prints the information about the taxiway.
+  example: []
+  syntax:
+    content: public void PrintTaxiwayInformation()
+    content.vb: Public Sub PrintTaxiwayInformation()
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.ToString
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.ToString
+  id: ToString
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Taxiway.ToString()
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.ToString()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: ToString
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 180
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: This override the ToString() method that exists in all objects in c#
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A String with simple details about the Taxiway.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.ToString*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  id: AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: AddFlightToQueue(Flight, DateTime)
+  nameWithType: Taxiway.AddFlightToQueue(Flight, DateTime)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight, System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: AddFlightToQueue
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 191
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Adds an flight to the taxiwayqueue.
+  example: []
+  syntax:
+    content: public void AddFlightToQueue(Flight flight, DateTime time)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: The flight that is insertet into the queue.
+    - id: time
+      type: System.DateTime
+      description: Used to log the time the aircraft entered the queue.
+    content.vb: Public Sub AddFlightToQueue(flight As Flight, time As Date)
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue*
+  nameWithType.vb: Taxiway.AddFlightToQueue(Flight, Date)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight, Date)
+  name.vb: AddFlightToQueue(Flight, Date)
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue
+  id: CheckNextFlightInQueue
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: CheckNextFlightInQueue()
+  nameWithType: Taxiway.CheckNextFlightInQueue()
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: CheckNextFlightInQueue
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 205
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: This method checks which flight is next in line for this taxiway.
+  example: []
+  syntax:
+    content: public Flight CheckNextFlightInQueue()
+    return:
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: The next flight object in the taxiwayqueue.
+    content.vb: Public Function CheckNextFlightInQueue() As Flight
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue*
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  id: NextFlightLeavesTaxiway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: NextFlightLeavesTaxiway(Flight, DateTime)
+  nameWithType: Taxiway.NextFlightLeavesTaxiway(Flight, DateTime)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway(BrusOgPotetgull.AirportLiberary.Flight, System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: NextFlightLeavesTaxiway
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 223
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: The aircraft first in line for taxiwayqueue leaves the taxiwayqueue.
+  example: []
+  syntax:
+    content: public void NextFlightLeavesTaxiway(Flight flight, DateTime time)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: Used to log correct history for the used aircraft.
+    - id: time
+      type: System.DateTime
+      description: Used to log correct history for the used aircraft.
+    content.vb: Public Sub NextFlightLeavesTaxiway(flight As Flight, time As Date)
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway*
+  nameWithType.vb: Taxiway.NextFlightLeavesTaxiway(Flight, Date)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway(BrusOgPotetgull.AirportLiberary.Flight, Date)
+  name.vb: NextFlightLeavesTaxiway(Flight, Date)
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32,System.DateTime)
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32,System.DateTime)
+  id: SimulateTaxiwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32,System.DateTime)
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: SimulateTaxiwayTime(Flight, int, int, int, DateTime)
+  nameWithType: Taxiway.SimulateTaxiwayTime(Flight, int, int, int, DateTime)
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime(BrusOgPotetgull.AirportLiberary.Flight, int, int, int, System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: SimulateTaxiwayTime
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 244
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: >-
+    Simulates an aircraft using the taxiway and returns the time spent in seconds.
+
+    This also logs when the aircraft starts using the taxiway.
+  example: []
+  syntax:
+    content: public double SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)
+    parameters:
+    - id: flight
+      type: BrusOgPotetgull.AirportLiberary.Flight
+      description: The flight thats is using the taxiway.
+    - id: initialSpeed
+      type: System.Int32
+      description: The speed at which the aircraft starts with (Kp/h).
+    - id: speedChange
+      type: System.Int32
+      description: The change in speed (Kp/h).
+    - id: maxSpeed
+      type: System.Int32
+      description: Maximum speed for this calculation (Kp/h).
+    - id: time
+      type: System.DateTime
+      description: Time when the aircraft starts using the taxiway.
+    return:
+      type: System.Double
+      description: Returns the time spent on the taxiway in seconds ( type = double )
+    content.vb: Public Function SimulateTaxiwayTime(flight As Flight, initialSpeed As Integer, speedChange As Integer, maxSpeed As Integer, time As Date) As Double
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime*
+  nameWithType.vb: Taxiway.SimulateTaxiwayTime(Flight, Integer, Integer, Integer, Date)
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime(BrusOgPotetgull.AirportLiberary.Flight, Integer, Integer, Integer, Date)
+  name.vb: SimulateTaxiwayTime(Flight, Integer, Integer, Integer, Date)
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue
+  commentId: M:BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue
+  id: GetNumberOfAircraftsInQueue
+  parent: BrusOgPotetgull.AirportLiberary.Taxiway
+  langs:
+  - csharp
+  - vb
+  name: GetNumberOfAircraftsInQueue()
+  nameWithType: Taxiway.GetNumberOfAircraftsInQueue()
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue()
+  type: Method
+  source:
+    remote:
+      path: brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+      branch: main
+      repo: https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave.git
+    id: GetNumberOfAircraftsInQueue
+    path: ../brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs
+    startLine: 255
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+  namespace: BrusOgPotetgull.AirportLiberary
+  summary: Gets the number of aircrafts in the queue.
+  example: []
+  syntax:
+    content: public int GetNumberOfAircraftsInQueue()
+    return:
+      type: System.Int32
+      description: Returns the number of aircrafts as an int value
+    content.vb: Public Function GetNumberOfAircraftsInQueue() As Integer
+  overload: BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue*
+references:
+- uid: BrusOgPotetgull.AirportLiberary
+  commentId: N:BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary
+  nameWithType: BrusOgPotetgull.AirportLiberary
+  fullName: BrusOgPotetgull.AirportLiberary
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Gate}
+  commentId: T:System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Gate}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Gate>
+  nameWithType: List<Gate>
+  fullName: System.Collections.Generic.List<BrusOgPotetgull.AirportLiberary.Gate>
+  nameWithType.vb: List(Of Gate)
+  fullName.vb: System.Collections.Generic.List(Of BrusOgPotetgull.AirportLiberary.Gate)
+  name.vb: List(Of Gate)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BrusOgPotetgull.AirportLiberary.Gate
+    name: Gate
+    href: BrusOgPotetgull.AirportLiberary.Gate.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BrusOgPotetgull.AirportLiberary.Gate
+    name: Gate
+    href: BrusOgPotetgull.AirportLiberary.Gate.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Runway}
+  commentId: T:System.Collections.Generic.List{BrusOgPotetgull.AirportLiberary.Runway}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Runway>
+  nameWithType: List<Runway>
+  fullName: System.Collections.Generic.List<BrusOgPotetgull.AirportLiberary.Runway>
+  nameWithType.vb: List(Of Runway)
+  fullName.vb: System.Collections.Generic.List(Of BrusOgPotetgull.AirportLiberary.Runway)
+  name.vb: List(Of Runway)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BrusOgPotetgull.AirportLiberary.Runway
+    name: Runway
+    href: BrusOgPotetgull.AirportLiberary.Runway.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BrusOgPotetgull.AirportLiberary.Runway
+    name: Runway
+    href: BrusOgPotetgull.AirportLiberary.Runway.html
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.#ctor*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.#ctor
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway__ctor_System_String_System_Int32_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_
+  name: Taxiway
+  nameWithType: Taxiway.Taxiway
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.Taxiway
+  nameWithType.vb: Taxiway.New
+  fullName.vb: BrusOgPotetgull.AirportLiberary.Taxiway.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BrusOgPotetgull.AirportLiberary.Airport
+  commentId: T:BrusOgPotetgull.AirportLiberary.Airport
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Airport.html
+  name: Airport
+  nameWithType: Airport
+  fullName: BrusOgPotetgull.AirportLiberary.Airport
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.Length*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.Length
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_Length
+  name: Length
+  nameWithType: Taxiway.Length
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.Length
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.Id*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.Id
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_Id
+  name: Id
+  nameWithType: Taxiway.Id
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.Id
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.Name*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.Name
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_Name
+  name: Name
+  nameWithType: Taxiway.Name
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.Name
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_MaxSpeed
+  name: MaxSpeed
+  nameWithType: Taxiway.MaxSpeed
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.A*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.A
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_A
+  name: A
+  nameWithType: Taxiway.A
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.A
+- uid: BrusOgPotetgull.AirportLiberary.ConnectionPoint
+  commentId: T:BrusOgPotetgull.AirportLiberary.ConnectionPoint
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.ConnectionPoint.html
+  name: ConnectionPoint
+  nameWithType: ConnectionPoint
+  fullName: BrusOgPotetgull.AirportLiberary.ConnectionPoint
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.B*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.B
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_B
+  name: B
+  nameWithType: Taxiway.B
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.B
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_AddConnectedGate_BrusOgPotetgull_AirportLiberary_Gate_
+  name: AddConnectedGate
+  nameWithType: Taxiway.AddConnectedGate
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate
+- uid: BrusOgPotetgull.AirportLiberary.Gate
+  commentId: T:BrusOgPotetgull.AirportLiberary.Gate
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Gate.html
+  name: Gate
+  nameWithType: Gate
+  fullName: BrusOgPotetgull.AirportLiberary.Gate
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_RemoveConnectedGate_BrusOgPotetgull_AirportLiberary_Gate_
+  name: RemoveConnectedGate
+  nameWithType: Taxiway.RemoveConnectedGate
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_AddConnectedRunway_BrusOgPotetgull_AirportLiberary_Runway_
+  name: AddConnectedRunway
+  nameWithType: Taxiway.AddConnectedRunway
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway
+- uid: BrusOgPotetgull.AirportLiberary.Runway
+  commentId: T:BrusOgPotetgull.AirportLiberary.Runway
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Runway.html
+  name: Runway
+  nameWithType: Runway
+  fullName: BrusOgPotetgull.AirportLiberary.Runway
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_RemoveConnectedRunway_BrusOgPotetgull_AirportLiberary_Runway_
+  name: RemoveConnectedRunway
+  nameWithType: Taxiway.RemoveConnectedRunway
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_UpdateLocation_System_String_
+  name: UpdateLocation
+  nameWithType: Taxiway.UpdateLocation
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_PrintTaxiwayInformation
+  name: PrintTaxiwayInformation
+  nameWithType: Taxiway.PrintTaxiwayInformation
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.ToString*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.ToString
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_ToString
+  name: ToString
+  nameWithType: Taxiway.ToString
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.ToString
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_AddFlightToQueue_BrusOgPotetgull_AirportLiberary_Flight_System_DateTime_
+  name: AddFlightToQueue
+  nameWithType: Taxiway.AddFlightToQueue
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue
+- uid: BrusOgPotetgull.AirportLiberary.Flight
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Flight.html
+  name: Flight
+  nameWithType: Flight
+  fullName: BrusOgPotetgull.AirportLiberary.Flight
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_CheckNextFlightInQueue
+  name: CheckNextFlightInQueue
+  nameWithType: Taxiway.CheckNextFlightInQueue
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_NextFlightLeavesTaxiway_BrusOgPotetgull_AirportLiberary_Flight_System_DateTime_
+  name: NextFlightLeavesTaxiway
+  nameWithType: Taxiway.NextFlightLeavesTaxiway
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_SimulateTaxiwayTime_BrusOgPotetgull_AirportLiberary_Flight_System_Int32_System_Int32_System_Int32_System_DateTime_
+  name: SimulateTaxiwayTime
+  nameWithType: Taxiway.SimulateTaxiwayTime
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue*
+  commentId: Overload:BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html#BrusOgPotetgull_AirportLiberary_Taxiway_GetNumberOfAircraftsInQueue
+  name: GetNumberOfAircraftsInQueue
+  nameWithType: Taxiway.GetNumberOfAircraftsInQueue
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue

@@ -36,3 +36,17 @@ C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotet
 C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\ref\brusOgPotetgull.airportLiberary.dll
 C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\bin\Debug\net8.0\brusOgPotetgull.airportLiberary.xml
 C:\Users\ole_f\Github\rammeverk_.net\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.xml
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\bin\Debug\net8.0\brusOgPotetgull.airportLiberary.deps.json
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\bin\Debug\net8.0\brusOgPotetgull.airportLiberary.dll
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\bin\Debug\net8.0\brusOgPotetgull.airportLiberary.pdb
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\bin\Debug\net8.0\brusOgPotetgull.airportLiberary.xml
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.AssemblyInfoInputs.cache
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.AssemblyInfo.cs
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.csproj.CoreCompileInputs.cache
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.sourcelink.json
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.dll
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\refint\brusOgPotetgull.airportLiberary.dll
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.xml
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\brusOgPotetgull.airportLiberary.pdb
+C:\Rammeverk-og-.net-gruppeoppgave\brusOgPotetgull.airportLiberary\obj\Debug\net8.0\ref\brusOgPotetgull.airportLiberary.dll

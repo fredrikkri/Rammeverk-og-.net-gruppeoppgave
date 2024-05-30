@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: BrusOgPotetgull.AirportLiberary.CustomExceptions
+  commentId: N:BrusOgPotetgull.AirportLiberary.CustomExceptions
+  id: BrusOgPotetgull.AirportLiberary.CustomExceptions
+  children:
+  - BrusOgPotetgull.AirportLiberary.CustomExceptions.DuplicateOfContentException
+  - BrusOgPotetgull.AirportLiberary.CustomExceptions.NegativeNumberException
+  langs:
+  - csharp
+  - vb
+  name: BrusOgPotetgull.AirportLiberary.CustomExceptions
+  nameWithType: BrusOgPotetgull.AirportLiberary.CustomExceptions
+  fullName: BrusOgPotetgull.AirportLiberary.CustomExceptions
+  type: Namespace
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+references:
+- uid: BrusOgPotetgull.AirportLiberary.CustomExceptions.DuplicateOfContentException
+  commentId: T:BrusOgPotetgull.AirportLiberary.CustomExceptions.DuplicateOfContentException
+  href: BrusOgPotetgull.AirportLiberary.CustomExceptions.DuplicateOfContentException.html
+  name: DuplicateOfContentException
+  nameWithType: DuplicateOfContentException
+  fullName: BrusOgPotetgull.AirportLiberary.CustomExceptions.DuplicateOfContentException
+- uid: BrusOgPotetgull.AirportLiberary.CustomExceptions.NegativeNumberException
+  commentId: T:BrusOgPotetgull.AirportLiberary.CustomExceptions.NegativeNumberException
+  href: BrusOgPotetgull.AirportLiberary.CustomExceptions.NegativeNumberException.html
+  name: NegativeNumberException
+  nameWithType: NegativeNumberException
+  fullName: BrusOgPotetgull.AirportLiberary.CustomExceptions.NegativeNumberException

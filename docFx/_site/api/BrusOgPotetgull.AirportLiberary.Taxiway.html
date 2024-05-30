@@ -1,0 +1,913 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Taxiway | BrusDocs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Taxiway | BrusDocs ">
+      
+      <meta name="description" content="The taxiway class is used to define how a taxiway is designed. It is also used to conduct operations on the taxiway.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/new/main/apiSpec/new?filename=BrusOgPotetgull_AirportLiberary_Taxiway.md&amp;value=---%0Auid%3A%20BrusOgPotetgull.AirportLiberary.Taxiway%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="BrusDocs">
+            BrusDocs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="BrusOgPotetgull.AirportLiberary.Taxiway">
+
+
+
+  <h1 id="BrusOgPotetgull_AirportLiberary_Taxiway" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway" class="text-break">
+Class Taxiway  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="BrusOgPotetgull.html">BrusOgPotetgull</a>.<a class="xref" href="BrusOgPotetgull.AirportLiberary.html">AirportLiberary</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>brusOgPotetgull.airportLiberary.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The taxiway class is used to define how a taxiway is designed.
+It is also used to conduct operations on the taxiway.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Taxiway</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Taxiway</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="BrusOgPotetgull_AirportLiberary_Taxiway_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This is used to create the network of taxiways through connectionpoints and the lists of runway and gate connections.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway__ctor_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.#ctor*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway__ctor_System_String_System_Int32_System_Int32_BrusOgPotetgull_AirportLiberary_Airport_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.#ctor(System.String,System.Int32,System.Int32,BrusOgPotetgull.AirportLiberary.Airport)">
+  Taxiway(string, int, int, Airport)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a taxiway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Taxiway(string name, int length, int maxSpeed, Airport airport)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the taxiway.</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Length of the taxiway (meters).</p>
+</dd>
+    <dt><code>maxSpeed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Legal maxspeed for the taxiway (Kp/h).</p>
+</dd>
+    <dt><code>airport</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Airport.html">Airport</a></dt>
+    <dd><p>The airport that the taxiway will be located at.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_connectedGates" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.connectedGates">
+  connectedGates
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of connected gates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Gate&gt; connectedGates</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a>&gt;</dt>
+    <dd><p>list of gate objects</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_connectedRunways" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.connectedRunways">
+  connectedRunways
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>list of connected runways</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Runway&gt; connectedRunways</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a>&gt;</dt>
+    <dd><p>list of runway objects</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_A_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.A*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_A" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.A">
+  A
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets connectionpoint A</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionPoint A { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BrusOgPotetgull.AirportLiberary.ConnectionPoint.html">ConnectionPoint</a></dt>
+    <dd><p>connection point objet conected to end of road</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_B_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.B*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_B" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.B">
+  B
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets connectionpoint B</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionPoint B { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BrusOgPotetgull.AirportLiberary.ConnectionPoint.html">ConnectionPoint</a></dt>
+    <dd><p>connection point object connected to other end of road</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_Id_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.Id*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_Id" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>gets Id of taxiway</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Id { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of id of taxiway</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_Length_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.Length*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_Length" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.Length">
+  Length
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the length of the Taxiway</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Length { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of length of taxiway</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_MaxSpeed_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_MaxSpeed" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.MaxSpeed">
+  MaxSpeed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets max speed on taxiway</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxSpeed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>int of max sped on taxiway</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_Name_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.Name*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_Name" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets name of taxiway</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>string of taxiway name</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_AddConnectedGate_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_AddConnectedGate_BrusOgPotetgull_AirportLiberary_Gate_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)">
+  AddConnectedGate(Gate)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a gate to the list of connected gates for this taxiway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddConnectedGate(Gate gate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gate</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The gate that will be added to the list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_AddConnectedRunway_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_AddConnectedRunway_BrusOgPotetgull_AirportLiberary_Runway_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.AddConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)">
+  AddConnectedRunway(Runway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a runway to the list of connected runways for this taxiway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddConnectedRunway(Runway runway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>runway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a></dt>
+    <dd><p>The runway that will be added to the list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_AddFlightToQueue_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_AddFlightToQueue_BrusOgPotetgull_AirportLiberary_Flight_System_DateTime_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.AddFlightToQueue(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)">
+  AddFlightToQueue(Flight, DateTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an flight to the taxiwayqueue.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddFlightToQueue(Flight flight, DateTime time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a></dt>
+    <dd><p>The flight that is insertet into the queue.</p>
+</dd>
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Used to log the time the aircraft entered the queue.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_CheckNextFlightInQueue_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_CheckNextFlightInQueue" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.CheckNextFlightInQueue">
+  CheckNextFlightInQueue()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This method checks which flight is next in line for this taxiway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Flight CheckNextFlightInQueue()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a></dt>
+    <dd><p>The next flight object in the taxiwayqueue.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_GetNumberOfAircraftsInQueue_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_GetNumberOfAircraftsInQueue" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.GetNumberOfAircraftsInQueue">
+  GetNumberOfAircraftsInQueue()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L256"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of aircrafts in the queue.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetNumberOfAircraftsInQueue()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Returns the number of aircrafts as an int value</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_NextFlightLeavesTaxiway_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_NextFlightLeavesTaxiway_BrusOgPotetgull_AirportLiberary_Flight_System_DateTime_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.NextFlightLeavesTaxiway(BrusOgPotetgull.AirportLiberary.Flight,System.DateTime)">
+  NextFlightLeavesTaxiway(Flight, DateTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The aircraft first in line for taxiwayqueue leaves the taxiwayqueue.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void NextFlightLeavesTaxiway(Flight flight, DateTime time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a></dt>
+    <dd><p>Used to log correct history for the used aircraft.</p>
+</dd>
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Used to log correct history for the used aircraft.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_PrintTaxiwayInformation_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_PrintTaxiwayInformation" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.PrintTaxiwayInformation">
+  PrintTaxiwayInformation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prints the information about the taxiway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrintTaxiwayInformation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_RemoveConnectedGate_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_RemoveConnectedGate_BrusOgPotetgull_AirportLiberary_Gate_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedGate(BrusOgPotetgull.AirportLiberary.Gate)">
+  RemoveConnectedGate(Gate)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a gate from the list of connected gates for this taxiway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveConnectedGate(Gate gate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gate</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Gate.html">Gate</a></dt>
+    <dd><p>The gate that will be removed from the list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_RemoveConnectedRunway_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_RemoveConnectedRunway_BrusOgPotetgull_AirportLiberary_Runway_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.RemoveConnectedRunway(BrusOgPotetgull.AirportLiberary.Runway)">
+  RemoveConnectedRunway(Runway)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a runway from the list of connected runways for this taxiway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveConnectedRunway(Runway runway)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>runway</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Runway.html">Runway</a></dt>
+    <dd><p>The runway that will be removed from the list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_SimulateTaxiwayTime_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_SimulateTaxiwayTime_BrusOgPotetgull_AirportLiberary_Flight_System_Int32_System_Int32_System_Int32_System_DateTime_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.SimulateTaxiwayTime(BrusOgPotetgull.AirportLiberary.Flight,System.Int32,System.Int32,System.Int32,System.DateTime)">
+  SimulateTaxiwayTime(Flight, int, int, int, DateTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Simulates an aircraft using the taxiway and returns the time spent in seconds.
+This also logs when the aircraft starts using the taxiway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SimulateTaxiwayTime(Flight flight, int initialSpeed, int speedChange, int maxSpeed, DateTime time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flight</code> <a class="xref" href="BrusOgPotetgull.AirportLiberary.Flight.html">Flight</a></dt>
+    <dd><p>The flight thats is using the taxiway.</p>
+</dd>
+    <dt><code>initialSpeed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The speed at which the aircraft starts with (Kp/h).</p>
+</dd>
+    <dt><code>speedChange</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The change in speed (Kp/h).</p>
+</dd>
+    <dt><code>maxSpeed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Maximum speed for this calculation (Kp/h).</p>
+</dd>
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Time when the aircraft starts using the taxiway.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Returns the time spent on the taxiway in seconds ( type = double )</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_ToString_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.ToString*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_ToString" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This override the ToString() method that exists in all objects in c#</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A String with simple details about the Taxiway.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BrusOgPotetgull_AirportLiberary_Taxiway_UpdateLocation_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation*"></a>
+
+  <h3 id="BrusOgPotetgull_AirportLiberary_Taxiway_UpdateLocation_System_String_" data-uid="BrusOgPotetgull.AirportLiberary.Taxiway.UpdateLocation(System.String)">
+  UpdateLocation(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the airport the taxiway is located at.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateLocation(string airportName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>airportName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of the airport the taxiway updates to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fredrikkri/Rammeverk-og-.net-gruppeoppgave/blob/main/brusOgPotetgull.airportLiberary/AirportComponents/TaxiwayConfiguration/Taxiway.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

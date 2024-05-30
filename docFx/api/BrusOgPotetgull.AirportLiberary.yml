@@ -1,0 +1,164 @@
+### YamlMime:ManagedReference
+items:
+- uid: BrusOgPotetgull.AirportLiberary
+  commentId: N:BrusOgPotetgull.AirportLiberary
+  id: BrusOgPotetgull.AirportLiberary
+  children:
+  - BrusOgPotetgull.AirportLiberary.Aircraft
+  - BrusOgPotetgull.AirportLiberary.Airport
+  - BrusOgPotetgull.AirportLiberary.ArrivingEventArgs
+  - BrusOgPotetgull.AirportLiberary.ConnectionPoint
+  - BrusOgPotetgull.AirportLiberary.DepartingEventArgs
+  - BrusOgPotetgull.AirportLiberary.Flight
+  - BrusOgPotetgull.AirportLiberary.Flight.Arriving
+  - BrusOgPotetgull.AirportLiberary.Flight.Departing
+  - BrusOgPotetgull.AirportLiberary.Gate
+  - BrusOgPotetgull.AirportLiberary.Runway
+  - BrusOgPotetgull.AirportLiberary.Taxiway
+  - BrusOgPotetgull.AirportLiberary.Terminal
+  langs:
+  - csharp
+  - vb
+  name: BrusOgPotetgull.AirportLiberary
+  nameWithType: BrusOgPotetgull.AirportLiberary
+  fullName: BrusOgPotetgull.AirportLiberary
+  type: Namespace
+  assemblies:
+  - brusOgPotetgull.airportLiberary
+references:
+- uid: BrusOgPotetgull.AirportLiberary.Aircraft
+  commentId: T:BrusOgPotetgull.AirportLiberary.Aircraft
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Aircraft.html
+  name: Aircraft
+  nameWithType: Aircraft
+  fullName: BrusOgPotetgull.AirportLiberary.Aircraft
+- uid: BrusOgPotetgull.AirportLiberary.Airport
+  commentId: T:BrusOgPotetgull.AirportLiberary.Airport
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Airport.html
+  name: Airport
+  nameWithType: Airport
+  fullName: BrusOgPotetgull.AirportLiberary.Airport
+- uid: BrusOgPotetgull.AirportLiberary.Gate
+  commentId: T:BrusOgPotetgull.AirportLiberary.Gate
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Gate.html
+  name: Gate
+  nameWithType: Gate
+  fullName: BrusOgPotetgull.AirportLiberary.Gate
+- uid: BrusOgPotetgull.AirportLiberary.ArrivingEventArgs
+  commentId: T:BrusOgPotetgull.AirportLiberary.ArrivingEventArgs
+  href: BrusOgPotetgull.AirportLiberary.ArrivingEventArgs.html
+  name: ArrivingEventArgs
+  nameWithType: ArrivingEventArgs
+  fullName: BrusOgPotetgull.AirportLiberary.ArrivingEventArgs
+- uid: BrusOgPotetgull.AirportLiberary.DepartingEventArgs
+  commentId: T:BrusOgPotetgull.AirportLiberary.DepartingEventArgs
+  href: BrusOgPotetgull.AirportLiberary.DepartingEventArgs.html
+  name: DepartingEventArgs
+  nameWithType: DepartingEventArgs
+  fullName: BrusOgPotetgull.AirportLiberary.DepartingEventArgs
+- uid: BrusOgPotetgull.AirportLiberary.Runway
+  commentId: T:BrusOgPotetgull.AirportLiberary.Runway
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Runway.html
+  name: Runway
+  nameWithType: Runway
+  fullName: BrusOgPotetgull.AirportLiberary.Runway
+- uid: BrusOgPotetgull.AirportLiberary.ConnectionPoint
+  commentId: T:BrusOgPotetgull.AirportLiberary.ConnectionPoint
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.ConnectionPoint.html
+  name: ConnectionPoint
+  nameWithType: ConnectionPoint
+  fullName: BrusOgPotetgull.AirportLiberary.ConnectionPoint
+- uid: BrusOgPotetgull.AirportLiberary.Taxiway
+  commentId: T:BrusOgPotetgull.AirportLiberary.Taxiway
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Taxiway.html
+  name: Taxiway
+  nameWithType: Taxiway
+  fullName: BrusOgPotetgull.AirportLiberary.Taxiway
+- uid: BrusOgPotetgull.AirportLiberary.Terminal
+  commentId: T:BrusOgPotetgull.AirportLiberary.Terminal
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Terminal.html
+  name: Terminal
+  nameWithType: Terminal
+  fullName: BrusOgPotetgull.AirportLiberary.Terminal
+- uid: BrusOgPotetgull.AirportLiberary.Flight
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Flight.html
+  name: Flight
+  nameWithType: Flight
+  fullName: BrusOgPotetgull.AirportLiberary.Flight
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight.Departing
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Flight.html
+  name: Flight.Departing
+  nameWithType: Flight.Departing
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Departing
+  spec.csharp:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.Departing
+    name: Departing
+    href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html
+  spec.vb:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.Departing
+    name: Departing
+    href: BrusOgPotetgull.AirportLiberary.Flight.Departing.html
+- uid: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+  commentId: T:BrusOgPotetgull.AirportLiberary.Flight.Arriving
+  parent: BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.AirportLiberary.Flight.html
+  name: Flight.Arriving
+  nameWithType: Flight.Arriving
+  fullName: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+  spec.csharp:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+    name: Arriving
+    href: BrusOgPotetgull.AirportLiberary.Flight.Arriving.html
+  spec.vb:
+  - uid: BrusOgPotetgull.AirportLiberary.Flight
+    name: Flight
+    href: BrusOgPotetgull.AirportLiberary.Flight.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary.Flight.Arriving
+    name: Arriving
+    href: BrusOgPotetgull.AirportLiberary.Flight.Arriving.html
+- uid: BrusOgPotetgull.AirportLiberary
+  commentId: N:BrusOgPotetgull.AirportLiberary
+  href: BrusOgPotetgull.html
+  name: BrusOgPotetgull.AirportLiberary
+  nameWithType: BrusOgPotetgull.AirportLiberary
+  fullName: BrusOgPotetgull.AirportLiberary
+  spec.csharp:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
+  spec.vb:
+  - uid: BrusOgPotetgull
+    name: BrusOgPotetgull
+    href: BrusOgPotetgull.html
+  - name: .
+  - uid: BrusOgPotetgull.AirportLiberary
+    name: AirportLiberary
+    href: BrusOgPotetgull.AirportLiberary.html
